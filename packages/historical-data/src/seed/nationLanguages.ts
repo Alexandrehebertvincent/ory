@@ -521,7 +521,7 @@ export const nationLanguages: NationLanguage[] = [
 		officialLanguageId: 'lang_malagasy',
 		spokenLanguages: [
 			{ languageId: 'lang_malagasy', percentage: 0.85 },
-			{ languageId: 'lang_arabic', percentage: 0.08 },
+			{ languageId: 'lang_classical_arabic', percentage: 0.08 },
 		],
 		literacyRate: 0.02,
 	},

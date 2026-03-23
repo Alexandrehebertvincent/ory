@@ -283,7 +283,7 @@ export const nationReligions: NationReligion[] = [
 				status: 'persecuted',
 			},
 			{
-				religionId: 'rel_buddhism_mahayana',
+				religionId: 'rel_mahayana',
 				percentage: 0.07,
 				status: 'persecuted',
 			},
