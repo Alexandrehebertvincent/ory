@@ -310,6 +310,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_kievan_rus',
 			'nat_croatia',
 			'nat_byzantine',
+			'nat_fatimid',
 		],
 		myths: [
 			'Prester John rules a Christian kingdom in the East',
@@ -333,6 +334,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_denmark',
 			'nat_norway',
 			'nat_byzantine',
+			'nat_scotland',
 		],
 		myths: [
 			'Prester John rules a Christian kingdom in the East',
@@ -355,6 +357,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_venice',
 			'nat_cordoba',
 			'nat_byzantine',
+			'nat_leon',
 		],
 		myths: [
 			'The Fortunate Isles lie to the west',
@@ -406,6 +409,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_denmark',
 			'nat_norway',
 			'nat_kievan_rus',
+			'nat_navarre',
 		],
 		myths: [
 			'The Garden of Eden lies in the distant East',
@@ -544,6 +548,10 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_poland',
 			'nat_kievan_rus',
 			'nat_byzantine',
+			'nat_scotland',
+			'nat_papal',
+			'nat_venice',
+			'nat_sami',
 		],
 		myths: [
 			'Vinland lies across the western ocean',
@@ -564,6 +572,9 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_france',
 			'nat_hre',
 			'nat_kievan_rus',
+			'nat_papal',
+			'nat_byzantine',
+			'nat_sami',
 		],
 		myths: [
 			'Vinland is rich with timber and grapes',
@@ -607,6 +618,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_sweden',
 			'nat_byzantine',
 			'nat_croatia',
+			'nat_papal',
 		],
 		myths: ['Wild peoples inhabit the eastern steppes'],
 	},
@@ -624,6 +636,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_byzantine',
 			'nat_venice',
 			'nat_papal',
+			'nat_volga_bulgaria',
 		],
 		myths: ['Our ancestors came from the great eastern steppe'],
 	},
@@ -649,6 +662,8 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_hre',
 			'nat_volga_bulgaria',
 			'nat_karakhanid',
+			'nat_papal',
+			'nat_venice',
 		],
 		myths: [
 			'Tsargrad is the center of the world',
@@ -668,6 +683,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_ghaznavid',
 			'nat_byzantine',
 			'nat_hungary',
+			'nat_sweden',
 		],
 		myths: ['The lands of Yajuj and Majuj lie to the far north'],
 	},
@@ -726,6 +742,9 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_karakhanid',
 			'nat_ethiopia',
 			'nat_chola',
+			'nat_volga_bulgaria',
+			'nat_georgia',
+			'nat_armenia',
 		],
 		myths: [
 			'India holds wonders beyond imagination',
@@ -770,6 +789,9 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_srivijaya',
 			'nat_song',
 			'nat_karakhanid',
+			'nat_makuria',
+			'nat_tuareg',
+			'nat_armenia',
 		],
 		myths: [
 			'The Mountains of the Moon feed the Nile',
@@ -799,6 +821,12 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_srivijaya',
 			'nat_ethiopia',
 			'nat_swahili_cities',
+			'nat_venice',
+			'nat_volga_bulgaria',
+			'nat_chalukya',
+			'nat_makuria',
+			'nat_georgia',
+			'nat_armenia',
 		],
 		myths: [
 			'The Sea of Darkness lies beyond India',
@@ -821,6 +849,8 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_pala',
 			'nat_song',
 			'nat_tibet',
+			'nat_cordoba',
+			'nat_volga_bulgaria',
 		],
 		myths: [
 			'India holds infinite temple treasures',
@@ -841,6 +871,9 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_volga_bulgaria',
 			'nat_tibet',
 			'nat_fatimid',
+			'nat_cordoba',
+			'nat_kievan_rus',
+			'nat_byzantine',
 		],
 		myths: [
 			'The Jade Gate leads to endless riches',
@@ -898,6 +931,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_japan',
 			'nat_karakhanid',
 			'nat_tibet',
+			'nat_dai_viet',
 		],
 		myths: ['The steppe extends forever to the west'],
 	},
@@ -907,7 +941,13 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 		explorationCapacity: 4,
 		navalRange: 5,
 		cartographyLevel: 5,
-		knownNations: ['nat_song', 'nat_liao', 'nat_japan', 'nat_dai_viet'],
+		knownNations: [
+			'nat_song',
+			'nat_liao',
+			'nat_japan',
+			'nat_dai_viet',
+			'nat_srivijaya',
+		],
 		myths: [
 			'The Dragon King rules the eastern seas',
 			'Tamna is the gate to the southern ocean',
@@ -919,7 +959,14 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 		explorationCapacity: 3,
 		navalRange: 4,
 		cartographyLevel: 4,
-		knownNations: ['nat_song', 'nat_liao', 'nat_goryeo', 'nat_dai_viet'],
+		knownNations: [
+			'nat_song',
+			'nat_liao',
+			'nat_goryeo',
+			'nat_dai_viet',
+			'nat_srivijaya',
+			'nat_ainu',
+		],
 		myths: [
 			'Tokoyo-no-kuni lies beneath the sea',
 			'Horai holds the elixir of immortality',
@@ -942,6 +989,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_chola',
 			'nat_liao',
 			'nat_goryeo',
+			'nat_japan',
 		],
 		myths: [
 			'The Dragon Lord protects our waters',
@@ -983,6 +1031,8 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_swahili_cities',
 			'nat_japan',
 			'nat_goryeo',
+			'nat_buyid',
+			'nat_chalukya',
 		],
 		myths: [
 			'The Land of Gold lies to the east',
@@ -1009,6 +1059,8 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_fatimid',
 			'nat_swahili_cities',
 			'nat_ghaznavid',
+			'nat_byzantine',
+			'nat_buyid',
 		],
 		myths: [
 			'Lanka was the fortress of Ravana',
@@ -1028,6 +1080,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_srivijaya',
 			'nat_buyid',
 			'nat_khmer',
+			'nat_song',
 		],
 		myths: ['The gods dwell on Mount Kailasa', 'Patala lies beneath the earth'],
 	},
@@ -1067,7 +1120,14 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 		explorationCapacity: 4,
 		navalRange: 0,
 		cartographyLevel: 2,
-		knownNations: ['nat_kanem', 'nat_cordoba', 'nat_fatimid'],
+		knownNations: [
+			'nat_kanem',
+			'nat_cordoba',
+			'nat_fatimid',
+			'nat_yoruba',
+			'nat_tuareg',
+			'nat_igbo',
+		],
 		myths: [
 			'The river of gold flows from the mountains of light',
 			'Spirits guard the forest to the south',
@@ -1079,7 +1139,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 		explorationCapacity: 3,
 		navalRange: 0,
 		cartographyLevel: 2,
-		knownNations: ['nat_ghana', 'nat_fatimid', 'nat_ethiopia'],
+		knownNations: ['nat_ghana', 'nat_fatimid', 'nat_ethiopia', 'nat_cordoba'],
 		myths: [
 			'The lake is the heart of the world',
 			'Giants dwell in the southern forest',
@@ -1096,6 +1156,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 			'nat_swahili_cities',
 			'nat_kanem',
 			'nat_byzantine',
+			'nat_buyid',
 		],
 		myths: [
 			'The Ark of the Covenant rests in Aksum',
@@ -1301,7 +1362,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 		explorationCapacity: 4,
 		navalRange: 1,
 		cartographyLevel: 2,
-		knownNations: ['nat_ghana'],
+		knownNations: ['nat_ghana', 'nat_igbo'],
 		myths: [
 			'Oduduwa descended from the sky on a chain and founded Ifè',
 			'Obatala shaped humans from clay',
@@ -1389,7 +1450,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 		explorationCapacity: 5,
 		navalRange: 2,
 		cartographyLevel: 4,
-		knownNations: ['nat_fatimid', 'nat_abbasid'],
+		knownNations: ['nat_fatimid', 'nat_buyid'],
 		myths: [
 			'The Nile is the lifeblood of God flowing through the desert',
 			'The ancient Nubian kingdoms were children of Kush',
@@ -1413,7 +1474,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 		explorationCapacity: 5,
 		navalRange: 3,
 		cartographyLevel: 5,
-		knownNations: ['nat_byzantine', 'nat_armenia', 'nat_abbasid'],
+		knownNations: ['nat_byzantine', 'nat_armenia', 'nat_buyid'],
 		myths: [
 			'Amirani (Georgian Prometheus) is chained in the Caucasus mountains',
 			'Saint Nino brought the True Cross to Georgia',
@@ -1431,12 +1492,7 @@ export const nationWorldKnowledgeData: NationWorldKnowledge[] = [
 		explorationCapacity: 6,
 		navalRange: 2,
 		cartographyLevel: 6,
-		knownNations: [
-			'nat_byzantine',
-			'nat_georgia',
-			'nat_abbasid',
-			'nat_fatimid',
-		],
+		knownNations: ['nat_byzantine', 'nat_georgia', 'nat_buyid', 'nat_fatimid'],
 		myths: [
 			'Hayk the archer defeated Bel the tyrant and founded the Armenian nation',
 			"Mount Ararat is where Noah's Ark came to rest",

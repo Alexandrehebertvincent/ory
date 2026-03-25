@@ -1,0 +1,32 @@
+{
+	"name": "ory",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"directories": {
+		"doc": "docs"
+	},
+	"scripts": {
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"validate": "npx tsx scripts/validateCrossReferences.ts",
+		"analyze": "npx tsx scripts/analyzeDataset.ts"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Alexandrehebertvincent/ory.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/Alexandrehebertvincent/ory/issues"
+	},
+	"homepage": "https://github.com/Alexandrehebertvincent/ory#readme",
+	"devDependencies": {
+		"tsx": "^4.21.0",
+		"typescript": "^6.0.2",
+		"vitest": "^4.1.1"
+	}
+}

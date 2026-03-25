@@ -1,6 +1,6 @@
 # 🌍 ORY — Jeu de données original (An 1000)
 
-> Document auto-généré le 23 mars 2026 à partir des données seed.
+> Document auto-généré le 25 mars 2026 à partir des données seed.
 
 ---
 
@@ -9,16 +9,18 @@
 | Entité | Nombre |
 |---|---:|
 | Nations | 73 |
-| Établissements | 79 |
-| Religions | 42 |
-| Langues | 70 |
-| Technologies | 75 |
+| Établissements | 189 |
+| Religions | 44 |
+| Langues | 71 |
+| Technologies | 148 |
 | Commodités | 59 |
-| Routes commerciales | 12 |
+| Routes commerciales | 52 |
 | Maladies | 12 |
 | Régions climatiques | 45 |
 | Zones écologiques | 45 |
 | Infrastructures | 119 |
+| Événements historiques | 241 |
+| Modèles d'événements locaux | 115 |
 | Population mondiale totale | 260 865 000 |
 
 ---
@@ -33,6 +35,8 @@
   - [Commodités](#commodités)
   - [Routes commerciales](#routes-commerciales)
   - [Maladies](#maladies)
+  - [Événements historiques](#événements-historiques)
+  - [Modèles d'événements locaux](#modèles-dévénements-locaux)
 - [Europe occidentale](#europe-occidentale)
   - [Climat & Écologie](#climat--écologie)
   - [Saint-Empire romain germanique](#saint-empire-romain-germanique)
@@ -137,17 +141,19 @@
 | `rel_catholic` | Catholicisme romain | christianity | Rome | 9/10 | 7/10 | 9/10 |
 | `rel_orthodox` | Christianisme orthodoxe | christianity | Constantinople | 8/10 | 5/10 | 8/10 |
 | `rel_coptic` | Christianisme copte | christianity | Alexandrie | 6/10 | 3/10 | 4/10 |
-| `rel_ethiopian_christian` | Christianisme éthiopien | christianity | set_axum | 6/10 | 2/10 | 7/10 |
+| `rel_ethiopian_christian` | Christianisme éthiopien | christianity | Axoum | 6/10 | 2/10 | 7/10 |
 | `rel_nestorian` | Christianisme nestorien | christianity | — | 5/10 | 4/10 | 3/10 |
 | `rel_armenian_apostolic` | Église apostolique arménienne | christianity | Ani (ville aux mille et une églises) | 7/10 | 2/10 | 9/10 |
-| `rel_confucianism` | Confucianisme | confucianism | set_qufu | 6/10 | 2/10 | 9/10 |
-| `rel_hinduism_shaivism` | Hindouisme Shaivite | hinduism | set_varanasi | 4/10 | 2/10 | 7/10 |
-| `rel_hinduism_vaishnavism` | Hindouisme Vishnouiste | hinduism | set_varanasi | 4/10 | 2/10 | 7/10 |
-| `rel_sunni` | Islam sunnite | islam | set_mecca | 7/10 | 8/10 | 9/10 |
-| `rel_shia` | Islam chiite | islam | set_karbala | 7/10 | 5/10 | 8/10 |
+| `rel_protestantism` | Protestantisme | christianity | — | 5/10 | 8/10 | 8/10 |
+| `rel_anglicanism` | Anglicanisme | christianity | — | 7/10 | 5/10 | 9/10 |
+| `rel_confucianism` | Confucianisme | confucianism | Qufu | 6/10 | 2/10 | 9/10 |
+| `rel_hinduism_shaivism` | Hindouisme Shaivite | hinduism | Vârânasî (Bénarès) | 4/10 | 2/10 | 7/10 |
+| `rel_hinduism_vaishnavism` | Hindouisme Vishnouiste | hinduism | Vârânasî (Bénarès) | 4/10 | 2/10 | 7/10 |
+| `rel_sunni` | Islam sunnite | islam | La Mecque | 7/10 | 8/10 | 9/10 |
+| `rel_shia` | Islam chiite | islam | Karbala | 7/10 | 5/10 | 8/10 |
 | `rel_ismaili` | Islam ismaélien | islam | Le Caire | 8/10 | 6/10 | 8/10 |
 | `rel_ibadi` | Islam ibadite | islam | — | 5/10 | 2/10 | 4/10 |
-| `rel_judaism` | Judaïsme | judaism | set_jerusalem | 6/10 | 1/10 | 3/10 |
+| `rel_judaism` | Judaïsme | judaism | Jérusalem | 6/10 | 1/10 | 3/10 |
 | `rel_mesoamerican` | Religion mésoaméricaine | mesoamerican | — | 7/10 | 3/10 | 9/10 |
 | `rel_norse_paganism` | Paganisme nordique | norse_paganism | — | 2/10 | 1/10 | 5/10 |
 | `rel_jainism` | Jaïnisme | other | — | 4/10 | 1/10 | 3/10 |
@@ -165,7 +171,7 @@
 | `rel_san_traditional` | Spiritualité San (trance healing) | other | — | 1/10 | 1/10 | 8/10 |
 | `rel_siberian_shamanism` | Chamanisme sibérien | other | — | 2/10 | 1/10 | 7/10 |
 | `rel_polynesian` | Religion polynésienne | polynesian | — | 4/10 | 1/10 | 7/10 |
-| `rel_shinto` | Shintō | shintoism | set_ise | 4/10 | 1/10 | 6/10 |
+| `rel_shinto` | Shintō | shintoism | Ise | 4/10 | 1/10 | 6/10 |
 | `rel_slavic_paganism` | Paganisme slave | slavic_paganism | — | 2/10 | 1/10 | 4/10 |
 | `rel_taoism` | Taoïsme | taoism | — | 4/10 | 1/10 | 5/10 |
 | `rel_tengriism` | Tengrisme | tengriism | — | 2/10 | 1/10 | 6/10 |
@@ -240,6 +246,7 @@
 | `lang_papuan` | Langues papoues (trans-Nouvelle-Guinée) | other | none | 1 000 000 |  |
 | `lang_san_khoisan` | Langues San (khoïsan à clics) | other | none | 30 000 |  |
 | `lang_chukchi` | Tchouktche (tchouktko-kamtchatke) | other | none | 15 000 |  |
+| `lang_manchu` | Mandchou | other | mongol | 3 000 000 |  |
 | `lang_quechua` | Proto-quechua | quechuan | none | 2 000 000 |  |
 | `lang_middle_chinese` | Chinois moyen | sino_tibetan | chinese | 60 000 000 | ✅ |
 | `lang_tibetan` | Tibétain | sino_tibetan | tibetan | 3 000 000 |  |
@@ -262,9 +269,17 @@
 | `tech_terracing` | Culture en terrasses | agriculture | 4/10 | Irrigation, Construction de base |
 | `tech_water_mill` | Moulin à eau | agriculture | 4/10 | Agriculture de base, Construction de base |
 | `tech_windmill` | Moulin à vent | agriculture | 5/10 | Moulin à eau |
+| `tech_horse_collar` | Collier de cheval | agriculture | 3/10 | Élevage, Travail du cuir |
+| `tech_three_field_system` | Assolement triennal | agriculture | 4/10 | Rotation des cultures, Charrue lourde |
+| `tech_seed_drill` | Semoir mécanique | agriculture | 6/10 | Assolement triennal, Travail du fer |
+| `tech_fertilizer` | Engrais chimiques | agriculture | 8/10 | Chimie moderne, Semoir mécanique |
+| `tech_green_revolution` | Révolution verte | agriculture | 9/10 | Engrais chimiques, Moteur à combustion interne |
 | `tech_basic_astronomy` | Astronomie d'observation | astronomy | 2/10 | — |
 | `tech_calendar` | Calendrier | astronomy | 3/10 | Astronomie d'observation |
 | `tech_advanced_astronomy` | Astronomie avancée | astronomy | 7/10 | Astronomie d'observation, Mathématiques de base |
+| `tech_heliocentric_model` | Modèle héliocentrique | astronomy | 8/10 | Astronomie avancée, Presse à imprimer de Gutenberg |
+| `tech_telescope` | Lunette astronomique / Télescope | astronomy | 8/10 | Lunettes, Modèle héliocentrique |
+| `tech_satellite` | Satellite artificiel | astronomy | 10/10 | Fusée / Missile balistique, Ordinateur, Radio |
 | `tech_basic_construction` | Construction de base | construction | 1/10 | — |
 | `tech_stone_masonry` | Maçonnerie en pierre | construction | 5/10 | Construction de base, Travail du fer |
 | `tech_arch_vault` | Arc et voûte | construction | 6/10 | Maçonnerie en pierre |
@@ -272,12 +287,25 @@
 | `tech_aqueduct` | Aqueduc | construction | 7/10 | Arc et voûte, Irrigation |
 | `tech_road_building` | Construction routière | construction | 4/10 | Construction de base |
 | `tech_bridge_building` | Construction de ponts | construction | 5/10 | Construction routière, Construction de base |
+| `tech_gothic_architecture` | Architecture gothique | construction | 7/10 | Arc et voûte, Maçonnerie en pierre, Verrerie |
+| `tech_star_fort` | Fortification bastionnée (trace italienne) | construction | 8/10 | Fortification, Armes à poudre primitives, Mathématiques de base |
+| `tech_steam_locomotive` | Locomotive à vapeur | construction | 8/10 | Machine à vapeur, Travail du fer, Construction routière |
 | `tech_pottery` | Poterie | craftsmanship | 1/10 | — |
 | `tech_weaving` | Tissage | craftsmanship | 2/10 | — |
 | `tech_silk_production` | Sériciculture (production de soie) | craftsmanship | 6/10 | Tissage |
 | `tech_glass_making` | Verrerie | craftsmanship | 5/10 | Poterie |
 | `tech_porcelain` | Porcelaine | craftsmanship | 7/10 | Poterie |
 | `tech_leather_working` | Travail du cuir | craftsmanship | 2/10 | Élevage |
+| `tech_mechanical_clock` | Horloge mécanique | craftsmanship | 7/10 | Travail du fer, Mathématiques de base |
+| `tech_stained_glass` | Vitrail | craftsmanship | 6/10 | Verrerie, Architecture gothique |
+| `tech_eyeglasses` | Lunettes | craftsmanship | 5/10 | Verrerie |
+| `tech_perspective_drawing` | Perspective linéaire | craftsmanship | 6/10 | Mathématiques de base, Verrerie |
+| `tech_steam_engine` | Machine à vapeur | craftsmanship | 8/10 | Haut fourneau, Mécanique newtonienne |
+| `tech_spinning_jenny` | Machine à filer (Spinning Jenny) | craftsmanship | 7/10 | Tissage, Horloge mécanique |
+| `tech_photography` | Photographie | craftsmanship | 7/10 | Chimie moderne, Lunettes |
+| `tech_internal_combustion` | Moteur à combustion interne | craftsmanship | 9/10 | Machine à vapeur, Chimie moderne, Procédé Bessemer |
+| `tech_renewable_energy` | Énergies renouvelables | craftsmanship | 9/10 | Électricité, Ordinateur |
+| `tech_3d_printing` | Impression 3D | craftsmanship | 9/10 | Ordinateur, Procédé Bessemer |
 | `tech_tribal_governance` | Gouvernance tribale | governance | 1/10 | — |
 | `tech_feudalism` | Féodalisme | governance | 5/10 | Gouvernance tribale, Écriture |
 | `tech_bureaucracy` | Bureaucratie | governance | 6/10 | Écriture |
@@ -288,17 +316,35 @@
 | `tech_basic_mathematics` | Mathématiques de base | mathematics | 2/10 | — |
 | `tech_algebra` | Algèbre | mathematics | 7/10 | Mathématiques de base, Écriture |
 | `tech_zero_decimal` | Zéro et système décimal | mathematics | 6/10 | Mathématiques de base |
+| `tech_newtonian_mechanics` | Mécanique newtonienne | mathematics | 9/10 | Méthode scientifique, Algèbre, Lunette astronomique / Télescope |
+| `tech_calculus` | Calcul infinitésimal | mathematics | 9/10 | Algèbre, Méthode scientifique |
+| `tech_computer` | Ordinateur | mathematics | 10/10 | Électricité, Calcul infinitésimal |
+| `tech_artificial_intelligence` | Intelligence artificielle | mathematics | 10/10 | Ordinateur, Internet, Calcul infinitésimal |
 | `tech_herbal_medicine` | Médecine herbale | medicine | 2/10 | — |
 | `tech_surgery_basic` | Chirurgie de base | medicine | 5/10 | Médecine herbale, Travail du fer |
 | `tech_islamic_medicine` | Médecine islamique (Canon d'Avicenne) | medicine | 7/10 | Médecine herbale, Écriture |
 | `tech_chinese_medicine` | Médecine traditionnelle chinoise | medicine | 6/10 | Médecine herbale |
 | `tech_quarantine` | Quarantaine | medicine | 4/10 | Médecine herbale |
+| `tech_anatomy` | Anatomie moderne | medicine | 7/10 | Chirurgie de base, Presse à imprimer de Gutenberg |
+| `tech_botanical_garden` | Jardin botanique | medicine | 6/10 | Université, Médecine herbale |
+| `tech_microscope` | Microscope | medicine | 8/10 | Lunettes |
+| `tech_blood_circulation` | Circulation sanguine | medicine | 8/10 | Anatomie moderne, Méthode scientifique |
+| `tech_vaccination` | Vaccination | medicine | 8/10 | Microscope, Méthode scientifique |
+| `tech_germ_theory` | Théorie des germes | medicine | 9/10 | Microscope, Chimie moderne, Méthode scientifique |
+| `tech_antiseptic_surgery` | Chirurgie antiseptique | medicine | 8/10 | Théorie des germes, Chirurgie de base |
+| `tech_anesthesia` | Anesthésie | medicine | 7/10 | Chimie moderne, Chirurgie de base |
+| `tech_antibiotics` | Antibiotiques | medicine | 9/10 | Théorie des germes, Chimie moderne |
+| `tech_dna_discovery` | Découverte de l'ADN | medicine | 10/10 | Microscope, Chimie moderne, Antibiotiques |
+| `tech_crispr` | Édition génétique (CRISPR) | medicine | 10/10 | Découverte de l'ADN, Ordinateur |
+| `tech_basic_surgery` | Chirurgie élémentaire | medicine | 3/10 | Médecine herbale |
 | `tech_copper_working` | Travail du cuivre | metallurgy | 2/10 | — |
 | `tech_bronze_working` | Travail du bronze | metallurgy | 3/10 | Travail du cuivre |
 | `tech_iron_working` | Travail du fer | metallurgy | 4/10 | Travail du bronze |
 | `tech_steel_making` | Fabrication d'acier | metallurgy | 6/10 | Travail du fer |
 | `tech_damascus_steel` | Acier de Damas | metallurgy | 8/10 | Fabrication d'acier |
 | `tech_gold_silver_working` | Orfèvrerie (or et argent) | metallurgy | 3/10 | Travail du cuivre |
+| `tech_blast_furnace` | Haut fourneau | metallurgy | 7/10 | Travail du fer, Moulin à eau |
+| `tech_bessemer_process` | Procédé Bessemer | metallurgy | 8/10 | Haut fourneau, Chimie moderne |
 | `tech_basic_weapons` | Armes de base | military | 1/10 | — |
 | `tech_metal_weapons` | Armes métalliques | military | 4/10 | Armes de base, Travail du fer |
 | `tech_armor` | Armure | military | 5/10 | Travail du fer |
@@ -311,23 +357,57 @@
 | `tech_composite_bow` | Arc composite | military | 5/10 | Armes de base, Élevage |
 | `tech_gunpowder` | Poudre à canon | military | 7/10 | Alchimie |
 | `tech_greek_fire` | Feu grégeois | military | 8/10 | Alchimie, Navigation côtière |
+| `tech_gunpowder_weapons` | Armes à poudre primitives | military | 7/10 | Poudre à canon, Travail du fer |
+| `tech_plate_armor` | Armure de plates | military | 8/10 | Cotte de mailles, Fabrication d'acier |
+| `tech_musket` | Mousquet | military | 7/10 | Armes à poudre primitives |
+| `tech_dynamite` | Dynamite | military | 7/10 | Chimie moderne, Poudre à canon |
+| `tech_tank` | Char de combat | military | 9/10 | Moteur à combustion interne, Procédé Bessemer, Mousquet |
+| `tech_rocket` | Fusée / Missile balistique | military | 10/10 | Dynamite, Calcul infinitésimal, Moteur à combustion interne |
 | `tech_basic_sailing` | Navigation côtière | navigation | 3/10 | Construction de base |
 | `tech_celestial_navigation` | Navigation céleste | navigation | 5/10 | Navigation côtière, Astronomie d'observation |
 | `tech_lateen_sail` | Voile latine | navigation | 5/10 | Navigation côtière |
 | `tech_longship` | Drakkar / Longship | navigation | 6/10 | Navigation côtière, Travail du fer |
 | `tech_chinese_junk` | Jonque chinoise | navigation | 7/10 | Navigation côtière, Travail du fer |
 | `tech_astrolabe` | Astrolabe | navigation | 7/10 | Navigation céleste, Mathématiques de base |
+| `tech_compass` | Boussole magnétique | navigation | 5/10 | Navigation côtière, Travail du fer |
+| `tech_magnetic_declination` | Déclinaison magnétique | navigation | 6/10 | Boussole magnétique, Mathématiques de base |
+| `tech_caravel` | Caravelle | navigation | 7/10 | Voile latine, Boussole magnétique, Navigation céleste |
+| `tech_galleon` | Galion | navigation | 8/10 | Caravelle, Armes à poudre primitives |
+| `tech_cartography` | Cartographie moderne | navigation | 7/10 | Boussole magnétique, Mathématiques de base, Presse à imprimer de Gutenberg |
+| `tech_chronometer` | Chronomètre de marine | navigation | 9/10 | Horloge mécanique, Mécanique newtonienne |
+| `tech_hot_air_balloon` | Montgolfière | navigation | 7/10 | Méthode scientifique, Tissage |
+| `tech_ironclad` | Navire cuirassé | navigation | 9/10 | Machine à vapeur, Procédé Bessemer, Galion |
+| `tech_airplane` | Avion | navigation | 9/10 | Moteur à combustion interne, Montgolfière |
+| `tech_space_travel` | Voyage spatial habité | navigation | 10/10 | Fusée / Missile balistique, Ordinateur |
 | `tech_basic_philosophy` | Philosophie et pensée critique | philosophy | 4/10 | Écriture |
 | `tech_basic_alchemy` | Alchimie | philosophy | 5/10 | Philosophie et pensée critique |
 | `tech_natural_philosophy` | Philosophie naturelle | philosophy | 6/10 | Philosophie et pensée critique, Mathématiques de base |
+| `tech_university` | Université | philosophy | 7/10 | Philosophie et pensée critique, Écriture, Droit codifié |
+| `tech_scientific_method` | Méthode scientifique | philosophy | 8/10 | Philosophie naturelle, Université, Presse à imprimer de Gutenberg |
+| `tech_barometer` | Baromètre | philosophy | 7/10 | Verrerie, Méthode scientifique |
+| `tech_lightning_rod` | Paratonnerre | philosophy | 7/10 | Méthode scientifique, Travail du fer |
+| `tech_encyclopedie` | Encyclopédie | philosophy | 8/10 | Presse à imprimer de Gutenberg, Méthode scientifique, Université |
+| `tech_modern_chemistry` | Chimie moderne | philosophy | 8/10 | Alchimie, Méthode scientifique |
+| `tech_electricity` | Électricité | philosophy | 9/10 | Paratonnerre, Mécanique newtonienne, Chimie moderne |
+| `tech_nuclear_fission` | Fission nucléaire | philosophy | 10/10 | Électricité, Calcul infinitésimal |
 | `tech_basic_trade` | Commerce de base (troc) | trade | 1/10 | — |
 | `tech_caravanserai` | Caravansérail | trade | 4/10 | Commerce de base (troc), Construction de base |
 | `tech_banking_basic` | Banque primitive | trade | 6/10 | Commerce de base (troc), Écriture, Frappe de monnaie |
 | `tech_guilds` | Guildes et corporations | trade | 5/10 | Commerce de base (troc), Droit codifié |
+| `tech_double_entry_bookkeeping` | Comptabilité en partie double | trade | 6/10 | Banque primitive, Mathématiques de base |
+| `tech_joint_stock_company` | Société par actions | trade | 8/10 | Comptabilité en partie double, Droit codifié |
 | `tech_basic_writing` | Écriture | writing | 3/10 | — |
 | `tech_paper_making` | Fabrication du papier | writing | 5/10 | Écriture |
 | `tech_block_printing` | Impression par blocs de bois | writing | 6/10 | Fabrication du papier |
 | `tech_ink_production` | Production d'encre | writing | 3/10 | Écriture |
+| `tech_movable_type` | Caractères mobiles (Chine/Corée) | writing | 7/10 | Impression par blocs de bois |
+| `tech_printing_press` | Presse à imprimer de Gutenberg | writing | 8/10 | Caractères mobiles (Chine/Corée), Travail du fer, Production d'encre |
+| `tech_telegraph` | Télégraphe électrique | writing | 8/10 | Paratonnerre, Travail du fer |
+| `tech_telephone` | Téléphone | writing | 8/10 | Télégraphe électrique, Électricité |
+| `tech_radio` | Radio | writing | 8/10 | Électricité, Téléphone |
+| `tech_television` | Télévision | writing | 9/10 | Radio, Photographie |
+| `tech_internet` | Internet | writing | 10/10 | Ordinateur, Téléphone, Satellite artificiel |
+| `tech_smartphone` | Smartphone | writing | 10/10 | Internet, Ordinateur, Satellite artificiel |
 
 ### Commodités
 
@@ -402,13 +482,53 @@
 | `tr_trans_saharan` | Routes transsahariennes | land | Califat fatimide, Empire du Ghana | 7/10 | 8/10 |
 | `tr_varangian_route` | Route des Varègues (De la Baltique à Byzance) | river | Rus' de Kiev, Empire byzantin | 5/10 | 7/10 |
 | `tr_volga_route` | Route de la Volga | river | Rus' de Kiev, Bulgarie de la Volga, Khanat karakhanide | 5/10 | 6/10 |
-| `tr_mediterranean` | Commerce méditerranéen | sea | Empire byzantin, République de Venise, Califat fatimide | 4/10 | 8/10 |
-| `tr_north_sea_baltic` | Commerce de la mer du Nord et Baltique | sea | Royaume d'Angleterre, Royaume du Danemark, Royaume de Norvège, Royaume de Suède, Rus' de Kiev | 5/10 | 7/10 |
+| `tr_mediterranean` | Commerce méditerranéen | sea | Empire byzantin, République de Venise, Califat fatimide, États pontificaux | 4/10 | 8/10 |
+| `tr_north_sea_baltic` | Commerce de la mer du Nord et Baltique | sea | Royaume d'Écosse, Royaume d'Angleterre, Royaume du Danemark, Royaume de Norvège, Royaume de Suède, Rus' de Kiev | 5/10 | 7/10 |
 | `tr_incense_route` | Route de l'encens | land | Califat fatimide | 4/10 | 6/10 |
 | `tr_indian_ocean` | Commerce de l'océan Indien | sea | Califat fatimide, Dynastie Chola, Empire de Srivijaya, Cités-États swahilies | 5/10 | 8/10 |
-| `tr_east_african_coast` | Commerce côtier est-africain | sea | Cités-États swahilies | 4/10 | 5/10 |
+| `tr_east_african_coast` | Commerce côtier est-africain | sea | Cités-États swahilies, Grand Zimbabwe (proto-Shona), Royaumes malgaches proto-historiques | 4/10 | 5/10 |
 | `tr_grand_canal_china` | Grand Canal (Chine) | river | Dynastie Song | 2/10 | 9/10 |
-| `tr_nile` | Route du Nil | river | Califat fatimide, nat_nubia | 3/10 | 8/10 |
+| `tr_nile` | Route du Nil | river | Califat fatimide, Royaume de Makuria | 3/10 | 8/10 |
+| `tr_danube` | Route du Danube | river | Saint-Empire romain germanique, Royaume de Hongrie, Royaume de Croatie, Empire byzantin | 4/10 | 6/10 |
+| `tr_rhine` | Route du Rhin | river | Saint-Empire romain germanique, Royaume de France | 3/10 | 6/10 |
+| `tr_niger` | Route du Niger | river | Empire du Ghana, Confédération touarègue (Sanhadja), Empire du Kanem, Ifè (Yoruba) | 4/10 | 7/10 |
+| `tr_yangtze` | Route du Yangtsé | river | Dynastie Song | 2/10 | 9/10 |
+| `tr_mekong` | Route du Mékong | river | Empire khmer (Angkor), Đại Cồ Việt | 4/10 | 6/10 |
+| `tr_irrawaddy` | Route de l'Irrawaddy | river | Empire khmer (Angkor) | 4/10 | 4/10 |
+| `tr_western_mediterranean` | Commerce de la Méditerranée occidentale | sea | Califat de Cordoue, Califat fatimide | 5/10 | 6/10 |
+| `tr_atlantic_iberian` | Cabotage atlantique ibérique | sea | Royaume d'Angleterre, Royaume de France, Royaume de León, Califat de Cordoue | 5/10 | 5/10 |
+| `tr_south_china_sea` | Commerce de la mer de Chine méridionale | sea | Dynastie Song, Đại Cồ Việt, Empire de Srivijaya | 4/10 | 7/10 |
+| `tr_japan_sea` | Commerce de la mer du Japon | sea | Aïnous (Hokkaido), Japon (Heian), Goryeo (Corée) | 4/10 | 5/10 |
+| `tr_black_sea` | Commerce de la mer Noire | sea | Empire byzantin, Rus' de Kiev, Royaume de Géorgie | 4/10 | 6/10 |
+| `tr_adriatic` | Commerce adriatique | sea | République de Venise, Royaume de Croatie, Empire byzantin | 3/10 | 5/10 |
+| `tr_red_sea` | Commerce de la mer Rouge | sea | Califat fatimide, Royaume d'Éthiopie (Zagwé) | 4/10 | 7/10 |
+| `tr_southeast_asian_coastal` | Cabotage côtier sud-est asiatique | sea | Empire de Srivijaya, Dynastie Chola | 4/10 | 6/10 |
+| `tr_caucasus` | Route du Caucase | land | Empire byzantin, Royaume de Géorgie, Royaume d'Arménie (Bagratides) | 5/10 | 5/10 |
+| `tr_amber_road` | Route de l'ambre | land | Royaume de Pologne, Royaume de Hongrie, République de Venise | 4/10 | 5/10 |
+| `tr_saharan_east` | Transsaharienne orientale | land | Califat fatimide, Empire du Kanem | 7/10 | 5/10 |
+| `tr_andean` | Route andine | land | Royaume Chimú (Chan Chan), Successeurs Wari / Pré-Inca, Mapuche (Reche) | 5/10 | 5/10 |
+| `tr_mesoamerican` | Réseau commercial mésoaméricain | land | Empire toltèque, Cités-États mayas (post-classique) | 4/10 | 6/10 |
+| `tr_camino_santiago` | Chemin de Saint-Jacques-de-Compostelle | land | Royaume de France, Royaume de Navarre, Royaume de León | 3/10 | 6/10 |
+| `tr_liao_border_markets` | Marchés frontaliers Liao-Song | land | Dynastie Liao (Khitans), Dynastie Song | 3/10 | 7/10 |
+| `tr_tea_horse_road` | Route du thé et des chevaux | land | Dynastie Song, Tibet (période de fragmentation) | 8/10 | 6/10 |
+| `tr_indian_inland` | Routes intérieures indiennes | land | Empire Pâla (Bengale), Chalukyas occidentaux, Dynastie Chola | 4/10 | 6/10 |
+| `tr_sami_fur_trade` | Commerce de fourrures sami | land | Sami (Laponie), Royaume de Norvège, Royaume de Suède | 4/10 | 4/10 |
+| `tr_west_african_forest` | Commerce forestier ouest-africain | land | Ifè (Yoruba), Royaume de Nri (Igbo) | 3/10 | 4/10 |
+| `tr_southern_african` | Échanges sud-africains | land | Grand Zimbabwe (proto-Shona), San (Bushmen du Kalahari) | 5/10 | 3/10 |
+| `tr_ituri_exchange` | Échanges de la forêt d'Ituri | river | Mbuti (Pygmées de la forêt Ituri) | 5/10 | 2/10 |
+| `tr_mississippi_trade` | Commerce du Mississippi | river | Culture mississippienne (Cahokia) | 3/10 | 5/10 |
+| `tr_southwest_turquoise` | Réseau de la turquoise (Sud-Ouest) | land | Puebloans ancestraux (Chaco), Hohokam | 4/10 | 4/10 |
+| `tr_pacific_northwest` | Commerce côtier du Pacifique Nord-Ouest | sea | Confédération Haida-Tlingit | 5/10 | 3/10 |
+| `tr_northeast_woodland` | Cabotage nord-atlantique | sea | Mi'kmaq, Béothuks (Terre-Neuve) | 6/10 | 2/10 |
+| `tr_subarctic_network` | Réseau d'échange subarctique | land | Nations dénées (Athapascanes), Thulé (proto-Inuit) | 7/10 | 2/10 |
+| `tr_muisca_emerald` | Commerce muisca (sel, or, émeraudes) | land | Confédération Muisca | 3/10 | 4/10 |
+| `tr_guarani_rivers` | Routes fluviales guaranies | river | Guaraní | 4/10 | 3/10 |
+| `tr_arctic_ivory` | Route arctique de l'ivoire | sea | Tchouktches, Thulé (proto-Inuit), Culture de Dorset (Tuniit) | 9/10 | 3/10 |
+| `tr_polynesian_maritime` | Réseau maritime polynésien | sea | Tu'i Tonga (Empire tongien), Chefferies fidjiennes, Ali'i d'Hawaï | 7/10 | 4/10 |
+| `tr_chamorro_inter_island` | Navigation inter-insulaire chamorro | sea | Chamorros (îles Mariannes) | 4/10 | 2/10 |
+| `tr_australian_songlines` | Pistes de chants australiennes (Songlines) | land | Nations aborigènes australiennes | 6/10 | 3/10 |
+| `tr_papuan_highlands` | Échanges des Hautes-Terres papoues | land | Peuples papous (hautes terres) | 5/10 | 3/10 |
+| `tr_canary_islands_trade` | Cabotage inter-insulaire canarien | sea | Guanches (îles Canaries) | 5/10 | 2/10 |
 
 ### Maladies
 
@@ -426,6 +546,6526 @@
 | `dis_measles` | Rougeole | epidemic | 10.0 % | airborne | temperate, arid, monsoon, monsoon |
 | `dis_trachoma` | Trachome | endemic | 1.0 % | contact | arid, tropical, arid |
 | `dis_scurvy` | Scorbut | endemic | 20.0 % | food | subarctic, temperate |
+
+---
+
+### Événements historiques
+
+241 événements couvrant la période 1000–1200. Ces milestones sont connus du MJ et servent de trame narrative adaptable.
+
+| Année | Nom | Type | Catégorie | Sévérité | Nations affectées | Prérequis | Déclenche |
+|---:|---|---|---|---:|---|---|---|
+| 1000 | **Christianisation de la Scandinavie** | cultural_shift | religious | 7/10 | Royaume de Norvège, Royaume de Suède, Royaume du Danemark | — | — |
+| 1000 | **Optimum climatique médiéval** | natural_disaster | natural | 3/10 | Global | — | — |
+| 1000 | **Apogée commerciale de Bolgar** | opportunity | economic | 6/10 | Bulgarie de la Volga | — | — |
+| 1000 | **Renaissance bouddhiste tibétaine** | cultural_shift | religious | 7/10 | Tibet (période de fragmentation) | — | — |
+| 1000 | **Apogée de la Makurie chrétienne** | milestone | cultural | 5/10 | Royaume de Makuria | — | — |
+| 1000 | **Domination touarègue des routes sahariennes** | opportunity | economic | 6/10 | Confédération touarègue (Sanhadja) | — | — |
+| 1000 | **Consolidation du royaume sacré de Nri** | milestone | political | 5/10 | Royaume de Nri (Igbo) | — | — |
+| 1000 | **Résistance aïnoue face au Japon (campagnes Ezo)** | crisis | military | 6/10 | Aïnous (Hokkaido) | — | — |
+| 1000 | **Établissement des royaumes malgaches** | milestone | cultural | 5/10 | Royaumes malgaches proto-historiques | — | — |
+| 1000 | **Migration des Thulé vers le Groenland** | milestone | exploration | 7/10 | Thulé (proto-Inuit) | — | — |
+| 1000 | **Florescence culturelle de Haida Gwaii** | opportunity | cultural | 5/10 | Confédération Haida-Tlingit | — | — |
+| 1000 | **Intensification du pastoralisme de renne sami** | cultural_shift | economic | 5/10 | Sami (Laponie) | — | — |
+| 1000 | **Expansion agricole et consolidation mapuche** | milestone | economic | 5/10 | Mapuche (Reche) | — | — |
+| 1000 | **Cérémonies d'investiture au lac Guatavita** | cultural_shift | cultural | 6/10 | Confédération Muisca | — | — |
+| 1000 | **Expansion guaranie le long des fleuves** | milestone | exploration | 5/10 | Guaraní | — | — |
+| 1000 | **Expansion du réseau de canaux hohokam** | milestone | economic | 6/10 | Hohokam | — | — |
+| 1000 | **Les Dorsétiens face à la migration thulé** | crisis | military | 8/10 | Culture de Dorset (Tuniit) | — | — |
+| 1000 | **Migrations dénées vers le sud** | milestone | exploration | 6/10 | Nations dénées (Athapascanes) | — | — |
+| 1000 | **Les San face à l'expansion bantoue** | crisis | military | 7/10 | San (Bushmen du Kalahari) | — | — |
+| 1000 | **Intensification des échanges Mbuti-Bantous** | opportunity | economic | 4/10 | Mbuti (Pygmées de la forêt Ituri) | — | — |
+| 1000 | **Intensification agricole des Hautes-Terres de Papouasie** | milestone | economic | 5/10 | Peuples papous (hautes terres) | — | — |
+| 1000 | **Émergence des grandes chefferies fidjiennes** | political | political | 5/10 | Chefferies fidjiennes | — | — |
+| 1000 | **Période Latte des Chamorro** | milestone | cultural | 5/10 | Chamorros (îles Mariannes) | — | — |
+| 1000 | **Isolement millénaire des Guanches** | cultural_shift | cultural | 3/10 | Guanches (îles Canaries) | — | — |
+| 1000 | **Expansion maritime des Tchouktches** | opportunity | economic | 4/10 | Tchouktches | — | — |
+| 1008 | **Unification de la Géorgie par Bagrat III** | milestone | political | 8/10 | Royaume de Géorgie | — | — |
+| 1009 | **Fondation de la dynastie Lý** | political | political | 8/10 | Đại Cồ Việt | — | — |
+| 1010 | **Apogée culturel Heian — Le Dit du Genji** | cultural_shift | cultural | 5/10 | Japon (Heian) | — | — |
+| 1012 | **Révolution agricole des Song** | opportunity | natural | 5/10 | Dynastie Song | — | — |
+| 1016 | **Empire de la mer du Nord de Knut le Grand** | milestone | political | 8/10 | Royaume d'Angleterre, Royaume du Danemark, Royaume de Norvège | Christianisation de la Scandinavie | Effondrement de l'Empire de Knut |
+| 1020 | **Construction des grandes maisons de Chaco Canyon** | milestone | cultural | 7/10 | Puebloans ancestraux (Chaco) | — | — |
+| 1025 | **Raids de Mahmud de Ghazni en Inde** | milestone | military | 8/10 | Empire ghaznavide, Empire Pâla (Bengale), Chalukyas occidentaux | — | — |
+| 1025 | **Expansion navale Chola vers le Sud-Est asiatique** | milestone | military | 8/10 | Dynastie Chola, Empire de Srivijaya | — | — |
+| 1035 | **Effondrement de l'Empire de Knut** | political | political | 7/10 | Royaume d'Angleterre, Royaume du Danemark, Royaume de Norvège | Empire de la mer du Nord de Knut le Grand | Conquête normande de l'Angleterre |
+| 1040 | **Révolution de l'imprimerie Song** | milestone | scientific | 6/10 | Dynastie Song | — | — |
+| 1050 | **Grands défrichements européens** | opportunity | natural | 4/10 | Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre | Optimum climatique médiéval | — |
+| 1050 | **Verdissement sahélien — Prospérité du Ghana et du Mali** | opportunity | natural | 4/10 | Empire du Ghana | — | — |
+| 1054 | **Grand Schisme de 1054** | milestone | religious | 10/10 | États pontificaux, Empire byzantin, Saint-Empire romain germanique, Rus' de Kiev, Royaume de France, Royaume d'Angleterre, Royaume de Hongrie, Royaume de Pologne | — | Première Croisade |
+| 1055 | **Réconciliation partielle des Églises** | political | religious | 8/10 | États pontificaux, Empire byzantin, Saint-Empire romain germanique, Rus' de Kiev | — | — |
+| 1064 | **Chute d'Ani face aux Seldjoukides** | crisis | military | 9/10 | Royaume d'Arménie (Bagratides) | — | — |
+| 1065 | **Crise des crues du Nil** | natural_disaster | natural | 8/10 | Califat fatimide | — | — |
+| 1066 | **Conquête normande de l'Angleterre** | milestone | military | 10/10 | Royaume d'Angleterre, Royaume de France | Effondrement de l'Empire de Knut | — |
+| 1071 | **Bataille de Manzikert** | milestone | military | 10/10 | Empire byzantin | — | Première Croisade |
+| 1076 | **Querelle des Investitures** | crisis | religious | 9/10 | Saint-Empire romain germanique, États pontificaux | — | — |
+| 1076 | **Conquête almoravide du Ghana et de la péninsule ibérique** | milestone | military | 8/10 | Empire du Ghana, Califat de Cordoue | — | — |
+| 1085 | **Islamisation du Kanem sous Hummay** | cultural_shift | religious | 7/10 | Empire du Kanem | — | — |
+| 1095 | **Première Croisade** | milestone | military | 10/10 | États pontificaux, Empire byzantin, Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre, Califat fatimide | Grand Schisme de 1054, Bataille de Manzikert, Querelle des Investitures | Fondation du Royaume de Jérusalem, Deuxième Croisade |
+| 1096 | **Aide militaire occidentale à Byzance** | political | military | 6/10 | Empire byzantin, Saint-Empire romain germanique, Royaume de France | — | — |
+| 1097 | **Grande famine européenne de 1097** | crisis | natural | 7/10 | Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre | Crise des crues du Nil | — |
+| 1099 | **Fondation du Royaume de Jérusalem** | political | political | 8/10 | Califat fatimide, Empire byzantin | Première Croisade | — |
+| 1100 | **Apogée de Cahokia** | cultural_shift | cultural | 5/10 | Culture mississippienne (Cahokia) | — | — |
+| 1100 | **Essor de Kilwa et le commerce de l'or** | opportunity | economic | 6/10 | Cités-États swahilies | Expansion navale Chola vers le Sud-Est asiatique | — |
+| 1100 | **Âge d'or des moussons — Prospérité d'Angkor** | opportunity | natural | 4/10 | Dynastie Chola | — | — |
+| 1110 | **Crues exceptionnelles du Nil** | opportunity | natural | 3/10 | Califat fatimide | — | — |
+| 1127 | **Chute du Nord Song — Invasion Jurchen** | milestone | military | 10/10 | Dynastie Song, Dynastie Liao (Khitans) | Révolution de l'imprimerie Song | — |
+| 1130 | **Construction d'Angkor Vat** | cultural_shift | cultural | 7/10 | Empire khmer (Angkor) | Expansion navale Chola vers le Sud-Est asiatique | — |
+| 1147 | **Deuxième Croisade** | milestone | military | 7/10 | Royaume de France, Saint-Empire romain germanique, Califat fatimide | Fondation du Royaume de Jérusalem | Ascension de Saladin et unification ayyoubide |
+| 1147 | **Conquête almohade** | milestone | military | 8/10 | Califat de Cordoue | Conquête almoravide du Ghana et de la péninsule ibérique | — |
+| 1150 | **Effondrement de Tula et déclin toltèque** | crisis | political | 9/10 | Empire toltèque, Cités-États mayas (post-classique) | — | — |
+| 1174 | **Ascension de Saladin et unification ayyoubide** | political | political | 9/10 | Califat fatimide | Deuxième Croisade | Bataille de Hattin et chute de Jérusalem |
+| 1187 | **Bataille de Hattin et chute de Jérusalem** | milestone | military | 10/10 | Califat fatimide | Ascension de Saladin et unification ayyoubide, Fondation du Royaume de Jérusalem | Troisième Croisade (Croisade des Rois) |
+| 1189 | **Troisième Croisade (Croisade des Rois)** | milestone | military | 8/10 | Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Califat fatimide | Bataille de Hattin et chute de Jérusalem | — |
+| 1199 | **Tensions féodales en Angleterre** | political | political | 6/10 | Royaume d'Angleterre | Troisième Croisade (Croisade des Rois), Conquête normande de l'Angleterre | — |
+| 1204 | **Quatrième Croisade et sac de Constantinople** | milestone | military | 10/10 | Empire byzantin, République de Venise, États pontificaux | Troisième Croisade (Croisade des Rois) | Reconquête de Constantinople par les Nicéens |
+| 1206 | **Unification mongole et conquêtes de Gengis Khan** | milestone | military | 10/10 | Dynastie Song, Dynastie Liao (Khitans), Khanat karakhanide, Empire ghaznavide | — | Invasion mongole de l'Europe, Chute de Bagdad — Fin du califat abbasside, Pax Mongolica et Route de la Soie |
+| 1209 | **Croisade des Albigeois** | crisis | religious | 9/10 | Royaume de France, États pontificaux | — | — |
+| 1212 | **Bataille de Las Navas de Tolosa** | milestone | military | 9/10 | Royaume de León, Royaume de Navarre, Califat de Cordoue | Conquête almohade | Chute de Cordoue et Séville |
+| 1215 | **Magna Carta** | milestone | political | 8/10 | Royaume d'Angleterre, États pontificaux | Tensions féodales en Angleterre | — |
+| 1231 | **Création de l'Inquisition médiévale** | political | religious | 7/10 | États pontificaux, Royaume de France, Saint-Empire romain germanique | Croisade des Albigeois | — |
+| 1235 | **Fondation de l'Empire du Mali — Soundiata Keïta** | milestone | political | 9/10 | Empire du Ghana | — | Pèlerinage de Mansa Moussa — L'homme le plus riche de l'histoire |
+| 1241 | **Invasion mongole de l'Europe** | milestone | military | 10/10 | Royaume de Pologne, Royaume de Hongrie, Rus' de Kiev, Saint-Empire romain germanique | Unification mongole et conquêtes de Gengis Khan | — |
+| 1248 | **Chute de Cordoue et Séville** | milestone | military | 8/10 | Royaume de León, Califat de Cordoue | Bataille de Las Navas de Tolosa | — |
+| 1258 | **Chute de Bagdad — Fin du califat abbasside** | milestone | military | 10/10 | Émirat bouyide, Califat fatimide | Unification mongole et conquêtes de Gengis Khan | Bataille d'Aïn Djalout — L'arrêt des Mongols |
+| 1260 | **Bataille d'Aïn Djalout — L'arrêt des Mongols** | milestone | military | 9/10 | Califat fatimide | Chute de Bagdad — Fin du califat abbasside | — |
+| 1260 | **Pax Mongolica et Route de la Soie** | opportunity | economic | 6/10 | Dynastie Song, République de Venise, Empire byzantin | Unification mongole et conquêtes de Gengis Khan | — |
+| 1261 | **Reconquête de Constantinople par les Nicéens** | political | political | 7/10 | Empire byzantin, République de Venise | Quatrième Croisade et sac de Constantinople | — |
+| 1270 | **Guerres Goryeo-Mongols et vassalité coréenne** | crisis | military | 8/10 | Goryeo (Corée) | Unification mongole et conquêtes de Gengis Khan | — |
+| 1281 | **Invasions mongoles du Japon et les « vents divins »** | milestone | military | 8/10 | Japon (Heian), Goryeo (Corée) | Unification mongole et conquêtes de Gengis Khan | — |
+| 1290 | **Apogée du Sultanat de Delhi** | milestone | political | 8/10 | Empire ghaznavide, Empire Pâla (Bengale), Chalukyas occidentaux, Dynastie Chola | Raids de Mahmud de Ghazni en Inde | — |
+| 1291 | **Naissance de la Confédération suisse** | political | political | 5/10 | Saint-Empire romain germanique | Querelle des Investitures | — |
+| 1300 | **Apogée du Grand Zimbabwe** | cultural_shift | economic | 6/10 | Grand Zimbabwe (proto-Shona), Cités-États swahilies | Essor de Kilwa et le commerce de l'or | — |
+| 1300 | **Fin de l'optimum climatique — Début du Petit Âge glaciaire** | natural_disaster | natural | 7/10 | Global | Optimum climatique médiéval | — |
+| 1309 | **Papauté d'Avignon** | political | religious | 7/10 | États pontificaux, Royaume de France, Saint-Empire romain germanique | — | Grand Schisme d'Occident |
+| 1324 | **Pèlerinage de Mansa Moussa — L'homme le plus riche de l'histoire** | milestone | economic | 8/10 | Empire du Ghana, Califat fatimide | Fondation de l'Empire du Mali — Soundiata Keïta | — |
+| 1325 | **Fondation de Tenochtitlan** | milestone | political | 7/10 | Empire toltèque, Cités-États mayas (post-classique) | Effondrement de Tula et déclin toltèque, Apogée de Cahokia | — |
+| 1331 | **Peste noire en Asie centrale et Chine** | natural_disaster | natural | 10/10 | Dynastie Song | Pax Mongolica et Route de la Soie | Peste noire en Europe, Chute de la dynastie Yuan — Fondation des Ming |
+| 1337 | **Début de la Guerre de Cent Ans** | milestone | military | 9/10 | Royaume d'Angleterre, Royaume de France | — | Bataille de Crécy, Peste noire en Europe |
+| 1346 | **Bataille de Crécy** | milestone | military | 8/10 | Royaume d'Angleterre, Royaume de France | Début de la Guerre de Cent Ans | — |
+| 1347 | **Peste noire en Europe** | natural_disaster | natural | 10/10 | Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, États pontificaux, République de Venise, Empire byzantin, Royaume de Pologne, Royaume de Hongrie, Royaume de León, Califat de Cordoue, Royaume de Norvège, Royaume de Suède, Royaume du Danemark, Royaume d'Écosse, Rus' de Kiev | Peste noire en Asie centrale et Chine, Fin de l'optimum climatique — Début du Petit Âge glaciaire | Révoltes paysannes (Jacquerie, Wat Tyler) |
+| 1350 | **Boom de la pêche au hareng — Ligue hanséatique** | opportunity | natural | 4/10 | Saint-Empire romain germanique, Royaume de Norvège, Royaume de Suède | Fin de l'optimum climatique — Début du Petit Âge glaciaire | — |
+| 1350 | **Apogée de l'Empire Majapahit** | milestone | political | 7/10 | Empire de Srivijaya, Empire khmer (Angkor) | Construction d'Angkor Vat | — |
+| 1358 | **Révoltes paysannes (Jacquerie, Wat Tyler)** | crisis | political | 7/10 | Royaume de France, Royaume d'Angleterre | Peste noire en Europe | — |
+| 1363 | **Essor de l'Empire ottoman — Prise d'Andrinople** | milestone | military | 8/10 | Empire byzantin, Royaume de Hongrie, Royaume de Croatie | Reconquête de Constantinople par les Nicéens | Bataille de Kosovo Polje, Bataille de Nicopolis — Dernière croisade |
+| 1368 | **Chute de la dynastie Yuan — Fondation des Ming** | milestone | political | 9/10 | Dynastie Song | Peste noire en Asie centrale et Chine, Chute du Nord Song — Invasion Jurchen | — |
+| 1370 | **Conquêtes de Tamerlan** | milestone | military | 10/10 | Empire ghaznavide, Empire Pâla (Bengale), Khanat karakhanide, Califat fatimide | — | — |
+| 1378 | **Grand Schisme d'Occident** | crisis | religious | 8/10 | États pontificaux, Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre | — | — |
+| 1389 | **Bataille de Kosovo Polje** | milestone | military | 8/10 | Empire byzantin, Royaume de Hongrie, Royaume de Croatie | Essor de l'Empire ottoman — Prise d'Andrinople | — |
+| 1396 | **Bataille de Nicopolis — Dernière croisade** | milestone | military | 8/10 | Royaume de Hongrie, Royaume de France, République de Venise, Saint-Empire romain germanique | Bataille de Kosovo Polje | — |
+| 1402 | **Bataille d'Ankara — Tamerlan bat les Ottomans** | milestone | military | 9/10 | Empire byzantin, Royaume de Hongrie | Conquêtes de Tamerlan, Bataille de Nicopolis — Dernière croisade | — |
+| 1405 | **Voyages de Zheng He** | milestone | exploration | 8/10 | Dynastie Song, Empire de Srivijaya, Cités-États swahilies | Chute de la dynastie Yuan — Fondation des Ming | — |
+| 1414 | **Concile de Constance — Fin du Grand Schisme** | milestone | religious | 8/10 | États pontificaux, Saint-Empire romain germanique, Royaume de France, Royaume d'Angleterre | Grand Schisme d'Occident | Guerres hussites |
+| 1415 | **Bataille d'Azincourt** | milestone | military | 9/10 | Royaume d'Angleterre, Royaume de France | Début de la Guerre de Cent Ans, Bataille de Crécy | Jeanne d'Arc et le sacre de Charles VII |
+| 1419 | **Guerres hussites** | crisis | religious | 7/10 | Saint-Empire romain germanique, États pontificaux | Concile de Constance — Fin du Grand Schisme, Révoltes paysannes (Jacquerie, Wat Tyler) | — |
+| 1429 | **Jeanne d'Arc et le sacre de Charles VII** | milestone | military | 9/10 | Royaume de France, Royaume d'Angleterre | Bataille d'Azincourt | — |
+| 1438 | **Expansion de l'Empire inca** | milestone | political | 8/10 | Royaume Chimú (Chan Chan), Successeurs Wari / Pré-Inca | — | — |
+| 1450 | **Invention de l'imprimerie à caractères mobiles** | cultural_shift | cultural | 10/10 | Saint-Empire romain germanique | Révolution de l'imprimerie Song | — |
+| 1453 | **Chute de Constantinople** | milestone | military | 10/10 | Empire byzantin, République de Venise, États pontificaux, Royaume de Hongrie, Saint-Empire romain germanique | Essor de l'Empire ottoman — Prise d'Andrinople, Bataille d'Ankara — Tamerlan bat les Ottomans | — |
+| 1453 | **Fin de la Guerre de Cent Ans** | milestone | military | 8/10 | Royaume de France, Royaume d'Angleterre | Jeanne d'Arc et le sacre de Charles VII | Guerres des Roses |
+| 1455 | **Guerres des Roses** | crisis | political | 7/10 | Royaume d'Angleterre | Fin de la Guerre de Cent Ans | — |
+| 1468 | **Essor de l'Empire songhaï** | milestone | political | 7/10 | Empire du Ghana | Fondation de l'Empire du Mali — Soundiata Keïta, Pèlerinage de Mansa Moussa — L'homme le plus riche de l'histoire | — |
+| 1470 | **Apogée de la Renaissance italienne** | cultural_shift | cultural | 9/10 | République de Venise, États pontificaux, Saint-Empire romain germanique | Chute de Constantinople, Invention de l'imprimerie à caractères mobiles | — |
+| 1478 | **Inquisition espagnole** | political | religious | 7/10 | Royaume de León, Califat de Cordoue | Création de l'Inquisition médiévale | — |
+| 1480 | **Fin du joug mongol — Montée de Moscou** | milestone | political | 8/10 | Rus' de Kiev | Unification mongole et conquêtes de Gengis Khan, Chute de Constantinople, Invasion mongole de l'Europe | — |
+| 1492 | **Chute de Grenade — Fin de la Reconquista** | milestone | military | 9/10 | Royaume de León, Califat de Cordoue | Chute de Cordoue et Séville | Découverte de l'Amérique par Christophe Colomb |
+| 1492 | **Découverte de l'Amérique par Christophe Colomb** | milestone | exploration | 10/10 | Royaume de León, Empire toltèque, Cités-États mayas (post-classique) | Chute de Grenade — Fin de la Reconquista | — |
+| 1494 | **Traité de Tordesillas** | political | diplomatic | 8/10 | Royaume de León, États pontificaux | Découverte de l'Amérique par Christophe Colomb | — |
+| 1498 | **Vasco de Gama atteint l'Inde** | milestone | exploration | 9/10 | Royaume de León, République de Venise, Califat fatimide, Cités-États swahilies | — | — |
+| 1501 | **Fondation de l'Empire safavide — L'Iran devient chiite** | milestone | religious | 8/10 | Empire ghaznavide, Khanat karakhanide | Conquêtes de Tamerlan | — |
+| 1510 | **Début de la traite atlantique** | crisis | economic | 10/10 | Royaume de León, Empire du Ghana, Cités-États swahilies | Découverte de l'Amérique par Christophe Colomb | — |
+| 1517 | **Réforme protestante — 95 thèses de Luther** | cultural_shift | religious | 10/10 | Saint-Empire romain germanique, États pontificaux, Royaume d'Angleterre, Royaume de France | Invention de l'imprimerie à caractères mobiles, Concile de Constance — Fin du Grand Schisme, Guerres hussites | Guerre des paysans allemands, Paix d'Augsbourg — Cuius regio, eius religio |
+| 1519 | **Tour du monde de Magellan-Elcano** | milestone | exploration | 8/10 | Royaume de León | Vasco de Gama atteint l'Inde | — |
+| 1520 | **Apogée de l'Empire ottoman — Soliman le Magnifique** | milestone | political | 9/10 | Royaume de Hongrie, République de Venise, Saint-Empire romain germanique, États pontificaux | Chute de Constantinople | — |
+| 1521 | **Conquête de l'Empire aztèque par Cortés** | milestone | military | 10/10 | Royaume de León, Empire toltèque | Découverte de l'Amérique par Christophe Colomb, Fondation de Tenochtitlan, Traité de Tordesillas | — |
+| 1524 | **Guerre des paysans allemands** | crisis | political | 8/10 | Saint-Empire romain germanique | Réforme protestante — 95 thèses de Luther | — |
+| 1526 | **Fondation de l'Empire moghol** | milestone | military | 9/10 | Empire ghaznavide, Empire Pâla (Bengale) | Conquêtes de Tamerlan, Apogée du Sultanat de Delhi | — |
+| 1527 | **Sac de Rome** | crisis | military | 8/10 | États pontificaux, Saint-Empire romain germanique, Royaume de France | Apogée de la Renaissance italienne, Réforme protestante — 95 thèses de Luther | — |
+| 1530 | **Échange colombien — Nouvelles cultures** | opportunity | natural | 6/10 | Royaume de León, Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre, États pontificaux | Découverte de l'Amérique par Christophe Colomb | — |
+| 1532 | **Conquête de l'Empire inca par Pizarro** | milestone | military | 10/10 | Royaume de León, Royaume Chimú (Chan Chan), Successeurs Wari / Pré-Inca | Découverte de l'Amérique par Christophe Colomb, Expansion de l'Empire inca | — |
+| 1543 | **Révolution copernicienne** | cultural_shift | cultural | 9/10 | Saint-Empire romain germanique, États pontificaux | Invention de l'imprimerie à caractères mobiles, Apogée de la Renaissance italienne | — |
+| 1545 | **Concile de Trente — Contre-Réforme** | cultural_shift | religious | 8/10 | États pontificaux, Royaume de León, Saint-Empire romain germanique, Royaume de France | Réforme protestante — 95 thèses de Luther, Sac de Rome | — |
+| 1545 | **Le Potosí et l'afflux d'argent américain** | milestone | economic | 8/10 | Royaume de León, Saint-Empire romain germanique, République de Venise | Conquête de l'Empire inca par Pizarro | — |
+| 1555 | **Paix d'Augsbourg — Cuius regio, eius religio** | political | diplomatic | 7/10 | Saint-Empire romain germanique, États pontificaux | Réforme protestante — 95 thèses de Luther | — |
+| 1562 | **Guerres de religion françaises** | crisis | religious | 9/10 | Royaume de France | Réforme protestante — 95 thèses de Luther | — |
+| 1568 | **Révolte des Pays-Bas — Naissance des Provinces-Unies** | milestone | political | 8/10 | Royaume de León, Royaume d'Angleterre | Réforme protestante — 95 thèses de Luther | Défaite de l'Invincible Armada |
+| 1571 | **Bataille de Lépante** | milestone | military | 7/10 | Royaume de León, République de Venise, États pontificaux | Apogée de l'Empire ottoman — Soliman le Magnifique | — |
+| 1588 | **Défaite de l'Invincible Armada** | milestone | military | 9/10 | Royaume de León, Royaume d'Angleterre | Réforme protestante — 95 thèses de Luther | — |
+| 1600 | **Unification du Japon — Oda, Toyotomi, Tokugawa** | milestone | political | 8/10 | Japon (Heian) | Apogée culturel Heian — Le Dit du Genji | — |
+| 1602 | **Fondation des Compagnies des Indes orientales** | milestone | economic | 7/10 | Royaume d'Angleterre, Royaume de France, République de Venise | Vasco de Gama atteint l'Inde | — |
+| 1607 | **Colonisation de l'Amérique du Nord — Jamestown & Québec** | milestone | political | 7/10 | Royaume d'Angleterre, Royaume de France, Mi'kmaq, Béothuks (Terre-Neuve) | Découverte de l'Amérique par Christophe Colomb | — |
+| 1618 | **Guerre de Trente Ans** | crisis | military | 10/10 | Saint-Empire romain germanique, Royaume de France, Royaume de Suède, Royaume du Danemark, Royaume de León | Réforme protestante — 95 thèses de Luther, Paix d'Augsbourg — Cuius regio, eius religio, Concile de Trente — Contre-Réforme | Traités de Westphalie |
+| 1620 | **Âge d'or néerlandais** | cultural_shift | cultural | 6/10 | République de Venise | Révolte des Pays-Bas — Naissance des Provinces-Unies | — |
+| 1632 | **Galilée et la révolution copernicienne** | milestone | scientific | 6/10 | États pontificaux, République de Venise | Révolution copernicienne | — |
+| 1642 | **Guerre civile anglaise & exécution de Charles Ier** | crisis | political | 8/10 | Royaume d'Angleterre, Royaume d'Écosse | Magna Carta, Traités de Westphalie | Glorieuse Révolution & Bill of Rights |
+| 1644 | **Chute des Ming, avènement des Qing** | political | political | 9/10 | Dynastie Song | Voyages de Zheng He | — |
+| 1648 | **Traités de Westphalie** | milestone | political | 9/10 | Saint-Empire romain germanique, Royaume de France, Royaume de Suède, Royaume de León | Guerre de Trente Ans | — |
+| 1658 | **Apogée de l'Empire moghol — Aurangzeb** | milestone | political | 7/10 | Empire ghaznavide | Fondation de l'Empire moghol | — |
+| 1661 | **Règne de Louis XIV — L'absolutisme français** | milestone | political | 8/10 | Royaume de France | Traités de Westphalie | — |
+| 1665 | **Déclin du Royaume du Kongo — Bataille d'Ambuila** | crisis | military | 6/10 | Empire du Ghana | Début de la traite atlantique | — |
+| 1670 | **Reforestation Edo — Renaissance des forêts japonaises** | opportunity | natural | 3/10 | Japon (Heian) | — | — |
+| 1683 | **Second siège de Vienne — Arrêt de l'expansion ottomane** | crisis | military | 8/10 | Saint-Empire romain germanique, Royaume de Hongrie, Royaume de Pologne | Apogée de l'Empire ottoman — Soliman le Magnifique | — |
+| 1685 | **Révocation de l'Édit de Nantes** | crisis | religious | 7/10 | Royaume de France, Royaume d'Angleterre | Règne de Louis XIV — L'absolutisme français, Guerres de religion françaises | — |
+| 1687 | **Newton — Principia Mathematica** | milestone | scientific | 7/10 | Royaume d'Angleterre | Galilée et la révolution copernicienne, Révolution copernicienne | — |
+| 1688 | **Glorieuse Révolution & Bill of Rights** | political | political | 8/10 | Royaume d'Angleterre, Royaume d'Écosse | Guerre civile anglaise & exécution de Charles Ier | — |
+| 1692 | **Procès des sorcières de Salem** | crisis | religious | 4/10 | Royaume d'Angleterre | Colonisation de l'Amérique du Nord — Jamestown & Québec | — |
+| 1699 | **Grande Guerre turque — Traité de Karlowitz** | crisis | military | 7/10 | Saint-Empire romain germanique, Royaume de Hongrie, Royaume de Pologne, République de Venise, Rus' de Kiev | Second siège de Vienne — Arrêt de l'expansion ottomane | — |
+| 1700 | **Pierre le Grand — Modernisation de la Russie** | milestone | political | 8/10 | Rus' de Kiev | Fin du joug mongol — Montée de Moscou | — |
+| 1700 | **Guerre de Succession d'Espagne** | crisis | military | 8/10 | Royaume de France, Royaume de León, Saint-Empire romain germanique, Royaume d'Angleterre | Règne de Louis XIV — L'absolutisme français | — |
+| 1700 | **Grande Guerre du Nord** | crisis | military | 8/10 | Royaume de Suède, Rus' de Kiev, Royaume du Danemark, Royaume de Pologne | Pierre le Grand — Modernisation de la Russie | — |
+| 1707 | **Acte d'Union — Grande-Bretagne** | political | diplomatic | 6/10 | Royaume d'Angleterre, Royaume d'Écosse | Glorieuse Révolution & Bill of Rights | — |
+| 1720 | **Bulle des Mers du Sud et Bulle du Mississippi** | crisis | economic | 6/10 | Royaume d'Angleterre, Royaume de France | Guerre de Succession d'Espagne, Âge d'or néerlandais | — |
+| 1720 | **Empire Maratha — Résistance à l'hégémonie moghole** | milestone | military | 7/10 | Dynastie Chola | Apogée de l'Empire moghol — Aurangzeb | — |
+| 1720 | **Japon Tokugawa — Apogée de l'isolement** | cultural_shift | cultural | 5/10 | Japon (Heian) | Unification du Japon — Oda, Toyotomi, Tokugawa | — |
+| 1722 | **Chute des Safavides** | crisis | political | 8/10 | Empire ghaznavide | Fondation de l'Empire safavide — L'Iran devient chiite | — |
+| 1740 | **Frédéric II le Grand — Ascension de la Prusse** | milestone | military | 8/10 | Saint-Empire romain germanique, Royaume de Pologne | — | — |
+| 1750 | **Apogée Qing — Empereur Qianlong** | milestone | political | 8/10 | Dynastie Song | Chute des Ming, avènement des Qing | — |
+| 1750 | **Apogée de la Traite atlantique** | crisis | economic | 10/10 | Royaume d'Angleterre, Royaume de France, Royaume de León, Ifè (Yoruba), Empire du Ghana | Début de la traite atlantique, Fondation des Compagnies des Indes orientales | — |
+| 1751 | **Les Lumières — Encyclopédie et Raison** | cultural_shift | cultural | 9/10 | Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, Rus' de Kiev | Newton — Principia Mathematica, Galilée et la révolution copernicienne, Tremblement de terre de Lisbonne | — |
+| 1755 | **Tremblement de terre de Lisbonne** | natural_disaster | natural | 9/10 | Royaume de León | — | — |
+| 1756 | **Guerre de Sept Ans** | crisis | military | 9/10 | Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, Rus' de Kiev | Frédéric II le Grand — Ascension de la Prusse | — |
+| 1762 | **Catherine II la Grande — Modernisation russe** | milestone | political | 8/10 | Rus' de Kiev | Pierre le Grand — Modernisation de la Russie, Les Lumières — Encyclopédie et Raison | — |
+| 1769 | **Début de la Révolution industrielle** | milestone | economic | 10/10 | Royaume d'Angleterre | Newton — Principia Mathematica, Les Lumières — Encyclopédie et Raison | — |
+| 1770 | **Voyages de James Cook — Exploration du Pacifique** | milestone | exploration | 7/10 | Royaume d'Angleterre, Nations aborigènes australiennes, Ali'i d'Hawaï, Tu'i Tonga (Empire tongien) | Guerre de Sept Ans | — |
+| 1772 | **Partages de la Pologne** | crisis | diplomatic | 9/10 | Royaume de Pologne, Rus' de Kiev, Saint-Empire romain germanique | Frédéric II le Grand — Ascension de la Prusse, Grande Guerre du Nord, Catherine II la Grande — Modernisation russe | — |
+| 1776 | **Révolution américaine** | political | political | 10/10 | Royaume d'Angleterre, Royaume de France | Guerre de Sept Ans, Les Lumières — Encyclopédie et Raison | — |
+| 1789 | **Révolution française** | crisis | political | 10/10 | Royaume de France | Révolution américaine, Les Lumières — Encyclopédie et Raison | — |
+| 1791 | **Révolution haïtienne** | crisis | military | 9/10 | Royaume de France | Révolution française | — |
+| 1804 | **Napoléon Bonaparte — Empire français** | crisis | military | 10/10 | Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, Rus' de Kiev, Royaume de León | Révolution française | — |
+| 1815 | **Congrès de Vienne** | political | diplomatic | 8/10 | Saint-Empire romain germanique, Rus' de Kiev, Royaume d'Angleterre, Royaume de France | Napoléon Bonaparte — Empire français | — |
+| 1818 | **Shaka Zulu et le Mfecane** | crisis | military | 8/10 | Grand Zimbabwe (proto-Shona), Cités-États swahilies | Congrès de Vienne | — |
+| 1820 | **Indépendances latino-américaines** | political | political | 9/10 | Royaume de León | Napoléon Bonaparte — Empire français, Révolution américaine | — |
+| 1821 | **Indépendance de la Grèce** | political | military | 7/10 | Empire ghaznavide, Royaume d'Angleterre, Royaume de France, Rus' de Kiev | Les Lumières — Encyclopédie et Raison | — |
+| 1833 | **Abolition progressive de l'esclavage** | milestone | political | 9/10 | Royaume d'Angleterre, Royaume de France, Ifè (Yoruba), Empire du Ghana | Apogée de la Traite atlantique, Les Lumières — Encyclopédie et Raison, Révolution haïtienne | — |
+| 1839 | **Réformes Tanzimat — Modernisation ottomane** | political | political | 6/10 | Empire ghaznavide | Indépendance de la Grèce, Napoléon Bonaparte — Empire français | — |
+| 1840 | **Guerres de l'Opium** | crisis | military | 9/10 | Dynastie Song, Royaume d'Angleterre, Royaume de France | Apogée Qing — Empereur Qianlong, Début de la Révolution industrielle | — |
+| 1845 | **Grande Famine irlandaise** | natural_disaster | natural | 9/10 | Royaume d'Angleterre | Début de la Révolution industrielle | — |
+| 1848 | **Printemps des peuples — Révolutions de 1848** | crisis | political | 8/10 | Royaume de France, Saint-Empire romain germanique, Royaume de Hongrie, République de Venise | Congrès de Vienne, Début de la Révolution industrielle, Grande Famine irlandaise | — |
+| 1850 | **Révolte des Taiping** | crisis | religious | 10/10 | Dynastie Song | Guerres de l'Opium | — |
+| 1854 | **Guerre de Crimée** | crisis | military | 7/10 | Rus' de Kiev, Royaume de France, Royaume d'Angleterre, Empire ghaznavide | Congrès de Vienne | — |
+| 1857 | **Révolte des Cipayes — Fin de la Compagnie des Indes** | crisis | military | 8/10 | Royaume d'Angleterre, Dynastie Chola | Empire Maratha — Résistance à l'hégémonie moghole | — |
+| 1859 | **Darwin — De l'origine des espèces** | cultural_shift | scientific | 8/10 | Royaume d'Angleterre | Les Lumières — Encyclopédie et Raison, Voyages de James Cook — Exploration du Pacifique | — |
+| 1861 | **Unification de l'Italie — Risorgimento** | political | political | 8/10 | République de Venise, États pontificaux, Saint-Empire romain germanique, Royaume de France | Printemps des peuples — Révolutions de 1848, Guerre de Crimée | — |
+| 1861 | **Guerre de Sécession américaine** | crisis | military | 9/10 | Royaume d'Angleterre | Révolution américaine, Début de la Révolution industrielle, Abolition progressive de l'esclavage | — |
+| 1861 | **Abolition du servage en Russie** | political | political | 8/10 | Rus' de Kiev | Guerre de Crimée | — |
+| 1868 | **Restauration Meiji — Modernisation du Japon** | milestone | political | 9/10 | Japon (Heian) | Japon Tokugawa — Apogée de l'isolement | — |
+| 1869 | **Ouverture du canal de Suez** | milestone | economic | 7/10 | Royaume de France, Royaume d'Angleterre | Début de la Révolution industrielle | — |
+| 1871 | **Unification allemande — Bismarck** | political | military | 9/10 | Saint-Empire romain germanique, Royaume de France, Royaume du Danemark | Printemps des peuples — Révolutions de 1848, Frédéric II le Grand — Ascension de la Prusse | — |
+| 1871 | **Commune de Paris** | crisis | political | 7/10 | Royaume de France | Unification allemande — Bismarck | — |
+| 1877 | **Guerre russo-turque et Congrès de Berlin (1878)** | crisis | military | 7/10 | Rus' de Kiev, Empire ghaznavide, Saint-Empire romain germanique, Royaume d'Angleterre | Guerre de Crimée, Indépendance de la Grèce | — |
+| 1880 | **Seconde Révolution industrielle** | milestone | scientific | 9/10 | Royaume d'Angleterre, Saint-Empire romain germanique, Royaume de France | Début de la Révolution industrielle | — |
+| 1885 | **Partage de l'Afrique — Conférence de Berlin** | crisis | diplomatic | 10/10 | Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Royaume d'Éthiopie (Zagwé), Empire du Ghana, Ifè (Yoruba), Cités-États swahilies, Grand Zimbabwe (proto-Shona) | Début de la Révolution industrielle, Ouverture du canal de Suez, Shaka Zulu et le Mfecane | — |
+| 1898 | **Guerre hispano-américaine** | crisis | military | 7/10 | Royaume de León, Royaume d'Angleterre | Guerre de Sécession américaine | — |
+| 1900 | **Révolte des Boxers — L'Alliance des Huit Nations** | crisis | military | 8/10 | Dynastie Song, Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Rus' de Kiev, Japon (Heian) | Guerres de l'Opium | — |
+| 1904 | **Guerre russo-japonaise** | crisis | military | 8/10 | Japon (Heian), Rus' de Kiev | Restauration Meiji — Modernisation du Japon | — |
+| 1905 | **Révolution russe de 1905** | political | political | 8/10 | Rus' de Kiev | Guerre russo-japonaise, Abolition du servage en Russie | — |
+| 1914 | **Première Guerre mondiale** | crisis | military | 10/10 | Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, Rus' de Kiev, Empire ghaznavide, Japon (Heian), Royaume de León | Unification allemande — Bismarck, Guerre russo-turque et Congrès de Berlin (1878) | — |
+| 1917 | **Révolution russe d'Octobre** | crisis | political | 10/10 | Rus' de Kiev | Première Guerre mondiale, Révolution russe de 1905 | — |
+| 1922 | **Chute de l'Empire ottoman — Naissance de la Turquie** | political | political | 9/10 | Empire ghaznavide | Première Guerre mondiale, Réformes Tanzimat — Modernisation ottomane | — |
+| 1929 | **Grande Dépression** | crisis | economic | 9/10 | Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique | Première Guerre mondiale | — |
+| 1933 | **Montée des fascismes** | political | political | 9/10 | Saint-Empire romain germanique, Royaume de León, République de Venise | Première Guerre mondiale, Grande Dépression | — |
+| 1939 | **Seconde Guerre mondiale** | crisis | military | 10/10 | Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, Rus' de Kiev, Japon (Heian), Dynastie Song, République de Venise, Royaume de Pologne | Montée des fascismes, Grande Dépression | — |
+| 1947 | **Indépendance de l'Inde et Partition** | political | political | 9/10 | Royaume d'Angleterre, Dynastie Chola, Empire ghaznavide | Seconde Guerre mondiale, Révolte des Cipayes — Fin de la Compagnie des Indes | — |
+| 1947 | **Début de la Guerre froide** | political | diplomatic | 10/10 | Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Rus' de Kiev, Royaume de Pologne | Seconde Guerre mondiale, Révolution russe d'Octobre | — |
+| 1948 | **Création de l'État d'Israël** | political | political | 9/10 | Empire ghaznavide, Royaume d'Angleterre | Seconde Guerre mondiale, Chute de l'Empire ottoman — Naissance de la Turquie | — |
+| 1949 | **Révolution communiste chinoise** | political | political | 10/10 | Dynastie Song | Seconde Guerre mondiale, Révolte des Taiping, Révolte des Boxers — L'Alliance des Huit Nations | — |
+| 1960 | **Décolonisation de l'Afrique** | political | political | 9/10 | Empire du Ghana, Royaume d'Éthiopie (Zagwé), Cités-États swahilies, Ifè (Yoruba), Grand Zimbabwe (proto-Shona), Royaume de France, Royaume d'Angleterre | Seconde Guerre mondiale, Partage de l'Afrique — Conférence de Berlin | — |
+| 1962 | **Crise des missiles de Cuba** | crisis | diplomatic | 10/10 | Rus' de Kiev, Royaume d'Angleterre | Début de la Guerre froide | — |
+| 1965 | **Guerre du Vietnam** | crisis | military | 9/10 | Royaume de France, Royaume d'Angleterre | Début de la Guerre froide, Décolonisation de l'Afrique | — |
+| 1966 | **Révolution culturelle chinoise** | crisis | cultural | 9/10 | Dynastie Song | Révolution communiste chinoise | — |
+| 1969 | **Course à l'espace — L'Homme sur la Lune** | milestone | scientific | 7/10 | Rus' de Kiev | Début de la Guerre froide | — |
+| 1973 | **Premier choc pétrolier** | crisis | economic | 8/10 | Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Japon (Heian) | Création de l'État d'Israël, Début de la Guerre froide | — |
+| 1979 | **Révolution islamique iranienne** | political | religious | 9/10 | Empire ghaznavide | Premier choc pétrolier | — |
+| 1989 | **Chute du mur de Berlin — Fin de la Guerre froide** | milestone | political | 10/10 | Saint-Empire romain germanique, Rus' de Kiev, Royaume de Pologne | Début de la Guerre froide | — |
+| 1989 | **Massacre de Tiananmen** | crisis | political | 8/10 | Dynastie Song | Révolution culturelle chinoise | — |
+| 1991 | **Révolution Internet et numérique** | milestone | scientific | 9/10 | Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Japon (Heian) | Seconde Révolution industrielle, Course à l'espace — L'Homme sur la Lune | — |
+| 1992 | **Union européenne — L'euro et l'élargissement** | milestone | diplomatic | 8/10 | Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre, République de Venise, Royaume de León, Royaume de Pologne | Seconde Guerre mondiale, Chute du mur de Berlin — Fin de la Guerre froide | — |
+| 1992 | **Guerres de Yougoslavie** | crisis | military | 9/10 | République de Venise, Saint-Empire romain germanique | Chute du mur de Berlin — Fin de la Guerre froide | — |
+| 1994 | **Fin de l'apartheid — Mandela président** | milestone | political | 8/10 | Grand Zimbabwe (proto-Shona), Cités-États swahilies | Chute du mur de Berlin — Fin de la Guerre froide, Décolonisation de l'Afrique | — |
+| 1994 | **Génocide rwandais** | crisis | political | 10/10 | Cités-États swahilies | Décolonisation de l'Afrique | — |
+| 2001 | **Attentats du 11 septembre** | crisis | military | 10/10 | Royaume d'Angleterre, Empire ghaznavide | Début de la Guerre froide, Révolution islamique iranienne | — |
+| 2001 | **Entrée de la Chine à l'OMC** | milestone | economic | 9/10 | Dynastie Song, Royaume d'Angleterre, Japon (Heian) | Révolution communiste chinoise, Massacre de Tiananmen | — |
+| 2003 | **Guerre d'Irak — Chute de Saddam Hussein** | crisis | military | 9/10 | Royaume d'Angleterre, Empire ghaznavide | Attentats du 11 septembre | — |
+| 2004 | **Tsunami de l'océan Indien** | natural_disaster | natural | 9/10 | Dynastie Chola, Cités-États swahilies | Révolution Internet et numérique | — |
+| 2008 | **Crise financière mondiale de 2008** | crisis | economic | 9/10 | Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Royaume de León | Révolution Internet et numérique | — |
+| 2011 | **Printemps arabe** | political | political | 9/10 | Empire ghaznavide | Révolution Internet et numérique, Crise financière mondiale de 2008 | — |
+| 2014 | **L'État islamique — Le Califat de Daech** | crisis | military | 9/10 | Empire ghaznavide, Royaume de France, Royaume d'Angleterre | Guerre d'Irak — Chute de Saddam Hussein, Printemps arabe | — |
+| 2015 | **Crise migratoire européenne** | crisis | political | 8/10 | Saint-Empire romain germanique, Royaume de France, Empire ghaznavide, Royaume de Hongrie | Printemps arabe, L'État islamique — Le Califat de Daech | — |
+| 2015 | **Accélération de la crise climatique** | crisis | natural | 10/10 | Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Dynastie Song, Dynastie Chola, Nations aborigènes australiennes, Ali'i d'Hawaï | Seconde Révolution industrielle | — |
+| 2016 | **Brexit — Le Royaume-Uni quitte l'UE** | political | diplomatic | 7/10 | Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Royaume d'Écosse | Union européenne — L'euro et l'élargissement, Crise migratoire européenne | — |
+| 2020 | **Pandémie de COVID-19** | natural_disaster | health | 10/10 | Dynastie Song, Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Royaume de León, République de Venise, Japon (Heian), Dynastie Chola | Révolution Internet et numérique | — |
+| 2022 | **Invasion russe de l'Ukraine** | crisis | military | 10/10 | Rus' de Kiev, Saint-Empire romain germanique, Royaume de France, Royaume d'Angleterre, Royaume de Pologne | Chute du mur de Berlin — Fin de la Guerre froide | — |
+| 2023 | **Révolution de l'intelligence artificielle** | milestone | scientific | 9/10 | Royaume d'Angleterre, Dynastie Song, Japon (Heian), Royaume de France, Saint-Empire romain germanique | Révolution Internet et numérique, Pandémie de COVID-19 | — |
+
+#### Christianisation de la Scandinavie (1000)
+
+> Les rois scandinaves achèvent la conversion officielle au christianisme, transformant les sociétés nordiques et intégrant la Scandinavie dans la chrétienté européenne. L'Islande s'est convertie en 1000, la Norvège et la Suède suivent.
+
+- **Type** : cultural_shift / religious
+- **Fenêtre** : 995–1030
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de Norvège, Royaume de Suède, Royaume du Danemark
+- **Choix joueurs** :
+  - *Accepter la conversion* — Le roi impose le baptême. Intégration rapide dans la chrétienté mais révoltes païennes.
+  - *Résister au christianisme* — Maintien des cultes nordiques. Isolation diplomatique mais stabilité interne préservée.
+- **Alternative MJ** : Si les joueurs scandinaves résistent, le christianisme peut arriver par le commerce et les mariages plutôt que par décret royal.
+- **Issue historique** : Olaf II de Norvège et Olof Skötkonung de Suède imposent le christianisme. Les derniers temples païens sont détruits vers 1050, mais les pratiques syncrétiques persistent dans les campagnes pendant des décennies.
+
+#### Optimum climatique médiéval (1000)
+
+> Période de réchauffement climatique permettant l'expansion agricole en Europe du Nord, la colonisation viking du Groenland, et des récoltes abondantes. Le climat favorise la croissance démographique.
+
+- **Type** : natural_disaster / natural
+- **Fenêtre** : 900–1250
+- **Sévérité** : 3/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Issue historique** : Températures supérieures de 1-2°C à celles du petit âge glaciaire. La population européenne double entre 1000 et 1300. L'agriculture s'étend au Groenland et en Scandinavie intérieure.
+
+#### Apogée commerciale de Bolgar (1000)
+
+> La ville de Bolgar, capitale des Bulgares de la Volga, atteint son apogée comme plaque tournante du commerce entre la Scandinavie, Byzance, les califats islamiques et les peuples des steppes. Le commerce de fourrures, de miel et d'esclaves enrichit considérablement l'État.
+
+- **Type** : opportunity / economic
+- **Fenêtre** : 980–1050
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Bulgarie de la Volga
+- **Choix joueurs** :
+  - *Investir dans les routes commerciales* — Renforcer les caravansérails et les relations diplomatiques pour maximiser le commerce.
+  - *Taxer lourdement et militariser* — Imposer des taxes élevées et renforcer les garnisons, au risque de décourager les marchands.
+- **Alternative MJ** : Si les routes sont perturbées par des raids Rus ou Petchenègues, le commerce peut décliner au lieu de prospérer.
+- **Issue historique** : Bolgar reste un centre commercial majeur jusqu'à l'invasion mongole de 1236. Les fouilles archéologiques révèlent une ville cosmopolite avec mosquées, bains, ateliers de métallurgie et monnaies frappées localement. Le commerce de fourrures avec les populations finno-ougriennes du nord était particulièrement lucratif.
+
+#### Renaissance bouddhiste tibétaine (1000)
+
+> Après la période de fragmentation qui a suivi l'effondrement de l'Empire tibétain (842), le traducteur Rinchen Zangpo et le roi Yeshe-Ö du Guge lancent un renouveau bouddhiste majeur. Rinchen Zangpo traduit des centaines de textes sanskrits en tibétain et fonde des monastères.
+
+- **Type** : cultural_shift / religious
+- **Fenêtre** : 985–1055
+- **Sévérité** : 7/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Tibet (période de fragmentation)
+- **Choix joueurs** :
+  - *Soutenir le renouveau bouddhiste* — Financer les traductions et les monastères, renforçant le bouddhisme comme religion nationale.
+  - *Limiter le pouvoir monastique* — Prévenir une trop grande influence des monastères sur la politique séculière.
+- **Alternative MJ** : Sans le soutien royal du Guge, le renouveau bouddhiste pourrait être plus lent et se diffuser par les routes commerciales plutôt que par patronage royal.
+- **Issue historique** : Rinchen Zangpo (958-1055) traduit plus de 150 textes et fonde 108 monastères. Le maître indien Atisha arrive au Tibet en 1042, lançant la tradition Kadampa. Cette renaissance bouddhiste transforme définitivement la culture tibétaine et pose les bases des grandes écoles (Sakya, Kagyu, Gelug) qui domineront le Tibet pendant des siècles.
+
+#### Apogée de la Makurie chrétienne (1000)
+
+> Le royaume chrétien de Makurie atteint son apogée culturel et politique. La cathédrale de Faras, ornée de fresques remarquables, symbolise cette prospérité. Le Baqt, traité unique avec l'Égypte musulmane, assure la paix depuis le VIIe siècle.
+
+- **Type** : milestone / cultural
+- **Fenêtre** : 950–1050
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Royaume de Makuria
+- **Choix joueurs** :
+  - *Investir dans la culture et le commerce* — Profiter de la paix pour développer les arts, les églises et le commerce nilotique.
+  - *Renforcer les défenses* — Se préparer à d'éventuelles incursions en fortifiant la frontière nord.
+- **Alternative MJ** : Si le Baqt est rompu prématurément, la Makurie pourrait entrer en conflit direct avec les Fatimides dès le XIe siècle.
+- **Issue historique** : La Makurie maintient son indépendance chrétienne jusqu'au XIVe siècle, un exploit remarquable face à l'expansion islamique. Les fresques de Faras (redécouvertes en 1961) témoignent d'une riche tradition artistique mêlant influences coptes, byzantines et africaines. Le déclin commence avec les invasions mameloukes au XIIIe siècle.
+
+#### Domination touarègue des routes sahariennes (1000)
+
+> Les confédérations touarègues consolident leur contrôle sur les routes transsahariennes centrales entre le Sahel et le Maghreb. Les villes-oasis d'Agadez et de Tadmekka deviennent des étapes incontournables du commerce de l'or, du sel et des esclaves.
+
+- **Type** : opportunity / economic
+- **Fenêtre** : 950–1050
+- **Sévérité** : 6/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Confédération touarègue (Sanhadja)
+- **Choix joueurs** :
+  - *Monopoliser les routes* — Imposer des péages élevés et contrôler strictement les passages.
+  - *Faciliter le commerce* — Réduire les taxes pour encourager un trafic plus important.
+- **Alternative MJ** : Si les Almoravides prennent le contrôle direct des routes occidentales, les Touareg pourraient se replier sur les routes centrales et orientales.
+- **Issue historique** : Les Touareg maintiennent leur rôle de gardiens et guides des routes sahariennes pendant des siècles. Tadmekka produit des copies de dinars fatimides en or. L'émergence des Almoravides (1040s) modifie l'équilibre des pouvoirs à l'ouest, mais les Touareg conservent le contrôle des routes centrales.
+
+#### Consolidation du royaume sacré de Nri (1000)
+
+> Le royaume de Nri, unique en Afrique par son pouvoir fondé non sur la force militaire mais sur l'autorité rituelle, consolide son influence dans le pays igbo. L'Eze Nri (roi-prêtre) exerce un pouvoir de purification et de résolution des conflits.
+
+- **Type** : milestone / political
+- **Fenêtre** : 950–1050
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Royaume de Nri (Igbo)
+- **Choix joueurs** :
+  - *Étendre l'autorité rituelle* — Envoyer des agents rituels (osu) dans de nouvelles communautés pour étendre l'influence de Nri.
+  - *Préserver la pureté du centre* — Concentrer le pouvoir rituel sur le cœur du territoire Nri.
+- **Alternative MJ** : Si l'autorité rituelle de Nri est contestée, d'autres centres de pouvoir igbo pourraient émerger plus tôt.
+- **Issue historique** : Le royaume de Nri existe depuis le Xe siècle et perdure jusqu'en 1911. Les bronzes d'Igbo-Ukwu (IXe-Xe siècle), découverts en 1959, révèlent une métallurgie sophistiquée et des contacts commerciaux lointains. Le système Nri, fondé sur l'autorité religieuse et la résolution pacifique, est un cas unique de gouvernance non-violente en Afrique précoloniale.
+
+#### Résistance aïnoue face au Japon (campagnes Ezo) (1000)
+
+> Les Aïnou d'Ezo (Hokkaido) font face à la pression croissante des colons et marchands japonais qui établissent des comptoirs commerciaux sur la côte sud. Les postes de Tsugaru deviennent des points de friction entre les deux cultures.
+
+- **Type** : crisis / military
+- **Fenêtre** : 980–1050
+- **Sévérité** : 6/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Aïnous (Hokkaido)
+- **Choix joueurs** :
+  - *Résister aux empiétements japonais* — Organiser la résistance armée et limiter les contacts commerciaux.
+  - *Négocier des accords commerciaux* — Accepter le commerce avec les Japonais tout en préservant les territoires de chasse et de pêche.
+- **Alternative MJ** : Si le Japon Heian est trop focalisé sur ses problèmes internes (rivalité Fujiwara), la pression sur les Aïnou pourrait être moindre.
+- **Issue historique** : L'expansion japonaise vers le nord reste limitée durant l'époque Heian (794-1185), mais les comptoirs de commerce se multiplient. Les Aïnou maintiennent leur indépendance effective sur Hokkaido jusqu'à l'ère Meiji (1868). La « guerre de Koshamain » (1457) et la « révolte de Shakushain » (1669) seront des soulèvements majeurs ultérieurs.
+
+#### Établissement des royaumes malgaches (1000)
+
+> Vers l'an 1000, la colonisation austronésienne de Madagascar est achevée. Les populations d'origine indonésienne (principalement Bornéo) se mêlent aux migrants bantu d'Afrique de l'Est. Les premiers chefferies organisées émergent sur les côtes.
+
+- **Type** : milestone / cultural
+- **Fenêtre** : 900–1100
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Royaumes malgaches proto-historiques
+- **Choix joueurs** :
+  - *Développer les ports côtiers* — Se tourner vers le commerce maritime avec l'océan Indien.
+  - *Coloniser l'intérieur des terres* — Développer la riziculture sur les hauts plateaux intérieurs.
+- **Alternative MJ** : Si les communautés restent fragmentées, l'émergence de royaumes structurés pourrait être retardée.
+- **Issue historique** : Les premiers sites archéologiques attestent d'une colonisation austronésienne achevée vers le Xe siècle. Le malgache reste une langue austronésienne (proche du ma'anyan de Bornéo) avec des emprunts bantu. Les royaumes côtiers comme Mahilaka commercent avec le monde swahili. Les royaumes Merina et Sakalava émergeront plus tard sur les hauts plateaux.
+
+#### Migration des Thulé vers le Groenland (1000)
+
+> Les Thulé, chasseurs de baleines originaires d'Alaska, achèvent leur migration vers l'est à travers l'Arctique canadien, atteignant le Groenland vers l'an 1000. Leur technologie supérieure (kayak, umiak, traîneau à chiens) leur permet de supplanter les Dorsétiens.
+
+- **Type** : milestone / exploration
+- **Fenêtre** : 900–1100
+- **Sévérité** : 7/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Thulé (proto-Inuit)
+- **Choix joueurs** :
+  - *Poursuivre la migration vers le Groenland* — Les clans Thulé suivent les baleines vers de nouveaux territoires.
+  - *Consolider les territoires acquis* — Renforcer les camps permanents dans le centre de l'Arctique canadien.
+- **Alternative MJ** : Si le climat se refroidit trop vite, la migration pourrait ralentir. Les Dorsétiens pourraient offrir une résistance plus forte.
+- **Issue historique** : Les Thulé atteignent le Groenland vers 1000-1100 et y rencontrent les Vikings norrois. Les preuves archéologiques montrent des échanges (fer viking, ivoire thulé). Les Dorsétiens disparaissent progressivement, absorbés ou supplantés. Les descendants des Thulé sont les Inuit modernes du Canada, du Groenland et de l'Alaska.
+
+#### Florescence culturelle de Haida Gwaii (1000)
+
+> Les Haïda de Haida Gwaii (îles de la Reine-Charlotte) connaissent une période d'épanouissement culturel. La richesse en saumon, cèdre et haliotide permet le développement de l'art monumental (totems), des potlatchs élaborés et d'une puissante flotte de canots de guerre.
+
+- **Type** : opportunity / cultural
+- **Fenêtre** : 950–1100
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Confédération Haida-Tlingit
+- **Choix joueurs** :
+  - *Organiser de grands potlatchs* — Démontrer la puissance et la richesse du clan par des dons somptueux.
+  - *Renforcer la flotte de canots* — Construire des canots de guerre en cèdre pour projeter la puissance haïda sur la côte.
+- **Alternative MJ** : Si un tremblement de terre ou un tsunami frappe les côtes, la florescence pourrait être interrompue.
+- **Issue historique** : Les Haïda deviennent l'un des peuples les plus prospères de la côte nord-ouest Pacifique. Leurs canots de guerre (jusqu'à 20 m) leur permettent de mener des raids jusqu'en Californie. L'art haïda (totems, masques, coffres sculptés) est reconnu comme l'un des sommets de l'art autochtone mondial. Le système de potlatch structure toute la vie sociale jusqu'à son interdiction par le Canada en 1884.
+
+#### Intensification du pastoralisme de renne sami (1000)
+
+> Les Samis passent progressivement de la chasse au renne sauvage à un pastoralisme semi-nomade plus structuré. Cette transition, couplée à l'augmentation des contacts commerciaux avec les royaumes scandinaves (fourrures contre fer), transforme leur mode de vie.
+
+- **Type** : cultural_shift / economic
+- **Fenêtre** : 900–1100
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Sami (Laponie)
+- **Choix joueurs** :
+  - *Adopter le pastoralisme de renne* — Domestiquer et gérer les troupeaux pour un mode de vie plus stable.
+  - *Maintenir la chasse traditionnelle* — Préserver le mode de vie ancestral de chasse et cueillette.
+- **Alternative MJ** : Si les royaumes scandinaves ne taxent pas les Samis, la transition vers le pastoralisme pourrait être plus lente.
+- **Issue historique** : La transition vers le pastoralisme de renne s'étale sur plusieurs siècles. Les Samis deviennent les fournisseurs principaux de fourrures pour les marchés scandinaves. La taxation multiple (finneskatt) par les rois de Norvège, Suède et Novgorod devient une source de conflit récurrente. Le joik (chant traditionnel) et le chamanisme sami persistent malgré la christianisation progressive.
+
+#### Expansion agricole et consolidation mapuche (1000)
+
+> Les Mapuche du centre-sud du Chili développent une agriculture intensive (pommes de terre, maïs, quinoa) dans les vallées fertiles entre les Andes et la côte Pacifique. Les communautés renforcent leur organisation en rewe (alliances de lignages) et ayllarehue (confédérations).
+
+- **Type** : milestone / economic
+- **Fenêtre** : 900–1100
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Mapuche (Reche)
+- **Choix joueurs** :
+  - *Intensifier l'agriculture* — Défricher de nouvelles vallées et développer les systèmes irrigation rudimentaires.
+  - *Renforcer les confédérations guerrières* — Prioriser les alliances militaires face aux voisins.
+- **Alternative MJ** : Si l'Empire inca étend son influence trop au sud, les Mapuche pourraient être forcés à une résistance militaire précoce.
+- **Issue historique** : Les Mapuche développent une société décentralisée mais résiliente qui résistera avec succès à l'Empire inca (bataille du Maule, ~1485) puis à l'Empire espagnol (guerre d'Arauco, 1550s-1883). Leur système confédéral flexible, sans roi centralisé, rend la conquête impossible car il n'y a pas de tête à couper.
+
+#### Cérémonies d'investiture au lac Guatavita (1000)
+
+> Les Muiscas pratiquent leur célèbre rituel d'investiture au lac Guatavita : le nouveau zipa (souverain) est recouvert de poudre d'or et se baigne dans le lac sacré, accompagné d'offrandes d'or et d'émeraudes. Ce rituel sera plus tard à l'origine de la légende d'El Dorado.
+
+- **Type** : cultural_shift / cultural
+- **Fenêtre** : 900–1100
+- **Sévérité** : 6/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Confédération Muisca
+- **Choix joueurs** :
+  - *Cérémonies somptueuses* — Organiser des offrandes massives d'or pour impressionner les vassaux.
+  - *Cérémonies modestes* — Réduire les offrandes d'or pour préserver les ressources.
+- **Alternative MJ** : Si les mines sont épuisées ou disputées, les cérémonies pourraient devenir moins somptueuses.
+- **Issue historique** : Les cérémonies du lac Guatavita sont attestées archéologiquement par le radeau muisca en or (trouvé en 1969, daté entre 600 et 1600). Ce rituel inspirera la légende d'El Dorado qui motivera des centaines d'expéditions espagnoles. Les Muiscas sont les plus grands orfèvres d'Amérique du Sud avec les Quimbayas, et les seuls à utiliser un système d'émeraudes comme quasi-monnaie.
+
+#### Expansion guaranie le long des fleuves (1000)
+
+> Les Guaranis poursuivent leur expansion le long des bassins du Paraná et du Paraguay, colonisant de nouvelles terres grâce à leur agriculture itinérante (manioc, maïs) et leur maîtrise de la navigation fluviale. Leur quête mythique de la « Terre sans mal » (Yvy Maraẽy) motive ces migrations.
+
+- **Type** : milestone / exploration
+- **Fenêtre** : 900–1100
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Guaraní
+- **Choix joueurs** :
+  - *Poursuivre la migration* — Suivre les fleuves vers de nouvelles terres, guidés par la quête de Yvy Maraẽy.
+  - *Consolider les villages existants* — Renforcer les communautés actuelles et développer les réseaux de troc.
+- **Alternative MJ** : Si les territoires sont déjà occupés par des peuples hostiles, la migration pourrait être ralentie.
+- **Issue historique** : Les Guaranis occupent, à l'arrivée des Européens, un immense territoire allant de l'Amazonie au Rio de la Plata. Leur langue (guarani) est aujourd'hui langue officielle du Paraguay, parlée par 90% de la population. La quête de la « Terre sans mal » reste vivante dans la spiritualité guaranie contemporaine. Leur agriculture du manioc et du maïs influence toute l'Amérique du Sud.
+
+#### Expansion du réseau de canaux hohokam (1000)
+
+> Les Hohokam du sud de l'Arizona étendent leur impressionnant réseau de canaux d'irrigation dans le bassin de la Salt River. Ces canaux, les plus sophistiqués d'Amérique du Nord, permettent de cultiver le désert de Sonora et de supporter une population croissante.
+
+- **Type** : milestone / economic
+- **Fenêtre** : 900–1100
+- **Sévérité** : 6/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Hohokam
+- **Choix joueurs** :
+  - *Étendre le réseau de canaux* — Mobiliser les communautés pour creuser de nouveaux canaux.
+  - *Développer le commerce mésoaméricain* — Renforcer les liens commerciaux avec les civilisations du sud (coquillages, miroirs de pyrite).
+- **Alternative MJ** : Si une crue majeure de la Salt River détruit les canaux, la civilisation hohokam pourrait décliner prématurément.
+- **Issue historique** : Le réseau de canaux hohokam atteint plus de 500 km au XIe siècle, irriguant des milliers d'hectares dans le désert de Sonora. Des coquillages du Pacifique, des perroquets et des miroirs de pyrite attestent de contacts avec la Mésoamérique. La civilisation hohokam décline vers 1400, probablement suite à des inondations et sécheresses. Les O'odham (Pima et Papago) modernes sont considérés comme leurs descendants.
+
+#### Les Dorsétiens face à la migration thulé (1000)
+
+> Les Dorsétiens (Tuniit dans la tradition inuit), peuple paléoesquimau vivant dans l'Arctique canadien depuis 2000 ans, font face à l'arrivée des Thulé, technologiquement supérieurs. Sans chiens de traîneau ni kayaks, les Dorsétiens sont progressivement marginalisés.
+
+- **Type** : crisis / military
+- **Fenêtre** : 900–1200
+- **Sévérité** : 8/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Culture de Dorset (Tuniit)
+- **Choix joueurs** :
+  - *Résister aux Thulé* — Défendre les territoires de chasse traditionnels malgré le désavantage technologique.
+  - *Se replier vers des zones isolées* — Abandonner les territoires contestés pour survivre dans les marges.
+- **Alternative MJ** : Si les Dorsétiens adoptent la technologie thulé (kayak, chiens), ils pourraient survivre comme peuple distinct.
+- **Issue historique** : Les Dorsétiens disparaissent vers 1500, remplacés par les Thulé. L'ADN ancien révèle qu'ils formaient une population génétiquement distincte, sans mélange significatif avec les Thulé. Les Inuit les appelaient Tuniit et les décrivaient dans leurs légendes comme des géants timides. Leur art (miniatures en ivoire) est d'une finesse remarquable.
+
+#### Migrations dénées vers le sud (1000)
+
+> Des groupes dénés (athapascans) commencent une migration progressive depuis la taïga subarctique vers le sud. Certains groupes atteindront éventuellement le sud-ouest américain (ancêtres des Navajos et Apaches). D'autres restent dans la forêt boréale comme chasseurs-cueilleurs.
+
+- **Type** : milestone / exploration
+- **Fenêtre** : 800–1200
+- **Sévérité** : 6/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Nations dénées (Athapascanes)
+- **Choix joueurs** :
+  - *Envoyer des éclaireurs vers le sud* — Explorer les territoires au sud de la forêt boréale.
+  - *Rester dans la forêt boréale* — Consolider la maîtrise des territoires de chasse actuels.
+- **Alternative MJ** : Si les pression Thulé ne se matérialise pas, la migration vers le sud pourrait être plus lente ou ne pas avoir lieu.
+- **Issue historique** : La famille linguistique dénée (na-dené/athapascane) est l'une des plus dispersées d'Amérique. Les Navajos et Apaches, arrivés dans le sud-ouest vers 1300-1500, parlent des langues athapascanes. L'ADN et la linguistique confirment leur origine subarctique. Les Dénés restés au nord (Chipewyan, Tłı̨chǫ, Dëne Sųłiné) maintiennent aujourd'hui leur mode de vie dans la forêt boréale.
+
+#### Les San face à l'expansion bantoue (1000)
+
+> Les San (Bochimans), plus anciens habitants d'Afrique australe, font face à l'expansion des peuples bantous (Sotho-Tswana, Nguni) qui occupent progressivement les meilleures terres avec leur agriculture et leur métallurgie. Les San sont repoussés vers les zones les plus arides du Kalahari.
+
+- **Type** : crisis / military
+- **Fenêtre** : 800–1200
+- **Sévérité** : 7/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : San (Bushmen du Kalahari)
+- **Choix joueurs** :
+  - *Se replier dans le Kalahari* — Utiliser la connaissance inégalée du désert pour survivre là où les Bantous ne peuvent pas.
+  - *Chercher la coexistence* — Adapter les pratiques et commercer avec les Bantous (viande contre fer).
+- **Alternative MJ** : Si les Bantous avancent plus lentement, les San pourraient coexister plus longtemps dans les zones de transition.
+- **Issue historique** : Les San survivent dans le Kalahari grâce à leur connaissance exceptionnelle du désert. Leur art rupestre, le plus ancien du monde (80 000+ ans), cesse progressivement dans les zones bantoues. L'ADN révèle que les San sont l'une des plus anciennes lignées humaines. Aujourd'hui, environ 100 000 San vivent au Botswana, en Namibie et en Afrique du Sud, luttant pour la préservation de leurs terres.
+
+#### Intensification des échanges Mbuti-Bantous (1000)
+
+> Les Mbuti (Pygmées) de la forêt d'Ituri intensifient leurs échanges avec les peuples bantu agriculteurs installés en lisière de forêt. Un système de troc symbiotique s'établit : viande de chasse, miel et plantes médicinales contre fer, poterie et produits agricoles.
+
+- **Type** : opportunity / economic
+- **Fenêtre** : 800–1200
+- **Sévérité** : 4/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Mbuti (Pygmées de la forêt Ituri)
+- **Choix joueurs** :
+  - *Développer les échanges* — Approfondir le commerce avec les villages bantous en lisière de forêt.
+  - *Préserver l'isolement forestier* — Limiter les contacts et maintenir l'autonomie de la forêt.
+- **Alternative MJ** : Si les Bantous n'atteignent pas l'Ituri, les Mbuti restent totalement autonomes.
+- **Issue historique** : Les Mbuti développent un système complexe de relations avec les villageois bantous, chaque groupe Mbuti étant associé à un village partenaire. Les anthropologues (Colin Turnbull, 1961) documenteront cette relation. Les Mbuti préservent leur mode de vie de chasseurs-cueilleurs jusqu'au XXe siècle, mais la déforestation et les conflits du Congo menacent aujourd'hui leur survie.
+
+#### Intensification agricole des Hautes-Terres de Papouasie (1000)
+
+> Les peuples des Hautes-Terres de Nouvelle-Guinée perfectionnent leur système agricole unique basé sur la patate douce (introduite depuis la Polynésie) et le taro. Les techniques de drainage des marais et de culture en buttes permettent de nourrir des populations denses à haute altitude.
+
+- **Type** : milestone / economic
+- **Fenêtre** : 800–1200
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Peuples papous (hautes terres)
+- **Choix joueurs** :
+  - *Drainer de nouvelles vallées* — Étendre les zones cultivables par le drainage des marais.
+  - *Développer l'élevage porcin* — Augmenter les troupeaux de porcs, monnaie d'échange sociale.
+- **Alternative MJ** : Si la patate douce ne se diffuse pas, la population reste plus faible et dépendante du taro.
+- **Issue historique** : Les Hautes-Terres de Nouvelle-Guinée sont l'un des sites indépendants d'invention de l'agriculture (il y a 7000 ans, site de Kuk). La patate douce, introduite entre 1000 et 1600, provoque une révolution agricole. Au contact européen (années 1930), les Hautes-Terres abritent environ un million de personnes dans des sociétés complexes sans écriture ni État. Le système d'échange moka rivalise en complexité avec les potlatchs de la côte nord-ouest.
+
+#### Émergence des grandes chefferies fidjiennes (1000)
+
+> Les communautés fidjiennes développent un système de chefferies complexes avec des hiérarchies sociales définies. La construction de bure (maisons cérémonielles) et de fortifications (ring-ditch forts) témoigne d'une société de plus en plus stratifiée et belliqueuse.
+
+- **Type** : political / political
+- **Fenêtre** : 900–1200
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Chefferies fidjiennes
+- **Choix joueurs** :
+  - *Centraliser le pouvoir* — Renforcer l'autorité du chef suprême sur les villages vassaux.
+  - *Intensifier les raids inter-insulaires* — Construire des drua (grands canoës doubles) et raider les îles voisines.
+- **Alternative MJ** : Si un tsunami ou un cyclone dévaste les côtes, la centralisation politique pourrait être retardée.
+- **Issue historique** : Les Fidji développent parmi les sociétés les plus complexes du Pacifique, avec des chefferies rivales, une agriculture intensive (terrasses) et une navigation inter-insulaire sophistiquée. Les drua (canoës doubles) sont les plus grands du Pacifique. Le cannibalisme rituel reste pratiqué jusqu'au contact européen. La confédération de Bau dominera les Fidji à partir du XVIIIe siècle.
+
+#### Période Latte des Chamorro (1000)
+
+> Les Chamorro des îles Mariannes entrent dans la période Latte, caractérisée par la construction de maisons sur des piliers en pierre calcaire (latte stones). Ces structures monumentales, uniques dans le Pacifique, témoignent d'une société hiérarchisée et d'une expertise architecturale remarquable.
+
+- **Type** : milestone / cultural
+- **Fenêtre** : 900–1100
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Chamorros (îles Mariannes)
+- **Choix joueurs** :
+  - *Construire des structures latte plus grandes* — Mobiliser les matachang (classe inférieure) pour ériger des piliers monumentaux.
+  - *Développer la navigation hauturière* — Construire des proa (pirogues rapides) pour le commerce et la pêche.
+- **Alternative MJ** : Si un typhon majeur détruit les structures, la tradition latte pourrait évoluer vers des maisons plus modestes.
+- **Issue historique** : La période Latte (900-1668) voit les Chamorro construire des centaines de structures sur piliers en pierre corallienne, certaines dépassant 5 mètres. Magellan sera le premier Européen à les rencontrer (1521). La colonisation espagnole (1668) et les guerres chamorro (1670-1695) détruiront presque entièrement la culture chamorro, la population passant de 50 000 à moins de 5000.
+
+#### Isolement millénaire des Guanches (1000)
+
+> Les Guanches des îles Canaries vivent dans un isolement total depuis plus d'un millénaire après avoir perdu l'art de la navigation. D'origine berbère, ils ont développé une culture unique adaptée au volcanisme insulaire : momification des morts, écriture libyco-berbère, et agriculture de l'orge.
+
+- **Type** : cultural_shift / cultural
+- **Fenêtre** : 800–1200
+- **Sévérité** : 3/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Guanches (îles Canaries)
+- **Choix joueurs** :
+  - *Intensifier l'agriculture* — Développer la culture de l'orge et l'élevage caprin sur les terrasses volcaniques.
+  - *Renforcer les pratiques rituelles* — Consacrer plus de ressources aux rites funéraires et au culte du Teide.
+- **Alternative MJ** : Si des marins arabes ou génois atteignent les Canaries avant la date historique, l'isolement prend fin plus tôt.
+- **Issue historique** : Les Guanches vivent en autarcie totale jusqu'à la redécouverte des Canaries par les Génois (1312) et les Portugais (1340s). La conquête espagnole (1402-1496) entraîne l'extinction quasi-complète de la culture guanche. Leur pratique de momification, similaire à celle de l'Égypte ancienne, fascine les savants. L'ADN moderne révèle qu'environ 15-25% du patrimoine génétique canarien est d'origine guanche.
+
+#### Expansion maritime des Tchouktches (1000)
+
+> Les Tchouktches maritimes (Anqallyt) développent une culture de chasse au morse et à la baleine sur les côtes de la mer de Béring et de l'océan Arctique. Leurs embarcations en peau de morse (angyapik) leur permettent de naviguer dans les eaux glacées et de commercer avec l'Alaska.
+
+- **Type** : opportunity / economic
+- **Fenêtre** : 900–1100
+- **Sévérité** : 4/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Tchouktches
+- **Choix joueurs** :
+  - *Développer la chasse maritime* — Investir dans les techniques de chasse au morse et à la baleine.
+  - *Développer le pastoralisme de renne* — Les Tchouktches terrestres (Chauchu) se concentrent sur les troupeaux de rennes.
+- **Alternative MJ** : Si les routes maritimes sont bloquées par les glaces, les Tchouktches se concentrent sur le pastoralisme terrestre.
+- **Issue historique** : Les Tchouktches deviennent les maîtres incontestés de la Tchoukotka, divisés entre maritimes (chasseurs de mammifères marins) et terrestres (éleveurs de rennes). Ils seront le seul peuple sibérien à résister avec succès à la conquête russe, repoussant les Cosaques à plusieurs reprises (1729-1764). Un traité de paix est finalement signé en 1778, reconnaissant de facto leur indépendance.
+
+#### Unification de la Géorgie par Bagrat III (1008)
+
+> Bagrat III achève l'unification des royaumes géorgiens (Ibérie, Colchide, Kakhétie) en un seul royaume. C'est la première fois que les terres géorgiennes sont réunies sous un seul souverain, posant les bases de l'âge d'or géorgien.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1001–1010
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de Géorgie
+- **Choix joueurs** :
+  - *Achever l'unification* — Bagrat réunit tous les royaumes sous une seule couronne.
+  - *Les princes régionaux résistent* — Certains princes géorgiens refusent de renoncer à leur autonomie.
+- **Alternative MJ** : Sans Bagrat III, les royaumes géorgiens restent fragmentés et vulnérables aux invasions seldjoukides et byzantines.
+- **Issue historique** : Bagrat III unifie la Géorgie en 1008, devenant le premier roi d'une Géorgie unie. Cette unification permettra à ses successeurs, notamment David IV le Bâtisseur (1089-1125) et la reine Tamar (1184-1213), de mener la Géorgie vers son âge d'or.
+
+#### Fondation de la dynastie Lý (1009)
+
+> Lý Công Uẩn, un officier de cour bouddhiste, renverse la dynastie Lê antérieure et fonde la dynastie Lý. Il transfère la capitale à Thăng Long (Hanoï), inaugurant une ère de stabilité et d'expansion pour le Đại Việt.
+
+- **Type** : political / political
+- **Fenêtre** : 1009–1010
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Đại Cồ Việt
+- **Choix joueurs** :
+  - *Soutenir la prise de pouvoir de Lý Công Uẩn* — La transition se fait en douceur avec le soutien du clergé bouddhiste.
+  - *Résister au changement de dynastie* — Les loyalistes Lê tentent de conserver le pouvoir, provoquant une guerre civile.
+- **Alternative MJ** : Si la dynastie Lê reste stable, Lý Công Uẩn pourrait devenir un puissant ministre plutôt que fondateur de dynastie.
+- **Issue historique** : Lý Thái Tổ fonde la dynastie Lý en 1009 et transfère la capitale à Thăng Long en 1010. La dynastie règnera plus de 200 ans (1009-1225), établissant un État vietnamien consolidé avec un système administratif confucéen, une culture bouddhiste florissante, et une victoire décisive contre les Song à la bataille de la rivière Như Nguyệt (1077).
+
+#### Apogée culturel Heian — Le Dit du Genji (1010)
+
+> Murasaki Shikibu achève le Genji Monogatari, considéré comme le premier roman de l'histoire. La cour Heian atteint son apogée culturel tandis que le pouvoir réel passe aux régents Fujiwara.
+
+- **Type** : cultural_shift / cultural
+- **Fenêtre** : 1000–1020
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Japon (Heian)
+- **Issue historique** : Murasaki Shikibu écrit le Genji Monogatari vers 1000-1012 à la cour de l'impératrice Shōshi. L'œuvre définit les standards esthétiques japonais pour des siècles.
+
+#### Révolution agricole des Song (1012)
+
+> La Chine des Song connaît une révolution agricole sans précédent : riz à maturation rapide du Champa, double récolte annuelle, irrigation perfectionnée. La population chinoise dépasse 100 millions d'habitants.
+
+- **Type** : opportunity / natural
+- **Fenêtre** : 1000–1100
+- **Sévérité** : 5/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Dynastie Song
+- **Issue historique** : L'empereur Zhenzong distribue des semences de riz Champa en 1012. La population chinoise passe de ~60 millions (960) à ~120 millions (1120). C'est la plus grande révolution agricole du monde médiéval. Les surplus alimentent une proto-industrialisation remarquable.
+
+#### Empire de la mer du Nord de Knut le Grand (1016)
+
+> Knut le Grand unifie l'Angleterre, le Danemark et la Norvège en un empire maritime couvrant la mer du Nord. Apogée de la puissance scandinave en Europe.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1013–1020
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, Royaume du Danemark, Royaume de Norvège
+- **Prérequis** : Christianisation de la Scandinavie
+- **Déclenche** : Effondrement de l'Empire de Knut
+- **Alternative MJ** : Si le Danemark n'envahit pas, l'Angleterre reste sous les Wessex et l'histoire anglo-saxonne continue sans interruption scandinave.
+- **Issue historique** : Knut conquiert l'Angleterre en 1016, hérite du Danemark en 1018 et soumet la Norvège en 1028. L'empire s'effondre à sa mort en 1035.
+
+#### Construction des grandes maisons de Chaco Canyon (1020)
+
+> Les Puebloans ancestraux entreprennent la construction des gigantesques « grandes maisons » de Chaco Canyon, dont Pueblo Bonito. Ces structures de plusieurs centaines de pièces servent de centres cérémoniels, astronomiques et de redistribution des ressources.
+
+- **Type** : milestone / cultural
+- **Fenêtre** : 1000–1080
+- **Sévérité** : 7/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Puebloans ancestraux (Chaco)
+- **Choix joueurs** :
+  - *Investir dans la construction monumentale* — Mobiliser la main-d'œuvre pour ériger de nouvelles grandes maisons.
+  - *Prioriser les villages périphériques* — Développer le réseau routier et les petites communautés autour du canyon.
+- **Alternative MJ** : Si la sécheresse frappe trop tôt, la construction pourrait être abandonnée et la population dispersée.
+- **Issue historique** : Pueblo Bonito, achevé vers 1080, compte plus de 600 pièces et monte jusqu'à quatre étages. Le réseau routier de Chaco s'étend sur 650 km. Des perroquets et du cacao mésoaméricains attestent de contacts commerciaux lointains. Chaco est abandonné vers 1130-1150 suite à une sécheresse prolongée, la population migrant vers Mesa Verde et le Rio Grande.
+
+#### Raids de Mahmud de Ghazni en Inde (1025)
+
+> Mahmud de Ghazni lance une série de raids dévastateurs en Inde du Nord, culminant avec le pillage du temple de Somnath (1025). Ces raids enrichissent l'empire ghaznavide et affaiblissent les royaumes indiens du Nord.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1001–1030
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire ghaznavide, Empire Pâla (Bengale), Chalukyas occidentaux
+- **Choix joueurs** :
+  - *Lancer les raids* — Campagnes militaires massives en Inde. Immense butin mais résistance croissante.
+  - *Privilégier le commerce* — Développer les échanges commerciaux avec l'Inde plutôt que le pillage.
+- **Alternative MJ** : Si Mahmud meurt prématurément, son fils Masud peut continuer les raids mais avec moins de succès.
+- **Issue historique** : Mahmud lance 17 raids entre 1001 et 1027. Le temple de Somnath est pillé en 1025, rapportant un butin légendaire. Ghazni devient une des villes les plus riches du monde islamique.
+
+#### Expansion navale Chola vers le Sud-Est asiatique (1025)
+
+> Rajendra Chola Ier lance des expéditions navales sans précédent contre Srivijaya et les royaumes du Sud-Est asiatique, établissant la domination Chola sur les détroits de Malacca.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1017–1030
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Dynastie Chola, Empire de Srivijaya
+- **Alternative MJ** : Si Srivijaya a renforcé sa flotte, les Chola peuvent être repoussés. Le commerce reste fragmenté entre les deux puissances.
+- **Issue historique** : Rajendra Chola Ier lance des raids navals contre les ports de Srivijaya en 1025. La thalassocratie Srivijaya est brisée, bien qu'elle survive formellement jusqu'au XIVe siècle.
+
+#### Effondrement de l'Empire de Knut (1035)
+
+> À la mort de Knut le Grand, ses fils incompétents se disputent l'héritage. L'empire se disloque rapidement : l'Angleterre, le Danemark et la Norvège redeviennent indépendants.
+
+- **Type** : political / political
+- **Fenêtre** : 1035–1042
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, Royaume du Danemark, Royaume de Norvège
+- **Prérequis** : Empire de la mer du Nord de Knut le Grand
+- **Déclenche** : Conquête normande de l'Angleterre
+- **Alternative MJ** : Si un joueur a renforcé l'empire, il peut survivre plus longtemps mais les tensions centrifuges restent.
+- **Issue historique** : Harold Harefoot prend l'Angleterre (1035), Hardeknut le Danemark, Magnus de Norvège reprend son trône. Édouard le Confesseur restaure la dynastie de Wessex en 1042.
+
+#### Révolution de l'imprimerie Song (1040)
+
+> Bi Sheng invente l'imprimerie à caractères mobiles en argile. Combinée à l'impression xylographique déjà répandue, cette innovation accélère la diffusion des connaissances dans l'empire Song.
+
+- **Type** : milestone / scientific
+- **Fenêtre** : 1035–1050
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Dynastie Song
+- **Alternative MJ** : Si les Song sont affaiblis, l'innovation peut émerger chez les Liao ou Goryeo à la place.
+- **Issue historique** : Bi Sheng développe les caractères mobiles vers 1040. L'impact reste limité en Chine (trop de caractères) mais le concept se diffusera lentement vers l'ouest.
+
+#### Grands défrichements européens (1050)
+
+> Entre le Xe et le XIIIe siècle, l'Europe connaît une vague massive de défrichements. Des forêts entières sont abattues pour créer de nouvelles terres agricoles. La population européenne double.
+
+- **Type** : opportunity / natural
+- **Fenêtre** : 1000–1200
+- **Sévérité** : 4/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre
+- **Prérequis** : Optimum climatique médiéval
+- **Alternative MJ** : Si les joueurs investissent dans le défrichement, les effets sont amplifiés dans leurs régions.
+- **Issue historique** : La surface cultivée en Europe occidentale augmente de 50 à 100% entre 1000 et 1300. La population européenne passe de ~35 millions à ~75 millions. Le paysage européen est transformé — les grandes forêts reculent définitivement.
+
+#### Verdissement sahélien — Prospérité du Ghana et du Mali (1050)
+
+> Période de précipitations favorables au Sahel, repoussant le désert vers le nord. Les empires ouest-africains prospèrent grâce à des récoltes abondantes et des pâturages riches.
+
+- **Type** : opportunity / natural
+- **Fenêtre** : 1000–1200
+- **Sévérité** : 4/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Empire du Ghana
+- **Alternative MJ** : L'intensité de la phase humide peut varier. Le MJ peut moduler les bénéfices selon les investissements agricoles du joueur.
+- **Issue historique** : L'Empire du Ghana (apogée au XIe siècle) puis l'Empire du Mali (apogée au XIVe) profitent de phases climatiques favorables au Sahel. Le pèlerinage de Mansa Moussa à La Mecque (1324) avec des tonnes d'or illustre cette prospérité.
+
+#### Grand Schisme de 1054 (1054)
+
+> Rupture définitive entre l'Église catholique romaine et l'Église orthodoxe de Constantinople. Le légat papal Humbert de Moyenmoutier et le patriarche Michel Cérulaire s'excommunient mutuellement.
+
+- **Type** : milestone / religious
+- **Fenêtre** : 1050–1060
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : États pontificaux, Empire byzantin, Saint-Empire romain germanique, Rus' de Kiev, Royaume de France, Royaume d'Angleterre, Royaume de Hongrie, Royaume de Pologne
+- **Déclenche** : Première Croisade
+- **Choix joueurs** :
+  - *Soutenir Rome* — S'aligner avec le pape. Accès aux réseaux diplomatiques occidentaux mais rupture avec Constantinople.
+  - *Soutenir Constantinople* — S'aligner avec le patriarche. Maintien des liens avec l'Orient mais isolement en Occident.
+  - *Tenter la médiation* — Essayer de réconcilier les deux Églises. Très difficile mais prestigieux si réussi.
+- **Alternative MJ** : Si les joueurs parviennent à réconcilier les Églises, le schisme est évité mais les tensions théologiques persistent. Conséquence majeure : pas de croisades sous cette forme.
+- **Issue historique** : Le 16 juillet 1054, les légats pontificaux excommunient Michel Cérulaire, qui répond par une excommunication réciproque. La rupture est consommée, bien que les populations la ressentent graduellement.
+
+#### Réconciliation partielle des Églises (1055)
+
+> Grâce à des efforts diplomatiques et théologiques exceptionnels, les Églises de Rome et Constantinople parviennent à un compromis fragile. Le schisme est évité, mais les tensions doctrinales persistent sous la surface.
+
+- **Type** : political / religious
+- **Fenêtre** : 1054–1065
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : États pontificaux, Empire byzantin, Saint-Empire romain germanique, Rus' de Kiev
+- **Alternative MJ** : Scénario uchronique. La réconciliation est fragile et peut se briser à tout moment lors d'une crise politique ou théologique ultérieure.
+- **Issue historique** : Cet événement ne s'est jamais produit historiquement. Le schisme de 1054 a été définitif (levée des excommunications mutuelles seulement en 1965, par Paul VI et Athénagoras Ier).
+
+#### Chute d'Ani face aux Seldjoukides (1064)
+
+> Les Turcs seldjoukides d'Alp Arslan assiègent et prennent Ani, capitale du royaume bagratide d'Arménie. La ville, surnommée « la ville aux mille et une églises », est mise à sac. C'est la fin effective de l'indépendance arménienne médiévale.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1060–1065
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Arménie (Bagratides)
+- **Choix joueurs** :
+  - *Défendre Ani jusqu'au bout* — Organiser une résistance acharnée malgré les forces écrasantes seldjoukides.
+  - *Évacuer et préserver le peuple* — Organiser l'exode vers la Cilicie et les terres byzantines pour sauvegarder la culture arménienne.
+- **Alternative MJ** : Si Byzance intervient ou si les Seldjoukides sont distraits, Ani pourrait résister plus longtemps. Un royaume arménien de Cilicie pourrait émerger plus tôt.
+- **Issue historique** : Ani tombe en 1064 sous Alp Arslan. La ville est pillée et sa population massacrée ou déportée. Le royaume bagratide d'Arménie cesse d'exister. Les Arméniens fondent ensuite le royaume de Cilicie (1080-1375) sur la côte méditerranéenne, préservant leur culture et jouant un rôle clé dans les Croisades.
+
+#### Crise des crues du Nil (1065)
+
+> Défaillance des crues annuelles du Nil, provoquant famines et instabilité politique en Égypte fatimide. Ces crises cycliques affaiblissent le califat.
+
+- **Type** : natural_disaster / natural
+- **Fenêtre** : 1050–1070
+- **Sévérité** : 8/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Califat fatimide
+- **Alternative MJ** : Si le joueur fatimide a investi dans des systèmes d'irrigation et de stockage, l'impact peut être réduit.
+- **Issue historique** : La période 1065-1072 voit plusieurs défaillances du Nil. La grande crise de 1065-1072 (al-Shidda) provoque une famine catastrophique et la quasi-désintégration de l'État fatimide.
+
+#### Conquête normande de l'Angleterre (1066)
+
+> Guillaume le Conquérant, duc de Normandie, envahit l'Angleterre et défait Harold Godwinson à la bataille de Hastings. La noblesse anglo-saxonne est remplacée par une élite normande francophone.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1064–1070
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, Royaume de France
+- **Prérequis** : Effondrement de l'Empire de Knut
+- **Choix joueurs** :
+  - *Envahir (joueur normand)* — Traverser la Manche avec une armée. Risqué mais potentiel gain d'un royaume entier.
+  - *Défendre (joueur anglais)* — Mobiliser le fyrd et marcher vers le sud pour repousser les envahisseurs.
+- **Alternative MJ** : Si Harold survit ou si les Normands n'envahissent pas, l'Angleterre reste anglo-saxonne. Conséquence : pas de lien féodal avec la France, histoire très différente.
+- **Issue historique** : Guillaume débarque à Pevensey le 28 septembre 1066. Harold, revenant de sa victoire contre les Norvégiens à Stamford Bridge, est tué à Hastings le 14 octobre. Guillaume est couronné roi à Noël.
+
+#### Bataille de Manzikert (1071)
+
+> L'empereur byzantin Romain IV Diogène est défait et capturé par le sultan seldjoukide Alp Arslan à Manzikert. Cette défaite ouvre l'Anatolie aux Turcs et marque le début du déclin territorial byzantin.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1068–1075
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire byzantin
+- **Déclenche** : Première Croisade
+- **Choix joueurs** :
+  - *Engager la bataille* — Affronter les Seldjoukides en rase campagne. Risque très élevé.
+  - *Se replier et négocier* — Éviter la confrontation directe. Abandon de territoires mais préservation de forces.
+- **Alternative MJ** : Si le joueur byzantin a renforcé ses frontières orientales, la bataille peut être évitée ou gagnée. Conséquence : pas de perte de l'Anatolie, pas d'appel aux croisades.
+- **Issue historique** : Romain IV est capturé à Manzikert le 26 août 1071. Le traité est honorable mais son renversement à Constantinople déclenche une guerre civile. Les Seldjoukides s'installent en Anatolie sans résistance organisée.
+
+#### Querelle des Investitures (1076)
+
+> Conflit majeur entre la papauté et le Saint-Empire romain germanique sur le droit de nommer les évêques. Le pape Grégoire VII et l'empereur Henri IV s'affrontent, aboutissant à l'humiliation de Canossa.
+
+- **Type** : crisis / religious
+- **Fenêtre** : 1075–1122
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Saint-Empire romain germanique, États pontificaux
+- **Choix joueurs** :
+  - *Se soumettre au pape (empereur)* — Accepter l'autorité pontificale sur les investitures. Perte de pouvoir mais fin de l'excommunication.
+  - *Résister au pape (empereur)* — Nommer un antipape et contester Rome. Risque de guerre civile mais maintien du pouvoir impérial.
+- **Alternative MJ** : Si le joueur HRE est conciliant dès le départ, le conflit peut être évité. La papauté gagne quand même en influence mais sans rupture violente.
+- **Issue historique** : Henri IV est excommunié en 1076, fait pénitence à Canossa en 1077, mais relance le conflit ensuite. Le concordat de Worms (1122) établit un compromis : l'Église nomme spirituellement, l'empereur investit temporellement.
+
+#### Conquête almoravide du Ghana et de la péninsule ibérique (1076)
+
+> Les Almoravides, mouvement religieux berbère, conquièrent l'empire du Ghana et traversent le détroit de Gibraltar pour unifier al-Andalus. Transformation majeure de l'Afrique de l'Ouest et de l'Ibérie musulmane.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1054–1110
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire du Ghana, Califat de Cordoue
+- **Alternative MJ** : Si l'empire du Ghana a renforcé ses défenses, les Almoravides peuvent être repoussés. Conséquence : le Ghana survit et le commerce transsaharien reste sous contrôle soninké.
+- **Issue historique** : Les Almoravides prennent Koumbi Saleh (~1076), puis traversent en Ibérie (1086) où ils battent Alphonse VI à Sagrajas. L'unification est fragile et s'effondre vers 1147.
+
+#### Islamisation du Kanem sous Hummay (1085)
+
+> Le mai (roi) Hummay renverse la dynastie Duguwa et fonde la dynastie Sayfawa, introduisant l'islam comme religion d'État au Kanem. Cette conversion ouvre des liens diplomatiques et commerciaux avec le monde musulman nord-africain.
+
+- **Type** : cultural_shift / religious
+- **Fenêtre** : 1075–1097
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire du Kanem
+- **Choix joueurs** :
+  - *Adopter l'islam* — Hummay impose l'islam comme religion officielle, ouvrant le commerce transsaharien.
+  - *Maintenir les traditions ancestrales* — Refuser la conversion et maintenir les pratiques religieuses traditionnelles du Kanem.
+- **Alternative MJ** : Sans Hummay, l'islamisation du Kanem pourrait être plus progressive et moins politique, se diffusant par le commerce plutôt que par décret royal.
+- **Issue historique** : La dynastie Sayfawa, fondée par Hummay vers 1085, régnera sur le Kanem-Bornou pendant plus de sept siècles — l'une des plus longues dynasties de l'histoire mondiale. L'islamisation renforce les liens avec le Maghreb et l'Égypte, mais la population rurale conserve longtemps des pratiques syncrétiques.
+
+#### Première Croisade (1095)
+
+> Le pape Urbain II appelle la chrétienté à libérer Jérusalem lors du concile de Clermont. Une immense armée de croisés traverse l'Europe et le Moyen-Orient, aboutissant à la prise de Jérusalem en 1099.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1093–1100
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : États pontificaux, Empire byzantin, Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre, Califat fatimide
+- **Prérequis** : Grand Schisme de 1054, Bataille de Manzikert, Querelle des Investitures
+- **Déclenche** : Fondation du Royaume de Jérusalem, Deuxième Croisade
+- **Choix joueurs** :
+  - *Rejoindre la croisade* — Envoyer des troupes en Terre Sainte. Coût militaire et économique mais prestige immense.
+  - *Ne pas participer* — Rester neutre. Préservation des forces mais perte de prestige dans la chrétienté.
+  - *Défendre (nations musulmanes)* — Mobiliser pour repousser les envahisseurs croisés.
+- **Alternative MJ** : Si le schisme a été évité ou si Manzikert n'a pas eu lieu, la croisade peut ne pas se produire. Alternative : une aide militaire limitée à Byzance sans dimension religieuse.
+- **Issue historique** : Urbain II prêche la croisade au concile de Clermont (27 novembre 1095). La croisade des pauvres échoue, mais les armées féodales prennent Antioche (1098) puis Jérusalem (15 juillet 1099) dans un bain de sang.
+
+#### Aide militaire occidentale à Byzance (1096)
+
+> Sans appel à la croisade, les royaumes occidentaux envoient une aide militaire limitée à Byzance face aux Seldjoukides. Pas de dimension religieuse massive — une opération géopolitique pragmatique entre souverains chrétiens.
+
+- **Type** : political / military
+- **Fenêtre** : 1094–1100
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire byzantin, Saint-Empire romain germanique, Royaume de France
+- **Alternative MJ** : Scénario uchronique. Sans croisade, Jérusalem reste sous contrôle fatimide/seldjoukide. Les ordres militaires (Templiers, Hospitaliers) ne voient pas le jour. L'histoire du Moyen-Orient est radicalement différente.
+- **Issue historique** : Cet événement ne s'est jamais produit. L'appel d'Alexis Comnène a été transformé par Urbain II en croisade religieuse, dépassant largement la demande initiale d'aide militaire.
+
+#### Grande famine européenne de 1097 (1097)
+
+> Mauvaises récoltes généralisées en Europe occidentale et centrale, aggravées par les prélèvements liés à la Première Croisade. Mortalité accrue dans les campagnes.
+
+- **Type** : crisis / natural
+- **Fenêtre** : 1094–1100
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre
+- **Prérequis** : Crise des crues du Nil
+- **Alternative MJ** : Si les conditions agricoles ont été améliorées (rotation des cultures, défrichements), la famine peut être atténuée.
+- **Issue historique** : Les chroniqueurs rapportent des famines sévères entre 1094 et 1097, coïncidant avec le départ massif pour la Première Croisade. La mortalité est difficile à quantifier mais significative.
+
+#### Fondation du Royaume de Jérusalem (1099)
+
+> Après la prise de Jérusalem, Godefroy de Bouillon est élu premier souverain du nouveau royaume croisé. Les États latins d'Orient sont établis.
+
+- **Type** : political / political
+- **Fenêtre** : 1099–1102
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Califat fatimide, Empire byzantin
+- **Prérequis** : Première Croisade
+- **Alternative MJ** : Si la croisade échoue à prendre Jérusalem, les croisés peuvent établir un État tampon plus au nord (Antioche uniquement).
+- **Issue historique** : Godefroy de Bouillon refuse le titre de roi ("Avoué du Saint-Sépulcre"). Son frère Baudouin Ier est couronné roi en 1100. Le royaume survivra jusqu'en 1291.
+
+#### Apogée de Cahokia (1100)
+
+> La cité de Cahokia atteint son pic démographique (~20 000 habitants), devenant la plus grande ville d'Amérique du Nord. Construction du Monks Mound et complexification des structures sociales mississippiennes.
+
+- **Type** : cultural_shift / cultural
+- **Fenêtre** : 1050–1150
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Culture mississippienne (Cahokia)
+- **Alternative MJ** : Si la population n'a pas crû suffisamment, Cahokia reste un centre régional sans atteindre son apogée historique.
+- **Issue historique** : Cahokia atteint 10 000-20 000 habitants vers 1100, avec un réseau d'influence couvrant le midwest. Le déclin commence après 1200 pour des raisons encore débattues (surpopulation, sécheresse, conflits).
+
+#### Essor de Kilwa et le commerce de l'or (1100)
+
+> Kilwa Kisiwani prend le contrôle du commerce de l'or de Sofala, devenant la cité-État la plus riche de la côte est-africaine. Construction de la Grande Mosquée de Kilwa.
+
+- **Type** : opportunity / economic
+- **Fenêtre** : 1050–1150
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Cités-États swahilies
+- **Prérequis** : Expansion navale Chola vers le Sud-Est asiatique
+- **Alternative MJ** : Si une autre cité swahilie domine (Mogadiscio, Mombasa), c'est elle qui prend le rôle de Kilwa.
+- **Issue historique** : Kilwa contrôle Sofala et son or vers la fin du XIe siècle. La Grande Mosquée est agrandie. Les marchands de Kilwa sont mentionnés par les voyageurs chinois et arabes comme les plus riches d'Afrique.
+
+#### Âge d'or des moussons — Prospérité d'Angkor (1100)
+
+> Le régime des moussons est exceptionnellement régulier en Asie du Sud-Est, permettant à l'Empire khmer d'atteindre son apogée. Le système hydraulique d'Angkor exploite parfaitement les crues saisonnières.
+
+- **Type** : opportunity / natural
+- **Fenêtre** : 1050–1200
+- **Sévérité** : 4/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Dynastie Chola
+- **Alternative MJ** : Si le joueur a développé l'infrastructure hydraulique, les effets positifs sont multipliés.
+- **Issue historique** : L'Empire khmer atteint son apogée sous Suryavarman II (constructeur d'Angkor Vat, ~1150) et Jayavarman VII (~1180–1220). Le système de barays (réservoirs artificiels) permet une productivité agricole sans équivalent. Le déclin viendra au XIVe siècle quand les moussons deviennent irrégulières.
+
+#### Crues exceptionnelles du Nil (1110)
+
+> Plusieurs années consécutives de crues parfaitement calibrées du Nil. Les récoltes sont abondantes, les greniers pleins, et l'Égypte connaît une prospérité remarquable sous les Fatimides puis les Ayyoubides.
+
+- **Type** : opportunity / natural
+- **Fenêtre** : 1100–1140
+- **Sévérité** : 3/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Califat fatimide
+- **Alternative MJ** : Si le joueur a investi dans des systèmes d'irrigation et de stockage, les excédents sont encore plus importants.
+- **Issue historique** : L'Égypte fatimide puis ayyoubide connaît des périodes de prospérité agricole remarquable quand les crues sont régulières. Le nilomètre de l'île de Roda mesure le niveau des crues — une crue idéale est cause de fête nationale.
+
+#### Chute du Nord Song — Invasion Jurchen (1127)
+
+> Les Jurchens fondent la dynastie Jin et conquièrent le nord de la Chine, forçant les Song à se replier au sud du Yangtsé. Kaifeng tombe en 1127.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1115–1130
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Dynastie Song, Dynastie Liao (Khitans)
+- **Prérequis** : Révolution de l'imprimerie Song
+- **Choix joueurs** :
+  - *Résister au nord* — Mobiliser toutes les forces pour défendre Kaifeng. Très risqué.
+  - *Repli stratégique au sud* — Abandonner le nord pour fortifier le Yangtsé. Préserve les forces.
+- **Alternative MJ** : Si les Song n'ont pas affaibli les Liao, ceux-ci peuvent servir de tampon. Les Jurchens restent en Mandchourie.
+- **Issue historique** : Les Jurchens détruisent les Liao (1125) puis prennent Kaifeng (1127). L'empereur Huizong et son fils sont capturés (Incident de Jingkang). Les Song du Sud s'établissent à Hangzhou sous Gaozong.
+
+#### Construction d'Angkor Vat (1130)
+
+> Le roi Suryavarman II ordonne la construction d'Angkor Vat, le plus grand monument religieux jamais construit. Apogée de la puissance et du prestige de l'Empire khmer.
+
+- **Type** : cultural_shift / cultural
+- **Fenêtre** : 1113–1150
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire khmer (Angkor)
+- **Prérequis** : Expansion navale Chola vers le Sud-Est asiatique
+- **Alternative MJ** : Si l'Empire khmer est affaibli, le temple peut être plus modeste ou ne jamais être achevé.
+- **Issue historique** : Suryavarman II lance la construction vers 1113-1130. Le temple, dédié à Vishnou, couvre 162 hectares. Il ne sera achevé qu'après la mort du roi.
+
+#### Deuxième Croisade (1147)
+
+> Suite à la chute du comté d'Édesse (1144), Bernard de Clairvaux prêche une nouvelle croisade. Le roi Louis VII de France et l'empereur Conrad III du HRE mènent une expédition désastreuse.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1145–1150
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Saint-Empire romain germanique, Califat fatimide
+- **Prérequis** : Fondation du Royaume de Jérusalem
+- **Déclenche** : Ascension de Saladin et unification ayyoubide
+- **Alternative MJ** : Si les États croisés sont forts, il n'y a pas besoin de croisade. Si aucun ne tombe, l'événement est annulé.
+- **Issue historique** : Louis VII et Conrad III arrivent séparément en Terre Sainte. L'attaque sur Damas (1148) est un fiasco — les croisés se replient après 4 jours. La croisade discrédite le mouvement.
+
+#### Conquête almohade (1147)
+
+> Les Almohades renversent les Almoravides et unifient le Maghreb et al-Andalus sous un nouveau califat berbère réformateur plus strict théologiquement.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1130–1160
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Califat de Cordoue
+- **Prérequis** : Conquête almoravide du Ghana et de la péninsule ibérique
+- **Alternative MJ** : Si les Almoravides sont forts, les Almohades restent un mouvement dissident local au Maroc.
+- **Issue historique** : Les Almohades prennent Marrakech en 1147, puis unifient le Maghreb et al-Andalus vers 1170. Leur empire est le plus vaste qu'ait connu le Maghreb médiéval.
+
+#### Effondrement de Tula et déclin toltèque (1150)
+
+> La capitale toltèque de Tula est saccagée et abandonnée. La civilisation toltèque s'effondre, laissant un vide de pouvoir en Mésoamérique qui sera comblé par les Aztèques deux siècles plus tard.
+
+- **Type** : crisis / political
+- **Fenêtre** : 1100–1175
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire toltèque, Cités-États mayas (post-classique)
+- **Alternative MJ** : Si un joueur toltec a maintenu la stabilité, Tula peut survivre plus longtemps. Le vide de pouvoir mésoaméricain ne se produit pas dans cette timeline.
+- **Issue historique** : Tula est détruite vers 1150-1175. Les causes exactes sont débattues : invasions, révoltes internes, sécheresse. Les survivants migrent et diffusent la culture toltèque dans toute la Mésoamérique.
+
+#### Ascension de Saladin et unification ayyoubide (1174)
+
+> Saladin (Salâh ad-Dîn) unifie l'Égypte (renversant les Fatimides) et la Syrie sous la bannière ayyoubide, créant une puissance capable de reconquérir Jérusalem.
+
+- **Type** : political / political
+- **Fenêtre** : 1169–1180
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Califat fatimide
+- **Prérequis** : Deuxième Croisade
+- **Déclenche** : Bataille de Hattin et chute de Jérusalem
+- **Alternative MJ** : Si les Fatimides sont renforcés par un joueur, Saladin peut ne jamais prendre le pouvoir. L'unification se fait sous un autre leader ou pas du tout.
+- **Issue historique** : Saladin renverse les Fatimides en 1171, prend le contrôle de la Syrie en 1174 et passe une décennie à consolider son pouvoir avant de se tourner vers les croisés.
+
+#### Bataille de Hattin et chute de Jérusalem (1187)
+
+> Saladin inflige une défaite écrasante aux croisés à Hattin (1187), puis reprend Jérusalem. La quasi-totalité du Royaume de Jérusalem est reconquise en quelques mois.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1185–1190
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Califat fatimide
+- **Prérequis** : Ascension de Saladin et unification ayyoubide, Fondation du Royaume de Jérusalem
+- **Déclenche** : Troisième Croisade (Croisade des Rois)
+- **Alternative MJ** : Si les croisés ont renforcé leurs défenses ou évité les erreurs tactiques de Guy de Lusignan, Hattin peut être évité ou gagné.
+- **Issue historique** : Le 4 juillet 1187, Saladin piège l'armée croisée assoiffée sur les Cornes de Hattin. Le roi Guy est capturé. Jérusalem se rend le 2 octobre après 88 ans de domination chrétienne.
+
+#### Troisième Croisade (Croisade des Rois) (1189)
+
+> Richard Cœur de Lion, Philippe Auguste et Frédéric Barberousse lancent la troisième croisade pour reprendre Jérusalem après Hattin. Malgré des victoires tactiques, Jérusalem reste musulmane.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1188–1192
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Califat fatimide
+- **Prérequis** : Bataille de Hattin et chute de Jérusalem
+- **Alternative MJ** : Si Jérusalem n'est pas tombée, cette croisade n'a pas lieu. Si les joueurs européens refusent, seule une expédition mineure est possible.
+- **Issue historique** : Barberousse meurt en chemin (1190). Richard et Philippe prennent Acre (1191). Richard bat Saladin à Arsuf mais ne peut reprendre Jérusalem. Le traité de Jaffa (1192) établit un compromis.
+
+#### Tensions féodales en Angleterre (1199)
+
+> Les dépenses militaires de Richard Cœur de Lion et la gouvernance impopulaire de Jean sans Terre créent les conditions de la révolte baroniale qui mènera à la Magna Carta (1215).
+
+- **Type** : political / political
+- **Fenêtre** : 1190–1205
+- **Sévérité** : 6/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre
+- **Prérequis** : Troisième Croisade (Croisade des Rois), Conquête normande de l'Angleterre
+- **Choix joueurs** :
+  - *Concilier la noblesse* — Réduire les taxes et accorder des libertés. Stabilité mais perte de revenus.
+  - *Maintenir la pression fiscale* — Continuer les taxes élevées. Revenus maintenus mais révolte probable.
+- **Alternative MJ** : Si l'Angleterre n'a pas participé aux croisades, les finances sont saines et ce conflit n'émerge pas.
+- **Issue historique** : Jean sans Terre perd la Normandie (1204), taxe lourdement les barons, entre en conflit avec le pape. Les barons se révoltent et imposent la Magna Carta en 1215.
+
+#### Quatrième Croisade et sac de Constantinople (1204)
+
+> Détournée de son objectif égyptien, la Quatrième Croisade s'empare de Constantinople (1204), capitale de la chrétienté orientale. L'Empire byzantin est démembré en un Empire latin et des États grecs successeurs.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1202–1207
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Empire byzantin, République de Venise, États pontificaux
+- **Prérequis** : Troisième Croisade (Croisade des Rois)
+- **Déclenche** : Reconquête de Constantinople par les Nicéens
+- **Choix joueurs** :
+  - *Détourner la croisade vers Constantinople* — Suivre la proposition vénitienne. Riche butin mais trahison de la chrétienté orientale.
+  - *Maintenir le cap vers l'Égypte* — Respecter l'objectif initial. Pas de butin facile mais honneur préservé.
+- **Alternative MJ** : Si les croisés ne sont pas endettés envers Venise, la croisade peut aller en Égypte. Constantinople est épargnée et Byzance survit intacte.
+- **Issue historique** : Les croisés, incapables de payer Venise, acceptent de prendre Constantinople. La ville tombe le 13 avril 1204 après un assaut. L'Empire latin est créé, mais les Grecs de Nicée reconquerront la ville en 1261.
+
+#### Unification mongole et conquêtes de Gengis Khan (1206)
+
+> Temüjin unifie les tribus mongoles sous le titre de Gengis Khan (1206), puis lance une série de conquêtes sans précédent : Chine du Nord, Khwârezm, Asie centrale. Le plus grand empire terrestre de l'histoire commence.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1200–1227
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Dynastie Song, Dynastie Liao (Khitans), Khanat karakhanide, Empire ghaznavide
+- **Déclenche** : Invasion mongole de l'Europe, Chute de Bagdad — Fin du califat abbasside, Pax Mongolica et Route de la Soie
+- **Alternative MJ** : Si Temüjin est assassiné jeune, les Mongols restent fragmentés. Les Turcs Khwarezm dominent l'Asie centrale. L'histoire eurasienne est radicalement différente.
+- **Issue historique** : Gengis Khan unifie les Mongols en 1206, détruit le Khwârezm (1219-1221), envahit la Chine du Nord. À sa mort (1227), l'empire s'étend de la Corée à la Caspienne.
+
+#### Croisade des Albigeois (1209)
+
+> Le pape Innocent III lance une croisade contre les Cathares du Languedoc. Vingt ans de guerre transforment le Midi de la France et renforcent la monarchie capétienne.
+
+- **Type** : crisis / religious
+- **Fenêtre** : 1208–1229
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de France, États pontificaux
+- **Choix joueurs** :
+  - *Participer à la croisade* — Envoyer des troupes au Languedoc. Gain de terres mais brutalité extrême.
+  - *Protéger les Cathares* — Le comte de Toulouse défend ses vassaux. Risque d'excommunication.
+- **Alternative MJ** : Si le catharisme a été réprimé pacifiquement ou si le pape n'est pas assez puissant, la croisade n'a pas lieu. Le Languedoc reste indépendant.
+- **Issue historique** : Simon de Montfort mène la croisade à partir de 1209. Béziers est massacrée, Carcassonne tombe. Le traité de Meaux-Paris (1229) soumet le Languedoc à la couronne de France.
+
+#### Bataille de Las Navas de Tolosa (1212)
+
+> Coalition des royaumes chrétiens ibériques contre les Almohades. Victoire décisive qui brise la puissance almohade et ouvre la voie à la Reconquista finale.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1210–1215
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de León, Royaume de Navarre, Califat de Cordoue
+- **Prérequis** : Conquête almohade
+- **Déclenche** : Chute de Cordoue et Séville
+- **Alternative MJ** : Si les royaumes chrétiens ne s'allient pas, la bataille n'a pas lieu et les Almohades survivent plus longtemps.
+- **Issue historique** : Le 16 juillet 1212, les armées de Castille, Aragon, Navarre et Portugal battent le calife almohade al-Nasir. 60 000 Almohades tués selon les chroniques. La Reconquista s'accélère dramatiquement.
+
+#### Magna Carta (1215)
+
+> Les barons anglais imposent la Magna Carta au roi Jean sans Terre, limitant le pouvoir royal et posant les bases du constitutionnalisme occidental.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1213–1218
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, États pontificaux
+- **Prérequis** : Tensions féodales en Angleterre
+- **Choix joueurs** :
+  - *Accepter la Magna Carta* — Signer la charte. Stabilité retrouvée mais pouvoir royal diminué.
+  - *Rejeter et guerre civile* — Refuser les concessions. Guerre des Barons inévitable.
+- **Alternative MJ** : Si le roi d'Angleterre a maintenu de bonnes relations avec la noblesse, la révolte n'a pas lieu et la charte n'est pas nécessaire.
+- **Issue historique** : Jean sans Terre signe la Magna Carta à Runnymede le 15 juin 1215. Le pape Innocent III l'annule, déclenchant la Première Guerre des Barons. Le document sera réaffirmé sous Henri III et deviendra fondateur.
+
+#### Création de l'Inquisition médiévale (1231)
+
+> Le pape Grégoire IX institutionnalise l'Inquisition (1231), confiant aux Dominicains la traque des hérésies. Outil de contrôle religieux qui marquera l'Europe pendant des siècles.
+
+- **Type** : political / religious
+- **Fenêtre** : 1229–1235
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : États pontificaux, Royaume de France, Saint-Empire romain germanique
+- **Prérequis** : Croisade des Albigeois
+- **Alternative MJ** : Si le catharisme a été éradiqué pacifiquement, l'Inquisition peut ne pas être créée ou rester limitée.
+- **Issue historique** : Grégoire IX charge les Dominicains de l'Inquisition en 1231. Les tribunaux s'étendent à toute l'Europe. Les Cathares sont éliminés vers 1330 (chute de Montségur en 1244).
+
+#### Fondation de l'Empire du Mali — Soundiata Keïta (1235)
+
+> Soundiata Keïta bat le roi Sosso Soumaoro Kanté à la bataille de Kirina et fonde l'Empire du Mali, qui deviendra le plus riche et le plus puissant d'Afrique de l'Ouest.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1230–1240
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire du Ghana
+- **Déclenche** : Pèlerinage de Mansa Moussa — L'homme le plus riche de l'histoire
+- **Alternative MJ** : Si le Ghana n'est pas tombé, le Mali reste un royaume vassal et Soundiata ne peut pas unifier la région.
+- **Issue historique** : Soundiata Keïta bat Soumaoro Kanté à la bataille de Kirina en 1235. Il fonde l'Empire du Mali avec capitale à Niani. La Charte du Manden proclame des droits fondamentaux.
+
+#### Invasion mongole de l'Europe (1241)
+
+> Les armées de Batu Khan et Subötaï écrasent la Pologne, la Hongrie et les forces européennes lors de la campagne de 1241. La mort du khagan Ögödei sauve l'Europe d'une conquête totale.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1237–1243
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de Pologne, Royaume de Hongrie, Rus' de Kiev, Saint-Empire romain germanique
+- **Prérequis** : Unification mongole et conquêtes de Gengis Khan
+- **Choix joueurs** :
+  - *Résistance militaire* — Former une coalition européenne. Très difficile face à la tactique mongole.
+  - *Se soumettre / négocier* — Accepter la vassalité mongole. Survie mais perte de souveraineté.
+- **Alternative MJ** : Si les joueurs européens ont organisé une défense coordonnée très tôt, les Mongols peuvent être ralentis ou repoussés. Conséquence : pas de Horde d'Or en Russie.
+- **Issue historique** : Batu Khan détruit Kiev (1240), bat les Polonais à Legnica et les Hongrois à Mohi (avril 1241). La mort d'Ögödei Khan en décembre 1241 force le retrait mongol. La Horde d'Or s'installe en Russie.
+
+#### Chute de Cordoue et Séville (1248)
+
+> Ferdinand III de Castille conquiert Cordoue (1236) et Séville (1248), les deux plus grandes villes d'al-Andalus. Seul le royaume nasride de Grenade survit.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1235–1250
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de León, Califat de Cordoue
+- **Prérequis** : Bataille de Las Navas de Tolosa
+- **Alternative MJ** : Si les Almohades ont survécu ou si une nouvelle puissance musulmane a émergé, les villes andalouses résistent.
+- **Issue historique** : Ferdinand III prend Cordoue (1236), Jaén (1246), Séville (1248). L'émirat nasride de Grenade survit comme vassal castillan jusqu'en 1492.
+
+#### Chute de Bagdad — Fin du califat abbasside (1258)
+
+> Hülegü Khan assiège et détruit Bagdad, mettant fin à cinq siècles de califat abbasside. Le dernier calife est exécuté. Destruction de la plus grande bibliothèque du monde islamique.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1255–1260
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Émirat bouyide, Califat fatimide
+- **Prérequis** : Unification mongole et conquêtes de Gengis Khan
+- **Déclenche** : Bataille d'Aïn Djalout — L'arrêt des Mongols
+- **Alternative MJ** : Si le calife a négocié une soumission ou si les Mongols ont été arrêtés avant, Bagdad peut être épargnée. Le califat survit mais comme vassal mongol.
+- **Issue historique** : Hülegü prend Bagdad le 10 février 1258. Le calife al-Musta'sim est roulé dans un tapis et piétiné à mort par des chevaux. L'eau du Tigre coule noire d'encre des manuscrits jetés. 200 000 à 1 million de morts.
+
+#### Bataille d'Aïn Djalout — L'arrêt des Mongols (1260)
+
+> Les Mamelouks d'Égypte infligent aux Mongols leur première défaite décisive à Aïn Djalout (Palestine). L'expansion mongole vers l'Afrique et l'Égypte est stoppée définitivement.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1259–1261
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Califat fatimide
+- **Prérequis** : Chute de Bagdad — Fin du califat abbasside
+- **Alternative MJ** : Si les Mongols gagnent à Aïn Djalout, l'Égypte tombe et le monde islamique est totalement sous domination mongole.
+- **Issue historique** : Le 3 septembre 1260, le sultan mamelouk Qutuz et son général Baybars battent les Mongols à Aïn Djalout. Qutuz est assassiné peu après et Baybars prend le pouvoir, fondant la grande ère mamelouke.
+
+#### Pax Mongolica et Route de la Soie (1260)
+
+> La domination mongole sur l'Eurasie permet une période de paix relative et d'échanges commerciaux intenses le long de la Route de la Soie. Marco Polo voyage de Venise à la cour du Grand Khan.
+
+- **Type** : opportunity / economic
+- **Fenêtre** : 1250–1350
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Dynastie Song, République de Venise, Empire byzantin
+- **Prérequis** : Unification mongole et conquêtes de Gengis Khan
+- **Alternative MJ** : Si l'empire mongol se fragmente trop tôt, la Pax Mongolica ne s'installe pas et le commerce eurasien reste fragmenté.
+- **Issue historique** : De 1260 à 1350 environ, les routes commerciales sont sûres. Marco Polo voyage de 1271 à 1295. La technologie, l'art et les maladies circulent à une échelle sans précédent.
+
+#### Reconquête de Constantinople par les Nicéens (1261)
+
+> L'Empire de Nicée, État successeur grec, reconquiert Constantinople et restaure l'Empire byzantin sous Michel VIII Paléologue.
+
+- **Type** : political / political
+- **Fenêtre** : 1255–1265
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire byzantin, République de Venise
+- **Prérequis** : Quatrième Croisade et sac de Constantinople
+- **Alternative MJ** : Si l'Empire latin a été renforcé par un joueur, la reconquête échoue ou est retardée.
+- **Issue historique** : Le général Alexis Strategopoulos prend Constantinople presque sans combat le 25 juillet 1261. Michel VIII Paléologue est couronné empereur. L'empire survivra encore 192 ans mais dans un état très diminué.
+
+#### Guerres Goryeo-Mongols et vassalité coréenne (1270)
+
+> Après 7 invasions mongoles (1231-1270), le royaume de Goryeo se soumet et devient un État vassal de l'Empire Yuan. Mariage forcé de la famille royale avec des princesses mongoles.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1231–1275
+- **Sévérité** : 8/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Goryeo (Corée)
+- **Prérequis** : Unification mongole et conquêtes de Gengis Khan
+- **Alternative MJ** : Si Goryeo négocie tôt ou si les Mongols sont occupés ailleurs, la destruction est moindre.
+- **Issue historique** : 7 invasions mongoles entre 1231 et 1270. Goryeo résiste depuis Ganghwa mais le peuple souffre. La famille royale se soumet en 1270 et devient vassale Yuan jusqu'en 1356, quand Gongmin Wang restaure la souveraineté.
+
+#### Invasions mongoles du Japon et les « vents divins » (1281)
+
+> Kubilai Khan lance deux invasions du Japon (1274, 1281). Les deux sont repoussées par la résistance samouraï et des typhons proventiels — les « kamikaze » (vents divins).
+
+- **Type** : milestone / military
+- **Fenêtre** : 1274–1285
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Japon (Heian), Goryeo (Corée)
+- **Prérequis** : Unification mongole et conquêtes de Gengis Khan
+- **Alternative MJ** : Si le Japon s'est soumis diplomatiquement, les invasions n'ont pas lieu. Le Japon devient un vassal Yuan comme la Corée.
+- **Issue historique** : Première invasion (1274) : force mongolo-coréenne repoussée. Deuxième invasion (1281) : flotte de 140 000 hommes détruite par un typhon. Le shogunat Kamakura est ruiné financièrement par l'effort de défense et tombe en 1333.
+
+#### Apogée du Sultanat de Delhi (1290)
+
+> Le sultanat de Delhi sous la dynastie Khalji puis Tughlaq s'étend sur presque tout le sous-continent indien, repoussant les Mongols et établissant une administration musulmane sur l'Inde.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1206–1320
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire ghaznavide, Empire Pâla (Bengale), Chalukyas occidentaux, Dynastie Chola
+- **Prérequis** : Raids de Mahmud de Ghazni en Inde
+- **Alternative MJ** : Si les royaumes Rajputs ou le sud dravidien sont assez forts, le sultanat reste confiné au nord.
+- **Issue historique** : Qutb al-Din Aibak fonde le sultanat (1206). Sous Ala al-Din Khalji (1296-1316), le sultanat repousse 6 invasions mongoles et contrôle la majeure partie de l'Inde. Muhammad bin Tughlaq (1325-1351) marque l'apogée territorial.
+
+#### Naissance de la Confédération suisse (1291)
+
+> Les cantons forestiers de Schwyz, Uri et Unterwald forment un pacte d'alliance (1291) contre les Habsbourg. La victoire de Morgarten (1315) confirme l'existence de la Confédération suisse.
+
+- **Type** : political / political
+- **Fenêtre** : 1291–1315
+- **Sévérité** : 5/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Saint-Empire romain germanique
+- **Prérequis** : Querelle des Investitures
+- **Alternative MJ** : Si les Habsbourg n'exercent pas de pression, les cantons n'ont pas de raison de s'allier.
+- **Issue historique** : Le pacte fédéral est signé le 1er août 1291. Guillaume Tell est un mythe. La victoire de Morgarten (1315) contre les Habsbourg établit la réalité militaire de la Confédération. Elle s'élargit progressivement.
+
+#### Apogée du Grand Zimbabwe (1300)
+
+> Le Grand Zimbabwe atteint sa splendeur maximale : enceinte de pierre monumentale, contrôle du commerce de l'or entre l'intérieur africain et la côte swahilie.
+
+- **Type** : cultural_shift / economic
+- **Fenêtre** : 1250–1350
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Grand Zimbabwe (proto-Shona), Cités-États swahilies
+- **Prérequis** : Essor de Kilwa et le commerce de l'or
+- **Alternative MJ** : Si le commerce avec la côte décline, le Zimbabwe reste un centre régional sans atteindre sa monumentalité historique.
+- **Issue historique** : Le Grand Zimbabwe atteint son apogée vers 1300. L'enceinte elliptique et la tour conique sont construites. Le site est abandonné vers 1450, peut-être par épuisement des ressources.
+
+#### Fin de l'optimum climatique — Début du Petit Âge glaciaire (1300)
+
+> Les températures commencent à baisser en Europe, marquant la transition vers le Petit Âge glaciaire. Conséquences en cascade : famines, abandon du Groenland viking, difficultés agricoles.
+
+- **Type** : natural_disaster / natural
+- **Fenêtre** : 1250–1350
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Prérequis** : Optimum climatique médiéval
+- **Issue historique** : Les températures chutent à partir de ~1300. La Grande Famine (1315-1317) tue des millions en Europe. Les premières colonies vikings du Groenland s'éteignent. Le refroidissement s'accentuera jusqu'au XVIIe siècle.
+
+#### Papauté d'Avignon (1309)
+
+> Le pape Clément V s'installe à Avignon sous forte influence du roi de France (1309). Sept papes successifs résideront à Avignon pendant 67 ans, affaiblissant le prestige pontifical.
+
+- **Type** : political / religious
+- **Fenêtre** : 1305–1314
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : États pontificaux, Royaume de France, Saint-Empire romain germanique
+- **Déclenche** : Grand Schisme d'Occident
+- **Alternative MJ** : Si Philippe IV est affaibli ou si le pape résiste, la papauté reste à Rome. Pas de schisme d'Occident.
+- **Issue historique** : Clément V s'installe à Avignon en 1309. Sept papes y résident jusqu'en 1376, quand Grégoire XI retourne à Rome. Le luxe avignonnais finance l'art mais discrédite l'institution.
+
+#### Pèlerinage de Mansa Moussa — L'homme le plus riche de l'histoire (1324)
+
+> Mansa Moussa, empereur du Mali, effectue son pèlerinage à La Mecque avec un cortège si fastueux qu'il provoque une inflation de l'or au Caire pendant une décennie.
+
+- **Type** : milestone / economic
+- **Fenêtre** : 1324–1326
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Empire du Ghana, Califat fatimide
+- **Prérequis** : Fondation de l'Empire du Mali — Soundiata Keïta
+- **Alternative MJ** : Si l'Empire du Mali n'est pas assez riche, le pèlerinage est modeste et ne fait pas sensation.
+- **Issue historique** : Mansa Moussa part avec 60 000 hommes et 12 tonnes d'or. Son passage au Caire (1324) dévalue l'or de 20 %. L'Atlas Catalan (1375) le représente sur son trône. Tombouctou devient un centre de savoir islamique.
+
+#### Fondation de Tenochtitlan (1325)
+
+> Les Mexicas fondent Tenochtitlan sur une île du lac Texcoco (1325), accomplissant la prophétie de l'aigle et du serpent. La future capitale aztèque deviendra la plus grande ville des Amériques.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1320–1330
+- **Sévérité** : 7/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Empire toltèque, Cités-États mayas (post-classique)
+- **Prérequis** : Effondrement de Tula et déclin toltèque, Apogée de Cahokia
+- **Alternative MJ** : Si un joueur contrôle la vallée de Mexico, les Mexicas doivent négocier ou s'installer ailleurs.
+- **Issue historique** : Selon la tradition, les Mexicas fondent Tenochtitlan en 1325 à l'endroit où un aigle dévore un serpent sur un cactus. La cité se développe rapidement grâce au système de chinampas.
+
+#### Peste noire en Asie centrale et Chine (1331)
+
+> La peste bubonique, originaire d'Asie centrale, se propage le long des routes commerciales mongoles. La Chine perd entre 25 et 40 % de sa population sous la dynastie Yuan.
+
+- **Type** : natural_disaster / natural
+- **Fenêtre** : 1320–1345
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Dynastie Song
+- **Prérequis** : Pax Mongolica et Route de la Soie
+- **Déclenche** : Peste noire en Europe, Chute de la dynastie Yuan — Fondation des Ming
+- **Issue historique** : La peste frappe la province du Hubei vers 1331-1334. Les chroniques chinoises rapportent 5 millions de morts en une seule province. La maladie se propage le long de la Route de la Soie vers l'ouest.
+
+#### Début de la Guerre de Cent Ans (1337)
+
+> Édouard III d'Angleterre revendique le trône de France, déclenchant un conflit qui durera 116 ans. La Guerre de Cent Ans transforme la nature de la guerre et des États en Europe occidentale.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1337–1340
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, Royaume de France
+- **Déclenche** : Bataille de Crécy, Peste noire en Europe
+- **Choix joueurs** :
+  - *Revendiquer le trône de France* — Le roi anglais fait valoir ses droits dynastiques. Guerre longue et coûteuse.
+  - *Renoncer à la revendication* — L'Angleterre accepte les Valois. Paix mais perte d'influence continentale.
+- **Alternative MJ** : Si le roi anglais ne revendique pas le trône, ou si un héritier capétien direct existe, la guerre n'a pas lieu. L'Angleterre reste une puissance secondaire sur le continent.
+- **Issue historique** : Édouard III revendique le trône français en 1337 face à Philippe VI de Valois. La guerre débute par des raids et des escarmouches navales avant les grandes batailles terrestres.
+
+#### Bataille de Crécy (1346)
+
+> Victoire décisive anglaise contre une armée française bien supérieure en nombre. Les archers gallois et leur long bow révolutionnent la guerre médiévale et annoncent la fin de la chevalerie lourde.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1345–1348
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, Royaume de France
+- **Prérequis** : Début de la Guerre de Cent Ans
+- **Alternative MJ** : Si la France a modernisé sa tactique ou si l'Angleterre n'a pas formé ses archers, la bataille peut tourner différemment.
+- **Issue historique** : Le 26 août 1346, ~12 000 Anglais battent ~30 000 Français. Les charges de cavalerie lourde sont brisées par les archers. Le roi Jean de Bohême, aveugle, meurt en chargeant. Calais tombe en 1347.
+
+#### Peste noire en Europe (1347)
+
+> La peste bubonique arrive en Europe par les navires génois depuis Caffa (Crimée) en 1347. En quatre ans, elle tue entre 30 et 60 % de la population européenne, transformant irréversiblement la société médiévale.
+
+- **Type** : natural_disaster / natural
+- **Fenêtre** : 1347–1353
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, États pontificaux, République de Venise, Empire byzantin, Royaume de Pologne, Royaume de Hongrie, Royaume de León, Califat de Cordoue, Royaume de Norvège, Royaume de Suède, Royaume du Danemark, Royaume d'Écosse, Rus' de Kiev
+- **Prérequis** : Peste noire en Asie centrale et Chine, Fin de l'optimum climatique — Début du Petit Âge glaciaire
+- **Déclenche** : Révoltes paysannes (Jacquerie, Wat Tyler)
+- **Choix joueurs** :
+  - *Imposer la quarantaine* — Fermer les ports et isoler les malades. Efficace mais coûteux économiquement.
+  - *Processions et prières* — Réponse religieuse. Les rassemblements aggravent la contagion.
+  - *Trouver des boucs émissaires* — Pogroms contre les minorités (juifs, lépreux). Violence inutile.
+- **Alternative MJ** : La peste est inévitable si les routes commerciales sont actives. Le MJ peut moduler la sévérité, mais pas l'empêcher. Si la Pax Mongolica n'a pas eu lieu, la peste arrive plus tard ou moins fort.
+- **Issue historique** : La peste arrive à Messine (octobre 1347), Marseille (novembre 1347), puis balaye toute l'Europe. L'Islande et la Pologne sont relativement épargnées. L'Europe met 200 ans à retrouver sa population de 1340.
+
+#### Boom de la pêche au hareng — Ligue hanséatique (1350)
+
+> Les eaux froides du Petit Âge glaciaire déplacent les bancs de harengs vers le sud, dans la mer Baltique et la mer du Nord. La Hanse exploite cette manne et bâtit un empire commercial.
+
+- **Type** : opportunity / natural
+- **Fenêtre** : 1300–1400
+- **Sévérité** : 4/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Saint-Empire romain germanique, Royaume de Norvège, Royaume de Suède
+- **Prérequis** : Fin de l'optimum climatique — Début du Petit Âge glaciaire
+- **Alternative MJ** : Si un joueur investit dans la pêche et le salage, il peut devenir un acteur majeur du commerce hanséatique.
+- **Issue historique** : La Ligue hanséatique (XIIIe-XVe siècle) prospère largement grâce au hareng. Les foires de Scanie (Suède méridionale) voient passer des millions de poissons. Lübeck contrôle le commerce du hareng salé. Quand les bancs se déplacent vers la mer du Nord au XVe siècle, la Hollande prend le relais.
+
+#### Apogée de l'Empire Majapahit (1350)
+
+> L'Empire Majapahit, sous le règne de Hayam Wuruk et le premier ministre Gajah Mada, unifie l'archipel indonésien et domine le commerce maritime du Sud-Est asiatique.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1293–1389
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire de Srivijaya, Empire khmer (Angkor)
+- **Prérequis** : Construction d'Angkor Vat
+- **Alternative MJ** : Si Srivijaya ou le Siam résistent, Majapahit reste un royaume javanais régional.
+- **Issue historique** : Gajah Mada, premier ministre (1331-1364), unifie l'archipel. Hayam Wuruk (1350-1389) porte l'empire à son apogée. La mort des deux leaders provoque le déclin. L'islam remplacera progressivement l'hindouisme.
+
+#### Révoltes paysannes (Jacquerie, Wat Tyler) (1358)
+
+> La peste noire a créé une pénurie de main-d'œuvre. Les paysans exigent de meilleurs salaires et conditions. Les révoltes éclatent en France (Jacquerie, 1358) et en Angleterre (Wat Tyler, 1381).
+
+- **Type** : crisis / political
+- **Fenêtre** : 1355–1385
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de France, Royaume d'Angleterre
+- **Prérequis** : Peste noire en Europe
+- **Choix joueurs** :
+  - *Accorder des concessions* — Améliorer les conditions des paysans. Perte de revenus seigneuriaux.
+  - *Réprimer par la force* — Écraser les révoltes militairement. Calme temporaire mais rancœur durable.
+- **Alternative MJ** : Si les joueurs ont amélioré les conditions paysannes après la peste, les révoltes sont évitées ou mineures.
+- **Issue historique** : La Jacquerie éclate en mai 1358, écrasée en juin. Wat Tyler mène 60 000 paysans à Londres en 1381, rencontre le roi, est assassiné. Les révoltes échouent mais le servage disparaît d'Angleterre au XVe siècle.
+
+#### Essor de l'Empire ottoman — Prise d'Andrinople (1363)
+
+> Les Ottomans, d'abord petit beylik turc en Anatolie, traversent les Dardanelles et conquièrent les Balkans. La prise d'Andrinople (1363) leur donne une capitale européenne et encercle Constantinople.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1354–1370
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire byzantin, Royaume de Hongrie, Royaume de Croatie
+- **Prérequis** : Reconquête de Constantinople par les Nicéens
+- **Déclenche** : Bataille de Kosovo Polje, Bataille de Nicopolis — Dernière croisade
+- **Alternative MJ** : Si Byzance a retrouvé sa puissance ou si les Balkans sont unis, les Ottomans restent confinés en Anatolie.
+- **Issue historique** : Orhan Ier traverse les Dardanelles en 1354. Mourad Ier prend Andrinople (1363), lance le système devchirmé et les janissaires. L'Europe balkanique passe sous domination ottomane en une génération.
+
+#### Chute de la dynastie Yuan — Fondation des Ming (1368)
+
+> Zhu Yuanzhang, ancien moine mendiant, mène la révolte des Turbans Rouges et renverse la dynastie Yuan mongole. Il fonde la dynastie Ming sous le nom de Hongwu, restaurant le pouvoir chinois Han.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1351–1370
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Dynastie Song
+- **Prérequis** : Peste noire en Asie centrale et Chine, Chute du Nord Song — Invasion Jurchen
+- **Alternative MJ** : Si la dynastie Yuan a réformé l'administration et géré la crise, elle peut survivre. Pas de restauration Han.
+- **Issue historique** : Zhu Yuanzhang prend Nanjing (1356), bat les rivaux chinois, puis chasse les Mongols de Pékin (1368). Il instaure un régime autocratique, abolit le poste de premier ministre et fonde une dynastie qui durera 276 ans.
+
+#### Conquêtes de Tamerlan (1370)
+
+> Timur (Tamerlan), se proclamant héritier de Gengis Khan, bâtit un empire depuis Samarkand. Il dévaste Delhi, Bagdad, Damas et bat les Ottomans à Ankara (1402), retardant la chute de Constantinople de 50 ans.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1370–1405
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Empire ghaznavide, Empire Pâla (Bengale), Khanat karakhanide, Califat fatimide
+- **Alternative MJ** : Si Tamerlan est vaincu jeune ou si les Ottomans ne sont pas affaiblis à Ankara, Constantinople tombe plus tôt et l'Empire ottoman domine dès le début du XVe siècle.
+- **Issue historique** : Tamerlan conquiert la Perse (1381-1387), la Mésopotamie (1393), l'Inde du Nord (1398-1399), bat Bayezid Ier à Ankara (1402). Il meurt en 1405 en préparant l'invasion de la Chine Ming. Son empire se fragmente.
+
+#### Grand Schisme d'Occident (1378)
+
+> Deux, puis trois papes rivaux revendiquent simultanément la légitimité pontificale (Rome, Avignon, Pise). La papauté est profondément discréditée pendant 39 ans.
+
+- **Type** : crisis / religious
+- **Fenêtre** : 1378–1417
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : États pontificaux, Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre
+- **Choix joueurs** :
+  - *Soutenir le pape de Rome* — Reconnaissance du pape romain. Alignement avec l'Italie et le HRE.
+  - *Soutenir le pape d'Avignon* — Reconnaissance du pape avignonnais. Alignement avec la France et l'Écosse.
+  - *Réclamer un concile* — Exiger un concile général pour résoudre la crise. Position modérée mais longue.
+- **Alternative MJ** : Si la papauté n'est jamais allée à Avignon, ou si l'élection de 1378 se passe bien, le schisme est évité.
+- **Issue historique** : Urbain VI élu à Rome (1378), Clément VII élu à Avignon. Le concile de Pise (1409) ajoute un troisième pape. Le concile de Constance (1414-1418) met fin au schisme et élit Martin V.
+
+#### Bataille de Kosovo Polje (1389)
+
+> L'armée ottomane de Mourad Ier affronte une coalition serbo-bosniaque à Kosovo Polje. La bataille est indécise (les deux souverains meurent) mais les Ottomans dominent les Balkans.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1387–1392
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire byzantin, Royaume de Hongrie, Royaume de Croatie
+- **Prérequis** : Essor de l'Empire ottoman — Prise d'Andrinople
+- **Alternative MJ** : Si la coalition balkanique est plus forte, les Ottomans peuvent être repoussés. Conséquence : la Serbie et la Bulgarie survivent comme États indépendants.
+- **Issue historique** : Le 28 juin 1389, les deux armées s'affrontent à Kosovo Polje. Mourad Ier est assassiné par un noble serbe. Son fils Bayezid Ier prend le commandement et vainc les Serbes. La bataille deviendra le mythe fondateur serbe.
+
+#### Bataille de Nicopolis — Dernière croisade (1396)
+
+> La dernière grande croisade européenne, menée par Sigismond de Hongrie et des chevaliers français, est écrasée par le sultan Bayezid Ier à Nicopolis. L'expansion ottomane en Europe semble inarrêtable.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1394–1398
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de Hongrie, Royaume de France, République de Venise, Saint-Empire romain germanique
+- **Prérequis** : Bataille de Kosovo Polje
+- **Alternative MJ** : Si la coalition européenne est disciplinée et bien coordonnée, Nicopolis peut être une victoire chrétienne. Les Ottomans sont repoussés des Balkans pour une génération.
+- **Issue historique** : Le 25 septembre 1396, les chevaliers français chargent sans coordination. Bayezid les écrase. Sigismond fuit par le Danube. Les croisés capturés sont exécutés sauf les plus riches (rançon). Le concept de croisade est mort.
+
+#### Bataille d'Ankara — Tamerlan bat les Ottomans (1402)
+
+> Tamerlan écrase le sultan Bayezid Ier à Ankara (1402), capture le sultan et disloque temporairement l'Empire ottoman. Constantinople gagne un sursis de 50 ans.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1400–1405
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Empire byzantin, Royaume de Hongrie
+- **Prérequis** : Conquêtes de Tamerlan, Bataille de Nicopolis — Dernière croisade
+- **Alternative MJ** : Si Tamerlan n'existe pas ou si Bayezid a évité la confrontation, l'Empire ottoman continue son expansion sans interruption. Constantinople tombe plus tôt.
+- **Issue historique** : Le 20 juillet 1402, Tamerlan bat Bayezid avec une armée supérieure. Bayezid est capturé et meurt en 1403. L'Interrègne ottoman dure jusqu'en 1413 quand Mehmed Ier réunifie l'empire.
+
+#### Voyages de Zheng He (1405)
+
+> L'amiral eunuque Zheng He commande sept expéditions maritimes colossales (1405-1433) avec des flottes de 300 navires et 28 000 hommes, atteignant l'Afrique de l'Est. La Chine Ming choisit ensuite l'isolement.
+
+- **Type** : milestone / exploration
+- **Fenêtre** : 1405–1433
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Dynastie Song, Empire de Srivijaya, Cités-États swahilies
+- **Prérequis** : Chute de la dynastie Yuan — Fondation des Ming
+- **Choix joueurs** :
+  - *Poursuivre les expéditions* — La Chine continue l'exploration maritime. Potentiel de colonisation de l'Afrique et au-delà.
+  - *Arrêter les voyages* — Les confucéens l'emportent. La Chine se replie sur elle-même.
+- **Alternative MJ** : Si la Chine continue les voyages après 1433, elle colonise l'océan Indien et rencontre les Européens. L'histoire mondiale est radicalement différente.
+- **Issue historique** : 7 voyages entre 1405 et 1433. Les flottes visitent Java, Ceylan, Calicut, Ormuz, Mogadiscio, Malindi. Après la mort de Yongle (1424), les voyages cessent. En 1500, construire un navire de plus de 2 mâts est interdit.
+
+#### Concile de Constance — Fin du Grand Schisme (1414)
+
+> Le concile de Constance (1414-1418) met fin au Grand Schisme d'Occident en déposant ou acceptant la démission des trois papes rivaux et en élisant Martin V. Jan Hus est brûlé comme hérétique.
+
+- **Type** : milestone / religious
+- **Fenêtre** : 1414–1418
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : États pontificaux, Saint-Empire romain germanique, Royaume de France, Royaume d'Angleterre
+- **Prérequis** : Grand Schisme d'Occident
+- **Déclenche** : Guerres hussites
+- **Choix joueurs** :
+  - *Soutenir le conciliarisme* — Le concile est supérieur au pape. Réforme de l'Église par les évêques.
+  - *Défendre la primauté papale* — Le pape reste le chef suprême. Pas de réforme structurelle.
+- **Alternative MJ** : Si le schisme a été résolu plus tôt, le concile n'a pas lieu. Hus n'est pas brûlé → pas de guerres hussites.
+- **Issue historique** : Le concile dépose Jean XXIII et Benoît XIII, accepte la démission de Grégoire XII, élit Martin V (11 novembre 1417). Jan Hus est brûlé (6 juillet 1415). Le conciliarisme triomphe brièvement.
+
+#### Bataille d'Azincourt (1415)
+
+> Henri V d'Angleterre écrase la chevalerie française à Azincourt (1415). Cette victoire mène au traité de Troyes (1420) qui fait d'Henri l'héritier du trône de France.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1413–1420
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, Royaume de France
+- **Prérequis** : Début de la Guerre de Cent Ans, Bataille de Crécy
+- **Déclenche** : Jeanne d'Arc et le sacre de Charles VII
+- **Alternative MJ** : Si la France n'est pas en guerre civile, Azincourt peut être évité ou tourner différemment.
+- **Issue historique** : Le 25 octobre 1415, ~6 000 Anglais battent ~15 000 Français. La boue et les archers font le travail. 6 000 morts français, dont des centaines de nobles. Henri V épouse Catherine de Valois mais meurt en 1422.
+
+#### Guerres hussites (1419)
+
+> L'exécution de Jan Hus enflamme la Bohême. Les Hussites, menés par Jan Žižka, repoussent cinq croisades pontificales grâce à des innovations tactiques révolutionnaires (chariots de guerre, armes à feu).
+
+- **Type** : crisis / religious
+- **Fenêtre** : 1419–1436
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Saint-Empire romain germanique, États pontificaux
+- **Prérequis** : Concile de Constance — Fin du Grand Schisme, Révoltes paysannes (Jacquerie, Wat Tyler)
+- **Alternative MJ** : Si Hus n'a pas été exécuté, ou si la Bohême n'est pas hussite, ces guerres n'ont pas lieu.
+- **Issue historique** : Jan Žižka, génie militaire aveugle, remporte victoire après victoire. Cinq croisades échouent. Les Compactata de Bâle (1436) accordent la communion sous les deux espèces aux Hussites. Précurseur de la Réforme.
+
+#### Jeanne d'Arc et le sacre de Charles VII (1429)
+
+> Jeanne d'Arc, paysanne lorraine de 17 ans, prétend entendre des voix divines. Elle lève le siège d'Orléans (1429), fait sacrer Charles VII à Reims et renverse le cours de la Guerre de Cent Ans.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1428–1431
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de France, Royaume d'Angleterre
+- **Prérequis** : Bataille d'Azincourt
+- **Choix joueurs** :
+  - *Soutenir Jeanne* — Fournir une armée à Jeanne et marcher sur Reims pour le sacre.
+  - *Rejeter la prophétesse* — La considérer comme folle ou hérétique. La France reste sans leader charismatique.
+- **Alternative MJ** : Si la France n'est pas désespérée, pas de besoin d'un miracle. Le rétablissement français se fait par d'autres moyens.
+- **Issue historique** : Jeanne délivre Orléans, fait sacrer Charles VII, est capturée à Compiègne, jugée et brûlée à 19 ans. Charles VII ne fait rien pour la sauver. Les Anglais sont chassés de France en 1453.
+
+#### Expansion de l'Empire inca (1438)
+
+> Sous Pachacutec et Tupac Inca Yupanqui, l'Empire inca (Tawantinsuyu) s'étend des Andes colombiennes au Chili. Le plus grand empire précolombien, relié par un réseau de routes de 40 000 km.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1430–1493
+- **Sévérité** : 8/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Royaume Chimú (Chan Chan), Successeurs Wari / Pré-Inca
+- **Alternative MJ** : Si les Chancas battent Cusco, pas d'Empire inca. Les Andes restent fragmentées.
+- **Issue historique** : Pachacutec (1438-1471) transforme Cusco d'un petit royaume en empire. Tupac Inca Yupanqui étend les frontières de l'Équateur au Chili. Huayna Capac (1493-1527) porte l'empire à son apogée avant la guerre civile et l'arrivée des Espagnols.
+
+#### Invention de l'imprimerie à caractères mobiles (1450)
+
+> Johannes Gutenberg met au point l'imprimerie à caractères mobiles métalliques à Mayence (~1440-1450). La Bible de Gutenberg (1455) inaugure une révolution de l'information comparable à Internet.
+
+- **Type** : cultural_shift / cultural
+- **Fenêtre** : 1440–1455
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Saint-Empire romain germanique
+- **Prérequis** : Révolution de l'imprimerie Song
+- **Choix joueurs** :
+  - *Adopter l'imprimerie* — Investir dans des ateliers d'impression. Diffusion rapide du savoir.
+  - *Restreindre l'imprimerie* — Censurer et contrôler les publications. Maintien de l'autorité mais retard culturel.
+- **Alternative MJ** : Si la métallurgie européenne est en retard, l'imprimerie arrive plus tard. La Chine et la Corée ont déjà des caractères mobiles (Jikji, 1377).
+- **Issue historique** : Gutenberg imprime la Bible à 42 lignes (~1455). En 1500, plus de 20 millions de volumes ont été imprimés en Europe. Venise devient le centre de l'édition. La Réforme (1517) sera fille de l'imprimerie.
+
+#### Chute de Constantinople (1453)
+
+> Le sultan Mehmed II assiège et prend Constantinople le 29 mai 1453, mettant fin à l'Empire romain d'Orient après 1 123 ans. Événement charnière entre Moyen Âge et Renaissance.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1451–1455
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Empire byzantin, République de Venise, États pontificaux, Royaume de Hongrie, Saint-Empire romain germanique
+- **Prérequis** : Essor de l'Empire ottoman — Prise d'Andrinople, Bataille d'Ankara — Tamerlan bat les Ottomans
+- **Choix joueurs** :
+  - *Envoyer des renforts à Constantinople* — L'Occident mobilise une force de secours. Coûteux et risqué.
+  - *Négocier avec Mehmed II* — Tenter une paix diplomatique. Préserver les comptoirs commerciaux.
+  - *Abandonner Constantinople* — L'Occident sacrifie Byzance. Les ressources sont conservées pour défendre la Hongrie.
+- **Alternative MJ** : Si Byzance a été renforcée ou si les Ottomans n'ont pas survécu à Ankara, Constantinople ne tombe pas. L'Empire byzantin survit et la Renaissance prend une autre forme.
+- **Issue historique** : Le 29 mai 1453, après 53 jours de siège, les Ottomans percent les murailles grâce au canon géant d'Orban. Le dernier empereur Constantin XI meurt en combattant. La civilisation byzantine s'éteint après 1 123 ans.
+
+#### Fin de la Guerre de Cent Ans (1453)
+
+> La bataille de Castillon (1453) marque la victoire finale française. L'Angleterre perd tous ses territoires continentaux sauf Calais. Naissance de deux États-nations modernes.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1450–1455
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de France, Royaume d'Angleterre
+- **Prérequis** : Jeanne d'Arc et le sacre de Charles VII
+- **Déclenche** : Guerres des Roses
+- **Alternative MJ** : Si l'Angleterre a gagné la Guerre de Cent Ans, la France est un État vassal anglais. L'histoire de l'Europe est radicalement différente.
+- **Issue historique** : La bataille de Castillon (17 juillet 1453) est la première bataille gagnée principalement par l'artillerie. Talbot est tué. Bordeaux tombe. L'Angleterre ne conserve que Calais (jusqu'en 1558).
+
+#### Guerres des Roses (1455)
+
+> Guerre civile anglaise entre les maisons de Lancastre (rose rouge) et d'York (rose blanche) pour le trône. 30 ans de conflits qui déciment la noblesse anglaise.
+
+- **Type** : crisis / political
+- **Fenêtre** : 1455–1487
+- **Sévérité** : 7/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre
+- **Prérequis** : Fin de la Guerre de Cent Ans
+- **Choix joueurs** :
+  - *Soutenir Lancastre* — La rose rouge et la légitimité d'Henri VI.
+  - *Soutenir York* — La rose blanche et la compétence d'Édouard IV.
+- **Alternative MJ** : Si l'Angleterre a gagné la Guerre de Cent Ans, Henri VI est populaire et stable. Pas de guerre civile.
+- **Issue historique** : Première bataille de St Albans (1455). Édouard IV prend le trône (1461). Henri VI brièvement restauré (1470-71). Richard III vaincu à Bosworth (1485). Henri VII Tudor unit les roses par mariage.
+
+#### Essor de l'Empire songhaï (1468)
+
+> Sonni Ali Ber (1464-1492) puis Askia Mohammed (1493-1528) bâtissent le plus grand empire de l'histoire de l'Afrique de l'Ouest, succédant au Mali. Tombouctou devient la plus grande université islamique du monde.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1464–1500
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire du Ghana
+- **Prérequis** : Fondation de l'Empire du Mali — Soundiata Keïta, Pèlerinage de Mansa Moussa — L'homme le plus riche de l'histoire
+- **Alternative MJ** : Si le Mali reste puissant, les Songhaï restent un petit royaume vassal à Gao.
+- **Issue historique** : Sonni Ali capture Tombouctou (1468) et Djenné (1473). Askia Mohammed fait le pèlerinage à La Mecque (1496-97), organise l'empire en provinces. Tombouctou compte 25 000 étudiants. L'empire tombe face aux Marocains (1591).
+
+#### Apogée de la Renaissance italienne (1470)
+
+> Les cités-États italiennes (Florence, Venise, Milan, Rome) connaissent un essor culturel sans précédent. Léonard de Vinci, Botticelli, Machiavel, les Médicis : l'humanisme transforme la pensée occidentale.
+
+- **Type** : cultural_shift / cultural
+- **Fenêtre** : 1450–1500
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : République de Venise, États pontificaux, Saint-Empire romain germanique
+- **Prérequis** : Chute de Constantinople, Invention de l'imprimerie à caractères mobiles
+- **Choix joueurs** :
+  - *Investir dans le mécénat* — Financer artistes et savants. Prestige culturel immense.
+  - *Ignorer le mouvement* — Se concentrer sur le militaire ou le commerce. Retard culturel.
+- **Alternative MJ** : Si Constantinople n'est pas tombée, les savants grecs ne fuient pas. Si l'imprimerie n'existe pas, la diffusion est limitée. La Renaissance est retardée ou prend une autre forme.
+- **Issue historique** : Florence sous Laurent le Magnifique (1469-1492) est l'épicentre. Botticelli peint la Naissance de Vénus (1485). Léonard travaille à Milan (1482-1499). Machiavel écrit Le Prince (1513). L'art et la pensée sont révolutionnés.
+
+#### Inquisition espagnole (1478)
+
+> Ferdinand et Isabelle créent l'Inquisition espagnole (1478), un tribunal religieux sous contrôle royal ciblant les conversos (juifs convertis) et morisques. Outil de contrôle social et politique.
+
+- **Type** : political / religious
+- **Fenêtre** : 1478–1500
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de León, Califat de Cordoue
+- **Prérequis** : Création de l'Inquisition médiévale
+- **Alternative MJ** : Si les rois catholiques choisissent la tolérance, pas d'Inquisition. L'Espagne reste diverse mais potentiellement instable.
+- **Issue historique** : Bulle Exigit Sincerae Devotionis (1478). Torquemada dirige l'Inquisition 1483-1498. Expulsion des juifs (1492). L'Inquisition ne sera abolie qu'en 1834. Elle devient un outil de contrôle royal autant que religieux.
+
+#### Fin du joug mongol — Montée de Moscou (1480)
+
+> Ivan III de Moscou (le Grand) cesse de payer tribut à la Horde d'Or (1480). Il triple le territoire moscovite, unifie les principautés russes et se proclame héritier de Constantinople (« Troisième Rome »).
+
+- **Type** : milestone / political
+- **Fenêtre** : 1462–1505
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Rus' de Kiev
+- **Prérequis** : Unification mongole et conquêtes de Gengis Khan, Chute de Constantinople, Invasion mongole de l'Europe
+- **Alternative MJ** : Si la Horde d'Or reste unie ou si Novgorod résiste, la Russie ne s'unifie pas sous Moscou.
+- **Issue historique** : Ivan III refuse le tribut mongol (1476). La Grande Halte sur l'Ougra (1480) met fin symboliguement au joug tatar. Ivan annexe Novgorod (1478), Tver (1485). Il promulgue le Sudebnik (code de lois, 1497).
+
+#### Chute de Grenade — Fin de la Reconquista (1492)
+
+> Ferdinand d'Aragon et Isabelle de Castille conquièrent le dernier bastion musulman en Ibérie : le royaume de Grenade (2 janvier 1492). Fin de 781 ans de présence musulmane en péninsule ibérique.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1482–1492
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de León, Califat de Cordoue
+- **Prérequis** : Chute de Cordoue et Séville
+- **Déclenche** : Découverte de l'Amérique par Christophe Colomb
+- **Choix joueurs** :
+  - *Tolérance religieuse* — Respecter les capitulations de Grenade. Convivencia maintenue.
+  - *Expulsion et conversion forcée* — Expulser juifs et musulmans. Pureté religieuse mais perte de talents.
+- **Alternative MJ** : Si les royaumes chrétiens ne sont pas unis, Grenade survit. L'Espagne reste fragmentée et les colonisations sont retardées.
+- **Issue historique** : Boabdil remet les clés de l'Alhambra le 2 janvier 1492. Le décret de l'Alhambra (31 mars) expulse les juifs. Les musulmans suivront (1502). L'Espagne gagne en unité mais perd en diversité intellectuelle.
+
+#### Découverte de l'Amérique par Christophe Colomb (1492)
+
+> Christophe Colomb, financé par Isabelle de Castille, atteint les Bahamas le 12 octobre 1492. Il croit avoir atteint les Indes. L'échange colombien va transformer le monde entier.
+
+- **Type** : milestone / exploration
+- **Fenêtre** : 1492–1493
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de León, Empire toltèque, Cités-États mayas (post-classique)
+- **Prérequis** : Chute de Grenade — Fin de la Reconquista
+- **Choix joueurs** :
+  - *Financer l'expédition* — Investir dans l'exploration transatlantique. Risqué mais potentiellement révolutionnaire.
+  - *Refuser le projet* — Trop risqué et trop cher. Un autre pays financera Colomb.
+- **Alternative MJ** : Si Constantinople n'est pas tombée et que les routes terrestres sont ouvertes, la motivation pour chercher une route par l'ouest est moindre. Un navigateur portugais pourrait arriver en premier.
+- **Issue historique** : Colomb quitte Palos (3 août 1492), atteint Guanahani/San Salvador (12 octobre). Quatre voyages au total. Il meurt en 1506 convaincu d'avoir atteint l'Asie. L'Amérique est nommée d'après Amerigo Vespucci.
+
+#### Traité de Tordesillas (1494)
+
+> L'Espagne et le Portugal se partagent le « Nouveau Monde » avec la bénédiction du pape Alexandre VI. Une ligne à 370 lieues à l'ouest du Cap-Vert divise le globe en deux zones d'influence.
+
+- **Type** : political / diplomatic
+- **Fenêtre** : 1493–1494
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de León, États pontificaux
+- **Prérequis** : Découverte de l'Amérique par Christophe Colomb
+- **Alternative MJ** : Si Colomb n'a pas navigué ou si d'autres nations ont découvert l'Amérique, le partage est différent ou inexistant.
+- **Issue historique** : Signé le 7 juin 1494. La ligne est fixée à 370 lieues à l'ouest du Cap-Vert. Le Portugal obtient le Brésil (découvert en 1500 par Cabral). La France et l'Angleterre contestent : « Montrez-moi le testament d'Adam ! » (François Ier).
+
+#### Vasco de Gama atteint l'Inde (1498)
+
+> Vasco de Gama contourne le cap de Bonne-Espérance et atteint Calicut (1498), ouvrant la route maritime directe vers l'Inde. Le monopole arabo-vénitien sur le commerce des épices est brisé.
+
+- **Type** : milestone / exploration
+- **Fenêtre** : 1497–1499
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de León, République de Venise, Califat fatimide, Cités-États swahilies
+- **Alternative MJ** : Si les routes terrestres sont sûres ou si le Portugal n'a pas investi dans l'exploration, la route maritime n'est pas trouvée. Venise reste dominante.
+- **Issue historique** : Vasco de Gama quitte Lisbonne (8 juillet 1497), double le Cap (novembre), atteint Calicut (20 mai 1498). Le prix des épices chute en Europe. Le Portugal construit un empire maritime de Malacca à Macao.
+
+#### Fondation de l'Empire safavide — L'Iran devient chiite (1501)
+
+> Ismaïl Ier fonde l'Empire safavide (1501) et impose le chiisme duodécimain comme religion d'État en Iran. Décision qui façonne l'identité iranienne jusqu'à aujourd'hui et crée un fossé durable avec les Ottomans sunnites.
+
+- **Type** : milestone / religious
+- **Fenêtre** : 1501–1524
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire ghaznavide, Khanat karakhanide
+- **Prérequis** : Conquêtes de Tamerlan
+- **Alternative MJ** : Si les Safavides n'émergent pas, l'Iran reste sunnite. Pas de fracture sunnite-chiite durable. L'Empire ottoman est moins menacé sur son flanc est.
+- **Issue historique** : Ismaïl conquiert Tabriz (1501), se proclame chah. Conversion forcée au chiisme. Défaite à Chaldiran (1514) face à Sélim Ier. L'empire se stabilise. Abbas Ier (1587-1629) crée une armée moderne et fait d'Isfahan une merveille architecturale.
+
+#### Début de la traite atlantique (1510)
+
+> Les Portugais commencent à transporter des esclaves africains vers les Amériques (1510s). En quatre siècles, 12.5 millions d'Africains seront déportés. La plus grande migration forcée de l'histoire.
+
+- **Type** : crisis / economic
+- **Fenêtre** : 1502–1560
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de León, Empire du Ghana, Cités-États swahilies
+- **Prérequis** : Découverte de l'Amérique par Christophe Colomb
+- **Choix joueurs** :
+  - *Participer à la traite* — Profit économique massif mais crime contre l'humanité.
+  - *S'abstenir de la traite* — Retard économique relatif mais dignité préservée.
+- **Alternative MJ** : Si les Amériques ne sont pas colonisées ou si la population amérindienne survit, le besoin d'esclaves est moindre. La traite existe à plus petite échelle.
+- **Issue historique** : De 1500 à 1900, 12.5 millions d'Africains sont déportés (2 millions meurent pendant la traversée). Le Portugal, puis la Hollande, l'Angleterre et la France dominent le commerce. L'Afrique de l'Ouest perd sa dynamique démographique et politique.
+
+#### Réforme protestante — 95 thèses de Luther (1517)
+
+> Martin Luther affiche ses 95 thèses à Wittenberg (31 octobre 1517), dénonçant la vente des indulgences. L'imprimerie diffuse ses idées en quelques semaines. La chrétienté occidentale se fracture irréversiblement.
+
+- **Type** : cultural_shift / religious
+- **Fenêtre** : 1517–1530
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Saint-Empire romain germanique, États pontificaux, Royaume d'Angleterre, Royaume de France
+- **Prérequis** : Invention de l'imprimerie à caractères mobiles, Concile de Constance — Fin du Grand Schisme, Guerres hussites
+- **Déclenche** : Guerre des paysans allemands, Paix d'Augsbourg — Cuius regio, eius religio
+- **Choix joueurs** :
+  - *Adopter la Réforme* — Rompre avec Rome. Saisie des biens ecclésiastiques. Liberté religieuse.
+  - *Rester catholique* — Soutenir Rome et combattre l'hérésie. Alliance avec le pape.
+  - *Tolérer les deux confessions* — Politique de compromis religieux. Difficile à maintenir.
+- **Alternative MJ** : Si l'imprimerie n'existe pas ou si l'Église s'est réformée internement (cf. conciliarisme), la Réforme est retardée ou prend une forme différente.
+- **Issue historique** : Luther brûle la bulle papale (1520), comparaît à Worms (1521), traduit la Bible en allemand. En 1530, moitié de l'Allemagne est protestante. Calvin à Genève (1536). Henri VIII fonde l'Église anglicane (1534).
+
+#### Tour du monde de Magellan-Elcano (1519)
+
+> L'expédition de Fernand de Magellan (1519-1522) réalise le premier tour du monde. Magellan meurt aux Philippines, mais Juan Sebastián Elcano ramène le Victoria à Séville. La Terre est ronde.
+
+- **Type** : milestone / exploration
+- **Fenêtre** : 1519–1522
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de León
+- **Prérequis** : Vasco de Gama atteint l'Inde
+- **Alternative MJ** : Si l'expédition échoue complètement, le tour du monde est retardé d'une génération. Les dimensions du Pacifique restent inconnues.
+- **Issue historique** : 5 navires et 270 hommes partent de Séville (1519). Magellan franchit le détroit (1520), traverse le Pacifique, meurt aux Philippines (1521). Seuls 18 survivants sur le Victoria bouclent le tour du monde (6 septembre 1522).
+
+#### Apogée de l'Empire ottoman — Soliman le Magnifique (1520)
+
+> Soliman le Magnifique (1520-1566) porte l'Empire ottoman à son apogée. Conquête de Belgrade (1521), Rhodes (1522), victoire à Mohács (1526), siège de Vienne (1529). Maître de la Méditerranée orientale.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1520–1566
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de Hongrie, République de Venise, Saint-Empire romain germanique, États pontificaux
+- **Prérequis** : Chute de Constantinople
+- **Alternative MJ** : Si les Ottomans sont affaiblis (pas de Conquête de Constantinople, défaite à Ankara durable), Soliman règne sur un État régional, pas un empire mondial.
+- **Issue historique** : Soliman conquiert Belgrade (1521), Rhodes (1522), bat la Hongrie à Mohács (1526), assiège Vienne (1529, échec), prend Bagdad (1534). Alliance avec François Ier contre Charles Quint. L'empire compte 25 millions d'habitants à sa mort (1566).
+
+#### Conquête de l'Empire aztèque par Cortés (1521)
+
+> Hernán Cortés, avec 600 Espagnols et des milliers d'alliés indigènes, conquiert l'Empire aztèque de Moctezuma II. Tenochtitlan tombe après un siège dévastateur (1521).
+
+- **Type** : milestone / military
+- **Fenêtre** : 1519–1522
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de León, Empire toltèque
+- **Prérequis** : Découverte de l'Amérique par Christophe Colomb, Fondation de Tenochtitlan, Traité de Tordesillas
+- **Alternative MJ** : Si les Aztèques ont des armes à feu (obtenues par commerce ?) ou si la variole n'arrive pas, la conquête échoue. Le Mexique reste amérindien.
+- **Issue historique** : Cortés débarque en 1519, est accueilli par Moctezuma (qui le prend pour Quetzalcóatl ?). Noche Triste (30 juin 1520). Siège de Tenochtitlan (mai-août 1521). La variole tue plus que les épées. 90 % de la population indigène meurt en un siècle.
+
+#### Guerre des paysans allemands (1524)
+
+> La plus grande révolte populaire en Europe avant la Révolution française. 300 000 paysans se soulèvent en Allemagne du Sud (1524-1525), inspirés par la Réforme, puis sont massacrés.
+
+- **Type** : crisis / political
+- **Fenêtre** : 1524–1526
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Saint-Empire romain germanique
+- **Prérequis** : Réforme protestante — 95 thèses de Luther
+- **Alternative MJ** : Si la Réforme n'a pas eu lieu, les paysans n'ont pas de cadre idéologique. La révolte est plus locale et vite écrasée.
+- **Issue historique** : Les Douze Articles (mars 1525) formulent des revendications modérées. Les princes écrasent la révolte avec une brutalité extrême. Luther prend le parti des princes. Le mouvement anabaptiste radicalise l'aile gauche de la Réforme.
+
+#### Fondation de l'Empire moghol (1526)
+
+> Babur, descendant de Tamerlan et de Gengis Khan, bat le sultan de Delhi à Panipat (1526) avec 12 000 hommes contre 100 000. Il fonde l'Empire moghol qui dominera l'Inde pendant trois siècles.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1519–1530
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire ghaznavide, Empire Pâla (Bengale)
+- **Prérequis** : Conquêtes de Tamerlan, Apogée du Sultanat de Delhi
+- **Alternative MJ** : Si le sultanat de Delhi est fort ou si Babur ne dispose pas d'artillerie, la conquête échoue. L'Inde reste fragmentée entre sultanats.
+- **Issue historique** : Babur gagne à Panipat (21 avril 1526) grâce à l'artillerie ottomane. Il bat les Rajputs à Khanwa (1527). Il meurt en 1530. Son fils Humayun perd l'empire face à Sher Shah Suri, le regagne en 1555. Akbar (1556-1605) l'agrandit fantastiquement.
+
+#### Sac de Rome (1527)
+
+> Les troupes de Charles Quint, impayées et mutinées, saccagent Rome pendant des semaines (1527). Le pape Clément VII est assiégé au château Saint-Ange. Choc moral pour la chrétienté.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1526–1530
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : États pontificaux, Saint-Empire romain germanique, Royaume de France
+- **Prérequis** : Apogée de la Renaissance italienne, Réforme protestante — 95 thèses de Luther
+- **Alternative MJ** : Si Charles Quint contrôle ses troupes ou si la Ligue de Cognac est plus forte, le sac est évité. La Renaissance romaine se poursuit.
+- **Issue historique** : Le 6 mai 1527, 20 000 soldats mutinés envahissent Rome. Le connétable de Bourbon est tué au début de l'assaut. Le pillage dure des semaines. Clément VII, réfugié au Château Saint-Ange, capitule. La Renaissance se déplace vers Venise.
+
+#### Échange colombien — Nouvelles cultures (1530)
+
+> L'arrivée de cultures américaines en Europe, Afrique et Asie — pomme de terre, maïs, tomate, piment — transforme l'agriculture mondiale. Les rendements caloriques augmentent massivement, alimentant la croissance démographique.
+
+- **Type** : opportunity / natural
+- **Fenêtre** : 1500–1600
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de León, Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre, États pontificaux
+- **Prérequis** : Découverte de l'Amérique par Christophe Colomb
+- **Issue historique** : L'échange colombien est probablement le plus grand bouleversement écologique de l'histoire humaine. La pomme de terre nourrit la croissance démographique européenne du XVIIIe siècle. Le maïs permet l'expansion des populations africaines. La population mondiale passe de ~500 millions (1500) à ~900 millions (1800), largement grâce à ces nouvelles cultures.
+
+#### Conquête de l'Empire inca par Pizarro (1532)
+
+> Francisco Pizarro capture l'empereur Atahualpa à Cajamarca (1532) avec 168 hommes. L'Empire inca, affaibli par une guerre civile et la variole, s'effondre en quelques années.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1531–1535
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de León, Royaume Chimú (Chan Chan), Successeurs Wari / Pré-Inca
+- **Prérequis** : Découverte de l'Amérique par Christophe Colomb, Expansion de l'Empire inca
+- **Alternative MJ** : Si l'Empire inca n'est pas en guerre civile ou si les Espagnols sont repoussés, le Tawantinsuyu survit. L'histoire de l'Amérique du Sud est radicalement différente.
+- **Issue historique** : Pizarro tend un piège à Cajamarca (16 novembre 1532). 7 000 Incas massacrés en 2 heures. Atahualpa capturé, rançonné, baptisé, garrotté (1533). Les Incas résistent à Vilcabamba jusqu'en 1572.
+
+#### Révolution copernicienne (1543)
+
+> Nicolas Copernic publie De Revolutionibus Orbium Coelestium (1543), proposant un modèle héliocentrique : la Terre tourne autour du Soleil. Début de la révolution scientifique.
+
+- **Type** : cultural_shift / cultural
+- **Fenêtre** : 1543–1550
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Saint-Empire romain germanique, États pontificaux
+- **Prérequis** : Invention de l'imprimerie à caractères mobiles, Apogée de la Renaissance italienne
+- **Alternative MJ** : Si la Renaissance n'a pas eu lieu ou si la censure est plus forte, l'héliocentrisme est retardé. La révolution scientifique commence ailleurs.
+- **Issue historique** : Copernic publie sur son lit de mort (24 mai 1543). L'impact est lent : peu de gens comprennent les mathématiques. Galilée confirme par observation (1610). L'Église condamne l'héliocentrisme en 1616, réhabilite Galilée en 1992.
+
+#### Concile de Trente — Contre-Réforme (1545)
+
+> Le concile de Trente (1545-1563) lance la Contre-Réforme catholique. Clarification des dogmes, réforme des abus, création des séminaires. Les Jésuites deviennent le fer de lance de la reconquête catholique.
+
+- **Type** : cultural_shift / religious
+- **Fenêtre** : 1545–1563
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : États pontificaux, Royaume de León, Saint-Empire romain germanique, Royaume de France
+- **Prérequis** : Réforme protestante — 95 thèses de Luther, Sac de Rome
+- **Alternative MJ** : Si l'Église s'est réformée avant la Réforme (conciliarisme réussi), le concile de Trente n'est pas nécessaire.
+- **Issue historique** : 25 sessions sur 18 ans. Dogmes réaffirmés (transsubstantiation, 7 sacrements, purgatoire). Abus corrigés (résidence des évêques, formation des prêtres). Le catholicisme sort renforcé et discipliné. L'art baroque fleurit.
+
+#### Le Potosí et l'afflux d'argent américain (1545)
+
+> Le Cerro Rico de Potosí (Bolivie actuelle), découvert en 1545, produit la plus grande quantité d'argent de l'histoire. L'afflux de métaux précieux américains transforme l'économie mondiale et provoque une inflation généralisée.
+
+- **Type** : milestone / economic
+- **Fenêtre** : 1545–1600
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de León, Saint-Empire romain germanique, République de Venise
+- **Prérequis** : Conquête de l'Empire inca par Pizarro
+- **Alternative MJ** : Si le Potosí n'est pas découvert ou si les Incas résistent, l'économie mondiale évolue sans l'afflux d'argent. Pas de révolution des prix.
+- **Issue historique** : Entre 1500 et 1800, 150 000 tonnes d'argent et 4 700 tonnes d'or affluent vers l'Europe depuis les Amériques. Le Potosí est la 6e plus grande ville du monde en 1600. 8 millions de travailleurs forcés y périssent.
+
+#### Paix d'Augsbourg — Cuius regio, eius religio (1555)
+
+> La paix d'Augsbourg (1555) établit le principe « tel prince, telle religion ». Chaque prince du HRE choisit entre catholicisme et luthéranisme. Les calvinistes sont exclus.
+
+- **Type** : political / diplomatic
+- **Fenêtre** : 1552–1558
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Saint-Empire romain germanique, États pontificaux
+- **Prérequis** : Réforme protestante — 95 thèses de Luther
+- **Alternative MJ** : Si un camp a gagné les guerres de religion, pas besoin de compromis. L'Allemagne est uniformément catholique ou protestante.
+- **Issue historique** : Charles Quint abdique (1556), épuisé par les guerres de religion. La paix d'Augsbourg gèle la situation religieuse. Elle tient 63 ans, jusqu'à ce que la tension calviniste, la Bohême et la rivalité Habsbourg-Bourbon la brisent en 1618.
+
+#### Guerres de religion françaises (1562)
+
+> Huit guerres de religion déchirent la France (1562-1598). Catholiques vs Huguenots (calvinistes). La Saint-Barthélemy (1572) est le point culminant de l'horreur. L'Édit de Nantes (1598) apporte la paix.
+
+- **Type** : crisis / religious
+- **Fenêtre** : 1562–1598
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de France
+- **Prérequis** : Réforme protestante — 95 thèses de Luther
+- **Choix joueurs** :
+  - *Soutenir la Ligue catholique* — Alliance avec les Guises et l'Espagne. Éradiquer le protestantisme.
+  - *Protéger les Huguenots* — Soutenir la liberté religieuse. Risque de guerre civile avec les ultra-catholiques.
+  - *Position des Politiques* — La paix civile prime sur la religion. Pragmatisme et tolérance.
+- **Alternative MJ** : Si le calvinisme ne s'est pas répandu en France ou si la monarchie est forte, les guerres de religion sont évitées.
+- **Issue historique** : 8 guerres en 36 ans. Saint-Barthélemy (1572). Henri de Navarre devient Henri IV (1589), se convertit (1593), entre à Paris (1594). Édit de Nantes (1598) : liberté de culte et places de sûreté pour les protestants.
+
+#### Révolte des Pays-Bas — Naissance des Provinces-Unies (1568)
+
+> Les Pays-Bas espagnols se révoltent contre Philippe II (1568). La répression du duc d'Albe, les taxes et l'Inquisition catalysent l'indépendance. Les Provinces-Unies deviennent la première république moderne.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1568–1600
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de León, Royaume d'Angleterre
+- **Prérequis** : Réforme protestante — 95 thèses de Luther
+- **Déclenche** : Défaite de l'Invincible Armada
+- **Alternative MJ** : Si Philippe II adopte une politique tolérante, les Pays-Bas restent espagnols. Pas de Siècle d'Or néerlandais.
+- **Issue historique** : Guillaume d'Orange lance la révolte (1568). Le duc d'Albe fait régner la terreur. Union d'Utrecht (1579). Acte d'abjuration (1581). Assassinat de Guillaume (1584). La guerre dure 80 ans (trêve en 1609, paix en 1648).
+
+#### Bataille de Lépante (1571)
+
+> La Sainte Ligue (Espagne, Venise, papauté) bat la flotte ottomane à Lépante (7 octobre 1571). Dernière grande bataille de galères. Victoire symbolique de la chrétienté, mais sans conséquences stratégiques durables.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1570–1573
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de León, République de Venise, États pontificaux
+- **Prérequis** : Apogée de l'Empire ottoman — Soliman le Magnifique
+- **Alternative MJ** : Si la Sainte Ligue n'est pas formée, les Ottomans dominent totalement la Méditerranée. Venise perd tous ses comptoirs.
+- **Issue historique** : Le 7 octobre 1571, 206 galères chrétiennes battent 230 galères ottomanes dans le golfe de Patras. Cervantès y participe et perd l'usage de sa main gauche. Le Grand Vizir Sokollu : « Nous vous avons coupé un bras ; vous nous avez rasé la barbe ».
+
+#### Défaite de l'Invincible Armada (1588)
+
+> Philippe II d'Espagne lance l'Invincible Armada (130 navires) contre l'Angleterre d'Élisabeth Ire (1588). Défaite par la marine anglaise et les tempêtes. Début du déclin espagnol et de l'ascension anglaise.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1585–1590
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de León, Royaume d'Angleterre
+- **Prérequis** : Réforme protestante — 95 thèses de Luther
+- **Alternative MJ** : Si l'Armada réussit, l'Angleterre redevient catholique. L'Espagne domine les mers et les colonies. Pas d'Empire britannique.
+- **Issue historique** : L'Armada quitte Lisbonne (mai 1588). Brûlots anglais à Calais (7 août). Bataille de Gravelines (8 août). L'Armada fuit par le nord de l'Écosse. 63 navires perdus, 15 000 morts. Drake et Hawkins deviennent des héros nationaux.
+
+#### Unification du Japon — Oda, Toyotomi, Tokugawa (1600)
+
+> Après un siècle de guerre civile (Sengoku), trois grands unificateurs — Oda Nobunaga, Toyotomi Hideyoshi et Tokugawa Ieyasu — réunifient le Japon. Sekigahara (1600) installe le shogunat Tokugawa.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1560–1603
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Japon (Heian)
+- **Prérequis** : Apogée culturel Heian — Le Dit du Genji
+- **Alternative MJ** : Si le Japon reste fragmenté, pas de shogunat Tokugawa. Le Japon reste ouvert au commerce européen et au christianisme.
+- **Issue historique** : Nobunaga (1560-82) brûle l'Enryaku-ji, conquiert le centre du Japon. Assassiné au Honnō-ji. Hideyoshi (1585-98) achève l'unification, envahit la Corée. Tokugawa Ieyasu gagne Sekigahara (1600), fonde le shogunat (1603) qui durera 265 ans.
+
+#### Fondation des Compagnies des Indes orientales (1602)
+
+> L'Angleterre (1600), les Pays-Bas (1602) puis la France (1604) fondent des compagnies à charte pour le commerce avec l'Asie. La VOC néerlandaise est la première société par actions cotée en bourse. Le capitalisme moderne naît.
+
+- **Type** : milestone / economic
+- **Fenêtre** : 1600–1610
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, République de Venise
+- **Prérequis** : Vasco de Gama atteint l'Inde
+- **Choix joueurs** :
+  - *Investir dans la compagnie* — Acheter des actions. Risque élevé, profit potentiel énorme.
+  - *Développer un commerce indépendant* — Tenter de concurrencer les compagnies à charte — dangereux.
+- **Alternative MJ** : Si les Portugais gardent le monopole asiatique, les compagnies du nord se concentrent sur les Amériques.
+- **Issue historique** : La VOC néerlandaise domine le commerce asiatique pendant 200 ans. L'EIC britannique finira par contrôler l'Inde entière. Ces compagnies sont le berceau du capitalisme actionnarial, de la finance moderne et du colonialisme commercial.
+
+#### Colonisation de l'Amérique du Nord — Jamestown & Québec (1607)
+
+> Les Anglais fondent Jamestown (1607) en Virginie et les Français fondent Québec (1608). Début de la colonisation permanente de l'Amérique du Nord par les puissances européennes.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1607–1620
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Mi'kmaq, Béothuks (Terre-Neuve)
+- **Prérequis** : Découverte de l'Amérique par Christophe Colomb
+- **Alternative MJ** : Si les nations amérindiennes résistent efficacement, la colonisation reste côtière et limitée. La traite des fourrures peut fonctionner comme commerce entre égaux.
+- **Issue historique** : Jamestown survit grâce au tabac (1612). Québec devient la base de la Nouvelle-France. Les Pays-Bas fondent la Nouvelle-Amsterdam (1626). En 50 ans, la côte est est colonisée. Les peuples autochtones perdent 90 % de leur population à cause des maladies européennes.
+
+#### Guerre de Trente Ans (1618)
+
+> Le conflit le plus dévastateur en Europe avant les guerres mondiales. Commencé comme une guerre de religion en Bohême, il se transforme en conflit géopolitique impliquant la quasi-totalité de l'Europe. L'Allemagne perd un tiers de sa population.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1618–1648
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Saint-Empire romain germanique, Royaume de France, Royaume de Suède, Royaume du Danemark, Royaume de León
+- **Prérequis** : Réforme protestante — 95 thèses de Luther, Paix d'Augsbourg — Cuius regio, eius religio, Concile de Trente — Contre-Réforme
+- **Déclenche** : Traités de Westphalie
+- **Choix joueurs** :
+  - *Rejoindre le camp protestant* — S'allier à la Suède et aux princes protestants.
+  - *Rejoindre le camp catholique / impérial* — Soutenir l'Empereur et la Contre-Réforme.
+  - *Rester neutre* — Difficile — les armées passent quand même. Mais moins de pertes.
+- **Alternative MJ** : Si la paix d'Augsbourg tient, la guerre peut être évitée ou réduite à un conflit bohémien local. Si la France n'intervient pas, la guerre finit plus tôt avec une victoire impériale.
+- **Issue historique** : La guerre dévaste le Saint-Empire pendant 30 ans. La Suède de Gustave Adolphe intervient (1630), puis la France de Richelieu (1635). Le conflit se termine par les traités de Westphalie (1648) qui redessinent l'Europe.
+
+#### Âge d'or néerlandais (1620)
+
+> Les Provinces-Unies deviennent la première puissance économique mondiale. Amsterdam est le centre financier du monde. La peinture (Rembrandt, Vermeer), la science (Huygens, Leeuwenhoek) et la tolérance religieuse rayonnent.
+
+- **Type** : cultural_shift / cultural
+- **Fenêtre** : 1600–1670
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : République de Venise
+- **Prérequis** : Révolte des Pays-Bas — Naissance des Provinces-Unies
+- **Alternative MJ** : Si l'indépendance néerlandaise échoue, l'Âge d'or n'a pas lieu. Anvers (espagnol) reste le centre financier. Amsterdam reste un port mineur.
+- **Issue historique** : Les Pays-Bas dominent le commerce mondial pendant 80 ans. La VOC contrôle les Moluques, Ceylan, le Cap, Formose. La Tulipomanie (1637) est la première bulle spéculative. L'Âge d'or décline après les guerres anglo-néerlandaises et l'invasion française de 1672.
+
+#### Galilée et la révolution copernicienne (1632)
+
+> Galilée publie le Dialogue sur les deux grands systèmes du monde (1632), défendant l'héliocentrisme de Copernic. L'Inquisition le condamne. La science moderne s'oppose à l'autorité de l'Église.
+
+- **Type** : milestone / scientific
+- **Fenêtre** : 1610–1642
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : États pontificaux, République de Venise
+- **Prérequis** : Révolution copernicienne
+- **Choix joueurs** :
+  - *Soutenir la nouvelle science* — Promouvoir l'observation et l'expérimentation contre le dogme.
+  - *Défendre l'autorité de l'Église* — La Bible est la vérité. Les savants sont dangereux.
+- **Alternative MJ** : Si l'Église accepte l'héliocentrisme plus tôt, la révolution scientifique s'accélère. Si Galilée est exécuté, un effet dissuasif retarde la science d'une génération.
+- **Issue historique** : Galilée est condamné à la résidence surveillée à vie (1633). Son Dialogue est interdit. Mais l'héliocentrisme triomphe — Kepler, puis Newton achèveront la révolution. Le Vatican réhabilite Galilée en... 1992.
+
+#### Guerre civile anglaise & exécution de Charles Ier (1642)
+
+> Le conflit entre le roi Charles Ier et le Parlement éclate en guerre civile (1642). Les Roundheads d'Oliver Cromwell l'emportent. Le roi est jugé et décapité (1649) — un choc pour toute l'Europe monarchique.
+
+- **Type** : crisis / political
+- **Fenêtre** : 1642–1651
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, Royaume d'Écosse
+- **Prérequis** : Magna Carta, Traités de Westphalie
+- **Déclenche** : Glorieuse Révolution & Bill of Rights
+- **Choix joueurs** :
+  - *Soutenir le roi* — L'ordre divin fait le roi. La rébellion est sacrilège.
+  - *Soutenir le Parlement* — Le roi ne peut gouverner sans le consentement des représentants.
+- **Alternative MJ** : Si Charles Ier fait des concessions, la guerre civile peut être évitée. Si Cromwell perd, la monarchie absolue s'installe en Angleterre.
+- **Issue historique** : Charles Ier est exécuté (1649). L'Angleterre devient une république sous Cromwell, puis un Protectorat (1653). Cromwell meurt (1658). La monarchie est restaurée avec Charles II (1660). Mais le principe est posé : le roi ne règne pas seul.
+
+#### Chute des Ming, avènement des Qing (1644)
+
+> La dynastie Ming s'effondre sous les révoltes paysannes et l'invasion mandchoue. Les Mandchous fondent la dynastie Qing (1644) qui régnera jusqu'en 1912. La Chine connaît un siècle de prospérité sous Kangxi.
+
+- **Type** : political / political
+- **Fenêtre** : 1636–1683
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Dynastie Song
+- **Prérequis** : Voyages de Zheng He
+- **Alternative MJ** : Si les Ming survivent, la Chine poursuit sa trajectoire. Si la transition est pacifique, moins de pertes démographiques. Si les Mandchous échouent, une dynastie chinoise remplace les Ming.
+- **Issue historique** : La transition Ming-Qing coûte 25 millions de morts. Les Qing imposent le port de la natte sous peine de mort. Mais Kangxi (r. 1661-1722) est un des plus grands empereurs chinois : il vainc les Trois Feudataires, prend Taïwan, signe le traité de Nertchinsk avec la Russie (1689).
+
+#### Traités de Westphalie (1648)
+
+> Les traités d'Osnabrück et de Münster mettent fin à la guerre de Trente Ans et à la guerre de Quatre-Vingts Ans (indépendance des Pays-Bas). Ils fondent le système international moderne basé sur la souveraineté des États.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1645–1648
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Saint-Empire romain germanique, Royaume de France, Royaume de Suède, Royaume de León
+- **Prérequis** : Guerre de Trente Ans
+- **Alternative MJ** : Si un camp gagne la guerre, pas de compromis westphalien. Un Empire catholique restauré ou une fragmentation encore plus grande de l'Allemagne.
+- **Issue historique** : Les traités de Westphalie (24 octobre 1648) créent le système d'États souverains qui régit encore les relations internationales. L'Empereur est affaibli, la France émerge comme première puissance européenne, les Pays-Bas sont à leur Âge d'Or.
+
+#### Apogée de l'Empire moghol — Aurangzeb (1658)
+
+> Sous Aurangzeb (r. 1658-1707), l'Empire moghol atteint son extension maximale, contrôlant presque tout le sous-continent indien. Mais sa politique d'intolérance religieuse sème les graines de la désintégration.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1658–1707
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire ghaznavide
+- **Prérequis** : Fondation de l'Empire moghol
+- **Alternative MJ** : Si Aurangzeb poursuit la politique de tolérance d'Akbar, l'Empire moghol reste stable plus longtemps. Les Marathes ne se soulèvent pas.
+- **Issue historique** : Aurangzeb étend l'Empire au maximum (150 millions de sujets, 25 % du PIB mondial) mais l'épuise. Après sa mort (1707), les Marathes, les Sikhs et les Britanniques dépècent l'Empire. En 1757, la bataille de Plassey donne l'Inde aux Britanniques.
+
+#### Règne de Louis XIV — L'absolutisme français (1661)
+
+> Louis XIV règne 72 ans (1643-1715), le plus long règne d'Europe. Il incarne l'absolutisme monarchique : « L'État, c'est moi ». Versailles, les guerres de conquête, la révocation de l'Édit de Nantes — la France domine l'Europe.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1643–1715
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de France
+- **Prérequis** : Traités de Westphalie
+- **Alternative MJ** : Si la Fronde réussit, la noblesse garde du pouvoir. Si Louis XIV meurt jeune, la France reste décentralisée. L'Angleterre ou les Pays-Bas dominent le XVIIe siècle.
+- **Issue historique** : Louis XIV gouverne personnellement à partir de 1661. Versailles (1682). Révocation de l'Édit de Nantes (1685) — 200,000 huguenots fuient. Quatre guerres majeures épuisent les finances. À sa mort (1715), la France est glorieuse mais ruinée.
+
+#### Déclin du Royaume du Kongo — Bataille d'Ambuila (1665)
+
+> La bataille d'Ambuila (1665) voit la défaite catastrophique du Royaume du Kongo face aux Portugais. Le roi António Ier est tué. Le royaume se fragmente, affaibli par la traite négrière et l'ingérence portugaise.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1660–1680
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire du Ghana
+- **Prérequis** : Début de la traite atlantique
+- **Alternative MJ** : Si le Kongo gagne à Ambuila, il résiste à l'influence portugaise. Un royaume centralisé en Afrique centrale change la dynamique de la traite.
+- **Issue historique** : Après Ambuila (1665), le Kongo se divise en duchés rivaux. Les Portugais depuis Luanda contrôlent le commerce d'esclaves. Kimpa Vita tente une restauration religieuse (1704) mais est brûlée vive. Le Kongo devient un fournisseur majeur de la traite transatlantique.
+
+#### Reforestation Edo — Renaissance des forêts japonaises (1670)
+
+> Après une déforestation massive au XVIe siècle (guerres civiles, constructions de châteaux), le shogunat Tokugawa impose une politique de reforestation systématique. Le Japon devient le premier pays à gérer ses forêts de manière durable.
+
+- **Type** : opportunity / natural
+- **Fenêtre** : 1650–1720
+- **Sévérité** : 3/10
+- **Visibilité** : national
+- **Global** : Non
+- **Nations** : Japon (Heian)
+- **Alternative MJ** : Sans politique active de reforestation, le Japon subit érosion, inondations et pénurie de bois — comme la Chine des Qing à la même époque.
+- **Issue historique** : Le Japon Edo est un cas unique de développement durable pré-industriel. Les politiques forestières des daimyos et du shogunat (interdiction de coupes, pépinières d'État) permettent une régénération remarquable. Aujourd'hui encore, le Japon est couvert à 67% de forêts — taux parmi les plus élevés des pays développés.
+
+#### Second siège de Vienne — Arrêt de l'expansion ottomane (1683)
+
+> L'armée ottomane de Kara Mustafa assiège Vienne (1683). L'armée de secours du roi de Pologne Jean III Sobieski charge les Turcs. La défaite ottomane marque le début du reflux de l'Empire ottoman en Europe.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1683–1699
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Saint-Empire romain germanique, Royaume de Hongrie, Royaume de Pologne
+- **Prérequis** : Apogée de l'Empire ottoman — Soliman le Magnifique
+- **Alternative MJ** : Si Vienne tombe, l'Empire ottoman domine l'Europe centrale. La route vers l'Italie et le Rhin est ouverte. L'équilibre européen est bouleversé.
+- **Issue historique** : La bataille de Vienne (12 septembre 1683) est suivie d'une contre-offensive autrichienne. Le traité de Karlowitz (1699) transfère la Hongrie aux Habsbourg. L'Empire ottoman se stabilise mais ne progressera plus en Europe. Le XVIIIe siècle sera celui du déclin.
+
+#### Révocation de l'Édit de Nantes (1685)
+
+> Louis XIV révoque l'Édit de Nantes (1598) qui garantissait la liberté de culte aux protestants. Les dragonnades forcent les conversions. 200 000 huguenots fuient vers la Hollande, l'Angleterre, la Prusse et l'Amérique.
+
+- **Type** : crisis / religious
+- **Fenêtre** : 1681–1685
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de France, Royaume d'Angleterre
+- **Prérequis** : Règne de Louis XIV — L'absolutisme français, Guerres de religion françaises
+- **Choix joueurs** :
+  - *Se convertir au catholicisme* — Sauver ses biens et sa vie. Mais renier sa foi.
+  - *Fuir à l'étranger* — Tout perdre en France mais garder sa foi et recommencer.
+  - *Résister clandestinement* — Culte au « Désert ». Peine de galères si découvert.
+- **Alternative MJ** : Si Louis XIV est plus tolérant ou si les protestants sont plus nombreux, l'édit n'est pas révoqué. La France conserve sa diaspora productive.
+- **Issue historique** : L'Édit de Fontainebleau (1685) révoque l'Édit de Nantes. Les temples sont détruits, les pasteurs bannis, l'émigration interdite (mais 200 000 partent quand même). Les Cévennes se soulèvent (Camisards, 1702-04). La France perd une partie de son élite économique.
+
+#### Newton — Principia Mathematica (1687)
+
+> Isaac Newton publie les Philosophiæ Naturalis Principia Mathematica (1687). Les lois de la gravitation et du mouvement unifient la physique terrestre et céleste. La révolution scientifique triomphe.
+
+- **Type** : milestone / scientific
+- **Fenêtre** : 1687–1690
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre
+- **Prérequis** : Galilée et la révolution copernicienne, Révolution copernicienne
+- **Alternative MJ** : Si Newton ne publie pas (il hésite longtemps), Leibniz ou Hooke avancent les mêmes idées plus lentement. Le progrès scientifique est retardé de 20-30 ans.
+- **Issue historique** : Les Principia sont publiés grâce à l'insistance d'Edmond Halley qui finance l'impression. Newton unifie la physique. Le calcul infinitésimal transforme les mathématiques. Voltaire diffuse Newton en France. L'ère des Lumières peut commencer.
+
+#### Glorieuse Révolution & Bill of Rights (1688)
+
+> Guillaume d'Orange débarque en Angleterre (1688). Jacques II fuit. Le Parlement invite Guillaume et Marie à régner sous conditions. Le Bill of Rights (1689) pose les bases de la monarchie constitutionnelle.
+
+- **Type** : political / political
+- **Fenêtre** : 1688–1689
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, Royaume d'Écosse
+- **Prérequis** : Guerre civile anglaise & exécution de Charles Ier
+- **Alternative MJ** : Si Jacques II résiste, guerre civile. Si Guillaume échoue, l'Angleterre reste catholique et absolutiste — alliance avec Louis XIV au lieu de l'opposer.
+- **Issue historique** : La Glorieuse Révolution est « sans effusion de sang » en Angleterre (mais sanglante en Irlande — bataille de la Boyne, 1690). Le Bill of Rights inspire la Déclaration d'indépendance américaine et la Déclaration des droits de l'homme. L'Angleterre devient le modèle du parlementarisme.
+
+#### Procès des sorcières de Salem (1692)
+
+> Dans le Massachusetts colonial, une hystérie collective mène à l'accusation de sorcellerie contre plus de 200 personnes. 20 sont exécutées. L'épisode illustre les dangers du puritanisme, de la délation et de la justice expéditive.
+
+- **Type** : crisis / religious
+- **Fenêtre** : 1692–1693
+- **Sévérité** : 4/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre
+- **Prérequis** : Colonisation de l'Amérique du Nord — Jamestown & Québec
+- **Choix joueurs** :
+  - *Joindre les accusateurs* — La sorcellerie est réelle. Protéger la communauté.
+  - *Défendre les accusés* — Risquer d'être accusé soi-même. C'est de la folie collective.
+- **Alternative MJ** : Si les autorités coloniales interviennent plus tôt, l'hystérie est contenue. Le gouverneur Phips finit par arrêter les procès dans la réalité historique.
+- **Issue historique** : Les procès de Salem (1692) durent de février à octobre. Le gouverneur Phips dissout le tribunal. Les juges et accusateurs expriment plus tard des regrets publics. L'affaire inspire Arthur Miller (Les Sorcières de Salem, 1953) comme allégorie du mccarthysme.
+
+#### Grande Guerre turque — Traité de Karlowitz (1699)
+
+> La Sainte-Ligue (Autriche, Pologne, Venise, Russie) lance une contre-offensive contre l'Empire ottoman. Le traité de Karlowitz (1699) marque le premier grand recul territorial ottoman en Europe.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1683–1699
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Saint-Empire romain germanique, Royaume de Hongrie, Royaume de Pologne, République de Venise, Rus' de Kiev
+- **Prérequis** : Second siège de Vienne — Arrêt de l'expansion ottomane
+- **Alternative MJ** : Si l'Empire ottoman se réforme à temps, la perte territoriale est limitée. Si la coalition chrétienne se divise (probable), l'offensive ralentit.
+- **Issue historique** : Le traité de Karlowitz (1699) est la première grande cession territoriale ottomane. La Hongrie et la Transylvanie passent aux Habsbourg. L'Empire ottoman entre dans une longue période de stagnation et de réformes avortées. L'Autriche émerge comme grande puissance.
+
+#### Pierre le Grand — Modernisation de la Russie (1700)
+
+> Pierre Ier (r. 1682-1725) transforme la Russie d'un État médiéval en puissance européenne. Il voyage en Europe incognito, fonde Saint-Pétersbourg (1703), réforme l'armée, la marine, l'administration, et force les boyards à se raser la barbe.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1689–1725
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Rus' de Kiev
+- **Prérequis** : Fin du joug mongol — Montée de Moscou
+- **Alternative MJ** : Si Pierre meurt jeune ou si les streltsy gagnent, la Russie reste un État fermé et médiéval. Pas de Saint-Pétersbourg, pas de marine, pas d'ouverture sur la Baltique.
+- **Issue historique** : Pierre vainc la Suède à Poltava (1709), obtient la Baltique (traité de Nystad, 1721). Saint-Pétersbourg est la nouvelle capitale. La Russie entre dans le concert européen. Mais la modernisation est imposée par la violence — le fils de Pierre, Alexis, est torturé et meurt en prison (1718).
+
+#### Guerre de Succession d'Espagne (1700)
+
+> Charles II d'Espagne meurt sans héritier (1700). Louis XIV place son petit-fils Philippe d'Anjou sur le trône. L'Europe entière s'unit contre la menace d'une union franco-espagnole. 13 ans de guerre.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1700–1714
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Royaume de León, Saint-Empire romain germanique, Royaume d'Angleterre
+- **Prérequis** : Règne de Louis XIV — L'absolutisme français
+- **Alternative MJ** : Si Charles II a un héritier, pas de guerre. Si Louis XIV n'accepte pas le testament, l'Autriche prend l'Espagne. Si la France gagne, l'hégémonie franco-espagnole domine l'Europe.
+- **Issue historique** : Le traité d'Utrecht (1713) redessine l'Europe. L'Espagne perd les Pays-Bas et l'Italie. La France est épuisée. L'Angleterre obtient Gibraltar, Minorque, Terre-Neuve et l'asiento (monopole de la traite négrière vers l'Amérique espagnole). L'équilibre des puissances s'installe.
+
+#### Grande Guerre du Nord (1700)
+
+> Coalition (Russie, Danemark, Saxe-Pologne) contre la Suède de Charles XII. La bataille de Poltava (1709) brise la puissance suédoise et fait de la Russie la nouvelle superpuissance nordique. La Baltique change de maître.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1700–1721
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de Suède, Rus' de Kiev, Royaume du Danemark, Royaume de Pologne
+- **Prérequis** : Pierre le Grand — Modernisation de la Russie
+- **Alternative MJ** : Si Charles XII ne marche pas sur Moscou via l'Ukraine, la Suède pourrait négocier une paix favorable après Narva. Si Pierre perd Poltava, la Russie reste enclavée.
+- **Issue historique** : Le traité de Nystad (1721) consacre la Russie comme puissance baltique. La Suède perd son empire. Pierre Ier se proclame Empereur de toutes les Russies. Saint-Pétersbourg est la « fenêtre sur l'Europe ». L'ère de la grandeur suédoise est terminée.
+
+#### Acte d'Union — Grande-Bretagne (1707)
+
+> L'Angleterre et l'Écosse fusionnent en un seul royaume : la Grande-Bretagne. Le Parlement écossais est dissous. L'union est motivée par la faillite du projet colonial Darien et par la nécessité de sécuriser la succession protestante.
+
+- **Type** : political / diplomatic
+- **Fenêtre** : 1706–1707
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, Royaume d'Écosse
+- **Prérequis** : Glorieuse Révolution & Bill of Rights
+- **Choix joueurs** :
+  - *Accepter l'union* — Voter pour la fusion. Accès aux marchés anglais mais perte de souveraineté.
+  - *S'opposer à l'union* — Défendre la souveraineté écossaise. Risque d'isolement économique.
+- **Alternative MJ** : Si le projet Darien réussit, l'Écosse reste indépendante et prospère. Si les Jacobites prennent le pouvoir, l'union est impossible.
+- **Issue historique** : La Grande-Bretagne naît le 1er mai 1707. L'Écosse conserve son système juridique, son Église et son éducation. Les soulèvements jacobites de 1715 et 1745 montrent que l'union reste contestée. À long terme, l'union crée la plus grande puissance commerciale et navale du monde.
+
+#### Bulle des Mers du Sud et Bulle du Mississippi (1720)
+
+> Deux des premières grandes crises financières modernes. En France, le système de Law s'effondre (1720). En Angleterre, la South Sea Company fait faillite. Des milliers d'investisseurs sont ruinés. La confiance dans la finance spéculative est durablement ébranlée.
+
+- **Type** : crisis / economic
+- **Fenêtre** : 1719–1721
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, Royaume de France
+- **Prérequis** : Guerre de Succession d'Espagne, Âge d'or néerlandais
+- **Choix joueurs** :
+  - *Investir dans la spéculation* — Les profits semblent illimités. Acheter des actions avant qu'il ne soit trop tard.
+  - *Rester prudent* — Refuser la spéculation. Garder ses terres et son or.
+- **Alternative MJ** : Si les gouvernements régulent la spéculation plus tôt, les bulles sont contenues. Si Law réussit, la France devient la première puissance financière mondiale.
+- **Issue historique** : Le système de Law s'effondre en décembre 1720. La France ne créera pas de banque centrale pendant 80 ans. En Angleterre, Robert Walpole stabilise la situation et devient de facto le premier « Premier Ministre ». La méfiance envers la finance perdure une génération.
+
+#### Empire Maratha — Résistance à l'hégémonie moghole (1720)
+
+> Les Marathes, sous Shivaji puis les Peshwas, créent un vaste empire dans le sous-continent indien. Après la mort d'Aurangzeb (1707), les Marathes deviennent la puissance dominante en Inde. Leur défaite à Panipat (1761) ouvre la voie à la domination britannique.
+
+- **Type** : milestone / military
+- **Fenêtre** : 1707–1761
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Dynastie Chola
+- **Prérequis** : Apogée de l'Empire moghol — Aurangzeb
+- **Alternative MJ** : Si les Marathes restent unis sous un commandement central, ils pourraient unifier l'Inde. Si la défaite de Panipat (1761) n'a pas lieu, la Compagnie britannique des Indes est contrainte à la côte.
+- **Issue historique** : La bataille de Panipat (1761) : les Marathes sont écrasés par les Afghans d'Ahmad Shah Durrani. 40 000 à 70 000 morts. L'empire maratha survit mais ne se relève jamais complètement. Le vide de pouvoir en Inde est exploité par la Compagnie britannique des Indes orientales. Les guerres anglo-marathes (1775-1818) finissent la confédération.
+
+#### Japon Tokugawa — Apogée de l'isolement (1720)
+
+> Le Japon des Tokugawa vit en paix depuis 1615. Le sakoku (fermeture du pays) interdit presque tout contact étranger. Paradoxalement, cette période produit un essor culturel remarquable : kabuki, ukiyo-e, haïku (Bashō), quartiers de plaisirs d'Edo. La population atteint 30 millions.
+
+- **Type** : cultural_shift / cultural
+- **Fenêtre** : 1700–1800
+- **Sévérité** : 5/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Japon (Heian)
+- **Prérequis** : Unification du Japon — Oda, Toyotomi, Tokugawa
+- **Choix joueurs** :
+  - *Maintenir le sakoku* — La paix et l'ordre justifient l'isolement.
+  - *Entrevoir une ouverture* — Permettre l'étude des « sciences hollandaises » (rangaku).
+- **Alternative MJ** : Si le Japon s'ouvre partiellement au XVIIIe siècle via le rangaku, il se modernise plus tôt. Si une puissance européenne force l'ouverture, le choc est brutal (comme en 1853).
+- **Issue historique** : Le Japon reste fermé jusqu'aux « navires noirs » du commodore Perry (1853). Mais le rangaku (études hollandaises) permet une lente absorption des sciences occidentales. Quand l'ouverture forcée arrive, le Japon sera capable de se moderniser à une vitesse stupéfiante (Meiji, 1868). La paix Tokugawa dure 250 ans — record mondial.
+
+#### Chute des Safavides (1722)
+
+> Les Afghans Ghilzais envahissent la Perse et prennent Ispahan (1722). Le shah Hossein abdique. L'empire safavide, affaibli par la décadence et les révoltes, s'effondre. Nader Shah restaurera l'ordre mais sans continuité dynastique.
+
+- **Type** : crisis / political
+- **Fenêtre** : 1709–1736
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire ghaznavide
+- **Prérequis** : Fondation de l'Empire safavide — L'Iran devient chiite
+- **Alternative MJ** : Si le shah est plus compétent, les Afghans sont contenus. Si Nader Shah n'émerge pas, la Perse est partagée entre Ottomans, Russes et Afghans.
+- **Issue historique** : Les Safavides disparaissent. Nader Shah crée un empire éphémère (1736-1747) mais est assassiné. La Perse sombre dans le chaos jusqu'aux Qajars (1789). Le sac de Delhi (1739) accélère le déclin moghol. Le trône du Paon et le Koh-i-Noor sont emportés en Perse.
+
+#### Frédéric II le Grand — Ascension de la Prusse (1740)
+
+> Frédéric II (r. 1740-1786) transforme la Prusse en grande puissance militaire. Il envahit la Silésie, résiste à une coalition européenne pendant la guerre de Sept Ans, modernise l'administration et incarne le « despote éclairé ».
+
+- **Type** : milestone / military
+- **Fenêtre** : 1740–1786
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Saint-Empire romain germanique, Royaume de Pologne
+- **Alternative MJ** : Si Frédéric meurt au combat, la Prusse reste une puissance mineure. Si Marie-Thérèse reprend la Silésie, l'Autriche domine l'Allemagne.
+- **Issue historique** : Frédéric fait de la Prusse la cinquième grande puissance européenne. Il participe au premier partage de la Pologne (1772). À sa mort (1786), la Prusse a doublé de taille. L'héritage prussien — discipline, militarisme, bureaucratie efficace — marquera l'Allemagne jusqu'au XXe siècle.
+
+#### Apogée Qing — Empereur Qianlong (1750)
+
+> L'empereur Qianlong (r. 1735-1796) porte la dynastie Qing à son apogée. Conquête du Xinjiang, du Tibet, de la Birmanie. La Chine est l'État le plus peuplé et le plus riche du monde. Mais le refus de l'ouverture commerciale prépare le déclin.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1735–1796
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Dynastie Song
+- **Prérequis** : Chute des Ming, avènement des Qing
+- **Choix joueurs** :
+  - *Ouvrir au commerce étranger* — Accepter les demandes européennes. Modernisation forcée.
+  - *Maintenir l'isolement* — La Chine n'a besoin de rien. Refuser les barbares.
+- **Alternative MJ** : Si Qianlong accepte l'ouverture commerciale, la Chine s'industrialise plus tôt et évite les guerres de l'opium. Si Heshen est éliminé, la corruption est endiguée.
+- **Issue historique** : Qianlong abdique en 1796 par respect pour son grand-père Kangxi (qui régna 61 ans). Son fils Jiaqing hérite d'un empire miné par la corruption. La rébellion du Lotus Blanc (1796-1804) signale le début du déclin. Le refus de la mission Macartney prépare l'affrontement sino-britannique du XIXe siècle.
+
+#### Apogée de la Traite atlantique (1750)
+
+> Le XVIIIe siècle est le pic de la traite négrière transatlantique. 6 millions d'Africains sont déportés entre 1700 et 1800 — plus de la moitié du total historique. Le commerce triangulaire enrichit l'Europe et les Amériques au prix d'un crime contre l'humanité.
+
+- **Type** : crisis / economic
+- **Fenêtre** : 1700–1800
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Royaume de León, Ifè (Yoruba), Empire du Ghana
+- **Prérequis** : Début de la traite atlantique, Fondation des Compagnies des Indes orientales
+- **Choix joueurs** :
+  - *Profiter du commerce* — Investir dans la traite. Profits considérables mais participation à un crime.
+  - *Soutenir l'abolition* — Rejoindre le mouvement abolitionniste. Perte économique mais honneur.
+- **Alternative MJ** : Si le mouvement abolitionniste émerge plus tôt (les Quakers dès 1688), la traite est réduite au XVIIIe siècle. Si les royaumes africains refusent de vendre des captifs, le système s'effondre.
+- **Issue historique** : La Grande-Bretagne abolit la traite en 1807, l'esclavage en 1833. La France abolit en 1794 (Révolution), rétablit en 1802 (Napoléon), abolit définitivement en 1848. Les États-Unis en 1865 (guerre civile). Le Brésil en 1888. L'héritage de la traite marque durablement l'Afrique, les Amériques et les relations raciales mondiales.
+
+#### Les Lumières — Encyclopédie et Raison (1751)
+
+> Mouvement intellectuel européen prônant la raison, la science, la tolérance et le progrès. Voltaire, Diderot, Montesquieu, Rousseau, Hume, Kant. L'Encyclopédie (1751-1772) condense le savoir humain en 28 volumes. Les idées des Lumières préparent les révolutions.
+
+- **Type** : cultural_shift / cultural
+- **Fenêtre** : 1715–1789
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, Rus' de Kiev
+- **Prérequis** : Newton — Principia Mathematica, Galilée et la révolution copernicienne, Tremblement de terre de Lisbonne
+- **Choix joueurs** :
+  - *Embrasser les Lumières* — Encourager la raison, la tolérance et la science. Risque de déstabilisation.
+  - *Censurer les philosophes* — Maintenir l'ordre et la tradition. Interdire les écrits subversifs.
+- **Alternative MJ** : Si la censure est totale en France, les Lumières se déplacent en Hollande ou en Angleterre. Si l'Église mène une contre-offensive efficace, le mouvement est ralenti mais pas arrêté.
+- **Issue historique** : Les Lumières transforment la pensée européenne. La Déclaration des droits de l'homme (1789), la Constitution américaine (1787), l'abolition de la torture, la séparation des pouvoirs — tout découle des Lumières. Mais Voltaire méprise le peuple, Rousseau inspire la Terreur. Les contradictions sont immenses.
+
+#### Tremblement de terre de Lisbonne (1755)
+
+> Le 1er novembre 1755, un séisme de magnitude ~8.5 détruit Lisbonne. Tsunami, incendie. 30 000 à 60 000 morts. L'événement choque l'Europe et ébranle la foi en la Providence divine. Voltaire écrit le « Poème sur le désastre de Lisbonne ».
+
+- **Type** : natural_disaster / natural
+- **Fenêtre** : 1755–1755
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de León
+- **Choix joueurs** :
+  - *Reconstruire rationnellement* — Pombal impose un urbanisme moderne. Coût immense mais ville neuve.
+  - *Pénitence et processions* — C'est un châtiment divin. Expier les péchés de la ville.
+- **Alternative MJ** : Le séisme est réel et ne peut être empêché. Mais si Pombal n'est pas au pouvoir, la reconstruction est chaotique et le Portugal décline plus vite.
+- **Issue historique** : Pombal reconstruit Lisbonne sur un plan en grille avec des bâtiments antisismiques (structure « pombalina »). Il expulse les Jésuites (1759). Le débat philosophique sur le mal et la Providence influence profondément les Lumières. Kant écrit ses premiers textes de sismologie. Lisbonne ne retrouvera jamais sa grandeur d'avant.
+
+#### Guerre de Sept Ans (1756)
+
+> Premier conflit véritablement mondial (1756-1763). La Prusse et la Grande-Bretagne contre la France, l'Autriche et la Russie. Combats en Europe, en Amérique (French and Indian War), en Inde, en Afrique et aux Philippines. Winston Churchill l'appellera « la première guerre mondiale ».
+
+- **Type** : crisis / military
+- **Fenêtre** : 1756–1763
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, Rus' de Kiev
+- **Prérequis** : Frédéric II le Grand — Ascension de la Prusse
+- **Alternative MJ** : Si la France concentre ses forces sur les colonies au lieu de l'Europe, elle garde le Canada. Si Élisabeth de Russie ne meurt pas en 1762, la Prusse est écrasée.
+- **Issue historique** : Le traité de Paris (1763) : la France cède le Canada, la Louisiane orientale, la plupart de l'Inde. L'Espagne cède la Floride. L'Angleterre domine les océans. La dette de guerre française contribue directement à la crise financière qui mène à la Révolution de 1789. La Prusse est confirmée comme grande puissance.
+
+#### Catherine II la Grande — Modernisation russe (1762)
+
+> Catherine II (r. 1762-1796), princesse allemande devenue tsarine par coup d'État, modernise la Russie. Elle correspond avec Voltaire, annexe la Crimée, participe aux partages de la Pologne et étend l'empire au sud. Mais le servage s'aggrave.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1762–1796
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Rus' de Kiev
+- **Prérequis** : Pierre le Grand — Modernisation de la Russie, Les Lumières — Encyclopédie et Raison
+- **Choix joueurs** :
+  - *Appliquer les réformes des Lumières* — Réduire le servage, moderniser le droit. Risque de révolte nobiliaire.
+  - *Maintenir le servage* — Garder la noblesse loyale. L'empire reste stable mais archaïque.
+- **Alternative MJ** : Si Pierre III n'est pas renversé, la Russie s'allie à la Prusse et la politique extérieure change radicalement. Si Pougatchev réussit, c'est une guerre civile majeure.
+- **Issue historique** : Catherine meurt en 1796. La Russie est devenue la plus grande puissance territoriale du monde. La Crimée est russe. La Pologne n'existe plus. Mais le servage persiste jusqu'en 1861. Son fils Paul Ier est assassiné en 1801. L'héritage de Catherine : grandeur extérieure, misère intérieure.
+
+#### Début de la Révolution industrielle (1769)
+
+> En Angleterre, l'invention de la spinning jenny (1764), du water frame (1769) et de la machine à vapeur de Watt (1769) transforme la production textile puis toute l'économie. L'humanité passe de l'énergie musculaire à l'énergie fossile. Rien ne sera plus jamais pareil.
+
+- **Type** : milestone / economic
+- **Fenêtre** : 1760–1790
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre
+- **Prérequis** : Newton — Principia Mathematica, Les Lumières — Encyclopédie et Raison
+- **Choix joueurs** :
+  - *Investir dans les machines* — Construire des usines. Profits immenses mais misère ouvrière.
+  - *Protéger les artisans* — Interdire les machines. Préserver l'emploi mais perdre la compétitivité.
+- **Alternative MJ** : Si l'Angleterre n'a pas de charbon accessible, la révolution industrielle commence ailleurs (Pays-Bas ?). Si les luddites gagnent, l'industrialisation est retardée d'une génération.
+- **Issue historique** : L'Angleterre interdit l'exportation de machines et d'ouvriers qualifiés pour maintenir son avantage. La révolution industrielle s'étend à la Belgique (1800s), la France (1830s), l'Allemagne (1850s). Le PIB mondial, stable pendant des millénaires, commence sa croissance exponentielle. La population mondiale double en un siècle. Le monde moderne est né.
+
+#### Voyages de James Cook — Exploration du Pacifique (1770)
+
+> James Cook effectue trois voyages (1768-1779) qui cartographient l'Australie, la Nouvelle-Zélande, Hawaï et d'innombrables îles du Pacifique. Il apporte aussi le scorbut vaincu (citron) et une rigueur scientifique nouvelle. Il est tué à Hawaï en 1779.
+
+- **Type** : milestone / exploration
+- **Fenêtre** : 1768–1779
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Nations aborigènes australiennes, Ali'i d'Hawaï, Tu'i Tonga (Empire tongien)
+- **Prérequis** : Guerre de Sept Ans
+- **Alternative MJ** : Si Cook ne navigue pas, les Français (Bougainville, La Pérouse) cartographient le Pacifique en premier. Si l'Australie n'est pas découverte, la colonisation est retardée de décennies.
+- **Issue historique** : Les voyages de Cook ouvrent l'Australie à la colonisation (Botany Bay, 1788). La Nouvelle-Zélande entre dans l'orbite britannique. Hawaï est contacté par l'Occident pour la première fois. Les peuples autochtones subissent maladies, dépossession et violence. La cartographie du Pacifique est quasi complète.
+
+#### Partages de la Pologne (1772)
+
+> La Pologne-Lituanie, autrefois la plus grande nation d'Europe, est dépecée en trois partages (1772, 1793, 1795) par la Russie, la Prusse et l'Autriche. La Pologne disparaît de la carte pour 123 ans. Le liberum veto et l'anarchie nobiliaire ont rendu l'État ingouvernable.
+
+- **Type** : crisis / diplomatic
+- **Fenêtre** : 1772–1795
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de Pologne, Rus' de Kiev, Saint-Empire romain germanique
+- **Prérequis** : Frédéric II le Grand — Ascension de la Prusse, Grande Guerre du Nord, Catherine II la Grande — Modernisation russe
+- **Choix joueurs** :
+  - *Adopter la Constitution du 3 mai* — Moderniser l'État. Abolir le liberum veto. Risque d'intervention étrangère.
+  - *Se soumettre au protectorat russe* — Accepter la tutelle de Catherine II. La Pologne survit mais sans souveraineté.
+- **Alternative MJ** : Si la Constitution de 1791 est appliquée et soutenue par la France révolutionnaire, la Pologne survit comme État moderne. Si Kosciuszko vainc, les partages sont annulés.
+- **Issue historique** : La Pologne disparaît en 1795. Les légions polonaises combattent sous Napoléon avec l'espoir de restauration. Le Duché de Varsovie (1807-1815) est un bref espoir. La Pologne ne renaît qu'en 1918. La diaspora polonaise maintient la culture et la langue vivantes. Le 3 mai devient jour de fête nationale.
+
+#### Révolution américaine (1776)
+
+> Les Treize Colonies britanniques se révoltent contre la taxation sans représentation. La Déclaration d'Indépendance (4 juillet 1776), l'alliance française, la victoire de Yorktown (1781). Les États-Unis d'Amérique naissent — première démocratie moderne à grande échelle.
+
+- **Type** : political / political
+- **Fenêtre** : 1765–1783
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France
+- **Prérequis** : Guerre de Sept Ans, Les Lumières — Encyclopédie et Raison
+- **Choix joueurs** :
+  - *Soutenir les insurgés* — Envoyer des troupes et de l'argent aux colonies. Affaiblir l'Angleterre.
+  - *Rester neutre* — Ne pas intervenir. Observer le résultat.
+- **Alternative MJ** : Si la France n'intervient pas, la révolution échoue probablement. Si l'Angleterre fait des concessions fiscales, la révolte est désamorcée. Si Washington est tué, le mouvement perd son leader.
+- **Issue historique** : Le traité de Paris (1783) reconnaît l'indépendance américaine. La France est ruinée par son aide — dette colossale qui précipite la Révolution de 1789. Les États-Unis adoptent la Constitution (1787), élisent Washington premier président (1789). L'exemple américain inspire les révolutions en France, en Haïti, en Amérique latine.
+
+#### Révolution française (1789)
+
+> Le 14 juillet 1789, la Bastille tombe. En quelques mois, l'Ancien Régime s'effondre. Déclaration des droits de l'homme, abolition des privilèges, exécution du roi (1793), Terreur, Directoire. La France invente la politique moderne — gauche, droite, constitution, république, nation.
+
+- **Type** : crisis / political
+- **Fenêtre** : 1789–1799
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France
+- **Prérequis** : Révolution américaine, Les Lumières — Encyclopédie et Raison
+- **Choix joueurs** :
+  - *Rejoindre la Révolution* — Liberté, Égalité, Fraternité. Mais la Terreur guette.
+  - *Émigrer* — Fuir la France. Rejoindre les armées contre-révolutionnaires.
+- **Alternative MJ** : Si Louis XVI accepte une monarchie constitutionnelle et ne fuit pas à Varennes, la Terreur est évitée. Si les armées européennes vainquent en 1792, la monarchie est restaurée plus tôt.
+- **Issue historique** : La Révolution française transforme l'Europe. Le système métrique, le Code civil, la laïcité, la conscription, le nationalisme — tout commence ici. Le Directoire s'effondre le 18 brumaire (9 novembre 1799) : Bonaparte prend le pouvoir. La Révolution dévore ses enfants, mais ses idées conquièrent le monde.
+
+#### Révolution haïtienne (1791)
+
+> Les esclaves de Saint-Domingue se soulèvent en août 1791. Toussaint Louverture, puis Jean-Jacques Dessalines, mènent la seule révolte d'esclaves victorieuse de l'histoire. Haïti devient indépendant le 1er janvier 1804 — première république noire du monde.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1791–1804
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de France
+- **Prérequis** : Révolution française
+- **Choix joueurs** :
+  - *Soutenir les insurgés* — Aider les esclaves. Risque de contagion révolutionnaire dans ses propres colonies.
+  - *Écraser la révolte* — Rétablir l'ordre colonial. Envoyer des troupes.
+- **Alternative MJ** : Si Napoléon n'envoie pas l'expédition Leclerc, Toussaint gouverne une Saint-Domingue autonome mais française. Si la fièvre jaune ne décime pas les Français, la révolte est écrasée.
+- **Issue historique** : Haïti déclare son indépendance le 1er janvier 1804. Dessalines se proclame empereur. La France exige une « dette de l'indépendance » de 150 millions de francs (1825) — Haïti ne finit de payer qu'en 1947. L'exemple haïtien terrifie les esclavagistes du monde entier et inspire les mouvements abolitionnistes. Napoléon, écœuré, vend la Louisiane aux États-Unis (1803).
+
+#### Napoléon Bonaparte — Empire français (1804)
+
+> Bonaparte prend le pouvoir par le coup d'État du 18 brumaire (1799), se couronne empereur (1804), réécrit le droit (Code civil), conquiert l'Europe d'Austerlitz à Moscou, puis s'effondre à Waterloo (1815). En 15 ans, il redessine la carte de l'Europe.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1799–1815
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, Rus' de Kiev, Royaume de León
+- **Prérequis** : Révolution française
+- **Choix joueurs** :
+  - *S'allier à Napoléon* — Rejoindre la Grande Armée. Gloire et modernisation, mais soumission à Paris.
+  - *Rejoindre la coalition* — Combattre Napoléon aux côtés de l'Angleterre, la Russie et l'Autriche.
+- **Alternative MJ** : Si Napoléon ne marche pas sur Moscou en 1812, il conserve son empire. Si Nelson perd Trafalgar, la France envahit l'Angleterre. Si le coup du 18 brumaire échoue, la République continue.
+- **Issue historique** : Le Congrès de Vienne (1815) restaure les monarchies. Mais le Code civil, le système métrique, le nationalisme et la fin du Saint-Empire romain germanique (1806) sont irréversibles. Napoléon meurt à Sainte-Hélène (1821). Son ombre plane sur tout le XIXe siècle.
+
+#### Congrès de Vienne (1815)
+
+> Après la chute de Napoléon, les grandes puissances (Autriche, Russie, Prusse, Angleterre, France) redessinent la carte de l'Europe. Metternich impose l'équilibre des puissances et la restauration monarchique. Le « Concert européen » maintient la paix pendant 40 ans.
+
+- **Type** : political / diplomatic
+- **Fenêtre** : 1814–1815
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Saint-Empire romain germanique, Rus' de Kiev, Royaume d'Angleterre, Royaume de France
+- **Prérequis** : Napoléon Bonaparte — Empire français
+- **Alternative MJ** : Si les vainqueurs se disputent l'héritage napoléonien, l'Europe reste instable. Si la France est démantelée, le nationalisme français explose plus tôt.
+- **Issue historique** : Le Concert européen fonctionne jusqu'en 1848 (Printemps des peuples). Le système de Metternich maintient l'ordre mais réprime les aspirations nationales. La Belgique fait sécession en 1830. La Grèce obtient son indépendance (1829). Les germes du nationalisme sont semés — ils exploseront en 1848, 1870 et 1914.
+
+#### Shaka Zulu et le Mfecane (1818)
+
+> Shaka kaSenzangakhona transforme le petit clan zoulou en un empire militaire redoutable (1816-1828). Ses innovations tactiques (assegai courte, formation en corne de buffle) bouleversent l'Afrique australe. Le Mfecane — vague de migrations et de guerres — redessine la carte de la région.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1816–1840
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Grand Zimbabwe (proto-Shona), Cités-États swahilies
+- **Prérequis** : Congrès de Vienne
+- **Alternative MJ** : Si Shaka est tué plus tôt, le royaume Zoulou reste un clan parmi d'autres. Si le Mfecane n'a pas lieu, les Boers trouvent une région plus densément peuplée et la colonisation est plus difficile.
+- **Issue historique** : Le royaume Zoulou survit à Shaka mais sera finalement détruit par les Britanniques (guerre anglo-zouloue, 1879 — victoire zouloue à Isandlwana, puis défaite à Ulundi). Le Mfecane crée le Lesotho (Moshoeshoe), le Swaziland, les Ndebele du Zimbabwe. Quand les Boers arrivent dans le Natal (1838), ils trouvent une région vidée par le Mfecane — ce qui alimente le mythe d'une terre « vide ».
+
+#### Indépendances latino-américaines (1820)
+
+> De 1810 à 1825, l'Amérique latine se libère de l'Espagne et du Portugal. Bolívar, San Martín, O'Higgins, Hidalgo — les libertadors créent de nouvelles nations. Le rêve de Bolívar d'une Amérique unie échoue, mais 15 États naissent en une génération.
+
+- **Type** : political / political
+- **Fenêtre** : 1810–1825
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de León
+- **Prérequis** : Napoléon Bonaparte — Empire français, Révolution américaine
+- **Alternative MJ** : Si Napoléon ne renverse pas la monarchie espagnole, les colonies n'ont pas d'opportunité de révolte. Si Bolívar réussit à unir l'Amérique du Sud, une superpuissance émerge.
+- **Issue historique** : En 1825, l'Espagne n'a plus que Cuba et les Philippines. Le Portugal perd le Brésil. L'Amérique latine entre dans un siècle d'instabilité politique — caudillos, guerres civiles, dépendance économique envers l'Angleterre puis les États-Unis. La doctrine Monroe (1823) déclare l'hémisphère occidental interdit à la recolonisation européenne.
+
+#### Indépendance de la Grèce (1821)
+
+> Les Grecs se soulèvent contre l'Empire ottoman en 1821. Byron meurt à Missolonghi (1824). Les grandes puissances interviennent (bataille de Navarin, 1827). La Grèce obtient son indépendance en 1829 — premier succès du nationalisme balkanique.
+
+- **Type** : political / military
+- **Fenêtre** : 1821–1829
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire ghaznavide, Royaume d'Angleterre, Royaume de France, Rus' de Kiev
+- **Prérequis** : Les Lumières — Encyclopédie et Raison
+- **Choix joueurs** :
+  - *Soutenir les Grecs* — Envoyer des volontaires et de l'argent. Le berceau de la démocratie doit être libre.
+  - *Ne pas intervenir* — Affaire interne de l'Empire ottoman. Respecter le Concert européen.
+- **Alternative MJ** : Si les grandes puissances n'interviennent pas à Navarin, la Grèce reste ottomane. Si le soulèvement s'étend aux Balkans, l'Empire ottoman s'effondre plus tôt.
+- **Issue historique** : La Grèce indépendante est minuscule (Péloponnèse + îles). La « Grande Idée » — réunir tous les Grecs — mène à un siècle de conflits avec l'Empire ottoman. Le précédent grec inspire les nationalismes serbe, roumain, bulgare. La « question d'Orient » domine la diplomatie européenne jusqu'en 1914.
+
+#### Abolition progressive de l'esclavage (1833)
+
+> La Grande-Bretagne abolit la traite (1807) puis l'esclavage (1833). La France : 1794, rétabli 1802, aboli définitivement 1848. Les États-Unis : 1865. Le Brésil : 1888. Un mouvement moral et politique sans précédent qui met un siècle à aboutir.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1807–1888
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Ifè (Yoruba), Empire du Ghana
+- **Prérequis** : Apogée de la Traite atlantique, Les Lumières — Encyclopédie et Raison, Révolution haïtienne
+- **Choix joueurs** :
+  - *Abolir l'esclavage immédiatement* — Liberté pour tous. Indemniser les propriétaires. Intégrer les affranchis.
+  - *Abolition progressive* — Transition en douceur. Apprentissage obligatoire avant la pleine liberté.
+- **Alternative MJ** : Si le mouvement abolitionniste échoue en Angleterre, la traite continue plus longtemps. Si la guerre de Sécession n'a pas lieu, l'esclavage persiste aux États-Unis jusqu'au XXe siècle.
+- **Issue historique** : L'abolition de l'esclavage est la plus grande victoire morale du XIXe siècle. Mais la ségrégation (Jim Crow), le racisme systémique, le colonialisme africain et les inégalités économiques persistent. La « dette de l'indépendance » d'Haïti (150 millions de francs) n'est remboursée qu'en 1947. Les conséquences de l'esclavage continuent de façonner le monde.
+
+#### Réformes Tanzimat — Modernisation ottomane (1839)
+
+> L'Empire ottoman tente de se moderniser pour survivre : le Hatt-i Sharif de Gülhane (1839) et le Hatt-i Hümayun (1856) proclament l'égalité devant la loi, la modernisation de l'armée et de l'administration. Le « vieil homme malade de l'Europe » lutte contre la décomposition.
+
+- **Type** : political / political
+- **Fenêtre** : 1839–1876
+- **Sévérité** : 6/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Empire ghaznavide
+- **Prérequis** : Indépendance de la Grèce, Napoléon Bonaparte — Empire français
+- **Choix joueurs** :
+  - *Soutenir les réformes* — Moderniser l'empire. Adopter les institutions occidentales. Risque de déstabilisation.
+  - *Défendre la tradition* — Les réformes trahissent l'islam et la charia. Résister à l'occidentalisation.
+- **Alternative MJ** : Si les Tanzimat réussissent pleinement, l'Empire ottoman devient une monarchie constitutionnelle viable. Si les réformes sont abandonnées plus tôt, l'empire s'effondre avant 1900.
+- **Issue historique** : Les Tanzimat échouent à sauver l'empire mais modernisent profondément la société — droit codifié, éducation laïque, administration centralisée. Abdülhamid II suspend la constitution mais poursuit la modernisation (chemin de fer du Hejaz). Les Jeunes-Turcs (1908) reprennent le flambeau. L'héritage Tanzimat influence la Turquie de Mustafa Kemal Atatürk.
+
+#### Guerres de l'Opium (1840)
+
+> La Grande-Bretagne force la Chine à ouvrir ses ports au commerce (et à l'opium). Première guerre (1839-1842) : traité de Nankin, cession de Hong Kong. Seconde guerre (1856-1860) : sac du Palais d'Été. Le « siècle d'humiliation » commence.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1839–1860
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Dynastie Song, Royaume d'Angleterre, Royaume de France
+- **Prérequis** : Apogée Qing — Empereur Qianlong, Début de la Révolution industrielle
+- **Choix joueurs** :
+  - *Résister aux Britanniques* — Détruire l'opium. Fermer les ports. Risquer la guerre.
+  - *Négocier avec les Occidentaux* — Ouvrir le commerce pour éviter la destruction. Humiliation mais survie.
+- **Alternative MJ** : Si la Chine se modernise militairement dès 1800, elle résiste à la Royal Navy. Si le commerce est ouvert avant 1839, pas de guerre.
+- **Issue historique** : La Chine perd Hong Kong (jusqu'en 1997), ouvre des dizaines de ports, accepte l'extraterritorialité. La révolte des Taiping (1850-1864) — 20 à 30 millions de morts — aggrave le chaos. Le « siècle d'humiliation » (1839-1949) forge l'identité nationale chinoise moderne. La Chine ne se relèvera pas avant Mao.
+
+#### Grande Famine irlandaise (1845)
+
+> Le mildiou détruit la récolte de pommes de terre en Irlande (1845-1852). Un million de morts, un million d'émigrés. La population passe de 8 à 6 millions. Le gouvernement britannique est accusé de négligence criminelle. La haine de l'Angleterre s'enracine pour un siècle.
+
+- **Type** : natural_disaster / natural
+- **Fenêtre** : 1845–1852
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre
+- **Prérequis** : Début de la Révolution industrielle
+- **Choix joueurs** :
+  - *Envoyer une aide massive* — Nourrir les Irlandais. Suspendre les exportations de nourriture. Coût politique en Angleterre.
+  - *Laisser faire le marché* — Le libre-échange résoudra la crise. Ne pas interférer avec l'économie.
+- **Alternative MJ** : Si le gouvernement britannique intervient massivement, la famine est atténuée et la population reste stable. Si le mildiou n'arrive pas, la question agraire irlandaise reste un problème politique sans catastrophe démographique.
+- **Issue historique** : La famine transforme l'Irlande : la population chute de 8 à 4 millions en 60 ans (famine + émigration continue). La diaspora irlandaise (surtout aux États-Unis) nourrit le nationalisme irlandais. La Land League, le Home Rule, le Sinn Féin, la guerre d'indépendance (1919-1921) — tout découle de la famine. Les Choctaw, eux-mêmes victimes de la Piste des Larmes, envoient 170 dollars aux Irlandais (1847).
+
+#### Printemps des peuples — Révolutions de 1848 (1848)
+
+> En quelques semaines, des révolutions éclatent dans toute l'Europe : Paris, Vienne, Berlin, Budapest, Milan, Prague. Libéralisme et nationalisme contre l'ordre de Metternich. Presque toutes échouent — mais rien ne sera plus comme avant.
+
+- **Type** : crisis / political
+- **Fenêtre** : 1848–1849
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Saint-Empire romain germanique, Royaume de Hongrie, République de Venise
+- **Prérequis** : Congrès de Vienne, Début de la Révolution industrielle, Grande Famine irlandaise
+- **Choix joueurs** :
+  - *Rejoindre la révolution* — Constitution, liberté de la presse, suffrage universel — les peuples le méritent.
+  - *Réprimer les insurgés* — L'ordre doit être maintenu. Les concessions mènent à l'anarchie.
+- **Alternative MJ** : Si les révolutionnaires s'unissent au lieu de se diviser sur les questions nationales, 1848 réussit. Si la Russie n'intervient pas en Hongrie, les Habsbourg tombent.
+- **Issue historique** : Toutes les révolutions échouent sauf en France (IIe République, puis coup d'État de Napoléon III en 1851). Le servage est aboli en Autriche-Hongrie. Le suffrage universel masculin est acquis en France. La leçon : le nationalisme se réalisera « par le fer et le sang » (Bismarck), pas par des assemblées. Marx tire ses conclusions.
+
+#### Révolte des Taiping (1850)
+
+> Hong Xiuquan, un chrétien mystique qui se croit frère de Jésus, mène la plus sanglante guerre civile de l'histoire (1850-1864). Le Royaume céleste des Taiping contrôle le sud de la Chine. 20 à 30 millions de morts — plus que la Première Guerre mondiale.
+
+- **Type** : crisis / religious
+- **Fenêtre** : 1850–1864
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Dynastie Song
+- **Prérequis** : Guerres de l'Opium
+- **Alternative MJ** : Si les Taiping ne se déchirent pas entre eux, ils renversent les Qing 50 ans plus tôt. Si les Occidentaux soutiennent les Taiping au lieu des Qing, la Chine devient chrétienne.
+- **Issue historique** : 30 millions de morts. Le sud de la Chine est dévasté. La dynastie Qing survit mais ne s'en remet jamais. Le pouvoir passe aux chefs militaires régionaux. Le mouvement d'auto-renforcement (modernisation) commence. Hong Xiuquan se suicide en 1864. Nankin tombe après un siège terrible.
+
+#### Guerre de Crimée (1854)
+
+> La Russie contre l'Empire ottoman, la France, l'Angleterre et le Piémont (1853-1856). Le siège de Sébastopol, la charge de la Brigade légère, Florence Nightingale. Première guerre « moderne » : télégraphe, chemin de fer, photographie. 750 000 morts, surtout de maladie.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1853–1856
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Rus' de Kiev, Royaume de France, Royaume d'Angleterre, Empire ghaznavide
+- **Prérequis** : Congrès de Vienne
+- **Alternative MJ** : Si la Russie ne provoque pas l'incident des Lieux Saints, la guerre est évitée. Si l'Autriche soutient la Russie, la coalition occidentale est plus faible.
+- **Issue historique** : La Russie, humiliée, lance des réformes massives : abolition du servage (1861), réforme judiciaire, zemstvos. Le Concert européen est mort. Le Piémont (Cavour) gagne en prestige — prélude à l'unification italienne. Napoléon III est au sommet de son pouvoir. La Russie se tourne vers l'Asie centrale et l'Extrême-Orient.
+
+#### Révolte des Cipayes — Fin de la Compagnie des Indes (1857)
+
+> Les cipayes (soldats indiens de la Compagnie des Indes) se mutinent à Meerut (10 mai 1857). La révolte s'étend à Delhi, Lucknow, Kanpur. Atrocités des deux côtés. La Compagnie des Indes est dissoute. Le Raj britannique commence — la reine Victoria est proclamée Impératrice des Indes (1876).
+
+- **Type** : crisis / military
+- **Fenêtre** : 1857–1858
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre, Dynastie Chola
+- **Prérequis** : Empire Maratha — Résistance à l'hégémonie moghole
+- **Choix joueurs** :
+  - *Rejoindre la révolte* — Chasser les Britanniques. Restaurer les souverains indiens.
+  - *Rester loyal aux Britanniques* — La stabilité et la modernisation valent mieux que le chaos.
+- **Alternative MJ** : Si la révolte est mieux coordonnée et s'étend au sud, les Britanniques sont chassés. Si les Sikhs se joignent aux mutins (au lieu de rester loyaux), la reconquête est impossible.
+- **Issue historique** : La Compagnie des Indes est dissoute. Le Raj britannique commence. La reine Victoria promet la tolérance religieuse et le respect des princes. Mais le racisme colonial s'aggrave. L'Inde ne sera indépendante qu'en 1947. Bahadur Shah II meurt en exil à Rangoon (1862) — le dernier Moghol.
+
+#### Darwin — De l'origine des espèces (1859)
+
+> Charles Darwin publie De l'origine des espèces (1859). La théorie de l'évolution par sélection naturelle bouleverse la biologie, la philosophie et la religion. L'homme n'est plus au centre de la Création. La science et la foi s'affrontent.
+
+- **Type** : cultural_shift / scientific
+- **Fenêtre** : 1831–1882
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre
+- **Prérequis** : Les Lumières — Encyclopédie et Raison, Voyages de James Cook — Exploration du Pacifique
+- **Alternative MJ** : Si Darwin ne publie pas, Wallace publie — la théorie arrive de toute façon. Si l'Église réussit à faire censurer le livre, la biologie est retardée d'une génération. Le darwinisme social émerge quand même via Malthus et Spencer.
+- **Issue historique** : La théorie de l'évolution est le fondement de la biologie moderne. Darwin meurt en 1882, enterré à Westminster Abbey à côté de Newton. La synthèse moderne (1930s-40s) unit Darwin et Mendel. Le débat évolution vs créationnisme continue au XXIe siècle, surtout aux États-Unis. Le darwinisme social a été détourné pour justifier le racisme et l'eugénisme.
+
+#### Unification de l'Italie — Risorgimento (1861)
+
+> Cavour (diplomatie), Garibaldi (action) et Victor-Emmanuel II (monarchie) unifient l'Italie en une décennie. L'Expédition des Mille (1860), les batailles de Magenta et Solferino, la prise de Rome (1870). La péninsule est enfin un État.
+
+- **Type** : political / political
+- **Fenêtre** : 1859–1871
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : République de Venise, États pontificaux, Saint-Empire romain germanique, Royaume de France
+- **Prérequis** : Printemps des peuples — Révolutions de 1848, Guerre de Crimée
+- **Alternative MJ** : Si la France ne soutient pas le Piémont, l'Autriche garde le nord de l'Italie. Si Garibaldi marche sur Rome en 1860 au lieu du sud, le pape est protégé par la France et l'unification échoue.
+- **Issue historique** : Le Royaume d'Italie proclamé en 1861 (capitale Turin, puis Florence, puis Rome en 1871). L'Italie reste divisée économiquement — nord industriel, sud agraire. La « question méridionale » persiste. Le Vatican ne reconnaît l'Italie qu'en 1929 (accords du Latran). L'irrédentisme italien (Trente, Trieste) mène à la Première Guerre mondiale.
+
+#### Guerre de Sécession américaine (1861)
+
+> Les États du Sud font sécession (1861). Quatre ans de guerre : 620 000 morts, plus que toutes les autres guerres américaines combinées. Lincoln abolit l'esclavage (1863). Le Nord industriel écrase le Sud agraire. Les États-Unis restent unis mais traumatisés.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1861–1865
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume d'Angleterre
+- **Prérequis** : Révolution américaine, Début de la Révolution industrielle, Abolition progressive de l'esclavage
+- **Alternative MJ** : Si le Sud obtient la reconnaissance de la France et de l'Angleterre, la Confédération survit. Si le compromis Crittenden est accepté, la guerre est retardée.
+- **Issue historique** : Lee se rend à Appomattox (9 avril 1865). Lincoln est assassiné 5 jours plus tard. La Reconstruction échoue : les lois Jim Crow instituent la ségrégation. Le Sud reste pauvre pendant un siècle. Mais l'Union est préservée, l'esclavage aboli, et les États-Unis deviennent la première puissance économique mondiale d'ici 1900.
+
+#### Abolition du servage en Russie (1861)
+
+> Le tsar Alexandre II abolit le servage le 19 février 1861 — 23 millions de serfs sont « libérés ». Mais les conditions sont dures : les paysans doivent racheter leur terre sur 49 ans. Les réformes judiciaires et administratives suivent. « Il vaut mieux abolir le servage par le haut que d'attendre qu'il s'abolisse par le bas. »
+
+- **Type** : political / political
+- **Fenêtre** : 1861–1881
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Rus' de Kiev
+- **Prérequis** : Guerre de Crimée
+- **Choix joueurs** :
+  - *Émancipation généreuse* — Donner des terres aux paysans sans rachat. Mécontenter la noblesse.
+  - *Émancipation minimale* — Libérer les serfs mais protéger les intérêts des nobles. Transition lente.
+- **Alternative MJ** : Si Alexandre II donne des terres généreusement, la Russie évite la révolution de 1917. Si le tsar est assassiné avant 1861, le servage persiste et la Russie s'effondre plus tôt.
+- **Issue historique** : Alexandre III (après l'assassinat de son père) annule les réformes et impose la réaction. Mais le servage ne revient pas. L'industrialisation de Witte (1890s), les famines, les inégalités agraires — tout mène à 1905 puis 1917. Les « paiements de rachat » ne sont annulés qu'en 1907. Le problème agraire reste la bombe à retardement de la Russie.
+
+#### Restauration Meiji — Modernisation du Japon (1868)
+
+> Le shogunat Tokugawa tombe. L'empereur Meiji (15 ans) reprend le pouvoir en 1868. En 30 ans, le Japon passe du féodalisme à l'ère industrielle : constitution, armée moderne, chemin de fer, éducation universelle. Le seul pays non-occidental à s'industrialiser au XIXe siècle.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1853–1890
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Japon (Heian)
+- **Prérequis** : Japon Tokugawa — Apogée de l'isolement
+- **Choix joueurs** :
+  - *S'occidentaliser totalement* — Adopter la technologie, les institutions et même les vêtements occidentaux.
+  - *Modernisation sélective* — Technologie occidentale, esprit japonais (wakon yōsai).
+- **Alternative MJ** : Si le shogunat se modernise lui-même (comme il a tenté), la restauration n'a pas lieu. Si Saigō Takamori réussit sa rébellion de Satsuma (1877), le Japon revient au féodalisme.
+- **Issue historique** : Le Japon vainc la Chine (1894-95) puis la Russie (1905) — premier pays asiatique à vaincre une puissance européenne. Annexion de Formose (1895) et de la Corée (1910). Le Japon entre dans le club des grandes puissances. Mais le militarisme grandit. La rébellion de Satsuma (1877) est le dernier combat des samouraïs.
+
+#### Ouverture du canal de Suez (1869)
+
+> Ferdinand de Lesseps construit le canal de Suez (1859-1869), reliant la Méditerranée à la mer Rouge. La distance Londres-Bombay est réduite de 40%. L'Angleterre rachète les parts égyptiennes (1875). Le contrôle du canal devient un enjeu géopolitique majeur.
+
+- **Type** : milestone / economic
+- **Fenêtre** : 1859–1875
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Royaume d'Angleterre
+- **Prérequis** : Début de la Révolution industrielle
+- **Alternative MJ** : Si le projet échoue techniquement, le cap de Bonne-Espérance reste la route principale. Si l'Égypte garde le contrôle, elle devient une puissance régionale majeure.
+- **Issue historique** : Le canal transforme le commerce mondial. L'Égypte s'endette et est occupée par les Britanniques (1882). Le canal restera sous contrôle anglo-français jusqu'à la nationalisation par Nasser (1956 — crise de Suez). Lesseps tente de reproduire l'exploit à Panama — échec retentissant et scandale financier.
+
+#### Unification allemande — Bismarck (1871)
+
+> Otto von Bismarck unifie l'Allemagne « par le fer et le sang ». Trois guerres victorieuses : Danemark (1864), Autriche (1866), France (1870-71). L'Empire allemand est proclamé dans la Galerie des Glaces de Versailles le 18 janvier 1871.
+
+- **Type** : political / military
+- **Fenêtre** : 1862–1871
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Saint-Empire romain germanique, Royaume de France, Royaume du Danemark
+- **Prérequis** : Printemps des peuples — Révolutions de 1848, Frédéric II le Grand — Ascension de la Prusse
+- **Choix joueurs** :
+  - *Soutenir Bismarck* — L'unité allemande par la force prussienne. Ordre et puissance.
+  - *Défendre l'autonomie régionale* — La Bavière, la Saxe, le Hanovre ont leur propre identité. Refuser la domination prussienne.
+- **Alternative MJ** : Si l'Autriche vainc à Sadowa, elle domine l'Allemagne (solution « großdeutsch »). Si la France ne tombe pas dans le piège de la dépêche d'Ems, la guerre de 1870 n'a pas lieu.
+- **Issue historique** : L'Empire allemand (1871-1918) devient la puissance montante de l'Europe. Bismarck maintient la paix par un système d'alliances complexe. Mais Guillaume II (1888) renvoie Bismarck (1890) et mène une politique agressive — course navale, Weltpolitik. L'Alsace-Lorraine empoisonne les relations franco-allemandes. Le chemin vers 1914 est tracé.
+
+#### Commune de Paris (1871)
+
+> Après la défaite de 1870 et le siège de Paris, les Parisiens insurgés proclament la Commune (18 mars - 28 mai 1871). 72 jours d'autogestion ouvrière. Institution de la laïcité, du travail des femmes, de l'éducation gratuite. Écrasée dans le sang par Thiers — la « Semaine sanglante » : 20 000 morts.
+
+- **Type** : crisis / political
+- **Fenêtre** : 1871–1871
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de France
+- **Prérequis** : Unification allemande — Bismarck
+- **Choix joueurs** :
+  - *Rejoindre la Commune* — Autogestion, justice sociale, laïcité. Risque de mort.
+  - *Soutenir le gouvernement de Versailles* — L'ordre républicain contre l'anarchie. Réprimer l'insurrection.
+- **Alternative MJ** : Si la Commune négocie avec Versailles, elle obtient une autonomie municipale. Si les provinciaux se soulèvent aussi (Lyon, Marseille l'ont tenté), la révolution s'étend.
+- **Issue historique** : La Commune inspire Marx, Lénine, les anarchistes et tous les mouvements ouvriers. La IIIe République se construit contre la Commune (conservatisme) puis en intégrant ses idées (laïcité 1905, éducation gratuite). Le Mur des Fédérés au Père-Lachaise reste un lieu de mémoire de la gauche française.
+
+#### Guerre russo-turque et Congrès de Berlin (1878) (1877)
+
+> La Russie déclare la guerre à l'Empire ottoman (1877) pour « libérer » les Slaves des Balkans. Victoire russe. Mais le Congrès de Berlin (1878) — dominé par Bismarck — réduit les gains russes. La Bulgarie, la Serbie, la Roumanie et le Monténégro deviennent indépendants. La « question d'Orient » empoisonne l'Europe.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1875–1878
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Rus' de Kiev, Empire ghaznavide, Saint-Empire romain germanique, Royaume d'Angleterre
+- **Prérequis** : Guerre de Crimée, Indépendance de la Grèce
+- **Alternative MJ** : Si la Russie maintient le traité de San Stefano, la Grande Bulgarie contrôle les Balkans. Si l'Angleterre entre en guerre contre la Russie, la Crimée se répète. Si Bismarck soutient la Russie, l'alliance austro-allemande n'a pas lieu.
+- **Issue historique** : Le Congrès de Berlin humilie la Russie et sème les graines de 1914. La Bulgarie, la Serbie, la Roumanie et le Monténégro sont indépendants mais insatisfaits. La Bosnie sous administration autrichienne — source de la crise de 1908 et de l'assassinat de Sarajevo (1914). La rivalité russo-autrichienne dans les Balkans devient mortelle.
+
+#### Seconde Révolution industrielle (1880)
+
+> Électricité, acier, pétrole, chimie, automobile, téléphone. Edison, Tesla, Bessemer, Nobel, Benz, Bell. La production industrielle explose. Les États-Unis et l'Allemagne dépassent l'Angleterre. Le monde passe de la vapeur à l'électricité.
+
+- **Type** : milestone / scientific
+- **Fenêtre** : 1870–1900
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Saint-Empire romain germanique, Royaume de France
+- **Prérequis** : Début de la Révolution industrielle
+- **Choix joueurs** :
+  - *Investir dans l'innovation* — Électrifier les villes, construire des usines modernes. Coût massif mais avance technologique.
+  - *Réguler le capitalisme sauvage* — Lois sociales, interdiction du travail des enfants, durée du travail. Freiner l'exploitation.
+- **Alternative MJ** : Si l'électricité est découverte plus tard, la seconde révolution est retardée. Si les syndicats obtiennent des droits plus tôt (comme en Allemagne avec Bismarck), la contestation sociale est atténuée.
+- **Issue historique** : En 1900, les États-Unis sont la première puissance industrielle mondiale. L'Allemagne est seconde. L'Angleterre décline relativement. L'exposition universelle de Paris (1900) — la Tour Eiffel, le métro — célèbre le progrès. Mais les inégalités sont immenses. Le monde est divisé entre nations industrielles et nations colonisées. La course aux armements commence.
+
+#### Partage de l'Afrique — Conférence de Berlin (1885)
+
+> Les puissances européennes se partagent l'Afrique comme un gâteau. La Conférence de Berlin (1884-85) fixe les règles : « occupation effective ». En 20 ans, 90% de l'Afrique est colonisée. Seules l'Éthiopie et le Libéria restent indépendants.
+
+- **Type** : crisis / diplomatic
+- **Fenêtre** : 1880–1900
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Royaume d'Éthiopie (Zagwé), Empire du Ghana, Ifè (Yoruba), Cités-États swahilies, Grand Zimbabwe (proto-Shona)
+- **Prérequis** : Début de la Révolution industrielle, Ouverture du canal de Suez, Shaka Zulu et le Mfecane
+- **Choix joueurs** :
+  - *Participer à la colonisation* — Matières premières, marchés, prestige. « Le fardeau de l'homme blanc » (Kipling).
+  - *Résister à la colonisation* — Défendre la souveraineté africaine. Moderniser pour survivre.
+- **Alternative MJ** : Si les royaumes africains se modernisent (comme l'Éthiopie), la colonisation est plus difficile. Si les puissances européennes se disputent l'Afrique (Fachoda, 1898), une guerre européenne éclate plus tôt.
+- **Issue historique** : En 1914, seules l'Éthiopie et le Libéria sont indépendants. Le Congo de Léopold II est un enfer. L'apartheid commence en Afrique du Sud (1948). Les indépendances (1950s-1960s) héritent de frontières artificielles. Les conséquences du partage de Berlin — guerres civiles, sous-développement, néocolonialisme — persistent au XXIe siècle.
+
+#### Guerre hispano-américaine (1898)
+
+> Les États-Unis déclarent la guerre à l'Espagne (1898) après l'explosion du USS Maine à La Havane. En quatre mois, l'Espagne perd Cuba, Porto Rico, Guam et les Philippines. Les États-Unis deviennent une puissance impériale — « a splendid little war » (John Hay).
+
+- **Type** : crisis / military
+- **Fenêtre** : 1898–1898
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Royaume de León, Royaume d'Angleterre
+- **Prérequis** : Guerre de Sécession américaine
+- **Choix joueurs** :
+  - *Intervenir pour libérer Cuba* — Les Cubains souffrent sous l'Espagne. « Remember the Maine! »
+  - *Maintenir l'isolationnisme* — Les États-Unis ne doivent pas devenir un empire colonial. Washington avait prévenu.
+- **Alternative MJ** : Si le Maine n'explose pas, la guerre n'a pas lieu (ou est retardée). Si l'Espagne négocie l'indépendance de Cuba, le prétexte disparaît. Si les États-Unis libèrent les Philippines au lieu de les coloniser, ils gagnent un allié.
+- **Issue historique** : L'Espagne perd ses dernières colonies — fin de l'empire espagnol (1898 = « El Desastre »). Les États-Unis contrôlent Cuba (amendement Platt), Porto Rico, Guam et les Philippines. Theodore Roosevelt (héros de San Juan Hill) devient président (1901). Le canal de Panama (1903-1914) confirme la puissance américaine. Le XXe siècle sera américain.
+
+#### Révolte des Boxers — L'Alliance des Huit Nations (1900)
+
+> Les Yihequan (« Poings de justice et de concorde ») se soulèvent contre les étrangers et les chrétiens en Chine (1899-1901). L'impératrice Cixi les soutient et déclare la guerre aux puissances. Huit nations (Angleterre, France, Allemagne, Russie, Japon, USA, Italie, Autriche) envoient un corps expéditionnaire. Pékin est pillé.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1899–1901
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Dynastie Song, Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Rus' de Kiev, Japon (Heian)
+- **Prérequis** : Guerres de l'Opium
+- **Alternative MJ** : Si Cixi ne soutient pas les Boxers, la révolte reste locale. Si les Boxers réussissent à expulser les étrangers, la Chine se referme totalement.
+- **Issue historique** : La dynastie Qing tente des réformes désespérées (« Nouvelles Politiques », 1901-1911) mais trop tard. La Révolution de 1911 met fin à 2 000 ans d'empire. L'indemnité Boxer (remboursée partiellement par les USA en bourses étudiantes) forme une génération d'intellectuels chinois modernisateurs.
+
+#### Guerre russo-japonaise (1904)
+
+> Le Japon attaque Port-Arthur sans déclaration de guerre (8 février 1904). Première victoire militaire d'une nation asiatique sur une puissance européenne. Tsushima (27 mai 1905) : la flotte russe du Baltique, après 7 mois de navigation, est anéantie en deux jours. Le monde est stupéfait.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1904–1905
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Japon (Heian), Rus' de Kiev
+- **Prérequis** : Restauration Meiji — Modernisation du Japon
+- **Alternative MJ** : Si la Russie négocie, le Japon obtient la Corée pacifiquement. Si la flotte russe gagne à Tsushima, le Japon est contenu et la révolution de 1905 n'a pas lieu.
+- **Issue historique** : Le Japon annexe la Corée (1910) et se lance dans l'impérialisme continental. La défaite russe provoque la révolution de 1905 (Dimanche rouge, mutinerie du Potemkine) — répétition générale de 1917. Les mouvements anticoloniaux en Asie sont galvanisés : « Si le Japon a vaincu la Russie, nous pouvons vaincre nos colonisateurs. »
+
+#### Révolution russe de 1905 (1905)
+
+> Le « Dimanche rouge » (22 janvier 1905) : les troupes tirent sur une manifestation pacifique devant le Palais d'hiver. Grève générale, mutineries, soviets. Le tsar concède un parlement (Douma) et une constitution. Mais les promesses seront trahies.
+
+- **Type** : political / political
+- **Fenêtre** : 1905–1907
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Rus' de Kiev
+- **Prérequis** : Guerre russo-japonaise, Abolition du servage en Russie
+- **Choix joueurs** :
+  - *Réformer sincèrement* — Respecter la Douma, donner des terres aux paysans. Risquer le pouvoir du tsar.
+  - *Réprimer et contrôler* — La Douma est une concession tactique. Reprendre le contrôle dès que possible.
+- **Alternative MJ** : Si Nicolas II accepte une monarchie constitutionnelle réelle, 1917 n'a pas lieu. Si la révolution réussit en 1905, Lénine prend le pouvoir 12 ans plus tôt.
+- **Issue historique** : Stolypine tente de créer une classe de paysans propriétaires (1906-1911) — assassiné en 1911. Nicolas II ne comprend pas. Les réformes insuffisantes, la guerre de 1914, Raspoutine — tout converge vers février 1917. Lénine dira : « 1905 fut la répétition générale. »
+
+#### Première Guerre mondiale (1914)
+
+> L'assassinat de l'archiduc François-Ferdinand à Sarajevo (28 juin 1914) déclenche le jeu des alliances. En six semaines, l'Europe est en guerre. Quatre ans de tranchées, 20 millions de morts, quatre empires détruits (ottoman, russe, austro-hongrois, allemand). Le monde d'avant meurt dans la boue de la Somme.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1914–1918
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, Rus' de Kiev, Empire ghaznavide, Japon (Heian), Royaume de León
+- **Prérequis** : Unification allemande — Bismarck, Guerre russo-turque et Congrès de Berlin (1878)
+- **Choix joueurs** :
+  - *Honorer l'alliance* — Rejoindre la guerre aux côtés de ses alliés. Honneur et traités.
+  - *Rester neutre* — Refuser la folie collective. Risquer l'isolement diplomatique.
+- **Alternative MJ** : Si l'attentat de Sarajevo échoue, la guerre est retardée (mais pas évitée). Si l'Allemagne ne viole pas la neutralité belge, l'Angleterre reste neutre. Si la France tombe en 1914, la guerre est courte.
+- **Issue historique** : Quatre empires détruits. La Société des Nations créée (sans les USA). La carte de l'Europe et du Moyen-Orient redessinée (accords Sykes-Picot). La grippe espagnole (1918-19) tue 50 millions supplémentaires. Le traité de Versailles humilie l'Allemagne → Weimar → Hitler. Comme le dira Foch : « Ce n'est pas une paix, c'est un armistice de vingt ans. »
+
+#### Révolution russe d'Octobre (1917)
+
+> Février 1917 : le tsar abdique. Octobre 1917 : Lénine et les bolcheviks prennent le Palais d'hiver. « Tout le pouvoir aux soviets ! » La Russie quitte la guerre. La guerre civile (1918-1922) fait 8 millions de morts. L'URSS est née — le premier État communiste du monde.
+
+- **Type** : crisis / political
+- **Fenêtre** : 1917–1922
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Rus' de Kiev
+- **Prérequis** : Première Guerre mondiale, Révolution russe de 1905
+- **Choix joueurs** :
+  - *Soutenir les bolcheviks* — La terre aux paysans, les usines aux ouvriers, la paix immédiate.
+  - *Soutenir les Blancs* — Restaurer l'ordre. Monarchie constitutionnelle ou république modérée.
+- **Alternative MJ** : Si Kerensky arrête Lénine en juillet 1917, octobre n'a pas lieu. Si les Blancs gagnent la guerre civile, la Russie devient une démocratie fragile ou une dictature militaire.
+- **Issue historique** : L'URSS est créée (1922). Lénine meurt (1924). Staline élimine Trotsky et tous ses rivaux. Collectivisation forcée, Goulag, industrialisation à marche forcée. L'URSS deviendra une superpuissance mais au prix de millions de vies. Le communisme se répand : Chine, Cuba, Vietnam.
+
+#### Chute de l'Empire ottoman — Naissance de la Turquie (1922)
+
+> L'Empire ottoman, allié de l'Allemagne, s'effondre en 1918. Le génocide arménien (1915-16, 1,5 million de victimes). Mustafa Kemal repousse les Grecs (1919-22), abolit le sultanat (1922), le califat (1924), et fonde la République de Turquie laïque.
+
+- **Type** : political / political
+- **Fenêtre** : 1918–1924
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Empire ghaznavide
+- **Prérequis** : Première Guerre mondiale, Réformes Tanzimat — Modernisation ottomane
+- **Alternative MJ** : Si l'Empire ottoman reste neutre en 1914, il survit peut-être. Si Kemal échoue, la Turquie est dépecée selon le traité de Sèvres.
+- **Issue historique** : La Turquie de Kemal se modernise radicalement : alphabet latin, code civil suisse, droit de vote des femmes (1934). Le Moyen-Orient est découpé par Sykes-Picot : Irak, Syrie, Liban, Jordanie, Palestine — frontières artificielles source de conflits. La déclaration Balfour (1917) pose les bases du conflit israélo-palestinien.
+
+#### Grande Dépression (1929)
+
+> Le krach de Wall Street (24 octobre 1929, « Jeudi noir ») déclenche la pire crise économique de l'histoire. Chômage de masse (25% aux USA, 30% en Allemagne), faillites bancaires en cascade, effondrement du commerce mondial. Le capitalisme est au bord du gouffre.
+
+- **Type** : crisis / economic
+- **Fenêtre** : 1929–1939
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique
+- **Prérequis** : Première Guerre mondiale
+- **Choix joueurs** :
+  - *Relance par l'État* — Grands travaux, déficit budgétaire, aide sociale. Suivre Keynes.
+  - *Austérité et rigueur* — Équilibrer le budget, laisser le marché se purger. La douleur sera temporaire.
+- **Alternative MJ** : Si la Fed intervient rapidement (comme en 2008), la crise est contenue. Si Roosevelt n'est pas élu, les USA ne font pas de New Deal et la crise dure plus longtemps.
+- **Issue historique** : La Grande Dépression ne prend fin qu'avec la Seconde Guerre mondiale (économie de guerre). En Allemagne, les 6 millions de chômeurs votent Nazi — Hitler chancelier (1933). Au Japon, les militaristes prennent le pouvoir. L'URSS, économie planifiée, est épargnée et recrute des ingénieurs occidentaux. Le New Deal transforme l'Amérique : filets sociaux, régulation bancaire, syndicalisme.
+
+#### Montée des fascismes (1933)
+
+> Mussolini marche sur Rome (1922). Hitler devient chancelier (1933). Franco gagne la guerre civile espagnole (1939). Le fascisme — nationalisme, autoritarisme, culte du chef — se répand en Europe. Les démocraties pratiquent l'apaisement. « La paix pour notre temps » (Chamberlain, 1938).
+
+- **Type** : political / political
+- **Fenêtre** : 1922–1939
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Saint-Empire romain germanique, Royaume de León, République de Venise
+- **Prérequis** : Première Guerre mondiale, Grande Dépression
+- **Choix joueurs** :
+  - *Résister au fascisme* — S'opposer à Hitler et Mussolini. Réarmer. Risquer la guerre maintenant.
+  - *Pratiquer la politique d'apaisement* — Negocier, céder, gagner du temps. « La paix pour notre temps. »
+- **Alternative MJ** : Si Versailles est moins punitif, le ressentiment allemand est moindre. Si la France intervient lors de la remilitarisation de la Rhénanie (1936), Hitler tombe.
+- **Issue historique** : L'apaisement échoue. L'invasion de la Pologne (1er septembre 1939) déclenche la Seconde Guerre mondiale. L'héritage fasciste : la Shoah, 60 millions de morts, la destruction de l'Europe. Après 1945, « plus jamais ça » — mais l'autoritarisme ne meurt jamais vraiment.
+
+#### Seconde Guerre mondiale (1939)
+
+> 60 millions de morts. La Shoah : 6 millions de Juifs exterminés. Stalingrad, le Débarquement, Hiroshima. La guerre la plus destructrice de l'histoire humaine transforme l'ordre mondial : deux superpuissances émergent, l'Europe est en ruines.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1939–1945
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Royaume d'Angleterre, Saint-Empire romain germanique, Rus' de Kiev, Japon (Heian), Dynastie Song, République de Venise, Royaume de Pologne
+- **Prérequis** : Montée des fascismes, Grande Dépression
+- **Choix joueurs** :
+  - *Rejoindre les Alliés* — Combattre le fascisme. Liberté contre tyrannie.
+  - *Rester neutre* — Préserver sa nation, commercer avec tous. La Suisse, la Suède, le Portugal.
+- **Alternative MJ** : Si Hitler n'envahit pas l'URSS, la guerre à l'Est n'a pas lieu. Si le Japon n'attaque pas Pearl Harbor, les USA restent peut-être neutres. Si le débarquement échoue, la guerre dure des années de plus.
+- **Issue historique** : L'Europe en ruines. 60 millions de morts. L'ONU remplace la SDN. Le procès de Nuremberg. Le plan Marshall (1948). La division de l'Allemagne. La bombe atomique change tout. Les empires coloniaux s'effondrent — les peuples colonisés veulent l'indépendance promise. Le monde bipolaire USA/URSS commence.
+
+#### Indépendance de l'Inde et Partition (1947)
+
+> Le 15 août 1947, l'Inde et le Pakistan deviennent indépendants. La Partition provoque le plus grand déplacement de population de l'histoire : 15 millions de personnes, 1 à 2 millions de morts. Gandhi est assassiné le 30 janvier 1948.
+
+- **Type** : political / political
+- **Fenêtre** : 1947–1948
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Dynastie Chola, Empire ghaznavide
+- **Prérequis** : Seconde Guerre mondiale, Révolte des Cipayes — Fin de la Compagnie des Indes
+- **Alternative MJ** : Si la Partition est évitée, une Inde unie est plus puissante mais plus instable (tensions communautaires). Si la Partition est mieux planifiée (délais plus longs), les massacres sont réduits.
+- **Issue historique** : L'Inde devient la plus grande démocratie du monde. Le Pakistan se divise (Bangladesh, 1971). Trois guerres indo-pakistanaises. Le Cachemire reste disputé. Le modèle de décolonisation par la non-violence inspire le monde — Martin Luther King, Mandela. L'Inde nucléaire (1974), le Pakistan nucléaire (1998) : la Partition a des conséquences atomiques.
+
+#### Début de la Guerre froide (1947)
+
+> Le rideau de fer tombe sur l'Europe (Churchill, Fulton, 1946). Le blocus de Berlin (1948-49). L'OTAN (1949) vs le Pacte de Varsovie (1955). Deux superpuissances, deux idéologies, un monde divisé en deux. L'humanité vit sous la menace de l'annihilation nucléaire.
+
+- **Type** : political / diplomatic
+- **Fenêtre** : 1947–1991
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Rus' de Kiev, Royaume de Pologne
+- **Prérequis** : Seconde Guerre mondiale, Révolution russe d'Octobre
+- **Choix joueurs** :
+  - *Rejoindre le bloc occidental* — Démocratie, économie de marché, protection américaine.
+  - *Rejoindre le bloc soviétique* — Socialisme, planification, protection soviétique.
+  - *Mouvement des non-alignés* — Ni Est ni Ouest. Tiers-monde, Bandung (1955), Nehru, Nasser, Tito.
+- **Alternative MJ** : Si Truman négocie avec Staline à Potsdam, la tension est moindre. Si les USA utilisent la bombe atomique contre l'URSS (proposé par certains généraux), la Troisième Guerre mondiale commence.
+- **Issue historique** : 44 ans de tension sans guerre directe entre les superpuissances — la « destruction mutuelle assurée » (MAD) fonctionne. Mais des millions meurent dans les guerres par procuration. La course à l'espace produit des technologies civiles (satellites, Internet). L'URSS s'effondre (1991) — fin de la Guerre froide. Les USA restent seule superpuissance — brièvement.
+
+#### Création de l'État d'Israël (1948)
+
+> Le 14 mai 1948, David Ben Gourion proclame l'État d'Israël. Le lendemain, cinq armées arabes attaquent. Israël survit. 700 000 Palestiniens fuient ou sont expulsés — la Nakba (« catastrophe »). Le conflit le plus durable du XXe siècle commence.
+
+- **Type** : political / political
+- **Fenêtre** : 1948–1949
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Empire ghaznavide, Royaume d'Angleterre
+- **Prérequis** : Seconde Guerre mondiale, Chute de l'Empire ottoman — Naissance de la Turquie
+- **Alternative MJ** : Si le plan de partage est accepté par les deux parties, un État binational émerge. Si les armées arabes gagnent en 1948, Israël n'existe pas.
+- **Issue historique** : Six guerres (1948, 1956, 1967, 1973, 1982, 2006). L'occupation de la Cisjordanie et de Gaza (1967). Les accords d'Oslo (1993) : espoir bref. L'Intifada. Le mur de séparation. Le conflit empoisonne les relations internationales et déstabilise tout le Moyen-Orient. Aucune solution en vue.
+
+#### Révolution communiste chinoise (1949)
+
+> Mao Zedong proclame la République populaire de Chine le 1er octobre 1949 depuis la place Tiananmen. Tchang Kaï-chek se réfugie à Taïwan. Un quart de l'humanité bascule dans le communisme.
+
+- **Type** : political / political
+- **Fenêtre** : 1946–1949
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Dynastie Song
+- **Prérequis** : Seconde Guerre mondiale, Révolte des Taiping, Révolte des Boxers — L'Alliance des Huit Nations
+- **Alternative MJ** : Si les USA interviennent massivement pour le Kuomintang, la guerre civile dure. Si Mao est tué pendant la Longue Marche, un autre leader communiste émerge (Zhou Enlai ?).
+- **Issue historique** : Le Grand Bond en avant (1958-62) : 30 à 45 millions de morts de famine. La Révolution culturelle (1966-76) : destruction du patrimoine, persécution des intellectuels. La mort de Mao (1976). Deng Xiaoping et la réforme économique (1978) : « Peu importe que le chat soit noir ou blanc, pourvu qu'il attrape les souris. » La Chine devient la deuxième puissance mondiale.
+
+#### Décolonisation de l'Afrique (1960)
+
+> En 1960, l'« Année de l'Afrique », 17 pays deviennent indépendants. De 1945 à 1975, la quasi-totalité de l'Afrique se libère du joug colonial. Mais les frontières héritées de Berlin (1885), les élites formées par les colonisateurs, et les ingérences de la Guerre froide compliquent tout.
+
+- **Type** : political / political
+- **Fenêtre** : 1956–1975
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Empire du Ghana, Royaume d'Éthiopie (Zagwé), Cités-États swahilies, Ifè (Yoruba), Grand Zimbabwe (proto-Shona), Royaume de France, Royaume d'Angleterre
+- **Prérequis** : Seconde Guerre mondiale, Partage de l'Afrique — Conférence de Berlin
+- **Alternative MJ** : Si les puissances coloniales accordent l'indépendance progressivement (modèle britannique), la transition est plus douce. Si les frontières sont redessinées selon les ethnies, les guerres civiles sont évitées — mais le découpage est impossible.
+- **Issue historique** : 54 États africains indépendants. Mais la « Françafrique » (néocolonialisme français), les coups d'État (80 entre 1960 et 2000), les guerres civiles (Nigeria/Biafra, Rwanda, Congo). Le génocide rwandais (1994, 800 000 morts en 100 jours). Le poids de l'héritage colonial est immense. La croissance économique africaine commence vraiment dans les années 2000.
+
+#### Crise des missiles de Cuba (1962)
+
+> Octobre 1962 : les États-Unis découvrent des missiles soviétiques à Cuba. Kennedy impose un blocus naval. Khrouchtchev refuse de reculer. Pendant 13 jours, le monde est au bord de la guerre nucléaire. Le moment le plus dangereux de l'histoire humaine.
+
+- **Type** : crisis / diplomatic
+- **Fenêtre** : 1962–1962
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Rus' de Kiev, Royaume d'Angleterre
+- **Prérequis** : Début de la Guerre froide
+- **Alternative MJ** : Si Arkhipov autorise la torpille nucléaire, la Troisième Guerre mondiale commence. Si Kennedy choisit l'invasion au lieu du blocus, les Soviétiques ripostent avec les missiles déjà opérationnels.
+- **Issue historique** : La crise mène directement au traité d'interdiction partielle des essais nucléaires (1963) et au téléphone rouge. Khrouchtchev est renversé (1964), en partie à cause de l'humiliation perçue. Kennedy est assassiné (1963). Cuba reste communiste. La détente commence — SALT I (1972). Le monde a eu très, très peur.
+
+#### Guerre du Vietnam (1965)
+
+> Les États-Unis s'engagent au Vietnam pour contenir le communisme (1955-1975). 58 000 Américains et 3 millions de Vietnamiens morts. La première guerre télévisée. Le mouvement anti-guerre transforme la société américaine. Saïgon tombe le 30 avril 1975.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1955–1975
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Royaume d'Angleterre
+- **Prérequis** : Début de la Guerre froide, Décolonisation de l'Afrique
+- **Alternative MJ** : Si les USA ne s'engagent pas (Eisenhower refuse en 1954), le Vietnam est unifié sous Hô Chi Minh plus tôt. Si les USA avaient gagné, le Vietnam serait divisé comme la Corée.
+- **Issue historique** : Le Vietnam unifié sous le communisme. Les Khmers rouges au Cambodge (1975-79) : 2 millions de morts. Le « syndrome du Vietnam » paralyse la politique étrangère américaine pour une décennie. Le mouvement anti-guerre inspire les droits civiques, le féminisme, la contre-culture. Le doi moi (1986) : le Vietnam adopte l'économie de marché — comme la Chine.
+
+#### Révolution culturelle chinoise (1966)
+
+> Mao lance la Révolution culturelle (1966-76) pour reprendre le pouvoir après le désastre du Grand Bond en avant. Les Gardes rouges terrorisent la population. Les intellectuels sont humiliés, battus, tués. Le patrimoine culturel est détruit. « La révolution n'est pas un dîner de gala. »
+
+- **Type** : crisis / cultural
+- **Fenêtre** : 1966–1976
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Dynastie Song
+- **Prérequis** : Révolution communiste chinoise
+- **Alternative MJ** : Si Mao ne lance pas la Révolution culturelle, la Chine se modernise 20 ans plus tôt. Si Lin Biao réussit son coup d'État (1971), une junte militaire remplace Mao.
+- **Issue historique** : Mao meurt le 9 septembre 1976. La Bande des Quatre est arrêtée. Deng Xiaoping revient au pouvoir (1978) et lance les réformes économiques : zones économiques spéciales, investissement étranger, agriculture privée. La Chine passe du maoïsme au capitalisme d'État — la plus grande transformation économique de l'histoire. Le traumatisme de la Révolution culturelle est officiellement reconnu (résolution de 1981) mais jamais pleinement discuté.
+
+#### Course à l'espace — L'Homme sur la Lune (1969)
+
+> « Un petit pas pour l'homme, un bond de géant pour l'humanité. » Le 20 juillet 1969, Neil Armstrong marche sur la Lune. La course à l'espace — de Spoutnik (1957) à Apollo 11 — est le plus grand exploit technologique du XXe siècle.
+
+- **Type** : milestone / scientific
+- **Fenêtre** : 1957–1972
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Rus' de Kiev
+- **Prérequis** : Début de la Guerre froide
+- **Alternative MJ** : Si l'URSS atteint la Lune en premier, le prestige communiste est immense. Si Kennedy n'est pas assassiné, le programme spatial est peut-être mieux financé au-delà d'Apollo.
+- **Issue historique** : Six missions lunaires habitées (1969-72), puis plus rien. Le programme spatial devient une coopération (ISS, 1998). Les satellites transforment les communications, la météo, le GPS. SpaceX (Elon Musk) relance la course en 2020. La Lune reste le symbole de ce que l'humanité peut accomplir quand elle le décide.
+
+#### Premier choc pétrolier (1973)
+
+> L'OPEP décrète un embargo pétrolier contre les alliés d'Israël (octobre 1973). Le prix du pétrole quadruple en trois mois. Files d'attente aux stations-service. La fin des Trente Glorieuses. Le pétrole est une arme géopolitique.
+
+- **Type** : crisis / economic
+- **Fenêtre** : 1973–1974
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Japon (Heian)
+- **Prérequis** : Création de l'État d'Israël, Début de la Guerre froide
+- **Choix joueurs** :
+  - *Diversifier les sources d'énergie* — Nucléaire, charbon, énergies renouvelables. Réduire la dépendance au pétrole.
+  - *Négocier avec les producteurs* — Diplomatie, accords bilatéraux, concessions politiques sur Israël.
+- **Alternative MJ** : Si l'embargo n'a pas lieu, les Trente Glorieuses continuent plus longtemps. Si l'Occident développe des alternatives rapidement, la dépendance au pétrole diminue dès les années 70.
+- **Issue historique** : Le choc pétrolier transforme l'économie mondiale : fin du keynésianisme, montée du néolibéralisme (Thatcher, Reagan). Le Moyen-Orient devient le centre géopolitique du monde. Les pétrodollars financent le wahhabisme. Le nucléaire civil se développe (France, Japon). La question énergétique domine le XXIe siècle — jusqu'au changement climatique.
+
+#### Révolution islamique iranienne (1979)
+
+> L'ayatollah Khomeini renverse le Shah d'Iran (février 1979). La première théocratie islamique moderne. La prise d'otages de l'ambassade américaine (444 jours). Le monde musulman est bouleversé. « Ni Est, ni Ouest — République islamique ! »
+
+- **Type** : political / religious
+- **Fenêtre** : 1978–1980
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Empire ghaznavide
+- **Prérequis** : Premier choc pétrolier
+- **Alternative MJ** : Si le Shah avait réformé plus tôt, la révolution est évitée. Si les gauchistes gagnent au lieu des islamistes, l'Iran devient socialiste.
+- **Issue historique** : L'Iran devient le modèle de l'islamisme politique. La guerre Iran-Irak (1980-88) : Saddam Hussein soutenu par l'Occident. Le Hezbollah au Liban (1982). L'exportation de la révolution. Les relations USA-Iran empoisonnées pour 45 ans. Le programme nucléaire iranien. La rivalité Iran-Arabie Saoudite (chiites vs sunnites) structure le Moyen-Orient.
+
+#### Chute du mur de Berlin — Fin de la Guerre froide (1989)
+
+> Le 9 novembre 1989, les Berlinois de l'Est et de l'Ouest abattent le Mur. En deux ans, l'URSS s'effondre. La Guerre froide est finie. « La fin de l'histoire » (Fukuyama) — ou le début d'un nouveau désordre mondial.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1989–1991
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Saint-Empire romain germanique, Rus' de Kiev, Royaume de Pologne
+- **Prérequis** : Début de la Guerre froide
+- **Alternative MJ** : Si Gorbatchev réprime comme Tiananmen (juin 1989), le Mur tient. Si l'Allemagne réunifiée quitte l'OTAN, l'Europe est différente. Si le coup d'État de 1991 réussit, l'URSS survit quelques années.
+- **Issue historique** : L'effondrement soviétique libère 15 républiques. L'élargissement de l'OTAN et de l'UE vers l'Est. Les « thérapies de choc » en Russie (1990s) : oligarques, pauvreté, effondrement de l'espérance de vie. Poutine arrive au pouvoir (1999). La promesse de 1989 — liberté, démocratie, « fin de l'histoire » — se heurte au retour du nationalisme, de l'autoritarisme et des guerres (Yougoslavie, puis Ukraine).
+
+#### Massacre de Tiananmen (1989)
+
+> Le 4 juin 1989, les chars de l'Armée populaire écrasent le mouvement étudiant sur la place Tiananmen à Pékin. Des milliers de morts (estimations : 300 à 3 000). L'homme au tank. La Chine choisit : croissance économique sans liberté politique.
+
+- **Type** : crisis / political
+- **Fenêtre** : 1989–1989
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Dynastie Song
+- **Prérequis** : Révolution culturelle chinoise
+- **Alternative MJ** : Si Zhao Ziyang l'emporte, la Chine s'ouvre politiquement — un scénario à la Corée du Sud. Si la répression est encore plus dure, la Chine se referme et les réformes économiques ralentissent.
+- **Issue historique** : Le « pacte » chinois : croissance et prospérité en échange du silence politique. La censure efface Tiananmen de la mémoire collective chinoise. La Chine devient la deuxième économie mondiale (2010). Le modèle « autoritarisme + capitalisme » inspire d'autres régimes. Xi Jinping (2012) renforce le contrôle. Tiananmen reste le fantôme qui hante le Parti communiste.
+
+#### Révolution Internet et numérique (1991)
+
+> Le World Wide Web (Tim Berners-Lee, 1991) transforme le monde plus profondément que l'imprimerie. E-mail, Google, Amazon, social media. L'information est instantanée. La vie privée est morte. La plus grande révolution communicationnelle depuis l'écriture.
+
+- **Type** : milestone / scientific
+- **Fenêtre** : 1991–2000
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Japon (Heian)
+- **Prérequis** : Seconde Révolution industrielle, Course à l'espace — L'Homme sur la Lune
+- **Choix joueurs** :
+  - *Internet libre et ouvert* — L'information doit circuler librement. Pas de censure, pas de surveillance.
+  - *Contrôler et réguler Internet* — Filtrage, surveillance, souveraineté numérique. Protéger l'ordre social.
+- **Alternative MJ** : Si le Web reste académique et non commercial, la révolution est plus lente. Si la Chine avait adopté un Internet ouvert, le monde numérique serait unifié.
+- **Issue historique** : 3 milliards d'utilisateurs en 2015, 5 milliards en 2023. Les GAFAM (Google, Apple, Facebook, Amazon, Microsoft) plus puissants que de nombreux États. Les réseaux sociaux : printemps arabe, Brexit, Trump, désinformation. La Chine crée un Internet parallèle (Great Firewall). La vie privée est un souvenir. L'intelligence artificielle (GPT, 2022-) promet — ou menace — une nouvelle révolution.
+
+#### Union européenne — L'euro et l'élargissement (1992)
+
+> De la CECA (1951) au traité de Maastricht (1992) et à l'euro (2002). L'Union européenne unit 28 pays, 500 millions de citoyens, et le plus grand marché unique du monde. Le projet né des ruines de 1945 : « Plus jamais la guerre en Europe. »
+
+- **Type** : milestone / diplomatic
+- **Fenêtre** : 1957–2002
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume de France, Saint-Empire romain germanique, Royaume d'Angleterre, République de Venise, Royaume de León, Royaume de Pologne
+- **Prérequis** : Seconde Guerre mondiale, Chute du mur de Berlin — Fin de la Guerre froide
+- **Choix joueurs** :
+  - *Approfondir l'intégration* — Fédéralisme européen. Budget commun, armée commune, solidarité.
+  - *Préserver la souveraineté nationale* — L'Europe des nations, pas les États-Unis d'Europe. De Gaulle avait raison.
+- **Alternative MJ** : Si Maastricht échoue, l'UE reste un marché commun sans ambition politique. Si le Royaume-Uni adopte l'euro, le Brexit n'a pas lieu.
+- **Issue historique** : L'UE est le plus grand marché unique du monde. Prix Nobel de la Paix (2012). Mais la crise de l'euro (2010-15), la crise migratoire (2015), le Brexit (2016), le COVID et la guerre en Ukraine testent la solidarité. L'UE avance par les crises — « l'Europe se fera dans les crises et elle sera la somme des solutions apportées à ces crises » (Jean Monnet).
+
+#### Guerres de Yougoslavie (1992)
+
+> La Yougoslavie se désintègre dans le sang (1991-2001). Le siège de Sarajevo (1 425 jours). Le massacre de Srebrenica (8 000 hommes et garçons, juillet 1995). Le Kosovo (1998-99). Le retour de la guerre en Europe, 50 ans après 1945.
+
+- **Type** : crisis / military
+- **Fenêtre** : 1991–2001
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : République de Venise, Saint-Empire romain germanique
+- **Prérequis** : Chute du mur de Berlin — Fin de la Guerre froide
+- **Alternative MJ** : Si l'Europe reconnaît rapidement les républiques avec des garanties pour les minorités, les guerres sont évitées. Si Milošević est renversé tôt, le nationalisme serbe est contenu.
+- **Issue historique** : 7 États au lieu d'un seul. 140 000 morts, 4 millions de réfugiés. Le TPIY juge les criminels de guerre. L'échec de Srebrenica hante l'ONU et les Pays-Bas. La Croatie et la Slovénie rejoignent l'UE. La Serbie négocie. Le Kosovo reste disputé. Les guerres yougoslaves rappellent que la « fin de l'histoire » était prématurée.
+
+#### Fin de l'apartheid — Mandela président (1994)
+
+> Nelson Mandela, emprisonné pendant 27 ans, est libéré le 11 février 1990. L'apartheid est aboli. En 1994, Mandela est élu premier président noir d'Afrique du Sud. La Commission Vérité et Réconciliation : justice restaurative plutôt que punitive.
+
+- **Type** : milestone / political
+- **Fenêtre** : 1990–1994
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Grand Zimbabwe (proto-Shona), Cités-États swahilies
+- **Prérequis** : Chute du mur de Berlin — Fin de la Guerre froide, Décolonisation de l'Afrique
+- **Alternative MJ** : Si Mandela choisit la vengeance, l'Afrique du Sud bascule dans la guerre civile (scénario Zimbabwe). Si De Klerk refuse la transition, les sanctions détruisent l'économie.
+- **Issue historique** : Mandela sert un seul mandat (1994-99) et se retire — exemple rare en Afrique. L'Afrique du Sud est la « nation arc-en-ciel ». Mais les inégalités économiques perdurent. Le sida tue des millions (Mbeki nie le virus). La corruption sous Zuma. Mandela meurt en 2013, icône mondiale. L'arc-en-ciel pâlit, mais l'héritage moral est immense.
+
+#### Génocide rwandais (1994)
+
+> En 100 jours (avril-juillet 1994), 800 000 Tutsis et Hutus modérés sont massacrés au Rwanda. Les milices Interahamwe tuent à la machette. L'ONU se retire. Le monde regarde. « Plus jamais ça » — encore une fois.
+
+- **Type** : crisis / political
+- **Fenêtre** : 1994–1994
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Non
+- **Nations** : Cités-États swahilies
+- **Prérequis** : Décolonisation de l'Afrique
+- **Alternative MJ** : Si l'ONU envoie 5 000 casques bleus (comme le demandait Dallaire), le génocide est largement empêché. Si les accords d'Arusha (1993) sont respectés, la transition démocratique a lieu.
+- **Issue historique** : Le Rwanda de Kagame se reconstruit : croissance économique, réconciliation (gacaca), développement numérique. Mais autoritarisme. Les guerres du Congo (1996-2003) : « la guerre mondiale africaine », 5 millions de morts. L'échec de l'ONU mène à la doctrine de la « responsabilité de protéger » (R2P, 2005). Le mot « génocide » reste le plus lourd de la langue.
+
+#### Attentats du 11 septembre (2001)
+
+> Le 11 septembre 2001, 19 terroristes d'Al-Qaïda détournent quatre avions. Les Twin Towers s'effondrent à New York. Le Pentagone est frappé. 2 977 morts. Le monde bascule dans la « guerre contre le terrorisme ». Le XXIe siècle commence vraiment ce matin-là.
+
+- **Type** : crisis / military
+- **Fenêtre** : 2001–2001
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Empire ghaznavide
+- **Prérequis** : Début de la Guerre froide, Révolution islamique iranienne
+- **Choix joueurs** :
+  - *Rejoindre la coalition anti-terroriste* — Solidarité avec les USA. Participer aux opérations militaires.
+  - *Prudence et diplomatie* — Condamner le terrorisme, mais ne pas se lancer dans une guerre sans fin.
+- **Alternative MJ** : Si les attentats sont déjoués, la "guerre contre le terrorisme" n'a pas lieu à cette échelle. Si les USA ne ciblent que l'Afghanistan (sans envahir l'Irak), les conséquences sont moindres.
+- **Issue historique** : L'Afghanistan occupé pendant 20 ans (2001-2021). L'Irak envahi en 2003 sur de faux prétextes (armes de destruction massive inexistantes). L'État islamique naît du chaos irakien. Ben Laden tué (2011). Les Talibans reprennent Kaboul (août 2021). 900 000 morts dans les guerres post-11 septembre. Le Patriot Act, la NSA, Snowden — la surveillance de masse est le nouvel ordre.
+
+#### Entrée de la Chine à l'OMC (2001)
+
+> La Chine rejoint l'Organisation mondiale du commerce le 11 décembre 2001. En 20 ans, elle devient l'usine du monde, puis la deuxième économie mondiale. 800 millions de personnes sorties de la pauvreté. Le plus grand transfert de richesse de l'histoire.
+
+- **Type** : milestone / economic
+- **Fenêtre** : 2001–2020
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Dynastie Song, Royaume d'Angleterre, Japon (Heian)
+- **Prérequis** : Révolution communiste chinoise, Massacre de Tiananmen
+- **Choix joueurs** :
+  - *Commerce ouvert avec la Chine* — Le libre-échange enrichit tout le monde. La Chine se démocratisera en s'enrichissant.
+  - *Protéger les industries nationales* — La Chine ne joue pas selon les règles. Protéger les emplois locaux.
+- **Alternative MJ** : Si la Chine n'entre pas à l'OMC, sa croissance est plus lente. Si l'Occident impose des conditions plus strictes, le transfert industriel est limité.
+- **Issue historique** : La Chine ne s'est pas démocratisée en s'enrichissant — l'hypothèse occidentale était fausse. Xi Jinping (2012) renforce l'autoritarisme. La guerre commerciale USA-Chine (2018-). La Chine rattrape les USA en technologie (5G, IA, espace). La "nouvelle route de la soie" (2013) : influence mondiale. Le XXIe siècle est sino-américain.
+
+#### Guerre d'Irak — Chute de Saddam Hussein (2003)
+
+> Les États-Unis envahissent l'Irak (20 mars 2003) sans mandat de l'ONU, sur la base de "renseignements" sur des armes de destruction massive — qui n'existent pas. Saddam tombe en trois semaines. L'occupation dure huit ans. L'Irak est détruit.
+
+- **Type** : crisis / military
+- **Fenêtre** : 2003–2011
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Empire ghaznavide
+- **Prérequis** : Attentats du 11 septembre
+- **Choix joueurs** :
+  - *Soutenir la coalition* — Saddam est un dictateur sanguinaire. La démocratie mérite d'être exportée.
+  - *S'opposer à la guerre* — Pas de guerre sans l'ONU. Les preuves sont faibles. « La vieille Europe a raison. »
+- **Alternative MJ** : Si Bush n'envahit pas, Saddam reste au pouvoir mais reste contenu. Si l'occupation est mieux planifiée (armée irakienne non dissoute), l'insurrection est moindre.
+- **Issue historique** : L'Irak dévasté. La dissolution de l'armée irakienne crée des centaines de milliers de combattants sans emploi — le terreau de l'État islamique. La guerre coûte 2 000 milliards de dollars. La crédibilité américaine détruite. Le "discours de Villepin" à l'ONU (février 2003) reste un moment d'honneur pour la diplomatie française. L'Irak reste instable 20 ans après.
+
+#### Tsunami de l'océan Indien (2004)
+
+> Le 26 décembre 2004, un séisme de magnitude 9.1 au large de Sumatra déclenche un tsunami dévastateur. 230 000 morts dans 14 pays. Aucun système d'alerte. L'aide internationale la plus massive de l'histoire. Les images en boucle sur les chaînes d'info en continu.
+
+- **Type** : natural_disaster / natural
+- **Fenêtre** : 2004–2005
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Dynastie Chola, Cités-États swahilies
+- **Prérequis** : Révolution Internet et numérique
+- **Alternative MJ** : Si un système d'alerte existe, les morts sont réduits de 80%. Si le séisme se produit plus au sud, les côtes les plus peuplées sont épargnées.
+- **Issue historique** : Le système d'alerte tsunami de l'océan Indien est opérationnel depuis 2006. L'Indonésie est devenue un leader mondial en gestion des catastrophes. La catastrophe a tué le conflit acehnais — les pourparlers de paix aboutissent en 2005. L'aide internationale a révélé les limites des ONG (reconstruction lente, coordination chaotique). Le tsunami a inspiré les protocoles de réponse aux catastrophes du XXIe siècle.
+
+#### Crise financière mondiale de 2008 (2008)
+
+> La faillite de Lehman Brothers (15 septembre 2008) déclenche la pire crise financière depuis 1929. Les subprimes, les CDO, les CDS — le casino financier s'effondre. Sauvetage des banques par les contribuables. 8 millions d'Américains perdent leur maison. « Too big to fail. »
+
+- **Type** : crisis / economic
+- **Fenêtre** : 2007–2012
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Royaume de León
+- **Prérequis** : Révolution Internet et numérique
+- **Choix joueurs** :
+  - *Sauver les banques* — Too big to fail. Injecter des milliards pour éviter l'effondrement total.
+  - *Laisser le marché se purger* — Les banques qui ont spéculé doivent payer. Pas de socialisation des pertes.
+- **Alternative MJ** : Si Lehman est sauvé (comme Bear Stearns), la panique est évitée. Si la régulation avait été maintenue, les subprimes n'existent pas.
+- **Issue historique** : Les banques sauvées, les banquiers pas punis (un seul emprisonné). Les inégalités explosent. Les banques centrales impriment des milliers de milliards (QE). Les taux à zéro pendant 10 ans. La colère populaire nourrit le populisme : Trump, Brexit, gilets jaunes. La crise de 2008 est la matrice politique du monde actuel.
+
+#### Printemps arabe (2011)
+
+> Mohamed Bouazizi s'immole en Tunisie (17 décembre 2010). La révolution se propage : Tunisie, Égypte, Libye, Syrie, Yémen, Bahreïn. Les réseaux sociaux comme arme de mobilisation. L'espoir d'une démocratisation du monde arabe — puis la désillusion.
+
+- **Type** : political / political
+- **Fenêtre** : 2010–2013
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Empire ghaznavide
+- **Prérequis** : Révolution Internet et numérique, Crise financière mondiale de 2008
+- **Choix joueurs** :
+  - *Soutenir les révolutions* — La démocratie est un droit universel. Aider les peuples qui se soulèvent.
+  - *Privilégier la stabilité* — Les dictateurs maintenaient l'ordre. Le chaos est pire que l'autoritarisme.
+- **Alternative MJ** : Si les régimes avaient réformé (modèle marocain), les révolutions sont évitées. Si l'OTAN n'intervient pas en Libye, Kadhafi survit mais la répression est sanglante.
+- **Issue historique** : Le bilan est amer. Seule la Tunisie a réussi sa transition (avant le recul de Saïed, 2021). L'Égypte : Morsi élu puis renversé par Sissi (2013). La Syrie : 500 000 morts, 6 millions de réfugiés, retour d'Assad puis sa chute (2024). La Libye : deux gouvernements rivaux. La crise migratoire en Europe (2015) est une conséquence directe. L'État islamique profite du chaos.
+
+#### L'État islamique — Le Califat de Daech (2014)
+
+> Abu Bakr al-Baghdadi proclame le "califat" depuis la mosquée al-Nouri de Mossoul (29 juin 2014). L'État islamique contrôle un territoire grand comme la Grande-Bretagne entre l'Irak et la Syrie. Terreur, esclavage, destructions de Palmyre. Attentats à Paris (2015), Bruxelles (2016).
+
+- **Type** : crisis / military
+- **Fenêtre** : 2014–2019
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Empire ghaznavide, Royaume de France, Royaume d'Angleterre
+- **Prérequis** : Guerre d'Irak — Chute de Saddam Hussein, Printemps arabe
+- **Alternative MJ** : Si l'armée irakienne avait résisté à Mossoul, le "califat" ne naît pas. Si Assad tombe rapidement, la Syrie se stabilise et Daech n'a pas de sanctuaire.
+- **Issue historique** : Le califat territorial détruit (2019) mais l'idéologie survit (cellules dormantes, Sahel, Afghanistan). Les attentats en Europe renforcent l'extrême droite. La crise migratoire de 2015 (1 million de réfugiés en Europe) polarise la politique européenne. Les Kurdes, héros de la guerre contre Daech, sont abandonnés par les USA (retrait de Syrie, 2019). Le Moyen-Orient plus fragmenté que jamais.
+
+#### Crise migratoire européenne (2015)
+
+> En 2015, plus d'un million de migrants et réfugiés arrivent en Europe, fuyant la Syrie, l'Afghanistan, l'Érythrée. Le corps d'Alan Kurdi sur une plage turque (septembre 2015). Merkel ouvre les frontières : "Wir schaffen das." L'Europe se déchire.
+
+- **Type** : crisis / political
+- **Fenêtre** : 2015–2016
+- **Sévérité** : 8/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Saint-Empire romain germanique, Royaume de France, Empire ghaznavide, Royaume de Hongrie
+- **Prérequis** : Printemps arabe, L'État islamique — Le Califat de Daech
+- **Choix joueurs** :
+  - *Accueillir les réfugiés* — Le droit d'asile est sacré. L'Europe a un devoir moral.
+  - *Fermer les frontières* — L'Europe ne peut pas accueillir toute la misère du monde. Protéger les nôtres.
+- **Alternative MJ** : Si la guerre en Syrie est évitée, la crise migratoire n'atteint pas cette ampleur. Si l'Europe avait un mécanisme de répartition équitable, les tensions sont moindres.
+- **Issue historique** : L'Allemagne intègre la majorité des réfugiés (avec des difficultés). L'accord UE-Turquie réduit les arrivées mais donne un levier à Erdoğan. La crise migratoire alimente le populisme : Brexit (2016), victoire de la droite en Autriche, Italie, Suède. La Méditerranée devient un cimetière. La politique européenne est durablement transformée.
+
+#### Accélération de la crise climatique (2015)
+
+> Les années 2015-2025 sont les plus chaudes jamais enregistrées. L'accord de Paris (2015) fixe l'objectif de 1.5°C — déjà dépassé. Incendies en Australie (2020), au Canada (2023), inondations en Allemagne (2021), au Pakistan (2022). Le réchauffement climatique passe de la théorie au vécu quotidien.
+
+- **Type** : crisis / natural
+- **Fenêtre** : 2015–2025
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Dynastie Song, Dynastie Chola, Nations aborigènes australiennes, Ali'i d'Hawaï
+- **Prérequis** : Seconde Révolution industrielle
+- **Choix joueurs** :
+  - *Transition énergétique ambitieuse* — Sortir des fossiles. Renouvelables, nucléaire, sobriété. Coût massif mais nécessaire.
+  - *Retarder la transition* — L'économie d'abord. La technologie résoudra le problème plus tard.
+- **Alternative MJ** : Si les pays avaient agi après Rio (1992), le 1.5°C était atteignable. Si une technologie de capture du CO2 émerge, la trajectoire change. Si les points de basculement sont franchis, le réchauffement s'emballe au-delà du contrôle humain.
+- **Issue historique** : En 2025, le monde est à +1.3°C et la barre des 1.5°C sera franchie avant 2030. Le solaire et l'éolien sont désormais les sources d'électricité les moins chères. Mais les émissions continuent d'augmenter. Les migrations climatiques commencent (Sahel, Bangladesh, îles du Pacifique). Le changement climatique est le défi existentiel du siècle — et la réponse est encore insuffisante.
+
+#### Brexit — Le Royaume-Uni quitte l'UE (2016)
+
+> Le 23 juin 2016, 51.9% des Britanniques votent pour quitter l'Union européenne. Le choc. Cameron démissionne. Trois ans de chaos parlementaire. Le 31 janvier 2020, le Royaume-Uni quitte officiellement l'UE. Le premier départ de l'histoire européenne.
+
+- **Type** : political / diplomatic
+- **Fenêtre** : 2016–2020
+- **Sévérité** : 7/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Royaume d'Écosse
+- **Prérequis** : Union européenne — L'euro et l'élargissement, Crise migratoire européenne
+- **Alternative MJ** : Si Cameron ne promet pas de référendum, le Brexit n'a pas lieu. Si le vote est à 52% Remain (réversible avec 1.5% de swing), le Royaume-Uni reste — et l'UE est peut-être moins reformée.
+- **Issue historique** : Le Royaume-Uni perd 4% de PIB par rapport au scénario sans Brexit (estimations OBR, 2023). Les exportations vers l'UE chutent. La City garde son importance mais perd des parts de marché (Amsterdam, Dublin). L'Écosse pousse pour l'indépendance. L'Irlande du Nord se rapproche de la République. L'UE perd son deuxième budget mais gagne en cohérence politique.
+
+#### Pandémie de COVID-19 (2020)
+
+> Un coronavirus émergé à Wuhan (fin 2019) provoque la pire pandémie depuis la grippe espagnole. 7 millions de morts officiels (15-25 millions estimés). Confinements mondiaux, économie à l'arrêt, vaccins en un an. Le monde ne sera plus jamais le même.
+
+- **Type** : natural_disaster / health
+- **Fenêtre** : 2020–2023
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Dynastie Song, Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Royaume de León, République de Venise, Japon (Heian), Dynastie Chola
+- **Prérequis** : Révolution Internet et numérique
+- **Choix joueurs** :
+  - *Confinement strict* — Sauver des vies. Confiner, fermer, masquer. Coût économique massif.
+  - *Garder l'économie ouverte* — L'immunité collective. Le remède ne doit pas être pire que le mal.
+- **Alternative MJ** : Si le virus est contenu à Wuhan (comme le SRAS en 2003), la pandémie n'a pas lieu. Si les vaccins prennent 5 ans, les morts se comptent en dizaines de millions.
+- **Issue historique** : 7 millions de morts officiels, 15-25 millions estimés. Le vaccin ARNm ouvre une nouvelle ère médicale (cancer, maladies rares). Le télétravail transforme les villes et l'économie. Les inégalités explosent : les milliardaires s'enrichissent, les travailleurs précaires sombrent. La Chine s'isole ("zéro COVID" jusqu'en 2023). La confiance dans les institutions s'effondre. Le monde post-COVID est plus fragmenté, plus méfiant, plus numérique.
+
+#### Invasion russe de l'Ukraine (2022)
+
+> Le 24 février 2022, la Russie de Poutine envahit l'Ukraine. La plus grande guerre en Europe depuis 1945. Zelensky refuse de fuir : "J'ai besoin de munitions, pas d'un taxi." L'Occident impose des sanctions massives et arme l'Ukraine. La guerre dure.
+
+- **Type** : crisis / military
+- **Fenêtre** : 2022–2025
+- **Sévérité** : 10/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Rus' de Kiev, Saint-Empire romain germanique, Royaume de France, Royaume d'Angleterre, Royaume de Pologne
+- **Prérequis** : Chute du mur de Berlin — Fin de la Guerre froide
+- **Choix joueurs** :
+  - *Armer l'Ukraine* — L'Ukraine défend la liberté de l'Europe. HIMARS, Leopard, F-16.
+  - *Pousser à la négociation* — Cesser le feu. Gel du conflit. Paix imparfaite plutôt que guerre sans fin.
+- **Alternative MJ** : Si l'OTAN avait intégré l'Ukraine avant 2022, Poutine n'envahit pas (article 5). Si Kyiv tombe en 3 jours, Zelensky en exil, gouvernement fantoche.
+- **Issue historique** : La guerre continue en 2025. L'Ukraine tient. L'Europe se réarme massivement. La Russie est isolée mais non vaincue. Le couple sino-russe se renforce. L'ordre mondial d'après 1991 est mort. Le monde est multipolaire et dangereux. L'énergie nucléaire redevient un sujet stratégique. L'Europe redécouvre qu'elle a besoin d'une armée.
+
+#### Révolution de l'intelligence artificielle (2023)
+
+> ChatGPT (novembre 2022) atteint 100 millions d'utilisateurs en deux mois — le produit le plus rapidement adopté de l'histoire. L'IA générative bouleverse tous les secteurs. Le moment Oppenheimer du numérique : puissance immense, conséquences inconnues.
+
+- **Type** : milestone / scientific
+- **Fenêtre** : 2022–2025
+- **Sévérité** : 9/10
+- **Visibilité** : public
+- **Global** : Oui
+- **Nations** : Royaume d'Angleterre, Dynastie Song, Japon (Heian), Royaume de France, Saint-Empire romain germanique
+- **Prérequis** : Révolution Internet et numérique, Pandémie de COVID-19
+- **Choix joueurs** :
+  - *Adopter l'IA massivement* — L'IA est la prochaine révolution industrielle. Investir ou être dépassé.
+  - *Réguler et encadrer* — Le EU AI Act comme modèle. Éthique, transparence, contrôle humain.
+- **Alternative MJ** : Si les Transformers ne sont pas inventés, l'IA reste spécialisée (pas générative). Si les gouvernements imposent un moratoire, le développement ralentit. Si l'IA atteint l'AGI, tout change de manière imprévisible.
+- **Issue historique** : En 2025, l'IA est omniprésente mais ses conséquences à long terme restent inconnues. Les deepfakes menacent la démocratie. Les emplois sont transformés plus que détruits (pour l'instant). La question de la conscience artificielle n'est pas résolue. La régulation européenne (AI Act, 2024) est pionnière. L'IA est peut-être la plus grande invention depuis l'écriture — ou le feu.
+
+---
+
+### Modèles d'événements locaux
+
+115 modèles d'événements procéduraux (sévérité 1-5). Instanciés par le moteur de jeu selon les conditions locales.
+
+| Nom | Catégorie | Portée | Sévérité | Classes ciblées | Récurrent | Probabilité |
+|---|---|---|---:|---|---|---:|
+| **Mauvaise récolte** | economic | local | 3/5 | peasant, artisan | Oui | 12 % |
+| **Récolte exceptionnelle** | economic | local | 2/5 | peasant, merchant | Oui | 8 % |
+| **Pêche miraculeuse** | economic | local | 2/5 | peasant, merchant | Oui | 6 % |
+| **Pluies bienfaitrices** | natural | regional | 2/5 | peasant | Oui | 10 % |
+| **Hiver clément** | natural | regional | 2/5 | peasant, artisan, any | Oui | 8 % |
+| **Cendres fertiles** | natural | regional | 2/5 | peasant | Oui | 2 % |
+| **Découverte de sources chaudes** | natural | local | 1/5 | any | Non | 1 % |
+| **Échouage de baleine** | economic | local | 1/5 | peasant, artisan | Oui | 2 % |
+| **Épizootie — Maladie du bétail** | natural | local | 3/5 | peasant | Oui | 6 % |
+| **Invasion de criquets** | natural | regional | 4/5 | peasant, any | Oui | 3 % |
+| **Famine locale** | natural | regional | 5/5 | peasant, artisan, any | Oui | 4 % |
+| **Rumeur de peste** | health | regional | 2/5 | any | Oui | 6 % |
+| **Épidémie locale** | health | local | 4/5 | any | Oui | 5 % |
+| **La guérisseuse du village** | health | local | 1/5 | peasant, artisan | Oui | 7 % |
+| **Attaque de brigands** | military | local | 3/5 | peasant, merchant, any | Oui | 10 % |
+| **Passage d'une armée** | military | regional | 4/5 | peasant, artisan, any | Oui | 7 % |
+| **Conscription seigneuriale** | military | local | 3/5 | peasant, artisan | Oui | 6 % |
+| **Querelle entre seigneurs** | political | local | 2/5 | peasant, any | Oui | 8 % |
+| **Prédicateur itinérant** | religious | local | 2/5 | peasant, artisan, any | Oui | 8 % |
+| **Miracle présumé** | religious | local | 2/5 | any | Oui | 5 % |
+| **Procès en sorcellerie** | religious | local | 3/5 | peasant, any | Oui | 5 % |
+| **Foire annuelle** | economic | regional | 1/5 | merchant, artisan, peasant, any | Oui | 15 % |
+| **Perturbation d'une route commerciale** | economic | regional | 3/5 | merchant, artisan, any | Oui | 6 % |
+| **Nouvelle taxe seigneuriale** | political | local | 2/5 | peasant, artisan, merchant | Oui | 10 % |
+| **Incendie** | natural | local | 4/5 | any | Oui | 7 % |
+| **Inondation** | natural | regional | 3/5 | peasant, any | Oui | 6 % |
+| **Apparition d'une comète** | natural | regional | 1/5 | any | Oui | 3 % |
+| **Tremblement de terre** | natural | regional | 4/5 | any | Oui | 2 % |
+| **Crue fertile** | natural | local | 2/5 | peasant | Oui | 7 % |
+| **Vents favorables** | natural | regional | 1/5 | merchant, peasant | Oui | 8 % |
+| **Fuite de paysans** | political | local | 2/5 | peasant | Oui | 6 % |
+| **Nouvelle cloche d'église** | cultural | local | 1/5 | any | Oui | 3 % |
+| **Marchand itinérant** | economic | local | 1/5 | peasant, artisan, any | Oui | 12 % |
+| **Mise en apprentissage d'un enfant** | cultural | personal | 1/5 | peasant, artisan, merchant | Oui | 8 % |
+| **Naufrage sur la côte** | economic | local | 2/5 | peasant, merchant, any | Oui | 5 % |
+| **Passage de pèlerins** | religious | local | 1/5 | any | Oui | 10 % |
+| **Attaque de loups** | natural | local | 2/5 | peasant, any | Oui | 7 % |
+| **Mariage au village** | cultural | personal | 1/5 | any | Oui | 15 % |
+| **Hiver rigoureux** | natural | regional | 3/5 | peasant, artisan, any | Oui | 6 % |
+| **Recrutement pour la croisade** | military | local | 4/5 | peasant, minor_noble, noble | Oui | 6 % |
+| **Construction d'un château** | political | local | 3/5 | peasant, artisan | Oui | 4 % |
+| **Fondation d'un monastère** | religious | regional | 2/5 | peasant, clergy, any | Oui | 3 % |
+| **Tournoi chevaleresque** | cultural | regional | 2/5 | noble, minor_noble, merchant, peasant | Oui | 8 % |
+| **Propagation d'une hérésie** | religious | regional | 3/5 | peasant, artisan, clergy | Oui | 4 % |
+| **Retour d'un croisé** | cultural | local | 2/5 | any | Oui | 5 % |
+| **Défrichement de forêt** | economic | local | 2/5 | peasant | Oui | 6 % |
+| **Conflit sur la dîme** | religious | local | 2/5 | peasant, artisan | Oui | 7 % |
+| **Création d'une léproserie** | health | local | 3/5 | any | Oui | 3 % |
+| **Querelle du moulin** | economic | local | 2/5 | peasant | Oui | 6 % |
+| **Construction d'un pont** | economic | local | 2/5 | merchant, artisan, peasant | Oui | 3 % |
+| **Passage d'un troubadour** | cultural | local | 1/5 | noble, minor_noble, any | Oui | 8 % |
+| **Charte communale** | political | local | 3/5 | merchant, artisan | Non | 3 % |
+| **Passage de chevaliers hospitaliers** | religious | local | 1/5 | any | Oui | 5 % |
+| **Fondation d'une université** | cultural | regional | 3/5 | clergy, noble, merchant | Non | 2 % |
+| **Création d'une guilde** | economic | local | 2/5 | artisan, merchant | Oui | 5 % |
+| **Rumeurs de l'invasion mongole** | military | regional | 4/5 | any | Non | 8 % |
+| **Essor du commerce maritime** | economic | regional | 3/5 | merchant, artisan, noble | Oui | 4 % |
+| **Prédication franciscaine** | religious | local | 2/5 | peasant, artisan, clergy | Oui | 6 % |
+| **Visite de l'Inquisition** | religious | regional | 4/5 | any | Oui | 4 % |
+| **Émeute étudiante** | political | local | 2/5 | merchant, artisan, clergy | Oui | 6 % |
+| **Apparition des lettres de change** | economic | regional | 2/5 | merchant, noble | Non | 3 % |
+| **Raid de pirates** | military | local | 4/5 | peasant, merchant, artisan | Oui | 6 % |
+| **Installation d'une communauté juive** | cultural | local | 2/5 | merchant, artisan, any | Non | 3 % |
+| **Procession de flagellants** | religious | regional | 3/5 | any | Oui | 4 % |
+| **Vague de peste** | health | regional | 5/5 | any | Oui | 8 % |
+| **Révolte paysanne** | political | regional | 4/5 | peasant, artisan, noble | Oui | 4 % |
+| **Passage de routiers** | military | regional | 4/5 | peasant, merchant, artisan | Oui | 6 % |
+| **Pénurie de main-d'oeuvre** | economic | regional | 3/5 | peasant, artisan, noble | Oui | 7 % |
+| **Pogrom** | religious | local | 5/5 | any | Oui | 4 % |
+| **Grande famine** | economic | regional | 5/5 | any | Oui | 3 % |
+| **Confusion du Grand Schisme** | religious | regional | 3/5 | clergy, peasant, any | Oui | 5 % |
+| **Impôts de guerre** | political | regional | 3/5 | peasant, artisan, merchant | Oui | 6 % |
+| **Village abandonné** | economic | local | 3/5 | peasant, noble | Oui | 5 % |
+| **Apparition de l'artillerie** | military | regional | 3/5 | noble, minor_noble, artisan | Non | 3 % |
+| **Danse macabre** | cultural | local | 1/5 | any | Oui | 4 % |
+| **Reconversion de routiers** | military | regional | 3/5 | noble, merchant, peasant | Oui | 5 % |
+| **Arrivée de l'imprimerie** | cultural | regional | 3/5 | clergy, merchant, noble | Non | 4 % |
+| **Réfugiés grecs de Constantinople** | cultural | regional | 2/5 | clergy, noble, merchant | Non | 5 % |
+| **Commission d'une oeuvre d'art** | cultural | local | 2/5 | noble, clergy, merchant | Oui | 5 % |
+| **Perturbation du commerce oriental** | economic | regional | 3/5 | merchant, noble | Oui | 5 % |
+| **Installation d'une banque** | economic | local | 2/5 | merchant, noble | Non | 3 % |
+| **Arrivée de produits du Nouveau Monde** | economic | regional | 2/5 | peasant, merchant, any | Oui | 4 % |
+| **Réfugiés de la Reconquista** | cultural | regional | 3/5 | merchant, artisan, any | Non | 4 % |
+| **Condottiere en quête de contrat** | military | regional | 3/5 | noble, merchant | Oui | 5 % |
+| **Panique sorcellaire** | religious | local | 4/5 | peasant, artisan, any | Oui | 5 % |
+| **Clôture des communaux** | economic | local | 3/5 | peasant | Oui | 4 % |
+| **Reconstruction d'après-guerre** | economic | regional | 3/5 | peasant, artisan, merchant | Oui | 4 % |
+| **Centralisation royale** | political | national | 3/5 | noble, minor_noble, merchant | Oui | 4 % |
+| **Fortune des épices** | economic | regional | 2/5 | merchant, noble | Oui | 5 % |
+| **Influence hussite** | religious | regional | 3/5 | peasant, artisan, clergy | Oui | 4 % |
+| **Prédication protestante** | religious | local | 3/5 | peasant, artisan, merchant, clergy | Oui | 6 % |
+| **Crise iconoclaste** | religious | local | 4/5 | clergy, artisan, any | Oui | 4 % |
+| **Inflation par l'argent américain** | economic | regional | 3/5 | peasant, artisan, merchant | Oui | 5 % |
+| **Massacre confessionnel** | military | local | 5/5 | any | Oui | 4 % |
+| **Exode huguenot** | cultural | regional | 3/5 | artisan, merchant, any | Oui | 4 % |
+| **Mission jésuite** | religious | local | 2/5 | noble, merchant, clergy | Oui | 4 % |
+| **Commerce triangulaire** | economic | regional | 5/5 | merchant, noble | Oui | 4 % |
+| **Départ vers les colonies** | military | regional | 3/5 | peasant, artisan, merchant | Oui | 4 % |
+| **Ombre de l'Inquisition espagnole** | religious | regional | 4/5 | merchant, artisan, any | Oui | 4 % |
+| **Guerre des paysans** | political | regional | 4/5 | peasant, artisan, noble | Oui | 3 % |
+| **Passage d'un galion chargé d'or** | economic | local | 2/5 | merchant, artisan | Oui | 5 % |
+| **Nouvelles cartes du monde** | cultural | regional | 1/5 | merchant, noble, clergy | Non | 3 % |
+| **Dévastation de la Guerre de Trente Ans** | military | regional | 5/5 | any | Oui | 7 % |
+| **Édit royal absolutiste** | political | national | 3/5 | noble, merchant, peasant | Oui | 5 % |
+| **Découverte scientifique** | cultural | local | 2/5 | clergy, noble, merchant | Oui | 4 % |
+| **Investissement dans une Compagnie des Indes** | economic | regional | 3/5 | merchant, noble | Oui | 5 % |
+| **Effets de la révocation de l'Édit de Nantes** | religious | national | 4/5 | artisan, merchant, any | Non | 6 % |
+| **Spéculation financière** | economic | regional | 3/5 | merchant, artisan, noble | Oui | 4 % |
+| **Âge d'or de la piraterie** | military | regional | 3/5 | merchant, peasant | Oui | 5 % |
+| **Crise du Petit Âge Glaciaire** | health | regional | 4/5 | peasant, any | Oui | 5 % |
+| **Procès de sorcellerie en masse** | religious | regional | 5/5 | any | Oui | 4 % |
+| **Politique mercantiliste** | economic | national | 2/5 | merchant, artisan | Oui | 4 % |
+| **Ouverture d'un café** | cultural | local | 1/5 | merchant, artisan, clergy, noble | Oui | 5 % |
+| **Apparition d'un journal imprimé** | cultural | local | 2/5 | merchant, noble, clergy | Non | 3 % |
+| **Essor du sucre colonial** | economic | regional | 3/5 | merchant, noble | Oui | 4 % |
+
+#### Mauvaise récolte
+
+> Les récoltes sont mauvaises cette année. Les greniers se vident et les prix du grain montent en flèche. Les plus pauvres souffrent en premier.
+
+- **ID** : `tpl_bad_harvest`
+- **Catégorie** : economic / local
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan
+- **Récurrent** : Oui (cooldown 2 ans)
+- **Probabilité de base** : 12 %
+- **Saison** : autumn
+- **Conditions** : Déclenché si les précipitations sont insuffisantes ou si un gel tardif a détruit les semis.
+- **Effets** : Prix du grain ×2. Les paysans vendent leurs outils ou leur bétail. Migration vers la ville si la famine persiste.
+- **Choix joueurs** :
+  - *Rationner les réserves* — Partager les stocks équitablement. Le village survit mais affaibli.
+  - *Voler dans les greniers du seigneur* — Risqué — la pendaison guette, mais la famille mange.
+  - *Partir vers la ville* — Abandonner la terre pour chercher du travail en ville.
+- **Textes d'ambiance** :
+  - _"Les épis de blé sont rachitiques cette année. Les vieux disent que c'est le pire depuis la grande sécheresse."_
+  - _"La pluie n'est pas venue. Les champs craquent sous le soleil. Les enfants pleurent de faim."_
+  - _"Le gel de mai a brûlé les bourgeons. Il n'y aura presque rien à moissonner."_
+- **Tags** : famine, agriculture, pauvreté, grain
+
+#### Récolte exceptionnelle
+
+> La terre a été généreuse. Les greniers débordent, les marchés regorgent et les fêtes de la moisson durent trois jours.
+
+- **ID** : `tpl_excellent_harvest`
+- **Catégorie** : economic / local
+- **Sévérité** : 2/5
+- **Classes** : peasant, merchant
+- **Récurrent** : Oui (cooldown 3 ans)
+- **Probabilité de base** : 8 %
+- **Saison** : autumn
+- **Conditions** : Précipitations optimales et pas de gel tardif. Pas de passage d'armée sur les champs.
+- **Effets** : Prix du grain ÷2. Excédent commercialisable. Bière et pain en abondance. Les naissances augmentent l'année suivante.
+- **Choix joueurs** :
+  - *Vendre le surplus au marché* — Profit immédiat mais stocks réduits pour l'hiver.
+  - *Stocker pour l'hiver* — Pas de profit immédiat mais sécurité alimentaire.
+- **Textes d'ambiance** :
+  - _"Les gerbes de blé sont si lourdes que les charrettes craquent. On n'a pas vu ça depuis vingt ans."_
+  - _"Le verger ploie sous les pommes. Les enfants chantent en courant dans les champs dorés."_
+- **Tags** : récolte, abondance, agriculture, fête
+
+#### Pêche miraculeuse
+
+> Les bancs de poissons affluent comme jamais. Les filets reviennent si lourds qu'il faut trois hommes pour les hisser. On sale, on fume, on sèche — il y en a pour tout l'hiver.
+
+- **ID** : `tpl_abundant_fishing`
+- **Catégorie** : economic / local
+- **Sévérité** : 2/5
+- **Classes** : peasant, merchant
+- **Récurrent** : Oui (cooldown 4 ans)
+- **Probabilité de base** : 6 %
+- **Saison** : spring
+- **Conditions** : Courants marins favorables, absence de tempêtes prolongées. Plus probable au printemps et en automne, quand les bancs migrent. Les communautés côtières et fluviales en profitent.
+- **Effets** : Surplus de poisson salé et fumé. Alimentation améliorée. Commerce possible avec les régions intérieures. Les fêtes de la pêche renforcent la cohésion communautaire.
+- **Choix joueurs** :
+  - *Vendre le surplus aux marchands* — Profit rapide. Le poisson salé s'écoule bien sur les marchés.
+  - *Constituer des réserves pour l'hiver* — Fumer et saler pour les mois difficiles. La prudence paie.
+- **Textes d'ambiance** :
+  - _"Les barques reviennent si chargées qu'elles enfoncent jusqu'au plat-bord. Les mouettes tournoient par centaines — c'est une année bénie."_
+  - _"Le vieux Guiraud dit que la mer donne quand elle veut. Aujourd'hui, elle donne comme jamais. Les femmes chantent en vidant les filets."_
+- **Tags** : pêche, abondance, nourriture, côte
+
+#### Pluies bienfaitrices
+
+> Après des semaines sèches, les pluies arrivent au moment parfait — assez pour gorger la terre, pas assez pour noyer les semis. Les anciens sourient : la récolte sera bonne.
+
+- **ID** : `tpl_beneficial_rains`
+- **Catégorie** : natural / regional
+- **Sévérité** : 2/5
+- **Classes** : peasant
+- **Récurrent** : Oui (cooldown 2 ans)
+- **Probabilité de base** : 10 %
+- **Saison** : spring
+- **Conditions** : Précipitations optimales au bon moment du cycle agricole. Plus fréquent dans les régions tempérées. Incompatible avec une sécheresse en cours.
+- **Effets** : Les champs verdissent en une semaine. Nappes phréatiques rechargées. Les puits et fontaines coulent à nouveau. Optimisme dans les campagnes.
+- **Textes d'ambiance** :
+  - _"La pluie a tambouriné toute la nuit sur les toits de chaume. Au matin, la terre exhale cette odeur de vie. Les bourgeons éclatent."_
+  - _"Le curé dit que c'est la bénédiction du Seigneur. Le paysan dit que c'est la pluie de mars qui fait tout. Les deux ont raison."_
+- **Tags** : pluie, agriculture, bienfait, climat
+
+#### Hiver clément
+
+> L'hiver est doux cette année. Peu de gel, peu de neige, les rivières ne gèlent pas. Les provisions durent plus longtemps et les pertes humaines sont moindres.
+
+- **ID** : `tpl_mild_winter`
+- **Catégorie** : natural / regional
+- **Sévérité** : 2/5
+- **Classes** : peasant, artisan, any
+- **Récurrent** : Oui (cooldown 3 ans)
+- **Probabilité de base** : 8 %
+- **Saison** : winter
+- **Conditions** : Températures hivernales supérieures à la normale. Pas de vague de froid prolongée. Plus rare pendant le Petit Âge glaciaire.
+- **Effets** : Moins de morts hivernales (vieillards, nourrissons). Le bétail survit mieux. Les routes restent praticables. Le commerce hivernal continue.
+- **Textes d'ambiance** :
+  - _"Noël sans neige. Les vieux trouvent ça inquiétant, les jeunes trouvent ça agréable. Les bêtes restent dehors et le foin dure."_
+  - _"La rivière n'a pas gelé cette année. Le meunier tourne encore en janvier. On mange du pain frais en plein hiver — quel luxe."_
+- **Tags** : hiver, climat, douceur, santé
+
+#### Cendres fertiles
+
+> Une éruption lointaine a couvert les champs d'une fine couche de cendres volcaniques. Ce qui semblait une malédiction s'avère une bénédiction : la terre est enrichie comme jamais.
+
+- **ID** : `tpl_volcanic_fertility`
+- **Catégorie** : natural / regional
+- **Sévérité** : 2/5
+- **Classes** : peasant
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 2 %
+- **Conditions** : Zones volcaniques uniquement. Éruption modérée dont les retombées de cendres enrichissent les sols sans détruire les cultures. Effet visible l'année suivante.
+- **Effets** : Rendements agricoles doublés pendant 2-3 ans. Les sols volcaniques sont parmi les plus fertiles au monde. Attire de nouveaux colons.
+- **Choix joueurs** :
+  - *Défricher de nouvelles terres* — Profiter de la fertilité pour étendre les cultures.
+  - *Laisser les champs en jachère enrichie* — La terre se repose et accumule encore plus de nutriments.
+- **Textes d'ambiance** :
+  - _"La montagne a craché sa fumée il y a deux saisons. Aujourd'hui, les tomates sont grosses comme des poings et les vignes ploient sous le raisin."_
+  - _"Les anciens le savaient : la terre noire du volcan est la meilleure. Ce que le feu détruit, la cendre le rend au centuple."_
+- **Tags** : volcan, fertilité, cendre, agriculture
+
+#### Découverte de sources chaudes
+
+> On a trouvé des sources d'eau chaude naturelle. Les malades s'y baignent et guérissent — ou du moins le croient. Le lieu attire pèlerins et curieux.
+
+- **ID** : `tpl_hot_spring_discovery`
+- **Catégorie** : natural / local
+- **Sévérité** : 1/5
+- **Classes** : any
+- **Récurrent** : Non
+- **Probabilité de base** : 1 %
+- **Conditions** : Zones géothermiques. Plus probable lors de travaux de défrichement ou après un séisme mineur qui ouvre de nouvelles fissures.
+- **Effets** : Lieu de guérison réputé. Attire des visiteurs. Possible développement thermal à long terme. Rhumatismes et maladies de peau soignés.
+- **Choix joueurs** :
+  - *Aménager un bain public* — Investir pour accueillir les visiteurs payants.
+  - *Déclarer le lieu sacré* — La source devient un lieu de pèlerinage. Prestige religieux.
+- **Textes d'ambiance** :
+  - _"Le berger cherchait une brebis égarée. Il a trouvé un bassin d'eau fumante au creux de la roche. L'eau sent le soufre mais elle est merveilleusement chaude."_
+  - _"Depuis qu'on a trouvé la source, le vieux Thomas ne boite plus. Miracle ou nature ? Le curé et le barbier ne sont pas d'accord."_
+- **Tags** : source, thermes, guérison, découverte
+
+#### Échouage de baleine
+
+> Une baleine s'échoue sur le rivage. Des tonnes de viande, de graisse et d'os — une aubaine inespérée pour tout le village côtier.
+
+- **ID** : `tpl_whale_stranding`
+- **Catégorie** : economic / local
+- **Sévérité** : 1/5
+- **Classes** : peasant, artisan
+- **Récurrent** : Oui (cooldown 8 ans)
+- **Probabilité de base** : 2 %
+- **Conditions** : Côtes atlantiques, nordiques ou méditerranéennes. Événement rare mais historiquement documenté. Contestation fréquente du droit de propriété (seigneur vs village vs Église).
+- **Effets** : Viande et graisse pour des semaines. Huile de baleine pour les lampes. Os pour les outils et la construction. Le seigneur réclame souvent sa part ("droit d'épave").
+- **Choix joueurs** :
+  - *Partager avec le village* — Répartition équitable. Tout le monde mange.
+  - *Vendre la graisse aux marchands* — L'huile de baleine vaut de l'or. Profit personnel.
+- **Textes d'ambiance** :
+  - _"La bête est énorme — plus longue que trois charrettes. Tout le village est sur la plage, couteaux en main. L'odeur est terrible mais la graisse vaut de l'or."_
+  - _"Le seigneur dit que la baleine lui appartient. Le village dit que c'est Dieu qui l'a envoyée. Le curé dit que c'est à l'Église. La dispute durera plus longtemps que la viande."_
+- **Tags** : baleine, côte, abondance, aubaine
+
+#### Épizootie — Maladie du bétail
+
+> Une maladie frappe le bétail local. Les bêtes meurent à vue d'œil. Sans bœufs de trait, pas de labour ; sans vaches, pas de lait.
+
+- **ID** : `tpl_cattle_disease`
+- **Catégorie** : natural / local
+- **Sévérité** : 3/5
+- **Classes** : peasant
+- **Récurrent** : Oui (cooldown 5 ans)
+- **Probabilité de base** : 6 %
+- **Saison** : summer
+- **Conditions** : Chaleur excessive ou eau contaminée. Plus probable si un marché aux bestiaux a eu lieu récemment (transmission).
+- **Effets** : Perte de 30-60 % du cheptel. Pas de labour → mauvaise récolte l'année suivante. Le cuir et la viande manquent.
+- **Choix joueurs** :
+  - *Isoler les bêtes malades* — Sacrifier quelques têtes pour sauver le troupeau.
+  - *Appeler le prêtre pour bénir le troupeau* — Inefficace mais réconfortant. La communauté se soude.
+- **Textes d'ambiance** :
+  - _"La vieille Marguerite a perdu ses trois vaches en une semaine. Le mal se répand d'étable en étable."_
+  - _"Le veau est né mort et couvert de pustules. Le paysan regarde ses bêtes avec terreur."_
+- **Tags** : bétail, maladie, agriculture, épizootie
+
+#### Invasion de criquets
+
+> Un nuage de criquets s'abat sur la région, dévorant tout sur son passage. Les champs sont nus en quelques heures.
+
+- **ID** : `tpl_locust_swarm`
+- **Catégorie** : natural / regional
+- **Sévérité** : 4/5
+- **Classes** : peasant, any
+- **Récurrent** : Oui (cooldown 8 ans)
+- **Probabilité de base** : 3 %
+- **Saison** : summer
+- **Conditions** : Plus fréquent dans les zones arides après une saison humide inhabituelle.
+- **Effets** : Destruction totale des cultures. Famine garantie si les réserves sont faibles. Interprété comme un signe divin.
+- **Textes d'ambiance** :
+  - _"Le ciel s'assombrit. Ce ne sont pas des nuages — ce sont des millions de criquets. En une heure, il ne reste plus un brin d'herbe."_
+  - _"Le bruit est assourdissant. Les ailes crissent par millions. Les enfants hurlent, les femmes prient."_
+- **Tags** : criquets, famine, catastrophe, agriculture
+
+#### Famine locale
+
+> La faim s'installe durablement. Les gens mangent de l'écorce, des racines, des chiens. Les plus faibles meurent — vieillards, enfants, malades.
+
+- **ID** : `tpl_famine_local`
+- **Catégorie** : natural / regional
+- **Sévérité** : 5/5
+- **Classes** : peasant, artisan, any
+- **Récurrent** : Oui (cooldown 5 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Déclenché après 2+ mauvaises récoltes consécutives, ou suite à une guerre/passage d'armée qui a détruit les stocks.
+- **Effets** : Mortalité infantile en hausse. Cannibalisme dans les cas extrêmes. Exode rural massif. Les survivants sont affaiblis pour des années.
+- **Choix joueurs** :
+  - *Mendier au monastère* — Les moines distribuent de la soupe. Humiliant mais vital.
+  - *Braconner dans la forêt du seigneur* — Du gibier pour la famille. Mais le braconnage est puni de mort.
+  - *Fuir vers une autre région* — Tout abandonner pour survivre. Peut-être un nouveau départ.
+- **Textes d'ambiance** :
+  - _"On a retrouvé le vieux Pierre mort dans son champ, la bouche pleine de terre. La faim rend fou."_
+  - _"Les enfants ont le ventre gonflé et les yeux creux. Le prêtre dit que c'est la punition de Dieu."_
+  - _"Les rats ont pris les derniers grains du grenier. Il ne reste plus rien."_
+- **Tags** : famine, mort, pauvreté, crise
+
+#### Rumeur de peste
+
+> Des marchands parlent d'une maladie terrible dans les villes voisines. Les morts s'entassent, dit-on. La peur s'installe avant la maladie elle-même.
+
+- **ID** : `tpl_plague_rumor`
+- **Catégorie** : health / regional
+- **Sévérité** : 2/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 3 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : Déclenché 6-12 mois avant l'arrivée réelle de la peste dans la zone. Plus probable près des routes commerciales et des ports.
+- **Effets** : Panique. Les gens fuient, répandant potentiellement la maladie. Prix des remèdes en hausse. Les étrangers sont suspectés.
+- **Choix joueurs** :
+  - *Se préparer — stocks et isolement* — Acheter du vinaigre, des herbes, stocker de la nourriture. Éviter les étrangers.
+  - *Fuir vers la campagne* — Quitter la ville immédiatement. On reviendra quand ce sera fini.
+  - *Ignorer les rumeurs* — Des histoires de voyageurs. Assurément exagéré.
+- **Textes d'ambiance** :
+  - _"Un marchand de Gênes jure qu'il a vu des rues entières de cadavres. Les rats fuient les navires au port."_
+  - _"Le voisin dit que dans la ville voisine, on ne peut plus enterrer les morts assez vite. Les fosses débordent."_
+- **Tags** : peste, rumeur, peur, maladie
+
+#### Épidémie locale
+
+> Une maladie se répand — dysenterie, fièvre typhoïde, variole ou peste. Les malades s'entassent, les fossoyeurs travaillent jour et nuit.
+
+- **ID** : `tpl_local_epidemic`
+- **Catégorie** : health / local
+- **Sévérité** : 4/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 5 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Plus fréquent en été (eau contaminée) ou après une famine (immunité affaiblie). Les villes sont plus touchées que les campagnes.
+- **Effets** : 10-30 % de mortalité locale. Les métiers liés au contact (barbiers, lavandières) sont les plus touchés. Les riches fuient à la campagne.
+- **Choix joueurs** :
+  - *Soigner les malades* — Acte de charité héroïque. Risque de contagion élevé.
+  - *Se barricader chez soi* — Fermer la porte et prier. Si les stocks suffisent, on s'en sort.
+  - *Accuser les étrangers / juifs* — Trouver un bouc émissaire. La foule veut des coupables.
+- **Textes d'ambiance** :
+  - _"Le fossoyeur ne dort plus. Cinq enterrements aujourd'hui, et la nuit n'est pas finie."_
+  - _"Les bubons noirs apparaissent à l'aine et aux aisselles. Le médecin porte un masque au bec rempli de lavande."_
+  - _"L'eau du puits a un goût étrange. Depuis, la moitié du quartier est alitée."_
+- **Tags** : épidémie, peste, maladie, mort, santé
+
+#### La guérisseuse du village
+
+> Une femme du village connaît les plantes et les remèdes. Elle soigne discrètement, mais l'Église voit d'un mauvais œil ces pratiques « païennes ».
+
+- **ID** : `tpl_healing_woman`
+- **Catégorie** : health / local
+- **Sévérité** : 1/5
+- **Classes** : peasant, artisan
+- **Récurrent** : Oui (cooldown 3 ans)
+- **Probabilité de base** : 7 %
+- **Conditions** : Présent dans la plupart des villages médiévaux. Plus visible quand un médecin n'est pas disponible.
+- **Effets** : Soins de base disponibles localement. Remèdes à base de plantes. Risque d'accusation de sorcellerie si la tension religieuse est élevée.
+- **Choix joueurs** :
+  - *Consulter la guérisseuse* — Soins efficaces mais risque d'être vu par le curé.
+  - *La dénoncer comme sorcière* — S'attirer les faveurs du prêtre, mais perdre les soins du village.
+- **Textes d'ambiance** :
+  - _"La vieille Hildegarde murmure des mots en cueillant le millepertuis à la pleine lune. Sa tisane a sauvé le petit Thomas."_
+  - _"Le curé tonne en chaire contre « les femmes qui murmurent aux herbes ». Pourtant, quand sa servante est tombée malade..."_
+- **Tags** : guérisseuse, médecine, sorcellerie, village
+
+#### Attaque de brigands
+
+> Des bandits de grand chemin rançonnent les voyageurs et pillent les fermes isolées. Les routes ne sont plus sûres.
+
+- **ID** : `tpl_bandit_raid`
+- **Catégorie** : military / local
+- **Sévérité** : 3/5
+- **Classes** : peasant, merchant, any
+- **Récurrent** : Oui (cooldown 1 ans)
+- **Probabilité de base** : 10 %
+- **Conditions** : Plus fréquent en temps de guerre (soldats démobilisés sans solde), en période de famine (désespoir), ou loin des garnisons.
+- **Effets** : Pillage de fermes et entrepôts. Les marchands évitent la route → prix locaux en hausse. Les voyageurs se déplacent en convoi.
+- **Choix joueurs** :
+  - *Se cacher et attendre* — Laisser passer les brigands. On perd peu mais on vit dans la peur.
+  - *Organiser la milice du village* — Armer les paysans et monter la garde. Risqué mais efficace.
+  - *Payer un tribut aux brigands* — Acheter la paix. Les brigands reviendront peut-être.
+- **Textes d'ambiance** :
+  - _"Des cavaliers masqués ont brûlé la ferme des Dupont la nuit dernière. Ils ont pris le grain et les poules."_
+  - _"On a retrouvé le colporteur mort sur le chemin, la bourse coupée. Plus personne n'ose marcher seul."_
+- **Tags** : brigands, violence, insécurité, route
+
+#### Passage d'une armée
+
+> Une armée traverse la région — amie ou ennemie, peu importe. Les soldats vivent sur le pays, réquisitionnent le grain, le bétail et parfois les femmes.
+
+- **ID** : `tpl_army_passage`
+- **Catégorie** : military / regional
+- **Sévérité** : 4/5
+- **Classes** : peasant, artisan, any
+- **Récurrent** : Oui (cooldown 2 ans)
+- **Probabilité de base** : 7 %
+- **Conditions** : Déclenché quand un macro-événement militaire affecte la nation. L'armée de passage n'est pas nécessairement ennemie — les troupes amies pillent aussi.
+- **Effets** : Réquisitions forcées. Viols et violences. Les maisons sont occupées. Les champs piétinés. Les puits souillés. La reconstruction prendra des années.
+- **Choix joueurs** :
+  - *Cacher les provisions dans la forêt* — Enterrer le grain et cacher le bétail. Si les soldats trouvent le cache...
+  - *Servir l'armée volontairement* — Se faire recruter comme porteur ou cuisinier. Au moins on mange.
+  - *Se réfugier dans l'église* — Le droit d'asile protège... en théorie.
+- **Textes d'ambiance** :
+  - _"Le sol tremble sous les sabots. La colonne de soldats n'en finit pas. Le sergent pointe notre grange du doigt."_
+  - _"Ils ont pris les deux bœufs, le foin, et le jambon qui séchait. Le dernier soldat a cassé la porte en partant."_
+- **Tags** : armée, pillage, guerre, réquisition
+
+#### Conscription seigneuriale
+
+> Le seigneur local lève des hommes pour une campagne militaire. Chaque famille doit fournir un fils ou payer une taxe de remplacement.
+
+- **ID** : `tpl_lord_conscription`
+- **Catégorie** : military / local
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan
+- **Récurrent** : Oui (cooldown 3 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : Déclenché quand un conflit militaire affecte la nation du joueur. Le seigneur a besoin de fantassins.
+- **Effets** : Les bras manquent aux champs. Les familles perdent un fils — beaucoup ne reviendront pas. Les femmes assument le travail agricole.
+- **Choix joueurs** :
+  - *Partir à la guerre* — Honneur et récompenses possibles. Mais la mort aussi.
+  - *Payer la taxe de remplacement* *(merchant)* — Garder son fils mais perdre beaucoup d'argent.
+  - *Fuir et se cacher* — Déserter avant le rassemblement. Devenir hors-la-loi.
+- **Textes d'ambiance** :
+  - _"Le héraut du baron est passé ce matin. Chaque foyer doit envoyer un homme valide sous quinzaine. Les mères pleurent."_
+  - _"Jacques n'avait que seize ans. Il est parti avec la lance de son père et un morceau de pain. On ne l'a plus revu."_
+- **Tags** : conscription, guerre, seigneur, recrutement
+
+#### Querelle entre seigneurs
+
+> Deux seigneurs voisins se disputent un moulin, une forêt ou un droit de péage. Les paysans sont pris entre deux feux.
+
+- **ID** : `tpl_feud_between_lords`
+- **Catégorie** : political / local
+- **Sévérité** : 2/5
+- **Classes** : peasant, any
+- **Récurrent** : Oui (cooldown 3 ans)
+- **Probabilité de base** : 8 %
+- **Conditions** : Plus fréquent dans les régions frontalières ou quand l'autorité royale est faible.
+- **Effets** : Escarmouches locales, champs brûlés dans la zone contestée. Les paysans servent deux maîtres ou aucun. Le plus faible est ruiné.
+- **Choix joueurs** :
+  - *Rester neutre* — Ne prendre parti pour aucun camp. Difficile mais sage.
+  - *Choisir un camp* — Gagner la protection d'un seigneur mais la haine de l'autre.
+- **Textes d'ambiance** :
+  - _"Le baron du nord prétend que la rivière lui appartient. Celui du sud dit que c'est la forêt. Les paysans au milieu ne savent plus à qui payer la dîme."_
+  - _"Les hommes d'armes du seigneur voisin ont brûlé le moulin cette nuit. Représailles pour un porc volé il y a trois mois."_
+- **Tags** : conflit, seigneurs, féodalité, politique
+
+#### Prédicateur itinérant
+
+> Un moine ou un prédicateur laïc arrive au village. Ses sermons enflammés parlent de la fin du monde, de la corruption du clergé ou d'un christianisme plus pur.
+
+- **ID** : `tpl_wandering_preacher`
+- **Catégorie** : religious / local
+- **Sévérité** : 2/5
+- **Classes** : peasant, artisan, any
+- **Récurrent** : Oui (cooldown 2 ans)
+- **Probabilité de base** : 8 %
+- **Conditions** : Plus fréquent en période de crise (peste, famine) ou après un macro-événement religieux (Réforme, schisme).
+- **Effets** : Le village est divisé entre ceux qui écoutent et ceux qui le trouvent dangereux. Le curé local est furieux.
+- **Choix joueurs** :
+  - *Écouter ses sermons* — Ses paroles touchent le cœur. Peut-être dit-il la vérité.
+  - *Le dénoncer à l'évêque* *(clergy)* — Gagner les faveurs de l'Église. Le prédicateur sera arrêté.
+  - *L'ignorer* — Il repartira. Pas besoin de s'en mêler.
+- **Textes d'ambiance** :
+  - _"Un homme pieds nus, vêtu de haillons, parle sur la place du marché. Ses yeux brûlent d'une foi étrange. La foule grossit."_
+  - _"Le frère Anselme dit que le pape est l'Antéchrist et que la fin des temps est proche. Le curé a barricadé son église."_
+- **Tags** : prédication, hérésie, religion, réforme
+
+#### Miracle présumé
+
+> Quelqu'un affirme avoir vu un miracle — une statue qui pleure, une guérison inexpliquée, une apparition de la Vierge. Les pèlerins affluent.
+
+- **ID** : `tpl_miracle_claim`
+- **Catégorie** : religious / local
+- **Sévérité** : 2/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 5 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Plus fréquent en période de crise spirituelle, après une peste ou une famine. L'Église peut confirmer ou démentir.
+- **Effets** : Si l'Église confirme : pèlerinage lucratif, reliques, prestige local. Si l'Église dément : scandale, punition de l'affabulateur.
+- **Choix joueurs** :
+  - *Y croire et prier* — La foi console. Et les pèlerins dépensent au marché.
+  - *Profiter du pèlerinage* *(merchant)* — Vendre hébergement, nourriture et fausses reliques aux pèlerins.
+  - *Douter publiquement* — Exprimer son scepticisme. Courageux ou imprudent.
+- **Textes d'ambiance** :
+  - _"La statue de Notre-Dame dans la chapelle a versé une larme rouge. Trois jours plus tard, la petite Marie a guéri de la fièvre."_
+  - _"Un berger affirme avoir vu un ange dans le champ au lever du soleil. Il montre une brûlure sur sa main comme preuve."_
+- **Tags** : miracle, pèlerinage, religion, superstition
+
+#### Procès en sorcellerie
+
+> Une personne du village — souvent une femme seule, une veuve, une étrangère — est accusée de sorcellerie. Le procès peut tourner au drame collectif.
+
+- **ID** : `tpl_witch_trial`
+- **Catégorie** : religious / local
+- **Sévérité** : 3/5
+- **Classes** : peasant, any
+- **Récurrent** : Oui (cooldown 4 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Plus fréquent après une catastrophe inexpliquée (maladie, grêle, mort d'enfant). Les accusations visent souvent les marginaux.
+- **Effets** : Procès par ordalie ou inquisition locale. Si condamnation : bûcher, noyade ou bannissement. Le village est traumatisé. Les voisins se méfient les uns des autres.
+- **Choix joueurs** :
+  - *Défendre l'accusé(e)* — Risquer d'être accusé soi-même. Mais c'est juste.
+  - *Joindre les accusateurs* — Se ranger du côté de la majorité. Plus sûr.
+  - *Se taire* — Ne pas s'en mêler. La culpabilité, c'est pour plus tard.
+- **Textes d'ambiance** :
+  - _"La vieille Agnès qui vit seule au bord du bois... Son chat noir, ses herbes, le regard mauvais du curé. Tout le monde le savait."_
+  - _"Le nourrisson de la boulangère est mort sans raison. Le lendemain, on a trouvé des épingles sous le seuil. On sait qui c'est."_
+- **Tags** : sorcellerie, procès, religion, peur, injustice
+
+#### Foire annuelle
+
+> La grande foire attire marchands, saltimbanques et voleurs de toute la région. C'est l'événement économique de l'année pour le bourg.
+
+- **ID** : `tpl_market_fair`
+- **Catégorie** : economic / regional
+- **Sévérité** : 1/5
+- **Classes** : merchant, artisan, peasant, any
+- **Récurrent** : Oui (cooldown 1 ans)
+- **Probabilité de base** : 15 %
+- **Saison** : summer
+- **Conditions** : Les foires ont besoin de stabilité minimale et d'une route commerciale accessible. Des lettres de foire garantissent les transactions.
+- **Effets** : Commerce animé pendant 3-7 jours. Les artisans vendent, les paysans achètent des outils, les marchands négocient. Nouvelles de contrées lointaines. Divertissements.
+- **Choix joueurs** :
+  - *Vendre ses produits* — Proposer ses marchandises aux visiteurs. Bon prix si la qualité est là.
+  - *Acheter des outils ou du tissu* — Investir dans du matériel de qualité venu de loin.
+  - *Jouer aux dés* — La chance sourit aux audacieux... ou pas.
+- **Textes d'ambiance** :
+  - _"Les étals colorés s'alignent sur la place. On sent les épices, la laine mouillée, le bois fraîchement coupé. Un jongleur fait rire les enfants."_
+  - _"Le marchand vénitien a des soieries et des miroirs. Le forgeron d'à côté vend des couteaux de Toledo. Le monde entier est venu au village."_
+- **Tags** : foire, commerce, marché, économie, social
+
+#### Perturbation d'une route commerciale
+
+> La route commerciale principale est coupée — un pont s'est effondré, des brigands la bloquent, ou une guerre a fermé la frontière. Les prix locaux explosent.
+
+- **ID** : `tpl_trade_route_disruption`
+- **Catégorie** : economic / regional
+- **Sévérité** : 3/5
+- **Classes** : merchant, artisan, any
+- **Récurrent** : Oui (cooldown 2 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : Déclenché par un conflit, une catastrophe naturelle ou des brigands. Plus probable en hiver (routes impraticables) ou en temps de guerre.
+- **Effets** : Pénurie de sel, de fer, d'épices. Les prix doublent ou triplent. Les artisans manquent de matière première. Les marchands cherchent des routes alternatives.
+- **Choix joueurs** :
+  - *Attendre la réouverture* — Patience. La route finira par rouvrir. En attendant, on serre la ceinture.
+  - *Passer par les chemins de contrebande* *(merchant)* — Risqué et illégal, mais lucratif.
+- **Textes d'ambiance** :
+  - _"Le pont de pierre sur la rivière s'est effondré après les pluies. Les marchands font demi-tour. Le sel va manquer."_
+  - _"Les soldats ont fermé la frontière. Plus de tissu flamand, plus de fer de Styrie. Le forgeron n'a plus rien à forger."_
+- **Tags** : commerce, route, pénurie, économie
+
+#### Nouvelle taxe seigneuriale
+
+> Le seigneur impose une nouvelle taxe — pour financer une guerre, un mariage, une rançon ou simplement par avidité. Les paysans grognent.
+
+- **ID** : `tpl_new_tax`
+- **Catégorie** : political / local
+- **Sévérité** : 2/5
+- **Classes** : peasant, artisan, merchant
+- **Récurrent** : Oui (cooldown 2 ans)
+- **Probabilité de base** : 10 %
+- **Conditions** : Plus fréquent en temps de guerre (le seigneur a besoin d'argent), lors d'un mariage noble, ou pour payer une rançon de croisade.
+- **Effets** : Taxe sur le grain, le sel, le bétail, les charrois ou les mariages. Les plus pauvres sont les plus affectés. Le ressentiment monte.
+- **Choix joueurs** :
+  - *Payer sans protester* — C'est la loi. Ça fait mal mais on évite les ennuis.
+  - *Rédiger une pétition collective* — Organiser les villageois pour négocier. S'il sait lire quelqu'un...
+  - *Dissimuler des revenus* — Cacher une partie de la récolte. Si le prévôt découvre...
+- **Textes d'ambiance** :
+  - _"Le prévôt est venu avec ses gardes. Trois deniers par foyer pour la « campagne de Monseigneur ». Le vieux Michel n'a même pas trois deniers."_
+  - _"Taxe sur le sel, taxe sur le grain, taxe pour le pont qu'on n'a jamais vu. Bientôt une taxe pour respirer."_
+- **Tags** : taxe, impôt, seigneur, politique, injustice
+
+#### Incendie
+
+> Le feu se déclare — dans une maison, un atelier, une grange. Avec des toits de chaume et des murs de bois, le quartier entier peut brûler en quelques heures.
+
+- **ID** : `tpl_fire`
+- **Catégorie** : natural / local
+- **Sévérité** : 4/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 3 ans)
+- **Probabilité de base** : 7 %
+- **Saison** : summer
+- **Conditions** : Plus fréquent en été (sécheresse). Les villes médiévales à maisons de bois sont des pièges à feu. Les incendies accidentels sont courants.
+- **Effets** : Destruction de 5-50 maisons. Pertes de stocks, outils, bétail. Sans-abris. La reconstruction est lente et coûteuse.
+- **Choix joueurs** :
+  - *Combattre le feu* — Former une chaîne humaine avec des seaux. Risque de brûlures.
+  - *Sauver ses affaires et fuir* — Emporter ce qu'on peut et regarder le reste brûler.
+- **Textes d'ambiance** :
+  - _"La chandelle du forgeron a mis le foin. En un quart d'heure, six maisons brûlent. Les femmes hurlent, les hommes portent de l'eau."_
+  - _"Le vent porte les braises de toit en toit. La moitié du bourg est en flammes avant que quelqu'un n'organise les seaux."_
+- **Tags** : incendie, catastrophe, destruction, ville
+
+#### Inondation
+
+> La rivière sort de son lit après des pluies diluviennes ou la fonte des neiges. Les champs sont noyés, les ponts emportés, les caves inondées.
+
+- **ID** : `tpl_flood`
+- **Catégorie** : natural / regional
+- **Sévérité** : 3/5
+- **Classes** : peasant, any
+- **Récurrent** : Oui (cooldown 3 ans)
+- **Probabilité de base** : 6 %
+- **Saison** : spring
+- **Conditions** : Plus fréquent au printemps (fonte des neiges) ou en automne (pluies). Les zones près des rivières sont les plus touchées.
+- **Effets** : Terres agricoles noyées. Semis détruits. Ponts emportés. L'eau stagnante apporte les moustiques et la dysenterie.
+- **Choix joueurs** :
+  - *Construire des digues de fortune* — Tous au travail, jour et nuit. On peut limiter les dégâts.
+  - *Se réfugier en hauteur* — Abandonner la maison basse et monter sur la colline. Attendre.
+- **Textes d'ambiance** :
+  - _"L'eau monte depuis l'aube. À midi, la place est un lac. Les poules se sont noyées dans le poulailler."_
+  - _"Le pont roman, debout depuis 200 ans, s'est effondré en une nuit. La rivière charrie des arbres entiers."_
+- **Tags** : inondation, catastrophe, rivière, climat
+
+#### Apparition d'une comète
+
+> Une comète traverse le ciel nocturne pendant des semaines. Les paysans y voient un présage — de guerre, de peste ou de fin du monde. Les savants sont perplexes.
+
+- **ID** : `tpl_comet`
+- **Catégorie** : natural / regional
+- **Sévérité** : 1/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 3 %
+- **Conditions** : Événement astronomique réel (comète de Halley : 1066, 1145, 1222, 1301, 1378, 1456, 1531). Peut être généré à n'importe quel moment comme présage narratif.
+- **Effets** : Panique populaire. Sermons apocalyptiques. Certains y voient un signe positif (victoire à venir), d'autres un avertissement divin. Les astronomes prennent note.
+- **Choix joueurs** :
+  - *Prier et jeûner* — Montrer sa piété face au signe divin.
+  - *Observer et noter* — Curiosité scientifique. Rares sont ceux qui pensent ainsi.
+- **Textes d'ambiance** :
+  - _"L'étoile chevelue brille plus que la lune. Le curé dit que c'est l'annonce du Jugement dernier. Le vieux berger dit que la dernière fois, il y a eu la guerre."_
+  - _"Chaque nuit, la traînée lumineuse grandit dans le ciel. Les enfants la regardent, fascinés. Les adultes murmurent, inquiets."_
+- **Tags** : comète, présage, astronomie, superstition
+
+#### Tremblement de terre
+
+> La terre tremble. Les murs craquent, le clocher vacille, la poussière monte. En quelques secondes, le monde familier s'effondre.
+
+- **ID** : `tpl_earthquake`
+- **Catégorie** : natural / regional
+- **Sévérité** : 4/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 2 %
+- **Conditions** : Zones sismiques uniquement. Méditerranée, Moyen-Orient, Himalaya, Japon.
+- **Effets** : Bâtiments effondrés. Morts et blessés sous les décombres. Répliques pendant des jours. Interprété comme la colère de Dieu.
+- **Textes d'ambiance** :
+  - _"Le sol a tremblé pendant ce qui a semblé une éternité. L'église s'est fendue en deux. On entend les cris sous les gravats."_
+  - _"Tout s'est mis à vibrer. Les tuiles pleuvaient, les murs se fissuraient. Puis le silence — terrible."_
+- **Tags** : séisme, catastrophe, destruction, tremblement
+
+#### Crue fertile
+
+> La rivière a débordé juste assez — elle se retire en laissant une couche de limon riche sur les berges. Les champs proches de l'eau porteront double cette année.
+
+- **ID** : `tpl_river_alluvium`
+- **Catégorie** : natural / local
+- **Sévérité** : 2/5
+- **Classes** : peasant
+- **Récurrent** : Oui (cooldown 3 ans)
+- **Probabilité de base** : 7 %
+- **Saison** : spring
+- **Conditions** : Crue modérée et contrôlée d'une rivière. Le limon déposé enrichit les sols. Historiquement fondamental pour les civilisations du Nil, du Tigre, de l'Euphrate et de l'Indus.
+- **Effets** : Sols enrichis par les alluvions. Les parcelles riveraines deviennent les plus convoitées. Rendements supérieurs de 50 %. L'eau retreint en laissant les champs naturellement irrigués.
+- **Choix joueurs** :
+  - *Semer immédiatement sur le limon frais* — Profiter de la fertilité maximale. Récolte précoce possible.
+  - *Étendre les canaux d'irrigation* — Investir pour capter l'eau de la crue les prochaines années.
+- **Textes d'ambiance** :
+  - _"L'eau brune s'est retirée en trois jours. Dessous, une boue noire et grasse que les anciens appellent l'or de la rivière. Tout ce qu'on y plante pousse deux fois plus vite."_
+  - _"Les berges sont couvertes de limon frais. Les grenouilles chantent, les hérons pêchent — la rivière a fait son travail. Cette année, personne n'aura faim."_
+- **Tags** : crue, limon, fertilité, rivière
+
+#### Vents favorables
+
+> Les vents soufflent dans la bonne direction, avec constance et douceur. Les navires arrivent plus vite, les moulins tournent sans relâche, les nuages de pluie viennent au bon moment.
+
+- **ID** : `tpl_fair_winds`
+- **Catégorie** : natural / regional
+- **Sévérité** : 1/5
+- **Classes** : merchant, peasant
+- **Récurrent** : Oui (cooldown 2 ans)
+- **Probabilité de base** : 8 %
+- **Conditions** : Régime de vents saisonniers particulièrement favorable. Les moussons arrivent à temps en Asie. Les alizés sont réguliers pour les traversées atlantiques. Les mistrals s'apaisent en Méditerranée.
+- **Effets** : Navigation facilitée, commerce accéléré. Les moulins à vent produisent davantage. Les traversées sont plus rapides et plus sûres. Moins de naufrages.
+- **Textes d'ambiance** :
+  - _"Le capitaine sourit : vent portant depuis trois jours. On arrivera au port avec une semaine d'avance. La cargaison sera la première sur le marché."_
+  - _"Les voiles du moulin n'ont pas cessé de tourner depuis un mois. Le meunier a de la farine pour tout le canton."_
+- **Tags** : vent, navigation, commerce, climat
+
+#### Fuite de paysans
+
+> Des familles entières quittent le village en catimini pour échapper aux taxes, au servage ou à la famine. Elles espèrent trouver mieux ailleurs — ou se cacher en ville.
+
+- **ID** : `tpl_peasant_flight`
+- **Catégorie** : political / local
+- **Sévérité** : 2/5
+- **Classes** : peasant
+- **Récurrent** : Oui (cooldown 2 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : Déclenché quand les conditions locales sont très mauvaises (famine + taxe + instabilité). Le servage empêche légalement le départ mais pas en pratique.
+- **Effets** : Le village se vide. Moins de bras = moins de récolte. Le seigneur envoie des hommes les ramener. En ville, les fugitifs deviennent mendiants ou ouvriers.
+- **Choix joueurs** :
+  - *Rester et endurer* — C'est dur mais c'est chez soi. Peut-être que ça ira mieux.
+  - *Partir avec les autres* — La ville rend libre après un an et un jour. Si on survit jusque-là.
+- **Textes d'ambiance** :
+  - _"Les Martin sont partis dans la nuit. Leur maison est vide, le feu éteint. Le prévôt jure qu'il les retrouvera."_
+  - _"Encore trois familles ce mois-ci. Le village se vide. Bientôt il n'y aura plus personne pour labourer les champs du baron."_
+- **Tags** : exode, servage, fuite, ville, liberté
+
+#### Nouvelle cloche d'église
+
+> La paroisse inaugure une nouvelle cloche. C'est un événement majeur pour le village — la cloche rythme toute la vie : heures de prière, alarmes, mariages, enterrements.
+
+- **ID** : `tpl_new_church_bell`
+- **Catégorie** : cultural / local
+- **Sévérité** : 1/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 3 %
+- **Conditions** : Le village doit avoir assez de ressources pour financer la cloche (collecte communautaire ou don du seigneur).
+- **Effets** : Fierté communautaire. La cloche est baptisée avec un nom propre. Le fondeur de cloches est un artisan itinérant respecté.
+- **Choix joueurs** :
+  - *Contribuer à la collecte* — Gagner le respect de la communauté. La cloche portera votre nom ?
+  - *Assister à l'inauguration* — Fête du village. Musique, vin et danses.
+- **Textes d'ambiance** :
+  - _"Le fondeur a travaillé trois jours et trois nuits. Quand la cloche a sonné pour la première fois, les larmes coulaient sur les visages."_
+  - _"Elle s'appelle Marie-Jeanne. Son son porte jusqu'à la colline de l'autre côté de la vallée. On la sonne le dimanche avec fierté."_
+- **Tags** : cloche, église, communauté, culture, fête
+
+#### Marchand itinérant
+
+> Un colporteur arrive avec sa mule chargée de merveilles : sel, épices, tissu, nouvelles du monde. Pour le village, c'est une fenêtre sur l'extérieur.
+
+- **ID** : `tpl_travelling_merchant`
+- **Catégorie** : economic / local
+- **Sévérité** : 1/5
+- **Classes** : peasant, artisan, any
+- **Récurrent** : Oui (cooldown 1 ans)
+- **Probabilité de base** : 12 %
+- **Conditions** : Les colporteurs suivent les routes commerciales. Moins fréquent en hiver ou en zone de guerre.
+- **Effets** : Accès à des biens rares : sel, aiguilles, nouvelles. Le marchand raconte des histoires de contrées lointaines. Source d'information précieuse.
+- **Choix joueurs** :
+  - *Acheter quelque chose* — Du sel, du tissu, une lame... le choix est tentant.
+  - *L'interroger sur l'actualité* — Que se passe-t-il dans le monde ? Le marchand sait tout.
+  - *Troquer des produits locaux* — Échanger du miel ou des peaux contre ce qu'il apporte.
+- **Textes d'ambiance** :
+  - _"Le colporteur a un accent du sud et des histoires incroyables. Il vend du sel de Guérande et des aiguilles de Nuremberg."_
+  - _"Sa mule porte assez de merveilles pour faire rêver tout le village. Du poivre ! Il a du poivre ! Personne ici n'en a jamais goûté."_
+- **Tags** : colporteur, commerce, nouvelles, quotidien
+
+#### Mise en apprentissage d'un enfant
+
+> Le moment est venu de placer un enfant en apprentissage chez un artisan, un marchand ou un moine. Décision cruciale qui déterminera sa vie entière.
+
+- **ID** : `tpl_child_apprenticeship`
+- **Catégorie** : cultural / personal
+- **Sévérité** : 1/5
+- **Classes** : peasant, artisan, merchant
+- **Récurrent** : Oui (cooldown 5 ans)
+- **Probabilité de base** : 8 %
+- **Conditions** : L'enfant doit avoir 7-12 ans. La famille doit pouvoir payer ou faire un accord avec un maître artisan.
+- **Effets** : L'enfant quitte la maison familiale. Il dormira chez le maître, apprendra le métier pendant 5-7 ans. Conditions souvent dures mais perspective de promotion sociale.
+- **Choix joueurs** :
+  - *Chez le forgeron* — Métier respecté et demandé. Travail pénible mais revenu assuré.
+  - *Chez un marchand* *(merchant)* — Apprendre le commerce, les chiffres et les langues. Aventure possible.
+  - *Au monastère (oblat)* — Lire, écrire, prier. La meilleure éducation disponible.
+  - *Garder l'enfant aux champs* — On a besoin de bras. Il labourera comme son père.
+- **Textes d'ambiance** :
+  - _"Le petit Guillaume serre la main de sa mère une dernière fois. Le maître tanneur l'emmène. On ne le reverra pas avant cinq ans."_
+  - _"Maître Jean accepte le garçon comme apprenti. La famille doit fournir un manteau neuf et deux poulets. C'est cher, mais c'est l'avenir."_
+- **Tags** : apprentissage, enfant, métier, éducation, social
+
+#### Naufrage sur la côte
+
+> Un navire s'est brisé sur les rochers. Le rivage est jonché de débris, de cargaison et parfois de survivants. Le droit de bris est contesté entre le seigneur et les villageois.
+
+- **ID** : `tpl_shipwreck`
+- **Catégorie** : economic / local
+- **Sévérité** : 2/5
+- **Classes** : peasant, merchant, any
+- **Récurrent** : Oui (cooldown 3 ans)
+- **Probabilité de base** : 5 %
+- **Saison** : winter
+- **Conditions** : Côtes uniquement. Plus fréquent en hiver (tempêtes). Les côtes bretonnes, scandinaves et méditerranéennes sont les plus touchées.
+- **Effets** : Débris récupérables : bois, corde, parfois de la cargaison précieuse. Le seigneur revendique le droit de bris. Les villageois pillent discrètement.
+- **Choix joueurs** :
+  - *Récupérer la cargaison* — Profiter de la nuit pour prendre ce que la mer offre.
+  - *Secourir les survivants* — Des hommes luttent dans l'eau. Aller les chercher, c'est risquer sa vie.
+  - *Prévenir le seigneur* — Respecter la loi. Le seigneur prend tout mais vous récompense peut-être.
+- **Textes d'ambiance** :
+  - _"La tempête a jeté un cogue sur les brisants. Le pont est fendu en deux. Des ballots de laine flottent vers le rivage."_
+  - _"On a trouvé trois marins vivants parmi les débris. Ils parlent une langue qu'on ne comprend pas. L'un d'eux serre un coffret contre lui."_
+- **Tags** : naufrage, côte, récupération, tempête
+
+#### Passage de pèlerins
+
+> Un groupe de pèlerins traverse le village en route vers un sanctuaire (Compostelle, Rome, Jérusalem). Ils apportent nouvelles, maladies et piété.
+
+- **ID** : `tpl_pilgrim_passage`
+- **Catégorie** : religious / local
+- **Sévérité** : 1/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 1 ans)
+- **Probabilité de base** : 10 %
+- **Conditions** : Le village doit être sur un chemin de pèlerinage ou près d'une route majeure. Plus fréquent au printemps et en été.
+- **Effets** : Les pèlerins achètent nourriture et hébergement. Ils racontent ce qu'ils ont vu. Parfois ils apportent des maladies. L'hospitalité est un devoir chrétien.
+- **Choix joueurs** :
+  - *Héberger des pèlerins* — Acte de charité. Ils paieront en bénédictions et en histoires.
+  - *Rejoindre le pèlerinage* — Tout quitter pour marcher vers Compostelle. Aventure spirituelle.
+- **Textes d'ambiance** :
+  - _"Ils sont une trentaine, la coquille au chapeau, le bâton à la main. Ils vont à Saint-Jacques — deux mois de marche encore."_
+  - _"Le plus vieux pèlerin a vu Rome, Jérusalem et Compostelle. Ses pieds sont en sang mais ses yeux brillent. Il raconte des merveilles."_
+- **Tags** : pèlerinage, religion, voyage, Compostelle
+
+#### Attaque de loups
+
+> En hiver, quand la faim les pousse, les loups s'approchent du village. Ils attaquent le bétail dans les enclos et, parfois, les voyageurs isolés.
+
+- **ID** : `tpl_wolf_attack`
+- **Catégorie** : natural / local
+- **Sévérité** : 2/5
+- **Classes** : peasant, any
+- **Récurrent** : Oui (cooldown 2 ans)
+- **Probabilité de base** : 7 %
+- **Saison** : winter
+- **Conditions** : Plus fréquent en hiver rude, dans les zones boisées. Rare dans les régions densément peuplées.
+- **Effets** : Perte de bétail. Peur collective. Les enfants ne vont plus seuls au bois. Le seigneur organise parfois une grande battue.
+- **Choix joueurs** :
+  - *Participer à la battue* — Traquer les loups avec les villageois. Dangereux mais nécessaire.
+  - *Renforcer les enclos* — Protéger le bétail en fortifiant les clôtures.
+- **Textes d'ambiance** :
+  - _"La vieille louve grise a pris deux moutons cette nuit. On voit ses traces dans la neige, droit vers la forêt noire."_
+  - _"Le bûcheron dit qu'il a vu six loups à la lisière. Les yeux jaunes dans l'obscurité. On ne sort plus après les vêpres."_
+- **Tags** : loups, hiver, bétail, danger, forêt
+
+#### Mariage au village
+
+> Un mariage est célébré. C'est l'occasion de fêter — musique, banquet, danses. Mais aussi de négocier dots, alliances familiales et héritages.
+
+- **ID** : `tpl_wedding_celebration`
+- **Catégorie** : cultural / personal
+- **Sévérité** : 1/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 1 ans)
+- **Probabilité de base** : 15 %
+- **Conditions** : Les mariages sont arrangés par les familles. Ils scellent aussi des alliances commerciales ou territoriales entre petits propriétaires.
+- **Effets** : Alliance entre deux familles. Dot échangée (terres, bétail ou argent). Fête de 1-3 jours. Le curé bénit l'union. Les enfants dansent.
+- **Choix joueurs** :
+  - *Contribuer au banquet* — Offrir un tonneau de vin ou un porc. Générosité remarquée.
+  - *Négocier un mariage pour son enfant* — Le moment est bon pour discuter alliances familiales.
+- **Textes d'ambiance** :
+  - _"La mariée porte une couronne de fleurs. Le joueur de vielle fait danser tout le village. La bière coule jusqu'à l'aube."_
+  - _"Le père de la mariée offre trois arpents de terre. Le père du marié donne deux vaches. Le curé bénit. L'affaire est conclue."_
+- **Tags** : mariage, fête, famille, social, alliance
+
+#### Hiver rigoureux
+
+> Un hiver exceptionnellement froid s'abat sur la région. Les rivières gèlent, le bois manque, le bétail meurt dans les étables non chauffées.
+
+- **ID** : `tpl_harsh_winter`
+- **Catégorie** : natural / regional
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan, any
+- **Récurrent** : Oui (cooldown 5 ans)
+- **Probabilité de base** : 6 %
+- **Saison** : winter
+- **Conditions** : Plus fréquent dans les régions continentales et scandinaves. Aggravé si les stocks de bois et de grain sont faibles.
+- **Effets** : Mortalité des vieillards et des enfants en hausse. Bétail affamé. Routes impraticables. Isolement total des villages pendant des semaines.
+- **Choix joueurs** :
+  - *Partager le bois avec les voisins* — Solidarité communautaire. Tout le monde survit, mais de justesse.
+  - *Garder ses réserves pour soi* — Sa famille d'abord. Les voisins se débrouilleront.
+- **Textes d'ambiance** :
+  - _"Le gel a pris en novembre et n'a pas lâché. En février, il faut briser la glace du puits à coups de hache. Le vieux Thomas n'a pas survécu."_
+  - _"Le loup hurle derrière la porte. Le feu baisse. Il reste deux bûches et une semaine d'hiver."_
+- **Tags** : hiver, froid, gel, survie, climat
+
+#### Recrutement pour la croisade
+
+> Un prédicateur itinérant prêche la guerre sainte. Des hommes du village partent se croiser, laissant femmes et enfants. Les terres manquent de bras.
+
+- **ID** : `tpl_crusader_recruitment`
+- **Catégorie** : military / local
+- **Sévérité** : 4/5
+- **Classes** : peasant, minor_noble, noble
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : Actif tant que les croisades sont en cours. La ferveur religieuse locale doit être élevée.
+- **Effets** : Perte de main-d'oeuvre agricole. Les familles des partants s'appauvrissent. Certains reviennent enrichis, la plupart jamais.
+- **Choix joueurs** :
+  - *Prendre la croix* — Partir en Terre sainte. Gloire et péril. Les dettes sont suspendues pendant l'absence.
+  - *Rester et profiter des terres vacantes* — Racheter les terres des partants à bas prix. Mal vu par le clergé.
+  - *Financer un croisé* — Payer l'équipement d'un chevalier en échange d'une part du butin.
+- **Textes d'ambiance** :
+  - _""Dieu le veut !" Le cri résonne sur la place. Trois fils du forgeron partent dès l'aube."_
+  - _"Le curé promet le pardon de tous les péchés à ceux qui prendront la croix. Les yeux brillent."_
+  - _"On dit que les rues de Jérusalem sont pavées d'or. Le jeune Pierre y croit dur comme fer."_
+- **Tags** : croisade, recrutement, guerre_sainte, terre_sainte
+
+#### Construction d'un château
+
+> Le seigneur local entreprend la construction d'une forteresse en pierre. La corvée mobilise des centaines de paysans pendant des mois.
+
+- **ID** : `tpl_castle_construction`
+- **Catégorie** : political / local
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan
+- **Récurrent** : Oui (cooldown 25 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Le seigneur doit avoir les moyens. Plus fréquent en zone frontalière ou après une menace.
+- **Effets** : Les paysans corvéables perdent du temps de travail agricole. Le château renforce la défense locale et le prestige seigneurial.
+- **Choix joueurs** :
+  - *Accomplir la corvée* — Travailler dur au chantier. Épuisant mais on évite les ennuis.
+  - *Proposer ses services de tailleur de pierre* *(artisan)* — Les artisans qualifiés sont recherchés et bien payés sur le chantier.
+  - *Esquiver la corvée* — Se cacher ou payer un remplaçant. Risqué si on est découvert.
+- **Textes d'ambiance** :
+  - _"Les charrettes de pierre passent jour et nuit sur le chemin du village. La poussière couvre tout."_
+  - _"Le maître maçon est venu de loin. Il trace des plans que personne ne comprend, mais les murs montent."_
+  - _"Trois mois de corvée au château. Les champs en souffriront, mais le seigneur ne négocie pas."_
+- **Tags** : château, construction, corvée, féodalité, fortification
+
+#### Fondation d'un monastère
+
+> Des moines cisterciens ou clunisiens fondent un monastère dans la région. Ils défrichent, drainent et cultivent des terres incultes.
+
+- **ID** : `tpl_monastic_foundation`
+- **Catégorie** : religious / regional
+- **Sévérité** : 2/5
+- **Classes** : peasant, clergy, any
+- **Récurrent** : Oui (cooldown 30 ans)
+- **Probabilité de base** : 3 %
+- **Conditions** : Plus fréquent dans les zones de faible densité avec des terres à défricher. Les ordres monastiques sont en pleine expansion.
+- **Effets** : Le monastère devient un centre économique et culturel local. Copie de manuscrits, soins aux malades, éducation.
+- **Choix joueurs** :
+  - *Faire un don de terres* — Céder une parcelle aux moines contre des prières pour le salut de sa famille.
+  - *Commercer avec le monastère* — Les moines ont besoin de fournitures et produisent du vin, du fromage, des manuscrits.
+  - *Offrir un enfant comme oblat* — Placer un enfant au monastère. Il sera éduqué mais perdu pour la famille.
+- **Textes d'ambiance** :
+  - _"Douze moines en robe blanche sont arrivés avec des houes et des bibles. En un an, le marais est devenu un jardin."_
+  - _"Le prieur dit que le travail est prière. Ses moines labourent du lever au coucher du soleil."_
+  - _"Le nouveau monastère distribue du pain aux pauvres le vendredi. La file s'allonge chaque semaine."_
+- **Tags** : monastère, cisterciens, clergé, défrichement, éducation
+
+#### Tournoi chevaleresque
+
+> Le seigneur organise un tournoi. Les chevaliers de la région s'affrontent à la lance et à l'épée. La fête attire marchands, jongleurs et pickpockets.
+
+- **ID** : `tpl_tournament`
+- **Catégorie** : cultural / regional
+- **Sévérité** : 2/5
+- **Classes** : noble, minor_noble, merchant, peasant
+- **Récurrent** : Oui (cooldown 3 ans)
+- **Probabilité de base** : 8 %
+- **Conditions** : Organisé en temps de paix relative. Nécessite un seigneur assez riche.
+- **Effets** : Stimule le commerce local. Renforce les liens féodaux. Quelques blessés voire des morts parmi les combattants.
+- **Choix joueurs** :
+  - *Participer au tournoi* *(minor_noble)* — Combattre pour la gloire. Victoire = renom et rançon du vaincu.
+  - *Tenir un étal au marché du tournoi* *(merchant)* — Profiter de la foule pour vendre ses marchandises.
+  - *Assister aux joutes* — Un jour de fête rare. On oublie la corvée et on admire les chevaliers.
+- **Textes d'ambiance** :
+  - _"Les bannières claquent au vent. Le fracas des lances résonne jusque dans les collines."_
+  - _"Le chevalier de Montfort a mis trois adversaires à terre avant midi. La foule est en délire."_
+  - _"Les marchands ont triplé leurs prix, mais personne ne se plaint — c'est jour de fête."_
+- **Tags** : tournoi, chevalerie, joute, fête, noblesse
+
+#### Propagation d'une hérésie
+
+> Des prêcheurs dissidents répandent des doctrines hétérodoxes. Les fidèles se divisent. Le clergé est inquiet.
+
+- **ID** : `tpl_heresy_spread`
+- **Catégorie** : religious / regional
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan, clergy
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Plus probable dans les régions où le clergé est corrompu ou absent. Cathares, Vaudois, Bogomiles...
+- **Effets** : Division communautaire. Le seigneur ou l'évêque peut réagir par la force.
+- **Choix joueurs** :
+  - *Écouter les prêcheurs* — Leurs paroles sur la pauvreté du Christ parlent aux humbles.
+  - *Dénoncer les hérétiques à l'évêque* — Rester dans le droit chemin et prouver sa fidélité à Rome.
+  - *Ne pas se mêler de théologie* — Ce sont des querelles de clercs. Mieux vaut labourer.
+- **Textes d'ambiance** :
+  - _"L'homme en haillons prêche que l'Église est corrompue. Certains hochent la tête, d'autres reculent."_
+  - _"On murmure que le tisserand du quartier bas est un parfait. Sa femme ne mange plus de viande."_
+  - _"L'évêque a envoyé des inquisiteurs. On brûle des livres sur la place du marché."_
+- **Tags** : hérésie, cathares, vaudois, inquisition, religion
+
+#### Retour d'un croisé
+
+> Un homme revient de Terre sainte après des années. Il rapporte des reliques, des histoires fabuleuses, et peut-être des maladies.
+
+- **ID** : `tpl_crusader_return`
+- **Catégorie** : cultural / local
+- **Sévérité** : 2/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Nécessite qu'un recrutement croisé ait eu lieu localement.
+- **Effets** : Le croisé rapporte des connaissances (médecine arabe, épices, soie). Possible introduction de nouvelles maladies.
+- **Choix joueurs** :
+  - *Accueillir le héros* — Écouter ses récits. Il connaît des remèdes inconnus ici.
+  - *Acheter ses reliques et épices* *(merchant)* — Des objets de Terre sainte se vendent cher aux pèlerins.
+  - *Se méfier de cet étranger* — Il a changé. Il parle de choses étranges. Mieux vaut garder ses distances.
+- **Textes d'ambiance** :
+  - _"Il est revenu avec un bras en moins et un coffret de myrrhe. Les enfants le suivent comme un héros."_
+  - _"Le croisé parle d'une médecine arabe qui guérit les fièvres. Le barbier est sceptique."_
+  - _"Il dit avoir vu Jérusalem. Ses yeux disent qu'il a vu des choses bien pires."_
+- **Tags** : croisade, retour, reliques, orient, épices
+
+#### Défrichement de forêt
+
+> De nouvelles terres sont ouvertes à la culture par le défrichement. Les paysans y gagnent des parcelles, mais la forêt recule.
+
+- **ID** : `tpl_forest_clearing`
+- **Catégorie** : economic / local
+- **Sévérité** : 2/5
+- **Classes** : peasant
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : Période de croissance démographique. Plus fréquent en Europe occidentale et centrale.
+- **Effets** : Nouvelles terres arables. La population locale augmente. Perte de bois et de gibier.
+- **Choix joueurs** :
+  - *Réclamer une nouvelle parcelle* — Défricher soi-même et gagner une terre libre de corvée pendant quelques années.
+  - *Récupérer le bois coupé* — Vendre le bois ou le garder pour l'hiver. Un butin éphémère.
+  - *S'opposer au défrichement* — La forêt nourrit le village : gibier, champignons, bois de chauffe. Sans elle, les hivers seront durs.
+- **Textes d'ambiance** :
+  - _"Les cognées résonnent du matin au soir. Chaque arbre qui tombe, c'est un arpent de blé futur."_
+  - _"Le vieux chêne centenaire est tombé. Les anciens disent que la forêt se vengera."_
+  - _"Les nouveaux colons arrivent avec leurs familles. En un an, un hameau pousse là où il n'y avait que des ronces."_
+- **Tags** : défrichement, agriculture, colonisation, forêt, croissance
+
+#### Conflit sur la dîme
+
+> Le curé exige le paiement intégral de la dîme. Les paysans estiment avoir déjà trop donné cette année.
+
+- **ID** : `tpl_tithe_dispute`
+- **Catégorie** : religious / local
+- **Sévérité** : 2/5
+- **Classes** : peasant, artisan
+- **Récurrent** : Oui (cooldown 5 ans)
+- **Probabilité de base** : 7 %
+- **Conditions** : Plus fréquent après une mauvaise récolte ou quand le curé local est cupide.
+- **Effets** : Tension entre paysans et clergé. Risque d'excommunication locale ou de rébellion.
+- **Choix joueurs** :
+  - *Payer la dîme en entier* — Serre-toi la ceinture mais évite les ennuis avec le curé.
+  - *Cacher une partie de la récolte* — Mentir sur la taille de la récolte. Risqué mais tout le monde le fait.
+  - *Pétitionner le seigneur* — Demander au seigneur de réduire la part du curé. Il n'aime pas non plus enrichir l'Église.
+- **Textes d'ambiance** :
+  - _"Le curé arrive avec son charreton pour prélever son dixième. Les greniers sont déjà presque vides."_
+  - _""Rendez à Dieu ce qui est à Dieu", dit le curé. "Et nous, on mange quoi ?" répond la veuve Marion."_
+  - _"Le curé menace d'excommunication. Les paysans serrent les poings mais baissent la tête."_
+- **Tags** : dîme, clergé, conflit, église, fiscalité
+
+#### Création d'une léproserie
+
+> Des lépreux sont signalés dans la région. Le seigneur ou l'Église décide d'établir une maladrerie aux portes de la ville.
+
+- **ID** : `tpl_leper_colony`
+- **Catégorie** : health / local
+- **Sévérité** : 3/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 20 ans)
+- **Probabilité de base** : 3 %
+- **Conditions** : Présence de lépreux confirmée. Plus fréquent dans les zones densément peuplées.
+- **Effets** : Les lépreux sont isolés. Peur et stigmatisation mais la contagion est limitée.
+- **Choix joueurs** :
+  - *Aider les malades* — Porter de la nourriture aux lépreux. Acte de charité chrétienne.
+  - *Rester loin de la maladrerie* — La prudence vaut mieux que la charité. On ne sait pas comment ça se transmet.
+  - *Demander leur expulsion* — Pousser le seigneur à chasser les lépreux plus loin. Cruel mais certains y pensent.
+- **Textes d'ambiance** :
+  - _"On entend la cliquette du lépreux sur le chemin. Les femmes tirent leurs enfants à l'intérieur."_
+  - _"La maladrerie est un triste lieu — des cabanes de bois, une chapelle, et des gens oubliés du monde."_
+  - _"Le frère Anselme soigne les lépreux sans gants. Il dit que Dieu le protège. Pour l'instant."_
+- **Tags** : lèpre, maladrerie, maladie, isolement, charité
+
+#### Querelle du moulin
+
+> Le seigneur impose l'usage exclusif de son moulin banal. Un paysan a installé un moulin à main et risque une amende sévère.
+
+- **ID** : `tpl_mill_dispute`
+- **Catégorie** : economic / local
+- **Sévérité** : 2/5
+- **Classes** : peasant
+- **Récurrent** : Oui (cooldown 8 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : Typique du système banal féodal. Le monopole seigneurial sur le moulin est source de conflit constant.
+- **Effets** : Le paysan est puni. Le ressentiment grandit contre les droits seigneuriaux.
+- **Choix joueurs** :
+  - *Utiliser le moulin seigneurial* — Payer le droit de mouture, comme la coutume l'exige.
+  - *Moudre en secret chez soi* — Le moulin à main est caché sous la grange. Gare aux espions du seigneur.
+  - *Organiser une pétition collective* — Ensemble, les paysans demandent un tarif réduit. Le seigneur peut céder ou sévir.
+- **Textes d'ambiance** :
+  - _"Le meunier du seigneur pèse le grain avec des balances truquées. Tout le village le sait, personne n'ose parler."_
+  - _"On a trouvé le moulin à main de la veuve Marthe. L'amende est de trois boisseaux — un mois de farine."_
+  - _"Le moulin banal est en panne depuis deux semaines. Le pain manque mais le seigneur interdit de moudre ailleurs."_
+- **Tags** : moulin, banalité, féodalité, grain, conflit
+
+#### Construction d'un pont
+
+> Un pont en pierre est construit sur la rivière, remplaçant l'ancien gué dangereux. Le commerce local va en bénéficier.
+
+- **ID** : `tpl_bridge_construction`
+- **Catégorie** : economic / local
+- **Sévérité** : 2/5
+- **Classes** : merchant, artisan, peasant
+- **Récurrent** : Oui (cooldown 30 ans)
+- **Probabilité de base** : 3 %
+- **Conditions** : Nécessite un investissement seigneurial ou ecclésiastique. Les frères pontifes sont spécialisés dans cette tâche.
+- **Effets** : Le pont attire les marchands. Un péage est instauré. Le village prospère.
+- **Choix joueurs** :
+  - *Négocier un tarif de passage réduit pour les locaux* — Convaincre le seigneur d'exempter les villageois du péage.
+  - *Participer à la construction* — Donner de son temps. Le pont sera fini plus vite.
+  - *Ouvrir une auberge près du pont* *(merchant)* — Les voyageurs auront besoin de manger et dormir.
+- **Textes d'ambiance** :
+  - _"Le nouveau pont est une merveille — trois arches de pierre qui défient le courant."_
+  - _"Depuis le pont, les charrettes passent en toute saison. Fini les noyades au gué de printemps."_
+  - _"Le péager s'est installé. Un denier par homme, deux par cheval, cinq par chariot. Le seigneur sourit."_
+- **Tags** : pont, construction, commerce, péage, infrastructure
+
+#### Passage d'un troubadour
+
+> Un troubadour de renom s'arrête dans la région. Ses chansons d'amour courtois et de hauts faits émerveillent la cour et les tavernes.
+
+- **ID** : `tpl_troubadour_visit`
+- **Catégorie** : cultural / local
+- **Sévérité** : 1/5
+- **Classes** : noble, minor_noble, any
+- **Récurrent** : Oui (cooldown 4 ans)
+- **Probabilité de base** : 8 %
+- **Conditions** : Plus fréquent en Occitanie, Catalogne, Italie du Nord. Nécessite une cour noble réceptive.
+- **Effets** : Diffusion de la culture courtoise. Les modes et les idéaux chevaleresques se répandent.
+- **Choix joueurs** :
+  - *Devenir mécène du troubadour* *(minor_noble)* — Le loger, le nourrir, lui offrir des cadeaux. Il chantera votre nom dans toutes les cours.
+  - *Écouter ses chansons à la taverne* — Un soir de beauté dans la grisaille du quotidien.
+  - *Lui commander une chanson satirique* — Moquer un rival en chanson. Efficace mais dangereux.
+- **Textes d'ambiance** :
+  - _"Sa voix porte dans la grande salle. Même le seigneur a les yeux humides quand il chante la dame lointaine."_
+  - _"Les servantes fredonnent ses mélodies pendant des semaines. L'amour courtois est arrivé au village."_
+  - _"Il parle de Jaufré Rudel, du comte de Toulouse, de dames inaccessibles. Les jeunes hommes soupirent."_
+- **Tags** : troubadour, musique, amour_courtois, culture, poésie
+
+#### Charte communale
+
+> Les bourgeois de la ville négocient une charte de libertés avec le seigneur. Autonomie municipale contre une forte somme.
+
+- **ID** : `tpl_communal_charter`
+- **Catégorie** : political / local
+- **Sévérité** : 3/5
+- **Classes** : merchant, artisan
+- **Récurrent** : Non
+- **Probabilité de base** : 3 %
+- **Conditions** : Mouvement communal en pleine expansion en Europe du Nord. Les villes riches achètent leurs libertés.
+- **Effets** : La ville gagne son autonomie : élection de consuls/échevins, marché libre, justice propre. Le seigneur perd du pouvoir local.
+- **Choix joueurs** :
+  - *Contribuer financièrement* — Verser sa part pour racheter la liberté de la ville.
+  - *Profiter du nouveau marché libre* *(merchant)* — La charte abolit les péages internes. Le commerce va fleurir.
+  - *Rester loyal au seigneur* — La nouveauté est dangereuse. On connaît le seigneur, on ne connaît pas les consuls.
+- **Textes d'ambiance** :
+  - _"Le sceau est apposé. La cloche du beffroi sonne pour la première fois — la ville est libre."_
+  - _"Le seigneur a accepté moyennant trois mille livres. Cher, mais quel prix pour la liberté ?"_
+  - _"Les bourgeois élisent leurs premiers échevins. Le boulanger Pierre est choisi — il sait lire."_
+- **Tags** : commune, charte, liberté, bourgeoisie, autonomie
+
+#### Passage de chevaliers hospitaliers
+
+> Des frères hospitaliers traversent la région, soignant les malades et hébergeant les pèlerins. Ils recrutent aussi.
+
+- **ID** : `tpl_knight_hospitaller`
+- **Catégorie** : religious / local
+- **Sévérité** : 1/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 8 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Les ordres militaires sont actifs le long des routes de pèlerinage.
+- **Effets** : Soins gratuits pour les pauvres. Recrutement de frères servants ou de donats.
+- **Choix joueurs** :
+  - *Se faire soigner* — Leurs médecins connaissent des remèdes orientaux efficaces.
+  - *Rejoindre leur ordre* — Devenir frère servant. Une vie de discipline, de combat et de prière.
+  - *Faire un don* — Offrir quelques pièces ou de la nourriture à leur commanderie.
+- **Textes d'ambiance** :
+  - _"Ils portent la croix blanche sur fond noir. Soldats et infirmiers à la fois. Une combinaison qui inspire confiance."_
+  - _"Le frère chirurgien a recousu la jambe du petit Hugues. Sans lui, il l'aurait perdue."_
+  - _"Leur commanderie accueille les pèlerins gratuitement. Le vin est mauvais mais le toit ne fuit pas."_
+- **Tags** : hospitaliers, ordre_militaire, pèlerinage, soins, croisade
+
+#### Fondation d'une université
+
+> Des maîtres et étudiants fondent un studium generale. La ville attire des savants de toute l'Europe.
+
+- **ID** : `tpl_university_foundation`
+- **Catégorie** : cultural / regional
+- **Sévérité** : 3/5
+- **Classes** : clergy, noble, merchant
+- **Récurrent** : Non
+- **Probabilité de base** : 2 %
+- **Conditions** : Nécessite une ville importante avec des écoles cathédrales existantes. Bologne, Paris, Oxford servent de modèle.
+- **Effets** : Afflux d'étudiants et de maîtres. Copistes, libraires, aubergistes prospèrent. Conflits fréquents entre étudiants et bourgeois.
+- **Choix joueurs** :
+  - *Envoyer un fils étudier* — Droit canon ou médecine — un investissement pour la famille.
+  - *Loger des étudiants* — Ils paient bien mais sont bruyants et bagarreurs.
+  - *Devenir copiste* *(clergy)* — Les livres sont rares et chers. Savoir écrire vaut de l'or.
+- **Textes d'ambiance** :
+  - _"Les disputes des maîtres ès arts résonnent jusque dans la rue. On parle latin à chaque coin de rue."_
+  - _"Le chancelier a accordé le droit d'enseigner. Cinquante étudiants sont déjà arrivés. La ville ne sera plus jamais la même."_
+  - _"Les bourgeois se plaignent : les étudiants boivent, se battent et ne paient pas leurs dettes. Mais ils font tourner le commerce."_
+- **Tags** : université, éducation, étudiants, savoir, droit_canon
+
+#### Création d'une guilde
+
+> Les artisans d'un même métier s'organisent en corporation. Règles strictes, prix fixés, apprentissage contrôlé.
+
+- **ID** : `tpl_guild_formation`
+- **Catégorie** : economic / local
+- **Sévérité** : 2/5
+- **Classes** : artisan, merchant
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Le mouvement corporatif se développe dans les villes en croissance.
+- **Effets** : Qualité des produits garantie. Concurrence réduite. Les non-membres sont exclus du marché.
+- **Choix joueurs** :
+  - *Rejoindre la guilde* *(artisan)* — Payer le droit d'entrée et jurer de respecter les statuts.
+  - *Placer un enfant en apprentissage* — Trois à sept ans de formation chez un maître. Un métier pour la vie.
+  - *Refuser la guilde et travailler seul* — Garder sa liberté mais perdre l'accès au marché couvert.
+- **Textes d'ambiance** :
+  - _"Les tisserands ont leur bannière maintenant. Nul ne vendra de drap en ville sans leur sceau."_
+  - _"Le chef-d'oeuvre du jeune Étienne a impressionné les maîtres. Il est reçu compagnon."_
+  - _"La guilde des bouchers a fixé le prix de la viande. Les bourgeois râlent mais la qualité est sûre."_
+- **Tags** : guilde, corporation, artisanat, apprentissage, métier
+
+#### Rumeurs de l'invasion mongole
+
+> Des récits terrifiants arrivent de l'Est. Des cavaliers sans nombre détruisent tout sur leur passage. Kiev est tombée.
+
+- **ID** : `tpl_mongol_threat_rumor`
+- **Catégorie** : military / regional
+- **Sévérité** : 4/5
+- **Classes** : any
+- **Récurrent** : Non
+- **Probabilité de base** : 8 %
+- **Conditions** : Déclenché par l'expansion mongole. La terreur précède les armées. Plus fort en Europe orientale et Moyen-Orient.
+- **Effets** : Panique et fuite de réfugiés. Certains fortifient, d'autres fuient vers l'Ouest. Le prix des armes monte.
+- **Choix joueurs** :
+  - *Renforcer les défenses* — Consolider les murs, stocker des vivres. Si les Mongols viennent, on tiendra peut-être.
+  - *Fuir vers l'Ouest* — Tout abandonner et partir. La vie vaut plus que les terres.
+  - *Ignorer les rumeurs* — On raconte n'importe quoi. Les Mongols sont loin. Concentrons-nous sur la moisson.
+- **Textes d'ambiance** :
+  - _"Un marchand venu de Pologne tremble en racontant. Des villes entières rasées. Des pyramides de crânes."_
+  - _"Les réfugiés coumans arrivent par milliers. Ils n'ont que la peur dans les yeux."_
+  - _"On dit qu'ils boivent le sang de leurs chevaux et qu'aucune muraille ne les arrête."_
+- **Tags** : mongols, invasion, terreur, réfugiés, rumeur
+
+#### Essor du commerce maritime
+
+> Les navires marchands affluent au port. De nouvelles marchandises arrivent : épices, soieries, porcelaine. La ville portuaire prospère.
+
+- **ID** : `tpl_maritime_trade_boom`
+- **Catégorie** : economic / regional
+- **Sévérité** : 3/5
+- **Classes** : merchant, artisan, noble
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Venise, Gênes, Bruges, Lübeck et les autres cités marchandes étendent leurs réseaux. Nécessite un accès portuaire.
+- **Effets** : Enrichissement des marchands. Apparition de banquiers et de comptoirs. Les guildes maritimes prospèrent.
+- **Choix joueurs** :
+  - *Investir dans une cargaison* *(merchant)* — Risqué — tempêtes, pirates — mais le retour peut être énorme.
+  - *S'engager comme marin* — La mer est dure mais paie mieux que les champs.
+  - *Louer un entrepôt au port* — Les marchands ont besoin de stocker leurs marchandises.
+- **Textes d'ambiance** :
+  - _"Trois galères génoises sont entrées dans le port ce matin. L'air sent le poivre et la cannelle."_
+  - _"Le comptoir vénitien emploie déjà vingt personnes. On y change l'or contre des lettres de crédit."_
+  - _"Le vieux pêcheur dit qu'il ne reconnaît plus le port. Des navires de partout, des langues qu'il n'a jamais entendues."_
+- **Tags** : commerce, maritime, port, épices, marchands
+
+#### Prédication franciscaine
+
+> Des frères mendiants franciscains arrivent en ville. Pieds nus et en haillons, ils prêchent la pauvreté du Christ et critiquent la richesse du clergé.
+
+- **ID** : `tpl_franciscan_preaching`
+- **Catégorie** : religious / local
+- **Sévérité** : 2/5
+- **Classes** : peasant, artisan, clergy
+- **Récurrent** : Oui (cooldown 8 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : Après la fondation de l'ordre franciscain (1209). Plus fréquent dans les villes italiennes puis partout en Europe.
+- **Effets** : Le message de pauvreté résonne chez les humbles. Le clergé séculier est embarrassé.
+- **Choix joueurs** :
+  - *Suivre leur enseignement* — La simplicité franciscaine parle au coeur. Donner aux pauvres et vivre humblement.
+  - *Se confesser aux frères* — Contrairement au curé local, ils ne jugent pas et n'exigent rien.
+  - *Soutenir le curé contre les mendiants* — Le curé veut chasser ces vagabonds qui sapent son autorité.
+- **Textes d'ambiance** :
+  - _"Le frère François — pas le saint, un autre — dort dans une grange et prêche au marché. Les gens s'arrêtent."_
+  - _"Il a donné sa seule robe à un mendiant et prêché nu dans la neige. Fou ou saint ?"_
+  - _"Le curé est furieux : ses ouailles vont se confesser aux frères mendiants. Ses aumônes diminuent."_
+- **Tags** : franciscains, mendiants, pauvreté, prédication, religion
+
+#### Visite de l'Inquisition
+
+> Des inquisiteurs dominicains arrivent dans la région. Ils interrogent, enquêtent, et parfois condamnent. La peur s'installe.
+
+- **ID** : `tpl_inquisition_visit`
+- **Catégorie** : religious / regional
+- **Sévérité** : 4/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 12 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : L'Inquisition est envoyée là où l'hérésie a été signalée. Nécessite une hérésie locale antérieure.
+- **Effets** : Procès, interrogatoires, dénonciations. Le tissu social se déchire. Certains innocents sont condamnés.
+- **Choix joueurs** :
+  - *Coopérer avec les inquisiteurs* — Répondre honnêtement et espérer qu'ils repartent vite.
+  - *Dénoncer un rival comme hérétique* — L'occasion de régler des comptes personnels. Ignoble mais tentant.
+  - *Cacher un suspect recherché* — Risquer sa vie pour protéger un voisin accusé injustement.
+- **Textes d'ambiance** :
+  - _"Ils sont arrivés avec leurs robes noires et blanches. Le silence est tombé sur le marché."_
+  - _"Le boulanger a été emmené pour interrogatoire. Sa femme hurle qu'il est innocent. Personne ne bouge."_
+  - _"Les inquisiteurs demandent à chacun de dénoncer les hérétiques qu'il connaît. Le voisin regarde le voisin avec méfiance."_
+- **Tags** : inquisition, dominicains, hérésie, procès, terreur
+
+#### Émeute étudiante
+
+> Les étudiants de l'université se battent avec les bourgeois. Rixes, tavernes saccagées, et intervention du prévôt.
+
+- **ID** : `tpl_student_riot`
+- **Catégorie** : political / local
+- **Sévérité** : 2/5
+- **Classes** : merchant, artisan, clergy
+- **Récurrent** : Oui (cooldown 5 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : Conflits endémiques entre la communauté universitaire (clerc, donc immunité judiciaire) et les bourgeois.
+- **Effets** : Dégâts matériels. Le chancelier menace de déplacer l'université. Les bourgeois exigent des compensations.
+- **Choix joueurs** :
+  - *Barricader son commerce* *(merchant)* — Protéger ses biens en attendant que le calme revienne.
+  - *Tenter une médiation* — Calmer les esprits entre les deux camps. Courageux mais risqué.
+  - *Vendre du vin aux deux camps* — La bagarre donne soif. Autant en profiter.
+- **Textes d'ambiance** :
+  - _"Ça a commencé au cabaret du Coq. Un étudiant allemand a insulté le tavernier. Le sang a coulé."_
+  - _"Le prévôt a arrêté trois étudiants. Le chancelier les réclame — ils sont clercs et relèvent du tribunal ecclésiastique."_
+  - _"Les bourgeois veulent que l'université paie pour les dégâts. Le recteur menace de partir à Orléans."_
+- **Tags** : université, émeute, étudiants, bourgeois, conflit
+
+#### Apparition des lettres de change
+
+> Des banquiers italiens introduisent la lettre de change. On peut désormais voyager sans transporter d'or.
+
+- **ID** : `tpl_letter_of_credit`
+- **Catégorie** : economic / regional
+- **Sévérité** : 2/5
+- **Classes** : merchant, noble
+- **Récurrent** : Non
+- **Probabilité de base** : 3 %
+- **Conditions** : Innovation financière florentine et génoise qui se diffuse le long des routes commerciales.
+- **Effets** : Le commerce longue distance est facilité. Les risques de vol sur les routes diminuent. Les Templiers aussi offrent ce service.
+- **Choix joueurs** :
+  - *Utiliser les lettres de change* *(merchant)* — Déposer son or chez le banquier et voyager léger.
+  - *Se méfier de ces bouts de papier* — Un morceau de parchemin ne vaut pas de l'or qu'on peut peser.
+  - *Devenir prêteur à intérêt* — L'usure est un péché mais les affaires sont les affaires. Les Lombards le font bien.
+- **Textes d'ambiance** :
+  - _"Le Florentin a un comptoir au port. Il échange de l'or contre du papier signé. Sorcellerie, disent les anciens."_
+  - _"Avec cette lettre, on peut retirer cent livres à Bruges sans porter un seul sou sur la route."_
+  - _"Les Templiers aussi font le change. Déposer à Paris, retirer à Acre. Pratique pour les croisés."_
+- **Tags** : banque, lettre_de_change, finance, commerce, innovation
+
+#### Raid de pirates
+
+> Des pirates attaquent la côte. Pillage de villages de pêcheurs, enlèvement de captifs pour rançon ou esclavage.
+
+- **ID** : `tpl_pirate_raid_coastal`
+- **Catégorie** : military / local
+- **Sévérité** : 4/5
+- **Classes** : peasant, merchant, artisan
+- **Récurrent** : Oui (cooldown 5 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : Plus fréquent en Méditerranée (Barbaresques, Normands) et en mer du Nord. La piraterie est endémique.
+- **Effets** : Destructions, captifs emmenés, terreur côtière. Les pêcheurs hésitent à sortir en mer.
+- **Choix joueurs** :
+  - *Défendre le village* — Armer les pêcheurs et résister. Courageux mais les pirates sont armés.
+  - *Payer la rançon* — Racheter les captifs. Cher mais humain.
+  - *Construire une tour de guet* — Prévenir les prochaines attaques. Un investissement pour l'avenir.
+- **Textes d'ambiance** :
+  - _"Les voiles noires sont apparues à l'aube. Quand elles sont reparties, il ne restait que des cendres."_
+  - _"Ils ont emmené le fils du pêcheur et trois femmes. La rançon est de vingt marcs d'argent."_
+  - _"Depuis le raid, personne ne dort sans une hache sous le lit. La mer est devenue l'ennemie."_
+- **Tags** : pirates, raid, côte, pillage, captifs
+
+#### Installation d'une communauté juive
+
+> Des familles juives s'installent dans la ville, apportant leurs compétences en médecine, érudition et commerce. Elles font face à la méfiance.
+
+- **ID** : `tpl_jewish_quarter`
+- **Catégorie** : cultural / local
+- **Sévérité** : 2/5
+- **Classes** : merchant, artisan, any
+- **Récurrent** : Non
+- **Probabilité de base** : 3 %
+- **Conditions** : Les communautés juives sont présentes dans la plupart des villes médiévales et jouent un rôle économique crucial.
+- **Effets** : Enrichissement culturel et économique mais tensions potentielles. Prêt à intérêt (interdit aux chrétiens) disponible.
+- **Choix joueurs** :
+  - *Emprunter de l'argent* — Les prêteurs juifs offrent du crédit. Utile pour un investissement.
+  - *Consulter un médecin juif* — Leur médecine est réputée meilleure que celle des barbiers.
+  - *Demander leur expulsion* — Céder aux préjugés et à la jalousie. La ville y perdra.
+- **Textes d'ambiance** :
+  - _"Le médecin Isaac a sauvé le fils du forgeron. Maintenant, même ceux qui crachaient sur sa porte viennent le consulter."_
+  - _"La rue des Juifs a sa propre synagogue, son marché, son cimetière. Un monde dans la ville."_
+  - _"Le prêteur Abraham offre des taux raisonnables. Sans lui, aucun marchand ne pourrait financer une expédition."_
+- **Tags** : juifs, minorité, commerce, médecine, prêt
+
+#### Procession de flagellants
+
+> Des pénitents se fouettent en public, parcourant les villes en appelant au repentir. Certains y voient la sainteté, d'autres la folie.
+
+- **ID** : `tpl_flagellant_procession`
+- **Catégorie** : religious / regional
+- **Sévérité** : 3/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Mouvement de flagellants en réponse aux crises (famines, peste, guerres). Surtout après 1349.
+- **Effets** : Ferveur apocalyptique. L'Église officielle désapprouve mais le peuple est fasciné ou terrifié.
+- **Choix joueurs** :
+  - *Rejoindre la procession* — Se fouetter pour expier ses péchés. La douleur rachète l'âme, disent-ils.
+  - *Observer avec effroi* — Le spectacle du sang et des larmes glace le sang. Mais on ne détourne pas les yeux.
+  - *Fermer ses portes* — Ces gens sont dangereux. Ils propagent la panique et peut-être la maladie.
+- **Textes d'ambiance** :
+  - _"Ils marchent pieds nus, le dos en sang, en chantant le Stabat Mater. Les femmes pleurent sur leur passage."_
+  - _"Le curé dit qu'ils sont hérétiques. Mais le curé a une maîtresse et un cellier plein. Qui est le vrai pécheur ?"_
+  - _"Le chef des flagellants annonce la fin du monde pour bientôt. Vu l'état du monde, c'est presque crédible."_
+- **Tags** : flagellants, pénitence, procession, apocalypse, crise
+
+#### Vague de peste
+
+> La Mort Noire frappe la région. Les corps s'entassent, les villages se vident, les prières restent sans réponse.
+
+- **ID** : `tpl_plague_wave`
+- **Catégorie** : health / regional
+- **Sévérité** : 5/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 8 %
+- **Conditions** : Après l'arrivée de la Peste noire en Europe. Revient par vagues récurrentes environ tous les 10-15 ans.
+- **Effets** : Mortalité massive (30-50% localement). Pénurie de main-d'oeuvre. Les survivants héritent et les salaires montent.
+- **Choix joueurs** :
+  - *Se barricader chez soi* — Fermer portes et volets. Ne voir personne. Attendre que ça passe.
+  - *Fuir à la campagne* — Quitter la ville pestiférée. Mais la maladie court plus vite que les charrettes.
+  - *Soigner les malades* — Rester et aider. Un acte héroïque mais probablement fatal.
+- **Textes d'ambiance** :
+  - _"Les cloches sonnent sans cesse. Il n'y a plus assez de prêtres pour donner les derniers sacrements."_
+  - _"Le fossoyeur est mort hier. Qui enterrera les morts maintenant ?"_
+  - _"Les bubons noirs apparaissent sous les bras, dans l'aine. Après trois jours de fièvre, la mort vient."_
+- **Tags** : peste, peste_noire, épidémie, mortalité, quarantaine
+
+#### Révolte paysanne
+
+> Les paysans se soulèvent contre les taxes, les corvées et les abus seigneuriaux. Fourches et faucilles contre épées et armures.
+
+- **ID** : `tpl_peasant_uprising`
+- **Catégorie** : political / regional
+- **Sévérité** : 4/5
+- **Classes** : peasant, artisan, noble
+- **Récurrent** : Oui (cooldown 20 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Après la Peste noire, les survivants exigent plus. Jacquerie (1358), Révolte des Travailleurs (1381), les Tuchins...
+- **Effets** : Châteaux brûlés, seigneurs lynchés, récoltes détruites. La répression est brutale mais les mentalités changent.
+- **Choix joueurs** :
+  - *Rejoindre la révolte* — "Quand Adam bêchait et qu'Ève filait, qui donc était gentilhomme ?"
+  - *Se terrer en attendant que ça passe* — Ni avec les seigneurs ni avec les révoltés. Survivre.
+  - *Défendre le château seigneurial* *(minor_noble)* — Rester loyal au seigneur. Il récompensera peut-être cette fidélité.
+- **Textes d'ambiance** :
+  - _"Ils marchent par milliers avec des fourches et des bâtons. Le tocsin sonne dans chaque village."_
+  - _"Le manoir du seigneur brûle. Les flammes éclairent la nuit. Les paysans dansent devant l'incendie."_
+  - _"La répression a été sanglante. Cent pendus au bord de la route. Mais les corvées ont été réduites."_
+- **Tags** : révolte, paysans, jacquerie, féodalité, insurrection
+
+#### Passage de routiers
+
+> Une compagnie de mercenaires désoeuvrer traverse la région entre deux guerres. Ils pillent, rançonnent et terrorisent.
+
+- **ID** : `tpl_mercenary_company`
+- **Catégorie** : military / regional
+- **Sévérité** : 4/5
+- **Classes** : peasant, merchant, artisan
+- **Récurrent** : Oui (cooldown 8 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : Pendant la Guerre de Cent Ans, les trêves sont plus dangereuses que les batailles — les soldats sans solde se servent.
+- **Effets** : Pillages, viols, incendies. Les Grandes Compagnies sont le fléau du XIVe siècle.
+- **Choix joueurs** :
+  - *Payer la rançon du village* — Cher, mais ils partiront sans brûler les maisons.
+  - *Organiser la défense* — Barricader les rues, armer les villageois. Contre des professionnels, c'est risqué.
+  - *Rejoindre les routiers* — Ils recrutent. Le butin est bon et la vie est libre. Mais l'âme y reste.
+- **Textes d'ambiance** :
+  - _"Ils se font appeler les Tard-Venus. Leur chef porte une armure volée à un chevalier mort."_
+  - _"Le village a payé cent florins pour qu'ils passent leur chemin. C'est la troisième fois cette année."_
+  - _"Ils ont vidé le cellier du curé et brûlé le grenier. Le capitaine dit que c'est le prix de la paix."_
+- **Tags** : routiers, mercenaires, pillage, grandes_compagnies, guerre
+
+#### Pénurie de main-d'oeuvre
+
+> Après les ravages de la peste, les bras manquent. Les survivants exigent des salaires plus élevés. Les seigneurs tentent de les retenir de force.
+
+- **ID** : `tpl_labor_shortage`
+- **Catégorie** : economic / regional
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan, noble
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 7 %
+- **Conditions** : Conséquence directe de la peste. La terre est abondante, les hommes rares. Le rapport de force change.
+- **Effets** : Les salaires montent. Les paysans négocient. Certains fuient vers des seigneurs plus généreux. Les lois tentent de geler les salaires.
+- **Choix joueurs** :
+  - *Négocier un meilleur salaire* — Le seigneur a besoin de bras. C'est le moment de demander plus.
+  - *Partir vers un seigneur plus généreux* — La mobilité est interdite en théorie mais en pratique, qui va retenir un paysan dont tout le monde a besoin ?
+  - *Rester loyal au seigneur actuel* — Il promet des concessions si on reste. Un tiens vaut mieux que deux tu l'auras.
+- **Textes d'ambiance** :
+  - _"Le seigneur offre trois arpents de terre à qui labourera ses champs. Avant la peste, il n'offrait que des coups de bâton."_
+  - _"Le Statute of Labourers dit que les salaires ne doivent pas monter. Mais la loi ne remplit pas les champs vides."_
+  - _"Le forgeron demande le double pour ferrer un cheval. Il peut se le permettre — les autres forgerons sont morts."_
+- **Tags** : pénurie, main_oeuvre, salaires, peste, mobilité
+
+#### Pogrom
+
+> La colère populaire se retourne contre la communauté juive, accusée d'empoisonner les puits ou de causer la peste. Violence meurtrière.
+
+- **ID** : `tpl_pogrom`
+- **Catégorie** : religious / local
+- **Sévérité** : 5/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Déclenché en période de crise (peste, famine, croisade). La communauté juive locale doit être présente.
+- **Effets** : Massacres, pillages, expulsions. Perte irréparable en capital humain et économique.
+- **Choix joueurs** :
+  - *Protéger les persécutés* — Cacher une famille juive chez soi. Courageux et dangereux.
+  - *Ne rien faire* — Fermer les yeux et les volets. La honte au ventre.
+  - *Profiter du chaos pour piller* — Voler dans les décombres. L'opportunisme est aussi une réponse humaine.
+- **Textes d'ambiance** :
+  - _"La foule hurle devant la synagogue. Les pierres volent. Personne n'arrête personne."_
+  - _"Le médecin Isaac, qui a sauvé tant de vies, est traîné dans la rue. Ses livres brûlent sur la place."_
+  - _"Après le massacre, un silence de mort. Les survivants partent à l'aube, sans rien, vers on ne sait où."_
+- **Tags** : pogrom, persécution, violence, antisémitisme, crise
+
+#### Grande famine
+
+> Plusieurs mauvaises récoltes consécutives provoquent une famine généralisée. Les prix explosent, les gens meurent dans les rues.
+
+- **ID** : `tpl_famine_great`
+- **Catégorie** : economic / regional
+- **Sévérité** : 5/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 25 ans)
+- **Probabilité de base** : 3 %
+- **Conditions** : La Grande Famine de 1315-1317 est le modèle. Nécessite des mauvaises récoltes répétées et un refroidissement climatique.
+- **Effets** : Cannibalisme signalé dans les cas extrêmes. Exode rural. Crime en hausse. Les enfants sont abandonnés.
+- **Choix joueurs** :
+  - *Mendier aux portes du monastère* — Les moines distribuent encore de la soupe. Combien de temps ?
+  - *Cacher ses dernières réserves* — Protéger les siens. Les voisins font pareil.
+  - *Organiser la solidarité du village* — Mettre en commun ce qui reste. On survivra ensemble ou pas du tout.
+- **Textes d'ambiance** :
+  - _"Il pleut depuis trois mois. Le blé pourrit dans les champs. Les rats sont les seuls à manger à leur faim."_
+  - _"Un pain de seigle coûte le salaire d'une semaine. Un cheval vaut moins qu'un boisseau de grain."_
+  - _"On mange de l'écorce, des racines, des rats. Les enfants ont des ventres gonflés et des yeux vides."_
+- **Tags** : famine, disette, mortalité, crise, climat
+
+#### Confusion du Grand Schisme
+
+> Deux papes (voire trois) prétendent à la tiare. Les fidèles ne savent plus lequel est le vrai. Les curés se querellent.
+
+- **ID** : `tpl_schism_confusion`
+- **Catégorie** : religious / regional
+- **Sévérité** : 3/5
+- **Classes** : clergy, peasant, any
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Le Grand Schisme d'Occident divise la chrétienté. Rome contre Avignon. Chaque État choisit son pape.
+- **Effets** : Confusion spirituelle généralisée. Vente accrue d'indulgences. Les fidèles perdent confiance dans le clergé.
+- **Choix joueurs** :
+  - *Soutenir le pape de Rome* — Rome est le siège légitime de Pierre.
+  - *Soutenir le pape d'Avignon* — Avignon est plus savant et mieux organisé. Le roi le soutient.
+  - *Douter de tout le système* — Si même les papes se disputent, que vaut l'Église ? Penser par soi-même est dangereux.
+- **Textes d'ambiance** :
+  - _"Le curé prêche pour Rome. Le moine du couvent prêche pour Avignon. Le paysan ne sait plus à quel saint se vouer."_
+  - _"Deux bulles d'excommunication croisées. Les deux papes s'excommunient mutuellement. On rit — jaune."_
+  - _"Si deux papes vendent des indulgences, est-ce que ça vaut double ? Le forgeron pose la question, le curé ne répond pas."_
+- **Tags** : schisme, papes, avignon, rome, crise_religieuse
+
+#### Impôts de guerre
+
+> Le roi lève une taille exceptionnelle pour financer la guerre. Chaque foyer doit payer, sous peine de saisie.
+
+- **ID** : `tpl_war_taxation`
+- **Catégorie** : political / regional
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan, merchant
+- **Récurrent** : Oui (cooldown 5 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : La Guerre de Cent Ans nécessite un financement constant. Les impôts augmentent sans cesse.
+- **Effets** : Appauvrissement généralisé. Les collecteurs d'impôts sont haïs. Les plus pauvres perdent tout.
+- **Choix joueurs** :
+  - *Payer la taille* — C'est la loi du roi. On paie et on serre les dents.
+  - *Cacher ses avoirs* — Enterrer les pièces, sous-déclarer les récoltes. Tout le monde le fait.
+  - *Protester collectivement* — Refuser de payer en groupe. Le collecteur ne peut pas arrêter tout le village.
+- **Textes d'ambiance** :
+  - _"Le collecteur est venu avec six hommes d'armes. Il a tout noté — la vache, les poules, le grain. Tout sera taxé."_
+  - _"C'est la troisième taille en deux ans. Le roi dit que c'est pour reprendre Calais. On n'a jamais vu Calais."_
+  - _"La veuve Mathilde n'a pas payé. Ils ont pris sa chèvre et son chaudron. Elle dort avec les siens dans la grange."_
+- **Tags** : impôt, taille, guerre, fiscalité, cent_ans
+
+#### Village abandonné
+
+> Un village voisin est totalement déserté après la peste et la famine. Ses terres et maisons sont vides. La nature reprend ses droits.
+
+- **ID** : `tpl_abandoned_village`
+- **Catégorie** : economic / local
+- **Sévérité** : 3/5
+- **Classes** : peasant, noble
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Phénomène massif après la Peste noire. Des milliers de Wüstungen en Europe. Les terres les moins fertiles sont abandonnées les premières.
+- **Effets** : Les survivants des villages voisins peuvent récupérer terres et matériaux. La forêt regagne du terrain.
+- **Choix joueurs** :
+  - *Revendiquer les terres abandonnées* — Personne ne les réclame. Autant les prendre avant le seigneur.
+  - *Récupérer les matériaux de construction* — Les pierres du moulin feront un bon mur de grange.
+  - *Éviter le village maudit* — On dit que les fantômes y rôdent. Et peut-être la peste aussi.
+- **Textes d'ambiance** :
+  - _"Le village de la colline est vide. Les toits s'effondrent. Le puits est couvert de mousse. Seuls les corbeaux y vivent."_
+  - _"On entend encore la cloche tinter les jours de vent. Il n'y a personne pour la sonner."_
+  - _"L'herbe pousse dans l'église. Les bancs sont encore en rang, comme si les fidèles allaient revenir."_
+- **Tags** : village_abandonné, Wüstung, peste, dépopulation, ruines
+
+#### Apparition de l'artillerie
+
+> Les premières bombardes sont utilisées dans la région. Le fracas du canon annonce la fin des châteaux invincibles.
+
+- **ID** : `tpl_cannon_arrival`
+- **Catégorie** : military / regional
+- **Sévérité** : 3/5
+- **Classes** : noble, minor_noble, artisan
+- **Récurrent** : Non
+- **Probabilité de base** : 3 %
+- **Conditions** : L'artillerie à poudre se diffuse lentement en Europe à partir de Crécy (1346) et surtout au XVe siècle.
+- **Effets** : Les châteaux deviennent vulnérables. La guerre change. Les chevaliers sont menacés par les canonniers.
+- **Choix joueurs** :
+  - *S'initier à l'artillerie* — Apprendre à manier la bombarde. Un métier d'avenir, dangereux mais recherché.
+  - *Adapter les fortifications* *(noble)* — Épaissir les murs, creuser des bastions. Coûteux mais nécessaire.
+  - *Craindre cette arme du diable* — La poudre sent le soufre. C'est une invention de Satan, murmurent les anciens.
+- **Textes d'ambiance** :
+  - _"Le premier tir de bombarde a fait trembler la terre et fuir les chevaux. Un morceau de mur s'est effondré comme du pain."_
+  - _"Le canonnier vient de Flandre. Il mélange salpêtre, charbon et soufre avec le soin d'un apothicaire."_
+  - _"Les chevaliers regardent la bombarde avec mépris. Mais c'est la bombarde qui fera tomber leurs châteaux."_
+- **Tags** : artillerie, bombarde, poudre, guerre, innovation
+
+#### Danse macabre
+
+> Une fresque de la Danse macabre apparaît sur les murs du cimetière. La Mort invite riches et pauvres, rois et mendiants à danser.
+
+- **ID** : `tpl_dance_macabre`
+- **Catégorie** : cultural / local
+- **Sévérité** : 1/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Expression artistique née du traumatisme de la Peste noire. La mort est omniprésente dans la culture du XIVe siècle.
+- **Effets** : Réflexion collective sur la mortalité. Le memento mori inspire à la fois la piété et le hédonisme.
+- **Choix joueurs** :
+  - *Contempler la fresque* — La Mort ne fait pas de différence entre le roi et le mendiant. Leçon d'humilité.
+  - *Profiter de la vie tant qu'elle dure* — Si la mort peut venir demain, autant manger, boire et aimer aujourd'hui.
+  - *Prier pour les morts* — Commander des messes pour les âmes du purgatoire. Le curé approuve.
+- **Textes d'ambiance** :
+  - _"Le peintre a mis trois mois. Le pape danse avec un squelette, suivi du roi, du marchand, du paysan. Tous égaux."_
+  - _"Les enfants viennent voir la fresque en riant. Les vieux viennent en pleurant. Chacun y voit ce qu'il porte."_
+  - _""Vous serez ce que je suis", dit le mort au vivant. Le message est peint en lettres noires sur fond d'or."_
+- **Tags** : danse_macabre, art, mort, peste, memento_mori
+
+#### Reconversion de routiers
+
+> Une trêve dans la guerre libère des milliers de soldats sans emploi. Certains deviennent brigands, d'autres cherchent un patron.
+
+- **ID** : `tpl_free_company_disbandment`
+- **Catégorie** : military / regional
+- **Sévérité** : 3/5
+- **Classes** : noble, merchant, peasant
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Après chaque trêve de la Guerre de Cent Ans. Le pape tente de les envoyer en croisade.
+- **Effets** : Insécurité sur les routes. Certains routiers s'installent et deviennent seigneurs. D'autres sont pendus.
+- **Choix joueurs** :
+  - *Engager des routiers comme gardes* *(noble)* — Transformer le problème en solution. Cher mais efficace.
+  - *Éviter les routes principales* — Passer par les chemins de traverse. Plus long mais plus sûr.
+  - *Encourager leur départ en croisade* — Le pape propose de les envoyer combattre les Turcs. Bonne débarras.
+- **Textes d'ambiance** :
+  - _"La trêve est signée. Dix mille hommes d'armes sans solde errent sur les routes de France."_
+  - _"Le capitaine Arnaud de Cervole s'est fait seigneur de trois villages. Qui ira lui demander de partir ?"_
+  - _"Du Guesclin a emmené les Grandes Compagnies en Castille. Bon débarras — sauf pour les Castillans."_
+- **Tags** : routiers, trêve, reconversion, brigandage, guerre
+
+#### Arrivée de l'imprimerie
+
+> Un imprimeur s'installe en ville avec sa presse à caractères mobiles. Les livres deviennent accessibles. Les idées circulent plus vite.
+
+- **ID** : `tpl_printing_press_arrival`
+- **Catégorie** : cultural / regional
+- **Sévérité** : 3/5
+- **Classes** : clergy, merchant, noble
+- **Récurrent** : Non
+- **Probabilité de base** : 4 %
+- **Conditions** : L'imprimerie se diffuse depuis Mayence à travers l'Europe. Nécessite une ville avec un public lettré.
+- **Effets** : Bibles, almanachs, pamphlets — tout s'imprime. Les copistes perdent leur emploi. Le savoir se démocratise.
+- **Choix joueurs** :
+  - *Acheter un livre imprimé* — Dix fois moins cher qu'un manuscrit. Une Bible pour le prix d'une vache.
+  - *Investir dans l'atelier d'imprimerie* *(merchant)* — Financer l'imprimeur contre une part des profits. Les livres se vendent bien.
+  - *Soutenir la censure des livres* — L'évêque veut contrôler ce qui s'imprime. Des idées dangereuses circulent.
+- **Textes d'ambiance** :
+  - _"L'imprimeur a sorti cent exemplaires en un mois. Les moines copistes en produisaient un par an."_
+  - _"Le curé est inquiet : n'importe qui peut lire la Bible maintenant. Et l'interpréter à sa façon."_
+  - _"Les étudiants se ruent sur les textes imprimés. Aristote pour trois sous. Le savoir n'a plus de prix."_
+- **Tags** : imprimerie, gutenberg, livres, savoir, innovation
+
+#### Réfugiés grecs de Constantinople
+
+> Des savants et artisans byzantins fuient la conquête ottomane. Ils apportent des manuscrits antiques et un savoir oublié.
+
+- **ID** : `tpl_greek_refugees`
+- **Catégorie** : cultural / regional
+- **Sévérité** : 2/5
+- **Classes** : clergy, noble, merchant
+- **Récurrent** : Non
+- **Probabilité de base** : 5 %
+- **Conditions** : Afflux de lettrés grecs en Italie et dans le reste de l'Europe après 1453.
+- **Effets** : Redécouverte de textes grecs anciens : Platon, Euclide, Galien. Stimulation intellectuelle majeure.
+- **Choix joueurs** :
+  - *Accueillir un savant grec* — Il enseigne le grec ancien et traduit des textes inédits.
+  - *Acheter des manuscrits* — Des textes d'Aristote et de Ptolémée jamais vus en Occident.
+  - *Ignorer ces étrangers* — Des réfugiés qui parlent une langue incompréhensible. Qu'ont-ils à offrir ?
+- **Textes d'ambiance** :
+  - _"Le vieux professeur de Constantinople pleure en déballant ses manuscrits. C'est tout ce qu'il a sauvé."_
+  - _"Il lit Platon dans le texte. Les étudiants sont éblouis. Un monde de pensée s'ouvre."_
+  - _"Les manuscrits sentent le sel marin et la fumée. Ils ont traversé la Méditerranée dans des coffres."_
+- **Tags** : constantinople, réfugiés, grecs, manuscrits, renaissance
+
+#### Commission d'une oeuvre d'art
+
+> Un peintre ou sculpteur de renom est engagé pour décorer une église ou un palais. L'art de la Renaissance transforme les regards.
+
+- **ID** : `tpl_renaissance_art`
+- **Catégorie** : cultural / local
+- **Sévérité** : 2/5
+- **Classes** : noble, clergy, merchant
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : La Renaissance artistique irradie depuis l'Italie. Les mécènes rivalisent pour attirer les artistes.
+- **Effets** : Prestige accru pour le commanditaire. Les artistes locaux s'inspirent des nouvelles techniques (perspective, clair-obscur).
+- **Choix joueurs** :
+  - *Commander un retable* — Le peintre utilisera la perspective et des couleurs éclatantes. Une oeuvre pour les siècles.
+  - *Placer un enfant en apprentissage chez l'artiste* — Apprendre les secrets du métier : pigments, proportions, anatomie.
+  - *Critiquer ces images trop profanes* — Ces nus et ces dieux païens n'ont rien à faire dans une église.
+- **Textes d'ambiance** :
+  - _"Le peintre a mis la Vierge dans un paysage qu'on reconnaît — nos collines. L'effet est saisissant."_
+  - _"Il peint des corps comme on n'en avait jamais vu — muscles, veines, expressions. On croirait qu'ils respirent."_
+  - _"Le retable a coûté cent florins. Le marchand qui l'a payé dit que c'est un investissement pour son âme."_
+- **Tags** : renaissance, art, peinture, mécénat, culture
+
+#### Perturbation du commerce oriental
+
+> La conquête ottomane bouleverse les routes commerciales vers l'Orient. Les épices et la soie se font rares et chères.
+
+- **ID** : `tpl_ottoman_trade_disruption`
+- **Catégorie** : economic / regional
+- **Sévérité** : 3/5
+- **Classes** : merchant, noble
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : La chute de Constantinople perturbe le commerce est-ouest. Les marchands cherchent des routes alternatives.
+- **Effets** : Hausse des prix des épices. Motivation pour chercher des routes maritimes vers les Indes. Stimule les grandes découvertes.
+- **Choix joueurs** :
+  - *S'adapter aux intermédiaires ottomans* — Les Ottomans vendent aussi. Il faut juste accepter leurs prix.
+  - *Investir dans une expédition maritime* *(merchant)* — Trouver une route par la mer vers les épices. Risqué mais le gain serait immense.
+  - *Trouver des substituts locaux* — Les herbes du jardin ne remplacent pas le poivre, mais elles sont gratuites.
+- **Textes d'ambiance** :
+  - _"Le poivre a triplé de prix depuis que les Turcs tiennent Constantinople. Le cuisinier du seigneur désespère."_
+  - _"Un marchand vénitien dit qu'il faut contourner l'Afrique. Tout le monde rit. Sauf les Portugais."_
+  - _"La soie de Chine n'arrive plus. Les tisserands locaux tentent d'imiter, sans succès."_
+- **Tags** : ottoman, commerce, épices, routes, découvertes
+
+#### Installation d'une banque
+
+> Une grande famille de banquiers ouvre un comptoir. Prêts, lettres de change, investissements — la finance moderne s'installe.
+
+- **ID** : `tpl_banking_house`
+- **Catégorie** : economic / local
+- **Sévérité** : 2/5
+- **Classes** : merchant, noble
+- **Récurrent** : Non
+- **Probabilité de base** : 3 %
+- **Conditions** : Les Médicis, les Fugger, les Welser — les dynasties bancaires transforment l'économie européenne.
+- **Effets** : Le crédit est disponible. Les investissements augmentent. Mais la dépendance aux banquiers crée des risques.
+- **Choix joueurs** :
+  - *Emprunter pour investir* — Le taux est raisonnable. De quoi acheter un atelier ou un navire.
+  - *Déposer ses économies* — Plus sûr que sous le matelas. Et les intérêts s'accumulent.
+  - *Se méfier des usuriers* — L'argent qui fait de l'argent, c'est contre nature. L'Église le dit bien.
+- **Textes d'ambiance** :
+  - _"Le banquier florentin s'est installé dans la plus belle maison de la place. Son coffre-fort pèse plus que tout l'or du village."_
+  - _"Avec une lettre de change, on achète à Lyon et on paie à Anvers. La magie du papier signé."_
+  - _"Le banquier prête au roi, au pape et aux marchands. Si la banque tombe, tout le monde tombe."_
+- **Tags** : banque, finance, médicis, crédit, investissement
+
+#### Arrivée de produits du Nouveau Monde
+
+> Des marchandises inconnues débarquent des navires : pommes de terre, maïs, tomates, tabac, cacao. Le monde change dans les assiettes.
+
+- **ID** : `tpl_new_world_goods`
+- **Catégorie** : economic / regional
+- **Sévérité** : 2/5
+- **Classes** : peasant, merchant, any
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : L'échange colombien transforme l'alimentation mondiale. Les nouveaux produits se diffusent lentement.
+- **Effets** : Le maïs et la pomme de terre nourrissent plus de monde. Le tabac crée une nouvelle industrie. Le cacao, un luxe.
+- **Choix joueurs** :
+  - *Planter les nouvelles cultures* — La pomme de terre pousse partout et résiste au gel. Miracle.
+  - *Commercer le tabac et le cacao* *(merchant)* — Produits de luxe très demandés par la noblesse.
+  - *Refuser ces plantes étrangères* — On ne sait pas ce que c'est. La tomate est sûrement toxique.
+- **Textes d'ambiance** :
+  - _"Le marin a ramené un tubercule bosselé. Personne n'en veut. Dans cinquante ans, tout le monde en mangera."_
+  - _"Le cacao se boit chaud avec du sucre. Les dames de la cour en raffolent. Un nouveau luxe est né."_
+  - _"Le tabac se fume dans une pipe. Certains disent que c'est médicinal. D'autres toussent."_
+- **Tags** : nouveau_monde, pomme_de_terre, tabac, cacao, échange_colombien
+
+#### Réfugiés de la Reconquista
+
+> Des Juifs et des Musulmans expulsés d'Espagne cherchent refuge. Ils apportent des compétences rares.
+
+- **ID** : `tpl_reconquista_refugees`
+- **Catégorie** : cultural / regional
+- **Sévérité** : 3/5
+- **Classes** : merchant, artisan, any
+- **Récurrent** : Non
+- **Probabilité de base** : 4 %
+- **Conditions** : L'expulsion des Juifs (1492) et des Morisques d'Espagne provoque un exode massif.
+- **Effets** : Médecins, orfèvres, marchands affluent. Enrichissement des villes d'accueil (Amsterdam, Salonique, Istanbul).
+- **Choix joueurs** :
+  - *Accueillir les réfugiés* — Leurs compétences sont précieuses. Un orfèvre juif, un médecin maure — que demander de plus ?
+  - *Refuser les étrangers* — Assez de bouches à nourrir. Qu'ils aillent ailleurs.
+  - *Exiger leur conversion* — Ils peuvent rester s'ils se baptisent. La sincérité, on verra plus tard.
+- **Textes d'ambiance** :
+  - _"Ils sont arrivés avec des clefs. Les clefs de leurs maisons de Tolède. Ils les gardent, au cas où."_
+  - _"Le médecin maure parle cinq langues et connaît des remèdes qu'aucun barbier local n'imagine."_
+  - _"L'orfèvre séfarade produit des bijoux si fins que la duchesse ne jure plus que par lui."_
+- **Tags** : réfugiés, reconquista, séfarades, morisques, expulsion
+
+#### Condottiere en quête de contrat
+
+> Un capitaine mercenaire italien propose ses services au plus offrant. Ses compagnies sont efficaces mais coûteuses et peu fiables.
+
+- **ID** : `tpl_condottiere`
+- **Catégorie** : military / regional
+- **Sévérité** : 3/5
+- **Classes** : noble, merchant
+- **Récurrent** : Oui (cooldown 8 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Les condottieri dominent la guerre en Italie et se répandent en Europe. Professionnels de la guerre à louer.
+- **Effets** : La guerre devient affaire de professionnels. Les milices communales perdent en importance.
+- **Choix joueurs** :
+  - *Engager la compagnie* *(noble)* — Cher mais ils savent se battre. Gare à la facture.
+  - *Refuser et risquer son ire* — Un condottiere sans contrat est dangereux. Il pourrait se servir tout seul.
+  - *S'enrôler dans sa compagnie* — La solde est bonne et le métier des armes nourrit son homme.
+- **Textes d'ambiance** :
+  - _"Le condottiere est arrivé avec trois cents lances et un sourire de requin. Il veut cinq mille ducats par mois."_
+  - _"On dit qu'il a changé de camp trois fois en un an. Mais personne ne conteste son efficacité."_
+  - _"Sa compagnie passe sous les murs. Les paysans rentrent le bétail. Ami ou ennemi, un mercenaire reste un mercenaire."_
+- **Tags** : condottiere, mercenaire, italie, guerre, compagnie
+
+#### Panique sorcellaire
+
+> La peur des sorcières s'intensifie. Le Malleus Maleficarum circule. Des femmes (surtout) sont accusées, torturées, brûlées.
+
+- **ID** : `tpl_witch_panic`
+- **Catégorie** : religious / local
+- **Sévérité** : 4/5
+- **Classes** : peasant, artisan, any
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : La chasse aux sorcières s'intensifie avec le Malleus Maleficarum (1487). Pic entre 1580 et 1650.
+- **Effets** : Terreur, délation, procès iniques. Toute femme seule, étrange ou savante est suspecte.
+- **Choix joueurs** :
+  - *Défendre une accusée* — Risquer d'être accusé soi-même. Mais la vieille Margot n'est pas une sorcière.
+  - *Se taire et attendre* — Ne pas attirer l'attention. Qui se mêle de l'Inquisition se brûle les doigts.
+  - *Dénoncer une rivale* — Régler un vieux conflit. L'occasion est trop belle pour certains.
+- **Textes d'ambiance** :
+  - _"La sage-femme a été arrêtée. Elle qui a mis au monde la moitié du village est accusée de tuer les nouveau-nés."_
+  - _"Le Malleus Maleficarum dit que les femmes sont faibles et le diable fort. Le juge ne demande rien d'autre."_
+  - _"Trois femmes brûlées en un mois. Le village sent encore la fumée et la peur."_
+- **Tags** : sorcellerie, procès, Malleus, bûcher, terreur
+
+#### Clôture des communaux
+
+> Le seigneur clôture les terres communes pour y mettre des moutons. Les paysans perdent leurs pâturages et leurs droits anciens.
+
+- **ID** : `tpl_enclosure_movement`
+- **Catégorie** : economic / local
+- **Sévérité** : 3/5
+- **Classes** : peasant
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Le mouvement des enclosures commence en Angleterre au XVe siècle et s'intensifie. La laine vaut plus que le blé.
+- **Effets** : Exode rural. Les paysans sans terre deviennent vagabonds ou ouvriers. La production lainière enrichit les propriétaires.
+- **Choix joueurs** :
+  - *Résister à la clôture* — Arracher les haies la nuit. Les anciens ont leurs droits.
+  - *Partir vers la ville* — Plus de terre, plus de raison de rester. La ville offre du travail.
+  - *Se reconvertir en berger* — Si les moutons remplacent les champs, autant garder les moutons.
+- **Textes d'ambiance** :
+  - _""Les moutons mangent les hommes", dit Thomas More. Les haies poussent là où les enfants jouaient."_
+  - _"Le seigneur a fait venir des clôtures de bois. La prairie commune est devenue un pâturage privé."_
+  - _"Sans les communaux, pas de bois de chauffe, pas de glands pour les porcs. L'hiver sera terrible."_
+- **Tags** : enclosure, clôture, communaux, moutons, exode
+
+#### Reconstruction d'après-guerre
+
+> La guerre est finie. Les ruines fument encore. Les survivants reconstruisent, lentement. Les terres vacantes attendent.
+
+- **ID** : `tpl_war_reconstruction`
+- **Catégorie** : economic / regional
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan, merchant
+- **Récurrent** : Oui (cooldown 20 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Après la Guerre de Cent Ans. Des régions entières sont dévastées et se repeuplent lentement.
+- **Effets** : Les friches sont remises en culture. Les villes se rebâtissent. De nouvelles opportunités apparaissent.
+- **Choix joueurs** :
+  - *Reconstruire sa maison* — Pierre par pierre. Les matériaux sont bon marché — il y a plus de ruines que de maçons.
+  - *Revendiquer des terres vacantes* — Les anciens propriétaires sont morts. La terre est là, elle attend.
+  - *Immigrer dans une zone sinistrée* — Les seigneurs offrent des conditions avantageuses pour attirer de nouveaux paysans.
+- **Textes d'ambiance** :
+  - _"Trente ans de guerre. Les champs sont des friches, les villages des décombres. Mais les oiseaux chantent à nouveau."_
+  - _"Le seigneur offre trois ans sans corvée à qui relèvera les murs. Les bras ne manquent pas — les matériaux si."_
+  - _"On plante des vignes dans les tranchées. La vie est obstinée."_
+- **Tags** : reconstruction, après-guerre, repopulation, cent_ans, renouveau
+
+#### Centralisation royale
+
+> Le roi renforce son pouvoir. Impôts permanents, armée royale, justice unifiée. Les seigneurs locaux perdent leur autonomie.
+
+- **ID** : `tpl_royal_centralization`
+- **Catégorie** : political / national
+- **Sévérité** : 3/5
+- **Classes** : noble, minor_noble, merchant
+- **Récurrent** : Oui (cooldown 20 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Formation des États modernes : France (Charles VII, Louis XI), Angleterre (Tudors), Espagne (Rois Catholiques).
+- **Effets** : Fin de l'anarchie féodale. Paix relative mais perte de libertés locales. Les États Généraux perdent en influence.
+- **Choix joueurs** :
+  - *Servir le roi* — Entrer dans l'administration royale. Les officiers du roi ont un bel avenir.
+  - *Défendre les droits seigneuriaux* *(noble)* — Le roi empiète sur les prérogatives locales. Résister est risqué.
+  - *Profiter de la paix nouvelle* — Moins de guerres privées, plus de commerce. Les routes sont sûres.
+- **Textes d'ambiance** :
+  - _"Le roi a envoyé un bailli. Il juge désormais à la place du seigneur. Les temps changent."_
+  - _"L'impôt royal est permanent maintenant. Plus besoin de convoquer les États pour lever la taille."_
+  - _"Les compagnies d'ordonnance du roi patrouillent. Les routiers ont disparu. Les routes sont sûres pour la première fois en un siècle."_
+- **Tags** : centralisation, monarchie, administration, état_moderne, pouvoir
+
+#### Fortune des épices
+
+> Un navire revient des Indes chargé d'épices. Le retour sur investissement est fabuleux. La fièvre spéculative gagne le port.
+
+- **ID** : `tpl_spice_fortune`
+- **Catégorie** : economic / regional
+- **Sévérité** : 2/5
+- **Classes** : merchant, noble
+- **Récurrent** : Oui (cooldown 8 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Après l'ouverture de la route des Indes par Vasco de Gama. Lisbonne, puis Amsterdam, deviennent les plaques tournantes.
+- **Effets** : Enrichissement fulgurant des investisseurs. Création de compagnies commerciales. Spéculation intense.
+- **Choix joueurs** :
+  - *Investir dans une cargaison* *(merchant)* — Un sac de poivre acheté à Goa vaut cent fois son prix à Amsterdam.
+  - *S'embarquer comme marin* — Six mois de mer, le scorbut et les tempêtes. Mais la prime vaut le risque.
+  - *Observer prudemment* — Un navire sur trois ne revient jamais. Mieux vaut garder ses sous.
+- **Textes d'ambiance** :
+  - _"Le navire est entré au port couvert de sel et de gloire. Sa cargaison de poivre vaut une fortune."_
+  - _"L'investisseur a mis cent florins. Il en récupère mille. La fièvre des épices est contagieuse."_
+  - _"Le marin a perdu trois dents et gagné un an de salaire. Il repartira. Ils repartent tous."_
+- **Tags** : épices, commerce, Indes, navigation, fortune
+
+#### Influence hussite
+
+> Les idées de Jan Hus se propagent. Communion sous les deux espèces, sermons en langue vulgaire, rejet du luxe clérical.
+
+- **ID** : `tpl_hussite_influence`
+- **Catégorie** : religious / regional
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan, clergy
+- **Récurrent** : Oui (cooldown 12 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Les idées hussites préfigurent la Réforme. Se propagent en Bohême puis dans les pays voisins.
+- **Effets** : Contestation du clergé. Demande de réformes. Le calice devient un symbole de rébellion.
+- **Choix joueurs** :
+  - *Rejoindre les réformateurs* — Le calice pour tous. La Bible en tchèque. L'Église doit changer.
+  - *Rester fidèle à Rome* — L'hérésie mène au bûcher. Hus l'a appris à ses dépens.
+  - *Rester neutre* — Les disputes théologiques ne remplissent pas le ventre.
+- **Textes d'ambiance** :
+  - _"Le prédicateur brandit un calice. "Pour tous les fidèles, pas seulement le prêtre !" La foule gronde."_
+  - _"On a brûlé Hus à Constance, mais ses idées ne brûlent pas. Elles se répandent comme les flammes."_
+  - _"Le curé dit la messe en latin. Le prédicateur hussite dit le sermon en langue du peuple. Qui comprend-on mieux ?"_
+- **Tags** : hussites, réforme, calice, hérésie, bohême
+
+#### Prédication protestante
+
+> Un pasteur prêche la doctrine de Luther ou de Calvin. La grâce seule sauve. Les indulgences sont une escroquerie.
+
+- **ID** : `tpl_protestant_preaching`
+- **Catégorie** : religious / local
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan, merchant, clergy
+- **Récurrent** : Oui (cooldown 8 ans)
+- **Probabilité de base** : 6 %
+- **Conditions** : La Réforme protestante se propage après les 95 thèses de Luther (1517). Conflit confessionnel majeur.
+- **Effets** : Division confessionnelle. Familles et villages se déchirent. Iconoclasme possible.
+- **Choix joueurs** :
+  - *Se convertir au protestantisme* — La Bible seule, la grâce seule. Plus besoin d'intermédiaires.
+  - *Rester catholique* — La foi des pères. On ne change pas la religion comme de chemise.
+  - *Assister aux débats théologiques* — Écouter les deux camps avant de choisir. La prudence est une vertu.
+- **Textes d'ambiance** :
+  - _"Le pasteur a affiché ses thèses sur la porte de l'église. Le curé les a arrachées. Le pasteur les a imprimées."_
+  - _""Sola scriptura, sola fide, sola gratia." Les mots de Luther résonnent dans les tavernes."_
+  - _"Le briseur d'images a détruit les statues de la chapelle. Le seul ornement est un livre ouvert."_
+- **Tags** : protestantisme, réforme, luther, calvin, religion
+
+#### Crise iconoclaste
+
+> Des protestants zélés détruisent les statues, les vitraux et les images des églises. La fureur briseur d'images frappe.
+
+- **ID** : `tpl_iconoclasm`
+- **Catégorie** : religious / local
+- **Sévérité** : 4/5
+- **Classes** : clergy, artisan, any
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Les Pays-Bas (1566), la France, l'Allemagne. La destruction des images accompagne la Réforme radicale.
+- **Effets** : Destruction du patrimoine artistique. Traumatisme pour les catholiques. Réaction violente possible.
+- **Choix joueurs** :
+  - *Participer à la destruction* — Les idoles doivent tomber. Le deuxième commandement est clair.
+  - *Sauver des oeuvres en cachette* — Cacher un retable dans une grange. L'art mérite mieux que le marteau.
+  - *Fuir la violence* — Quand la foule est en fureur, mieux vaut être ailleurs.
+- **Textes d'ambiance** :
+  - _"Les vitraux explosent un par un. Trois siècles de beauté tombent en pluie de couleurs brisées."_
+  - _"La Vierge en bois peint a brûlé sur le parvis. Le curé pleure. Le pasteur prie."_
+  - _"Ils ont même détruit l'orgue. Le silence dans l'église est assourdissant."_
+- **Tags** : iconoclasme, destruction, protestantisme, images, réforme
+
+#### Inflation par l'argent américain
+
+> L'afflux d'argent du Pérou et du Mexique provoque une hausse généralisée des prix. Les salaires ne suivent pas.
+
+- **ID** : `tpl_price_revolution`
+- **Catégorie** : economic / regional
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan, merchant
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : La révolution des prix frappe l'Europe entière. L'argent de Potosí inonde les marchés. Les prix triplent en un siècle.
+- **Effets** : Les prix montent mais les salaires stagnent. Les rentiers et les seigneurs à rentes fixes s'appauvrissent. Les débiteurs gagnent.
+- **Choix joueurs** :
+  - *Stocker des denrées* — Le grain sera plus cher demain. Spéculation ou prudence ?
+  - *Renégocier ses dettes* — L'argent vaut moins qu'avant. Bon moment pour rembourser.
+  - *Subir la hausse* — Le pain coûte le double. Le salaire n'a pas bougé. On serre la ceinture.
+- **Textes d'ambiance** :
+  - _"Le boulanger a encore augmenté ses prix. C'est le troisième fois cette année. L'argent ne vaut plus rien, dit-on."_
+  - _"Les galions espagnols déversent l'argent du Pérou. Paradoxe : plus il y a d'or, plus on est pauvre."_
+  - _"Le fermier qui devait cent livres il y a vingt ans les rembourse facilement. Le seigneur qui les reçoit n'en achète que la moitié de ce qu'elles valaient."_
+- **Tags** : inflation, prix, argent, Potosí, économie
+
+#### Massacre confessionnel
+
+> Les tensions religieuses explosent. Catholiques et protestants s'entretuent. La nuit est rouge.
+
+- **ID** : `tpl_religious_massacre`
+- **Catégorie** : military / local
+- **Sévérité** : 5/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Guerres de Religion en France, Pays-Bas, Saint-Empire. La Saint-Barthélemy (1572) en est le paroxysme.
+- **Effets** : Massacre, exode, traumatisme générationnel. Le tissu social est déchiré pour des décennies.
+- **Choix joueurs** :
+  - *Cacher un voisin menacé* — Protestant ou catholique, c'est d'abord un voisin. Le cacher au risque de sa vie.
+  - *Fuir la ville* — Partir avec le strict minimum. Tout plutôt que de rester dans le sang.
+  - *Se barricader chez soi* — Fermer les volets, prier, attendre. Le bruit des épées finira bien par cesser.
+- **Textes d'ambiance** :
+  - _"Le tocsin a sonné à minuit. À l'aube, les rues étaient rouges. On tuait au nom de Dieu."_
+  - _"Le voisin Pierre, qu'on connaissait depuis l'enfance, gît devant sa porte. Son seul crime : sa prière."_
+  - _"Les enfants ne comprennent pas pourquoi leur ami Jean ne viendra plus jouer. Il priait différemment."_
+- **Tags** : massacre, guerres_de_religion, Saint-Barthélemy, violence, confessionnel
+
+#### Exode huguenot
+
+> Des familles protestantes fuient la persécution. Artisans qualifiés, tisserands, orfèvres — la ville perd ses meilleurs ouvriers.
+
+- **ID** : `tpl_huguenot_flight`
+- **Catégorie** : cultural / regional
+- **Sévérité** : 3/5
+- **Classes** : artisan, merchant, any
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Exil des huguenots français vers Genève, les Pays-Bas, l'Angleterre, le Brandebourg.
+- **Effets** : Perte de savoir-faire artisanal. Les villes d'accueil (Amsterdam, Londres, Berlin) en profitent énormément.
+- **Choix joueurs** :
+  - *Accueillir les réfugiés huguenots* — Leurs compétences sont précieuses. Tisserands de soie, horlogers, imprimeurs.
+  - *Partir avec eux* — Quitter la terre des ancêtres pour la liberté de conscience.
+  - *Racheter leurs biens à bas prix* — Ils partent en urgence et vendent tout pour rien. Opportunisme pur.
+- **Textes d'ambiance** :
+  - _"La famille Dupont est partie cette nuit avec deux malles. Leur atelier de soie est vide."_
+  - _"L'horloger calviniste a fermé boutique. Genève l'accueillera. Nous perdons le meilleur artisan de la ville."_
+  - _"Ils montent dans les charrettes avec des bibles et des outils. Pas de meubles, pas de souvenirs. Juste le nécessaire."_
+- **Tags** : huguenots, exode, réfugiés, protestantisme, savoir-faire
+
+#### Mission jésuite
+
+> Des pères jésuites ouvrent un collège. Éducation d'élite, discipline de fer, formation des futurs dirigeants.
+
+- **ID** : `tpl_jesuit_mission`
+- **Catégorie** : religious / local
+- **Sévérité** : 2/5
+- **Classes** : noble, merchant, clergy
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : La Compagnie de Jésus (1540) est le fer de lance de la Contre-Réforme. Collèges partout en Europe.
+- **Effets** : Éducation de qualité pour les élites. Influence politique considérable. Les protestants les détestent.
+- **Choix joueurs** :
+  - *Inscrire un fils au collège* — La meilleure éducation du continent. Latin, grec, rhétorique, sciences.
+  - *Rejoindre la Compagnie* — Devenir soldat du Christ. Vœu d'obéissance, missions au bout du monde.
+  - *Se méfier de ces manipulateurs* — Les jésuites ont trop d'influence. Ils espionnent pour le pape.
+- **Textes d'ambiance** :
+  - _"Le collège jésuite est le plus beau bâtiment de la ville. La discipline y est absolue et le savoir immense."_
+  - _"Le père recteur parle six langues et a vécu au Japon. Les étudiants l'écoutent, bouche bée."_
+  - _"Les jésuites confessent le roi, éduquent ses enfants et correspondent avec Rome. Certains y voient un complot."_
+- **Tags** : jésuites, éducation, contre-réforme, collège, religion
+
+#### Commerce triangulaire
+
+> Des navires négriers passent au port. Pacotille vers l'Afrique, esclaves vers les Amériques, sucre vers l'Europe. Un commerce atroce et lucratif.
+
+- **ID** : `tpl_slave_trade_involvement`
+- **Catégorie** : economic / regional
+- **Sévérité** : 5/5
+- **Classes** : merchant, noble
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Le commerce triangulaire enrichit les ports européens. Nantes, Liverpool, Lisbonne en sont des plaques tournantes.
+- **Effets** : Enrichissement considérable des armateurs. Souffrance indicible des victimes. Les sucriers coloniaux prospèrent.
+- **Choix joueurs** :
+  - *Investir dans une expédition négrière* — Le retour est énorme. Le coût humain est occulté.
+  - *Refuser de participer* — Ce commerce est inhumain. Certaines voix s'élèvent, rares mais courageuses.
+  - *Commercer le sucre colonial* — Le sucre des Antilles vient du sang des esclaves, mais il se vend cher.
+- **Textes d'ambiance** :
+  - _"Le négrier est revenu avec 400 captifs. 120 sont morts en route. L'armateur calcule que c'est encore rentable."_
+  - _"Le sucre dans votre tasse a le goût du sang si on y réfléchit. Mais qui y réfléchit ?"_
+  - _"Le capitaine dit que ce sont des sauvages. L'aumônier du bord ne dort plus depuis trois nuits."_
+- **Tags** : esclavage, traite, commerce_triangulaire, négrière, Atlantique
+
+#### Départ vers les colonies
+
+> Le Nouveau Monde cherche des colons. Terres gratuites, or, aventure. Mais la traversée tue et les indigènes résistent.
+
+- **ID** : `tpl_colonial_plantation`
+- **Catégorie** : military / regional
+- **Sévérité** : 3/5
+- **Classes** : peasant, artisan, merchant
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : L'émigration vers les Amériques s'intensifie. Engagés, colons, aventuriers, condamnés.
+- **Effets** : Émigration de jeunes hommes. Certains font fortune, la plupart disparaissent. Les colonies grandissent.
+- **Choix joueurs** :
+  - *Partir aux Amériques* — Tout recommencer de l'autre côté de l'océan. Risqué mais l'espoir est là.
+  - *Investir dans une plantation* *(merchant)* — Le sucre, le tabac, le coton. La terre est gratuite, la main-d'oeuvre... moins.
+  - *Rester sur ses terres* — L'aventure est pour les fous. La terre des ancêtres vaut plus que l'or des sauvages.
+- **Textes d'ambiance** :
+  - _"Le recruteur promet des terres et de l'or. Le marin qui l'accompagne a le teint jaune du scorbut."_
+  - _"Son frère est parti il y a trois ans. Pas une lettre. Est-il riche ? Est-il mort ?"_
+  - _"Le navire part demain pour la Nouvelle-France. Trente familles montent à bord. Combien reviendront ?"_
+- **Tags** : colonies, émigration, Amériques, plantations, exploration
+
+#### Ombre de l'Inquisition espagnole
+
+> L'Inquisition espagnole étend son influence. Les conversos et les suspects de judaïsme secret sont traqués.
+
+- **ID** : `tpl_spanish_inquisition_reach`
+- **Catégorie** : religious / regional
+- **Sévérité** : 4/5
+- **Classes** : merchant, artisan, any
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : L'Inquisition espagnole est particulièrement active contre les conversos (juifs convertis) et les morisques.
+- **Effets** : Autodafés, confiscations de biens, fuite des élites converses. Climat de terreur et de délation.
+- **Choix joueurs** :
+  - *Prouver sa pureté de sang* — Les statuts de limpieza de sangre exigent de montrer patte blanche. Humiliant mais nécessaire.
+  - *Cacher ses origines* — Ne jamais parler du grand-père. Manger du porc ostensiblement. Vivre dans le mensonge.
+  - *Fuir vers le Nord* — Amsterdam, Hambourg — les villes du Nord n'ont pas d'Inquisition.
+- **Textes d'ambiance** :
+  - _"L'autodafé a duré toute la journée. Les flammes et les prières. Le peuple regarde, fasciné ou terrifié."_
+  - _"Le Don Cristóbal était un médecin respecté. On a découvert qu'il allumait des bougies le vendredi soir. Il n'est plus."_
+  - _"L'Inquisiteur est un vieil homme patient. Il pose toujours la même question, encore et encore, jusqu'à obtenir un aveu."_
+- **Tags** : inquisition, espagne, conversos, autodafé, persécution
+
+#### Guerre des paysans
+
+> Les paysans se soulèvent en masse, inspirés par Luther — mais Luther les condamne. Révolte écrasée dans le sang.
+
+- **ID** : `tpl_peasant_war`
+- **Catégorie** : political / regional
+- **Sévérité** : 4/5
+- **Classes** : peasant, artisan, noble
+- **Récurrent** : Oui (cooldown 25 ans)
+- **Probabilité de base** : 3 %
+- **Conditions** : La Réforme donne des arguments aux revendications sociales. Les 12 articles de Memmingen demandent justice.
+- **Effets** : Massacres, destructions de monastères. La répression fait 100 000 morts en Allemagne. Le servage se renforce.
+- **Choix joueurs** :
+  - *Rejoindre la révolte* — "Plus de corvée, plus de dîme ! Nous sommes tous égaux devant Dieu !"
+  - *Défendre le seigneur* — L'ordre social a sa raison d'être. La rébellion mène au chaos.
+  - *Se cacher dans les bois* — Quand les armées passent, paysans et seigneurs souffrent pareil.
+- **Textes d'ambiance** :
+  - _""Nous ne sommes pas du bétail !" crient les paysans. Les 12 articles circulent de village en village."_
+  - _"Luther les a condamnés : "Frappez, étranglez, tuez ces paysans furieux." L'allié d'hier est devenu l'ennemi."_
+  - _"Le château brûle. Le monastère est pillé. Mais quand les Landsknechts arrivent, la révolte s'éteint dans le sang."_
+- **Tags** : paysans, révolte, réforme, Allemagne, servage
+
+#### Passage d'un galion chargé d'or
+
+> Un galion espagnol chargé d'or et d'argent fait escale. La richesse des Amériques transite sous escorte armée.
+
+- **ID** : `tpl_galleon_treasure`
+- **Catégorie** : economic / local
+- **Sévérité** : 2/5
+- **Classes** : merchant, artisan
+- **Récurrent** : Oui (cooldown 5 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Les convois de galions traversent l'Atlantique deux fois par an. La flotte des Indes est un trésor flottant.
+- **Effets** : L'escale stimule le commerce local. Mariniers, cabaretiers et prostituées prospèrent.
+- **Choix joueurs** :
+  - *Commercer avec les marins* — Ils paient bien et veulent tout : vivres, vin, cordages.
+  - *S'embarquer comme marin* — La flotte cherche toujours des bras. La solde est bonne, le scorbut aussi.
+  - *Renseigner les corsaires* — Drake ou Hawkins paieraient cher pour connaître la route du convoi.
+- **Textes d'ambiance** :
+  - _"Douze galions au mouillage. Les soldats gardent les cales comme des dragons leur trésor."_
+  - _"Un marin a laissé tomber un réal d'argent au cabaret. On se l'est disputé une heure."_
+  - _"Les corsaires anglais rôdent. L'amiral fait doubler la garde. La nuit, personne ne dort."_
+- **Tags** : galion, or, argent, Espagne, convoi
+
+#### Nouvelles cartes du monde
+
+> De nouvelles cartes arrivent montrant des continents inconnus. Le monde est plus grand qu'on ne le pensait.
+
+- **ID** : `tpl_mercator_maps`
+- **Catégorie** : cultural / regional
+- **Sévérité** : 1/5
+- **Classes** : merchant, noble, clergy
+- **Récurrent** : Non
+- **Probabilité de base** : 3 %
+- **Conditions** : La cartographie explose avec les grandes découvertes. Mercator, Waldseemüller, Ortelius transforment la vision du monde.
+- **Effets** : La vision du monde change radicalement. L'Europe n'est plus le centre. De nouvelles routes s'ouvrent.
+- **Choix joueurs** :
+  - *Acheter une carte imprimée* — Voir le monde entier sur une feuille. Un objet de savoir et de pouvoir.
+  - *Utiliser les cartes pour le commerce* *(merchant)* — Planifier de nouvelles routes maritimes. Le savoir géographique est un avantage commercial.
+  - *Douter de ces fantaisies* — Un continent entier à l'Ouest ? Et quoi encore ? Des dragons au Sud ?
+- **Textes d'ambiance** :
+  - _"La carte montre un océan immense et des terres que personne ici n'a jamais vues. Le monde a changé de taille."_
+  - _""America" est écrit sur le nouveau continent. Du nom d'Amerigo, pas de Christophe. L'injustice de l'Histoire."_
+  - _"Le navigateur trace sa future route sur la carte de Mercator. Les loxodromies sont des lignes droites. Révolution."_
+- **Tags** : cartes, géographie, Mercator, exploration, monde
+
+#### Dévastation de la Guerre de Trente Ans
+
+> Armées suédoises, impériales et françaises piétinent les campagnes. Villages brûlés, populations massacrées, famines.
+
+- **ID** : `tpl_thirty_years_devastation`
+- **Catégorie** : military / regional
+- **Sévérité** : 5/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 7 %
+- **Conditions** : La pire guerre en Europe avant les guerres mondiales. L'Allemagne perd un tiers de sa population.
+- **Effets** : Destruction totale. Cannibalisme signalé. Pandémies liées. Des régions mettent un siècle à se remettre.
+- **Choix joueurs** :
+  - *Se cacher dans la forêt* — Des familles entières vivent dans les bois pendant des mois. Mieux que de croiser une armée.
+  - *Servir comme vivandier* — Suivre l'armée et vendre des vivres aux soldats. Dangereux mais lucratif.
+  - *Fortifier le village* — Palissades, fossés, guetteurs. Transformer le village en forteresse de fortune.
+- **Textes d'ambiance** :
+  - _"Les Suédois sont passés hier. Il ne reste que les murs noircis et l'odeur de la cendre."_
+  - _"On mange de l'herbe et de l'écorce. Le chien a disparu — personne ne demande dans quel ragoût."_
+  - _"Un village de 300 âmes. Il en reste 40. Le curé est mort. L'église sert d'étable. Simplement."_
+- **Tags** : trente_ans, dévastation, guerre, famine, Allemagne
+
+#### Édit royal absolutiste
+
+> Le roi promulgue un édit renforçant son pouvoir. Interdictions, obligations, contrôles. L'État s'impose jusque dans les foyers.
+
+- **ID** : `tpl_absolutist_edict`
+- **Catégorie** : political / national
+- **Sévérité** : 3/5
+- **Classes** : noble, merchant, peasant
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : L'absolutisme triomphe au XVIIe siècle. Louis XIV en est le modèle. "L'État, c'est moi."
+- **Effets** : Ordre public renforcé. Libertés locales réduites. La noblesse est domestiquée à Versailles.
+- **Choix joueurs** :
+  - *Obéir à l'édit* — Le roi commande, le sujet obéit. C'est l'ordre naturel des choses.
+  - *Se rapprocher de la cour* *(noble)* — Versailles est le centre du monde. Être vu du roi, c'est exister.
+  - *Résister discrètement* — Traîner des pieds, ignorer les ordres, garder ses vieilles coutumes.
+- **Textes d'ambiance** :
+  - _"L'intendant du roi est arrivé avec un édit long comme un bras. Personne ne l'a lu, tout le monde doit obéir."_
+  - _"Le seigneur a reçu l'ordre de venir à Versailles. Sa femme gère le domaine — mal."_
+  - _"Le roi a interdit les duels. Les gentilshommes se battent quand même, mais la nuit et en secret."_
+- **Tags** : absolutisme, édit, Louis_XIV, monarchie, Versailles
+
+#### Découverte scientifique
+
+> Un savant local fait une découverte remarquable. Optique, mécanique, anatomie — la science avance à pas de géant.
+
+- **ID** : `tpl_scientific_discovery`
+- **Catégorie** : cultural / local
+- **Sévérité** : 2/5
+- **Classes** : clergy, noble, merchant
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : La révolution scientifique : Galilée, Kepler, Harvey, Newton. La méthode expérimentale transforme le savoir.
+- **Effets** : Les universités adoptent lentement les nouvelles méthodes. Le clergé est méfiant. Le savoir progresse.
+- **Choix joueurs** :
+  - *Financer les recherches* — Le savant a besoin de lentilles, de livres et de temps. Le mécénat paie.
+  - *Étudier les nouvelles théories* — La Terre tourne autour du Soleil. Le sang circule. Tout change.
+  - *Condamner ces hérésies scientifiques* — La Bible dit que le Soleil tourne. Qui êtes-vous pour contredire Dieu ?
+- **Textes d'ambiance** :
+  - _"Le savant a pointé sa lunette vers Jupiter. Il y a vu quatre lunes. L'Église dit qu'il n'y en a pas."_
+  - _"Le médecin a ouvert un cadavre devant ses étudiants. Galien se trompait. Le corps humain est différent de ce qu'on croyait."_
+  - _"Isaac Newton dit que la même force qui fait tomber la pomme retient la Lune. C'est beau et terrifiant."_
+- **Tags** : science, découverte, Galilée, Newton, révolution_scientifique
+
+#### Investissement dans une Compagnie des Indes
+
+> La Compagnie des Indes orientales vend des actions. Épices, soie, thé — les profits promis sont astronomiques.
+
+- **ID** : `tpl_east_india_venture`
+- **Catégorie** : economic / regional
+- **Sévérité** : 3/5
+- **Classes** : merchant, noble
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : VOC (1602), EIC (1600), Compagnies françaises. Les premières sociétés par actions modernes.
+- **Effets** : Enrichissement des actionnaires. Naissance du capitalisme boursier. Mais les krachs sont possibles.
+- **Choix joueurs** :
+  - *Acheter des actions* — Chaque action de la VOC a doublé depuis l'an dernier. Le train passe, montez dedans.
+  - *S'engager sur un navire de la Compagnie* — Deux ans de mer, le scorbut et les moussons. Mais la prime est belle.
+  - *Garder ses sous au coffre* — Ces papiers ne remplaceront jamais de l'or sonnant et trébuchant.
+- **Textes d'ambiance** :
+  - _"La Bourse d'Amsterdam est un théâtre. On y crie, on y pleure, on y fait fortune en une heure."_
+  - _"Le poivre de Java rapporte 600 % à celui qui survit au voyage. Le problème, c'est "survivre"."_
+  - _"La VOC est plus puissante que bien des royaumes. Elle a sa flotte, son armée, ses territoires."_
+- **Tags** : Compagnie_des_Indes, VOC, actions, commerce, capitalisme
+
+#### Effets de la révocation de l'Édit de Nantes
+
+> La révocation de 1685 interdit le protestantisme en France. Conversion forcée ou exil. 200 000 huguenots partent.
+
+- **ID** : `tpl_revocation_effects`
+- **Catégorie** : religious / national
+- **Sévérité** : 4/5
+- **Classes** : artisan, merchant, any
+- **Récurrent** : Non
+- **Probabilité de base** : 6 %
+- **Conditions** : La France perd ses meilleurs artisans. Leurs compétences enrichissent la Prusse, la Hollande, l'Angleterre.
+- **Effets** : Exode massif. Perte de savoir-faire irréparable. Résistance camisarde dans les Cévennes.
+- **Choix joueurs** :
+  - *Abjurer et se convertir* — Devenir "nouveau catholique". Pratiquer en secret. Sauver ses biens.
+  - *Prendre le chemin de l'exil* — Tout abandonner pour la liberté de conscience. Berlin, Amsterdam, Londres.
+  - *Résister dans les montagnes* — Les Camisards se battent dans les Cévennes. La foi par les armes.
+- **Textes d'ambiance** :
+  - _"Les dragonnades : des soldats logés chez les protestants jusqu'à ce qu'ils abjurent. Méthode efficace et infâme."_
+  - _"Le temple a été rasé. Les bibles sont confisquées. On prie désormais dans les grottes, la nuit."_
+  - _"Cent mille artisans. Horlogers, tisserands, imprimeurs. La France vient de se tirer une balle dans le pied."_
+- **Tags** : révocation, Nantes, huguenots, dragonnades, camisards
+
+#### Spéculation financière
+
+> Un objet ordinaire atteint des prix délirants. Tulipes, actions, billets — la bulle enfle puis éclate.
+
+- **ID** : `tpl_tulip_mania`
+- **Catégorie** : economic / regional
+- **Sévérité** : 3/5
+- **Classes** : merchant, artisan, noble
+- **Récurrent** : Oui (cooldown 20 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Tulipomanie (1637), Mississippi (1720), South Sea (1720). Les bulles spéculatives se multiplient.
+- **Effets** : Enrichissement fulgurant puis ruine. Des fortunes détruites en un jour. Méfiance envers la finance.
+- **Choix joueurs** :
+  - *Investir dans la bulle* — Tout le monde gagne. Et si ça continuait ? FOMO médiéval.
+  - *Vendre au sommet* — Le malin vend quand les autres achètent. Encore faut-il être malin.
+  - *Regarder de loin* — Ces prix sont dingues. Une tulipe ne vaut pas une maison. Si ?
+- **Textes d'ambiance** :
+  - _"Un bulbe de tulipe Semper Augustus a été vendu pour le prix d'une maison au bord du canal. C'est une fleur."_
+  - _"Hier millionnaire, aujourd'hui ruiné. Le cours a chuté en une matinée. Les larmes coulent sur les registres."_
+  - _"Le barbier a vendu ses ciseaux pour acheter des tulipes. Maintenant il n'a ni ciseaux ni tulipes."_
+- **Tags** : spéculation, tulipes, bulle, krach, finance
+
+#### Âge d'or de la piraterie
+
+> Les pirates sillonnent les Caraïbes et l'océan Indien. Ils attaquent les galions, les comptoirs, les villes côtières.
+
+- **ID** : `tpl_piracy_golden_age`
+- **Catégorie** : military / regional
+- **Sévérité** : 3/5
+- **Classes** : merchant, peasant
+- **Récurrent** : Oui (cooldown 8 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : L'âge d'or de la piraterie en Atlantique et dans l'océan Indien. Corsaires, boucaniers, forbans.
+- **Effets** : Insécurité maritime. Les primes d'assurance montent. Certains gouverneurs pactisent avec les pirates.
+- **Choix joueurs** :
+  - *Acheter une lettre de marque* — Devenir corsaire — piller légalement les navires ennemis. Presque respectable.
+  - *Naviguer en convoi* — Voyager groupé coûte du temps mais protège des attaques.
+  - *Financer la garde côtière* — Les navires de patrouille coûtent cher mais sécurisent le port.
+- **Textes d'ambiance** :
+  - _"Le Jolly Roger flotte au vent. Le capitaine offre le quart du butin à chaque homme. Démocratie du pavillon noir."_
+  - _"Le gouverneur de Port Royal ferme les yeux tant que les pirates dépensent leur or dans ses tavernes."_
+  - _"Un galion espagnol a été pris. Les pirates ont partagé 50 000 pièces de huit en une nuit de beuverie."_
+- **Tags** : piraterie, corsaires, Caraïbes, océan, butin
+
+#### Crise du Petit Âge Glaciaire
+
+> Le climat se refroidit. Les récoltes diminuent, les rivières gèlent, les hivers sont terribles. La famine guette.
+
+- **ID** : `tpl_little_ice_age`
+- **Catégorie** : health / regional
+- **Sévérité** : 4/5
+- **Classes** : peasant, any
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Le Petit Âge Glaciaire atteint son minimum au XVIIe siècle. Gel des canaux, baisse des rendements, famines.
+- **Effets** : Gel des cultures, famines locales. La Tamise gèle. Les glaciers avancent dans les vallées alpines.
+- **Choix joueurs** :
+  - *Stocker des provisions pour l'hiver* — Doubler les réserves. Mieux vaut trop que pas assez.
+  - *Planter des cultures résistantes au froid* — Le seigle tient mieux que le blé. L'avoine pousse même dans la boue.
+  - *Partir vers le Sud* — Les hivers sont plus cléments au sud. Mais on y est un étranger.
+- **Textes d'ambiance** :
+  - _"La Tamise est gelée si fort qu'on y fait marché. Une foire sur la glace, dans le brouillard."_
+  - _"Le glacier a avancé jusqu'au village. La ferme du vieux Hans est sous la glace. Il ne reviendra pas."_
+  - _"Trois ans de gel tardif. Le blé ne mûrit plus. Les greniers sont vides dès février."_
+- **Tags** : petit_âge_glaciaire, froid, famine, climat, gel
+
+#### Procès de sorcellerie en masse
+
+> La chasse aux sorcières atteint son paroxysme. Des dizaines de personnes sont arrêtées, torturées et brûlées en quelques mois.
+
+- **ID** : `tpl_witch_trial_mass`
+- **Catégorie** : religious / regional
+- **Sévérité** : 5/5
+- **Classes** : any
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Pic de la chasse aux sorcières (1580-1650). Bamberg, Würzburg, Trier — des centaines d'exécutions par ville.
+- **Effets** : Psychose collective. Toute dénonciation suffit. Les prisons débordent. La torture garantit les aveux.
+- **Choix joueurs** :
+  - *Dénoncer pour se protéger* — Mieux vaut accuser que d'être accusé. Logique de terreur.
+  - *Oser dire que la chasse va trop loin* — Quelques voix courageuses s'élèvent. Friedrich Spee écrit la Cautio Criminalis. Le risque est réel.
+  - *Quitter la région* — Partir avant d'être la prochaine cible. Les bûchers fument encore.
+- **Textes d'ambiance** :
+  - _"Trois cents bûchers en un an dans le seul évêché de Bamberg. Le prince-évêque est insatiable."_
+  - _"La veuve a avoué sous la torture avoir volé sur un balai. Elle a aussi nommé douze complices. Douze nouveaux procès."_
+  - _"Le jésuite Spee ne dort plus. Tous ceux qu'il a confessés avant le bûcher étaient innocents. Il le sait. Il l'écrira."_
+- **Tags** : sorcellerie, bûcher, procès, terreur, torture
+
+#### Politique mercantiliste
+
+> Le roi impose une politique de manufactures, de tarifs douaniers et de monopoles. Produire en interne, exporter au maximum.
+
+- **ID** : `tpl_mercantilism`
+- **Catégorie** : economic / national
+- **Sévérité** : 2/5
+- **Classes** : merchant, artisan
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : Colbert en France, Cromwell en Angleterre. L'État dirige l'économie pour enrichir le trésor royal.
+- **Effets** : Les manufactures royales produisent des gobelins, des porcelaines, des draps. L'importation est taxée.
+- **Choix joueurs** :
+  - *Travailler dans une manufacture royale* — Un emploi stable avec un salaire fixe. Mais les horaires sont stricts.
+  - *Faire de la contrebande* — Les tarifs douaniers créent des opportunités pour les contrebandiers.
+  - *Exporter ses produits* *(merchant)* — L'État subventionne les exportations. Le marché est le monde entier.
+- **Textes d'ambiance** :
+  - _"La manufacture des Gobelins emploie trois cents ouvriers. Le roi veut que tout le luxe soit français."_
+  - _"Le tarif douanier a doublé sur les draps anglais. Le contrebandier de Calais sourit."_
+  - _"Colbert dit que la richesse d'un pays se mesure à son or. Alors il faut exporter, exporter, exporter."_
+- **Tags** : mercantilisme, Colbert, manufacture, douane, économie
+
+#### Ouverture d'un café
+
+> Le café, boisson exotique venue d'Orient, se boit dans de nouveaux établissements. On y discute, on y conspire, on y pense.
+
+- **ID** : `tpl_coffee_house`
+- **Catégorie** : cultural / local
+- **Sévérité** : 1/5
+- **Classes** : merchant, artisan, clergy, noble
+- **Récurrent** : Oui (cooldown 10 ans)
+- **Probabilité de base** : 5 %
+- **Conditions** : Les cafés se multiplient à Londres, Paris, Vienne, Amsterdam. Lieux de sociabilité, d'échange et de spéculation.
+- **Effets** : Les cafés deviennent des salons où naissent les idées, les affaires et parfois les révolutions.
+- **Choix joueurs** :
+  - *Ouvrir un café* — Le café est à la mode. Bonne affaire, clientèle fidèle.
+  - *Fréquenter le café pour les débats* — On y parle politique, science, commerce. Le journal est sur la table.
+  - *Condamner cette boisson du diable* — Le café excite les esprits et ruine le commerce des taverniers. Méfiance.
+- **Textes d'ambiance** :
+  - _"Le café est amer, noir comme l'encre. Mais après deux tasses, l'esprit vole. Adieu, l'ivresse du vin."_
+  - _"Au café Procope, on croise des philosophes, des poètes et des espions. Tout se sait entre deux tasses."_
+  - _"Lloyd's Coffee House à Londres. On y assure les navires entre deux gorgées. La finance naît dans le marc de café."_
+- **Tags** : café, sociabilité, débat, commerce, mode
+
+#### Apparition d'un journal imprimé
+
+> Un imprimeur publie un journal périodique. Nouvelles locales, internationales, annonces. L'information se démocratise.
+
+- **ID** : `tpl_newspaper_birth`
+- **Catégorie** : cultural / local
+- **Sévérité** : 2/5
+- **Classes** : merchant, noble, clergy
+- **Récurrent** : Non
+- **Probabilité de base** : 3 %
+- **Conditions** : Les premiers journaux apparaissent en Allemagne (1605), en France (La Gazette, 1631). La presse est née.
+- **Effets** : L'information circule plus vite. L'opinion publique naît. Le pouvoir devra compter avec elle.
+- **Choix joueurs** :
+  - *S'abonner au journal* — Savoir ce qui se passe dans le monde sans quitter la ville. Révolutionnaire.
+  - *Faire publier une annonce* — Le journal touche des centaines de lecteurs. Parfait pour vendre ou recruter.
+  - *Soutenir la censure royale* — La presse libre est dangereuse. Le roi doit contrôler ce qui s'imprime.
+- **Textes d'ambiance** :
+  - _"La Gazette de France arrive tous les mardis. On y apprend la guerre, la paix et le prix du blé."_
+  - _"Quatre feuilles imprimées recto-verso. Mais quel trésor d'informations. Le monde entre dans le salon."_
+  - _"Le roi a fait saisir la dernière édition. Le journaliste est en prison. La vérité dérange."_
+- **Tags** : journal, presse, information, gazette, opinion
+
+#### Essor du sucre colonial
+
+> Le sucre des plantations antillaises inonde le marché. Ce luxe devient un produit de base. Derrière, le travail des esclaves.
+
+- **ID** : `tpl_plantation_sugar`
+- **Catégorie** : economic / regional
+- **Sévérité** : 3/5
+- **Classes** : merchant, noble
+- **Récurrent** : Oui (cooldown 15 ans)
+- **Probabilité de base** : 4 %
+- **Conditions** : La "révolution sucrière" des Antilles. Barbade, Saint-Domingue, Jamaïque. Le sucre est le pétrole du XVIIe.
+- **Effets** : Enrichissement des ports négriers. Le sucre entre dans l'alimentation quotidienne. Le coût humain est immense.
+- **Choix joueurs** :
+  - *Investir dans une plantation* — Le sucre rapporte 20 % par an. Le prix ? Des vies humaines.
+  - *Ouvrir une raffinerie de sucre* — Raffiner le sucre brut venu des colonies. Moins sale moralement, presque aussi rentable.
+  - *Refuser le sucre esclavagiste* — Quelques voix s'élèvent déjà. Le sucre est taché de sang. Rare courage.
+- **Textes d'ambiance** :
+  - _"Le sucre coule à flots dans les entrepôts de Nantes. Le port sent le caramel et la culpabilité."_
+  - _"Une livre de sucre de Saint-Domingue. Combien de coups de fouet par cuillère ?"_
+  - _"La duchesse sucre son café. Le marin sucre son rhum. L'esclave coupe la canne sous le soleil."_
+- **Tags** : sucre, plantation, esclavage, colonies, Antilles
 
 ---
 
@@ -489,11 +7129,16 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (6)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
+| Cologne | major_city | 20 000 | 6/10 | 7/10 | trade, religious_center |
+| Ratisbonne | city | 12 000 | 5/10 | 6/10 | trade, administration |
 | Aix-la-Chapelle | capital | 10 000 | 6/10 | 7/10 | religious_center, administrative |
+| Turin (Torino) | town | 10 000 | 4/10 | 4/10 | trade |
+| Hambourg | port | 5 000 | 4/10 | 5/10 | trade, port |
+| Berlin | village | 1 000 | 2/10 | 2/10 |  |
 
 </details>
 
@@ -574,11 +7219,11 @@
 
 </details>
 
-<details><summary>Technologie (49 acquises)</summary>
+<details><summary>Technologie (50 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■■□□□□□ (5/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde, Rotation des cultures, Moulin à eau
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde, Rotation des cultures, Moulin à eau, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier
 - **construction** : Construction de base, Maçonnerie en pierre, Arc et voûte, Fortification, Construction routière, Construction de ponts, Aqueduc
 - **craftsmanship** : Poterie, Tissage, Travail du cuir, Verrerie
@@ -684,12 +7329,12 @@
 | **Capacité d'exploration** | ■■■□□□□□□□ (3/10) |
 | **Portée navale** | ■■□□□□□□□□ (2/10) |
 | **Cartographie** | ■■■□□□□□□□ (3/10) |
-| **Nations connues** | 16 (Royaume de France, Royaume d'Angleterre, Royaume d'Écosse, États pontificaux, République de Venise, Royaume de León, Royaume de Navarre, Califat de Cordoue, Royaume du Danemark, Royaume de Norvège, Royaume de Suède, Royaume de Pologne, Royaume de Hongrie, Rus' de Kiev, Royaume de Croatie, Empire byzantin) |
+| **Nations connues** | 17 (Royaume de France, Royaume d'Angleterre, Royaume d'Écosse, États pontificaux, République de Venise, Royaume de León, Royaume de Navarre, Califat de Cordoue, Royaume du Danemark, Royaume de Norvège, Royaume de Suède, Royaume de Pologne, Royaume de Hongrie, Rus' de Kiev, Royaume de Croatie, Empire byzantin, Califat fatimide) |
 | **Mythes** | Prester John rules a Christian kingdom in the East · The edge of the world lies beyond the western ocean |
 
 </details>
 
-<details><summary>Vie quotidienne (4 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **nobility** (qualité de vie : 8/10)
 
@@ -735,6 +7380,39 @@
 | Loisirs | choral_singing, reading, gardening, debate |
 | Revenu moyen | 50 |
 
+**merchants** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, sausage, cheese, beer, cabbage, onions |
+| Logement | Half-timbered townhouse near market square |
+| Vêtements | Wool tunic, linen shirt, leather belt, felt cap |
+| Travail | Market trade, long-distance commerce, guild management |
+| Loisirs | tavern_gatherings, chess, pilgrimages, fairs |
+| Revenu moyen | 300 |
+
+**artisans** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, porridge, cheese, beer, turnips, pork |
+| Logement | Workshop-house in guild quarter |
+| Vêtements | Wool tunic, leather apron, linen shirt |
+| Travail | Metalworking, weaving, pottery, carpentry |
+| Loisirs | guild_feasts, tavern_gatherings, dice_games |
+| Revenu moyen | 80 |
+
+**warriors** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, beef, pork, beer, cheese, onions |
+| Logement | Barracks or garrison tower |
+| Vêtements | Chain mail hauberk, wool surcoat, leather boots |
+| Travail | Garrison duty, border patrols, feudal military service |
+| Loisirs | tournaments, dice_games, hunting, wrestling |
+| Revenu moyen | 60 |
+
 </details>
 
 <details><summary>Infrastructure (4)</summary>
@@ -773,11 +7451,14 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (4)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Paris | capital | 20 000 | 6/10 | 6/10 | trade, religious_center |
+| Lyon | city | 10 000 | 5/10 | 5/10 | trade, religious_center |
+| Rouen | city | 8 000 | 5/10 | 5/10 | port, trade |
+| Orléans | city | 7 000 | 4/10 | 5/10 | religious_center, trade |
 
 </details>
 
@@ -855,11 +7536,11 @@
 
 </details>
 
-<details><summary>Technologie (48 acquises)</summary>
+<details><summary>Technologie (49 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■■□□□□□ (5/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde, Rotation des cultures, Moulin à eau
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde, Rotation des cultures, Moulin à eau, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier
 - **construction** : Construction de base, Maçonnerie en pierre, Arc et voûte, Fortification, Construction routière, Construction de ponts
 - **craftsmanship** : Poterie, Tissage, Travail du cuir, Verrerie
@@ -962,12 +7643,12 @@
 | **Capacité d'exploration** | ■■■□□□□□□□ (3/10) |
 | **Portée navale** | ■■□□□□□□□□ (2/10) |
 | **Cartographie** | ■■■□□□□□□□ (3/10) |
-| **Nations connues** | 10 (Saint-Empire romain germanique, Royaume d'Angleterre, États pontificaux, République de Venise, Royaume de León, Royaume de Navarre, Califat de Cordoue, Royaume du Danemark, Royaume de Norvège, Empire byzantin) |
+| **Nations connues** | 11 (Saint-Empire romain germanique, Royaume d'Angleterre, États pontificaux, République de Venise, Royaume de León, Royaume de Navarre, Califat de Cordoue, Royaume du Danemark, Royaume de Norvège, Empire byzantin, Royaume d'Écosse) |
 | **Mythes** | Prester John rules a Christian kingdom in the East · Monsters inhabit the deep ocean |
 
 </details>
 
-<details><summary>Vie quotidienne (3 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **nobility** (qualité de vie : 8/10)
 
@@ -1001,6 +7682,50 @@
 | Travail | Liturgy, manuscript illumination, teaching |
 | Loisirs | choral_singing, garden_tending, theological_debate |
 | Revenu moyen | 40 |
+
+**merchants** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, cheese, pork, onions, pears |
+| Logement | Stone townhouse near cathedral district |
+| Vêtements | Linen tunic, wool cloak, leather shoes |
+| Travail | Wine trade, textile commerce, market management |
+| Loisirs | fairs, chess, pilgrimages, tavern_gatherings |
+| Revenu moyen | 250 |
+
+**artisans** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, porridge, onions, cheese, wine, turnips |
+| Logement | Half-timbered workshop in town center |
+| Vêtements | Linen shirt, wool tunic, leather apron |
+| Travail | Stone masonry, weaving, leather tanning, goldsmithing |
+| Loisirs | guild_feasts, dice_games, mystery_plays |
+| Revenu moyen | 70 |
+
+**warriors** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, beef, wine, cheese, pork |
+| Logement | Castle garrison or manor barracks |
+| Vêtements | Chain mail, surcoat with lord's colors, iron helm |
+| Travail | Feudal military service, castle guard, escort duty |
+| Loisirs | tournaments, hunting, dice_games, tavern_gatherings |
+| Revenu moyen | 50 |
+
+**free_peasants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, porridge, turnips, onions, cider, cheese |
+| Logement | Wattle-and-daub cottage with thatched roof |
+| Vêtements | Rough linen shirt, wool tunic, wooden clogs |
+| Travail | Farming, vineyard labor, animal husbandry |
+| Loisirs | harvest_festivals, storytelling, church_attendance |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -1039,11 +7764,14 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (4)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Londres | capital | 15 000 | 5/10 | 6/10 | trade, port |
+| York | major_city | 10 000 | 6/10 | 6/10 | trade, religious_center |
+| Winchester | city | 8 000 | 5/10 | 5/10 | administration, religious_center |
+| Bristol | port | 5 000 | 4/10 | 5/10 | port, trade |
 
 </details>
 
@@ -1122,11 +7850,11 @@
 
 </details>
 
-<details><summary>Technologie (45 acquises)</summary>
+<details><summary>Technologie (46 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■□□□□□□ (4/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde, Moulin à eau
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde, Moulin à eau, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier
 - **construction** : Construction de base, Maçonnerie en pierre, Arc et voûte, Fortification, Construction routière, Construction de ponts
 - **craftsmanship** : Poterie, Tissage, Travail du cuir
@@ -1232,12 +7960,12 @@
 | **Capacité d'exploration** | ■■■■□□□□□□ (4/10) |
 | **Portée navale** | ■■■■□□□□□□ (4/10) |
 | **Cartographie** | ■■■□□□□□□□ (3/10) |
-| **Nations connues** | 9 (Saint-Empire romain germanique, Royaume de France, Royaume d'Écosse, États pontificaux, Royaume du Danemark, Royaume de Norvège, République de Venise, Califat de Cordoue, Empire byzantin) |
+| **Nations connues** | 10 (Saint-Empire romain germanique, Royaume de France, Royaume d'Écosse, États pontificaux, Royaume du Danemark, Royaume de Norvège, République de Venise, Califat de Cordoue, Empire byzantin, Royaume de León) |
 | **Mythes** | The Fortunate Isles lie to the west · Sea serpents guard unknown waters |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **nobility** (qualité de vie : 7/10)
 
@@ -1260,6 +7988,61 @@
 | Travail | Farming grain and sheep husbandry |
 | Loisirs | ale_house, wrestling, festivals, archery |
 | Revenu moyen | 18 |
+
+**merchants** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, ale, cheese, fish, pork, apples |
+| Logement | Timber townhouse near port or market |
+| Vêtements | Wool tunic, linen shirt, leather belt and boots |
+| Travail | Wool trade, port commerce, market stallholding |
+| Loisirs | fairs, tavern_gatherings, dice_games, bear_baiting |
+| Revenu moyen | 200 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, ale, cheese, vegetables, honey |
+| Logement | Monastery cell or rectory |
+| Vêtements | Black or brown wool habit, sandals |
+| Travail | Prayer, manuscript copying, parish administration, teaching |
+| Loisirs | chanting, gardening, manuscript_illumination |
+| Revenu moyen | 30 |
+
+**artisans** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, ale, cheese, pottage, herring |
+| Logement | Workshop-house in town |
+| Vêtements | Wool tunic, leather apron, linen undershirt |
+| Travail | Blacksmithing, weaving, pottery, tanning |
+| Loisirs | guild_feasts, dice_games, wrestling |
+| Revenu moyen | 60 |
+
+**warriors** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, beef, ale, cheese, pork |
+| Logement | Thegn's hall or burgh garrison |
+| Vêtements | Chain mail byrnie, iron helm, wool cloak |
+| Travail | Fyrd military service, border guard, houscarl duty |
+| Loisirs | hunting, wrestling, feasting, dice_games |
+| Revenu moyen | 50 |
+
+**serfs** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rye_bread, porridge, cabbage, turnips, ale |
+| Logement | One-room wattle-and-daub cottage on manor estate |
+| Vêtements | Rough wool tunic, linen undershirt, leather shoes |
+| Travail | Lord manor demesne labor, strip-field farming, harvest duties |
+| Loisirs | ale_house, wrestling, feast_days, folk_songs |
+| Revenu moyen | 5 |
 
 </details>
 
@@ -1299,11 +8082,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Venise | capital | 50 000 | 7/10 | 9/10 | trade, port, naval |
+| Murano | town | 3 000 | 3/10 | 7/10 | artisan |
 
 </details>
 
@@ -1493,7 +8277,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **merchants** (qualité de vie : 9/10)
 
@@ -1516,6 +8300,50 @@
 | Travail | Glassblowing, shipbuilding, weaving, metalwork |
 | Loisirs | festivals, tavern, music, regattas |
 | Revenu moyen | 60 |
+
+**nobility** (qualité de vie : 9/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, fish, spices, olives, fruits |
+| Logement | Grand palazzo on the Grand Canal |
+| Vêtements | Silk robes, velvet cloak, brocade cap |
+| Travail | Doge council, maritime commerce oversight, diplomacy |
+| Loisirs | regattas, banquets, patron_of_arts, chess |
+| Revenu moyen | 800 |
+
+**clergy** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, wine, vegetables, olives |
+| Logement | Church rectory or island monastery |
+| Vêtements | Black cassock, biretta |
+| Travail | Parish ministry, hospital management, religious ceremonies |
+| Loisirs | chanting, gardening, manuscript_study |
+| Revenu moyen | 40 |
+
+**free_peasants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, polenta, beans, wine, olive_oil |
+| Logement | Terrafirma stone farmhouse or lagoon fishing shack |
+| Vêtements | Linen shirt, wool hose, leather shoes |
+| Travail | Fishing in the lagoon, salt panning, mainland farming |
+| Loisirs | saint_days, tavern, boat_races, gambling |
+| Revenu moyen | 15 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, salt_pork, cheese, wine, biscuit |
+| Logement | Shipboard quarters or arsenal barracks |
+| Vêtements | Padded gambeson, mail shirt, conical helm, galley oar |
+| Travail | Galley warfare, merchant ship defense, arsenal shipbuilding guard |
+| Loisirs | tavern, dice_games, boat_races, religious_feasts |
+| Revenu moyen | 20 |
 
 </details>
 
@@ -1554,11 +8382,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | León | capital | 8 000 | 6/10 | 5/10 | military, religious_center |
+| Burgos | city | 5 000 | 6/10 | 4/10 | military, religious_center |
+| Saint-Jacques-de-Compostelle | city | 4 000 | 3/10 | 5/10 | religious_center |
 
 </details>
 
@@ -1746,7 +8576,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **warriors** (qualité de vie : 5/10)
 
@@ -1768,6 +8598,50 @@
 | Vêtements | Rough linen tunic, leather sandals |
 | Travail | Farming wheat, tending sheep and goats |
 | Loisirs | fiestas, pilgrimage, folk_music, dancing |
+| Revenu moyen | 15 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, pork, lamb, cheese, chickpeas |
+| Logement | Stone castle or fortified manor |
+| Vêtements | Wool tunic, chain mail for battle, leather boots, fur cloak |
+| Travail | Reconquista campaigns, estate management, court service |
+| Loisirs | hunting, falconry, tournaments, chess |
+| Revenu moyen | 250 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, cheese, olives, pork, lentils |
+| Logement | Stone house near market |
+| Vêtements | Wool tunic, leather belt, linen shirt |
+| Travail | Pilgrimage route commerce, livestock trade, wool trade |
+| Loisirs | fairs, church_attendance, tavern_gatherings |
+| Revenu moyen | 100 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, fish, cheese, beans |
+| Logement | Monastery or parish church |
+| Vêtements | Wool habit, rope belt, sandals |
+| Travail | Monastery life, pilgrimage hosting, manuscript copying |
+| Loisirs | chanting, gardening, manuscript_illumination |
+| Revenu moyen | 25 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, pork, cheese, wine, beans, onions |
+| Logement | Stone workshop in León or Santiago de Compostela |
+| Vêtements | Wool tunic, leather apron, leather shoes |
+| Travail | Pilgrimage-route church building, silversmithing, leather working |
+| Loisirs | saint_day_festivals, tavern, dice_games, music |
 | Revenu moyen | 15 |
 
 </details>
@@ -1806,11 +8680,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Pampelune | capital | 5 000 | 6/10 | 4/10 | military |
+| Tudela | town | 3 000 | 4/10 | 4/10 | agriculture, trade |
 
 </details>
 
@@ -1992,7 +8867,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 4/10)
 
@@ -2004,6 +8879,61 @@
 | Travail | Pastoral farming, transhumance, terraced agriculture |
 | Loisirs | folk_dancing, pelota, festivals, singing |
 | Revenu moyen | 14 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, lamb, cheese, walnuts, apples |
+| Logement | Mountain fortress or manor house |
+| Vêtements | Wool tunic, fur-lined cloak, leather boots |
+| Travail | Mountain pass defense, estate management, court attendance |
+| Loisirs | hunting, falconry, feasting, pelota |
+| Revenu moyen | 180 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, cheese, lamb, onions |
+| Logement | Timber house along pilgrimage route |
+| Vêtements | Wool cloak, linen tunic, leather sandals |
+| Travail | Pilgrimage route hostelry, cross-Pyrenean trade |
+| Loisirs | fairs, church_attendance, pelota |
+| Revenu moyen | 80 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, lamb, cheese, wine, nuts |
+| Logement | Garrison in mountain pass fortress |
+| Vêtements | Leather jerkin, iron helm, wool cloak |
+| Travail | Pass defense, border patrol, mountain guerrilla |
+| Loisirs | pelota, wrestling, feasting, storytelling |
+| Revenu moyen | 30 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, lamb, cheese, wine, chestnut, beans |
+| Logement | Monastery or parish church in Pyrenean valley |
+| Vêtements | Black Benedictine habit or parish priest vestments |
+| Travail | Camino de Santiago pilgrimage ministry, monastery farming, manuscript copying |
+| Loisirs | chanting, gardening, prayer, manuscript_copying |
+| Revenu moyen | 15 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, lamb, cheese, wine, chestnuts |
+| Logement | Stone workshop on Camino pilgrimage route town |
+| Vêtements | Wool tunic, leather apron, beret |
+| Travail | Pilgrimage-route inn building, ironwork, leather crafting, cathedral masonry |
+| Loisirs | festivals, pelota_game, tavern, music |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -2040,11 +8970,14 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (4)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Cordoue | capital | 400 000 | 8/10 | 10/10 | trade, academic, religious_center, manufacturing |
+| Tolède | major_city | 35 000 | 7/10 | 7/10 | trade, scholarship, artisan |
+| Séville | major_city | 30 000 | 6/10 | 7/10 | trade, port, artisan |
+| Grenade | city | 15 000 | 7/10 | 6/10 | artisan, agriculture |
 
 </details>
 
@@ -2236,7 +9169,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (3 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 9/10)
 
@@ -2270,6 +9203,39 @@
 | Travail | Ceramic tilework, leatherwork, metalwork, silk weaving |
 | Loisirs | baths, storytelling, festivals, music |
 | Revenu moyen | 50 |
+
+**clergy** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, dates, lamb, rice, yogurt, honey |
+| Logement | Quarters within mosque complex |
+| Vêtements | White cotton robe, turban, leather sandals |
+| Travail | Quranic scholarship, mosque administration, jurisprudence (fiqh) |
+| Loisirs | poetry_recitals, manuscript_study, garden_strolls |
+| Revenu moyen | 100 |
+
+**warriors** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, lamb, rice, dates, olives |
+| Logement | Barracks in alcázar or frontier ribat |
+| Vêtements | Chain mail, conical helm, silk sash, leather boots |
+| Travail | Frontier garrison, cavalry patrol, palace guard |
+| Loisirs | horse_riding, javelin_throwing, poetry_recitals, chess |
+| Revenu moyen | 80 |
+
+**free_peasants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, olives, dates, vegetables, yogurt |
+| Logement | Whitewashed adobe house with courtyard |
+| Vêtements | Cotton tunic, straw hat, leather sandals |
+| Travail | Irrigated farming, olive groves, date palms |
+| Loisirs | storytelling, market_day, mosque_attendance |
+| Revenu moyen | 20 |
 
 </details>
 
@@ -2310,11 +9276,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Roskilde | capital | 5 000 | 4/10 | 5/10 | trade, port |
+| Hedeby | port | 5 000 | 5/10 | 7/10 | trade, port, artisan |
 
 </details>
 
@@ -2499,12 +9466,12 @@
 | **Capacité d'exploration** | ■■■■■■□□□□ (6/10) |
 | **Portée navale** | ■■■■■■■□□□ (7/10) |
 | **Cartographie** | ■■■□□□□□□□ (3/10) |
-| **Nations connues** | 8 (Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Royaume de Norvège, Royaume de Suède, Royaume de Pologne, Rus' de Kiev, Empire byzantin) |
+| **Nations connues** | 12 (Royaume d'Angleterre, Royaume de France, Saint-Empire romain germanique, Royaume de Norvège, Royaume de Suède, Royaume de Pologne, Rus' de Kiev, Empire byzantin, Royaume d'Écosse, États pontificaux, République de Venise, Sami (Laponie)) |
 | **Mythes** | Vinland lies across the western ocean · Jörmungandr encircles the world in the deep sea |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **warriors** (qualité de vie : 5/10)
 
@@ -2527,6 +9494,50 @@
 | Travail | Farming barley and rye, fishing, animal husbandry |
 | Loisirs | sagas, ale_gathering, board_games, festivals |
 | Revenu moyen | 15 |
+
+**nobility** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, pork, fish, mead, cheese, berries |
+| Logement | Timber great hall with turf roof |
+| Vêtements | Wool tunic, fur cloak, silver arm rings, leather boots |
+| Travail | Jarldom administration, naval command, trade oversight |
+| Loisirs | feasting, saga_telling, hunting, hnefatafl |
+| Revenu moyen | 300 |
+
+**merchants** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, mead, cheese, pork |
+| Logement | Timber longhouse in trading town (Hedeby) |
+| Vêtements | Wool tunic, fur cap, leather belt with pouch |
+| Travail | Baltic trade, amber commerce, slave trade, fur export |
+| Loisirs | saga_telling, dice_games, market_haggling |
+| Revenu moyen | 150 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, ale, cheese, honey |
+| Logement | Newly-built wooden church or missionary station |
+| Vêtements | Wool cassock, wooden cross pendant |
+| Travail | Christianization missions, parish establishment, baptisms |
+| Loisirs | chanting, manuscript_study, gardening |
+| Revenu moyen | 20 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rye_bread, herring, pork, beer, cabbage |
+| Logement | Timber workshop in market town |
+| Vêtements | Wool tunic, leather apron, leather shoes |
+| Travail | Shipbuilding, blacksmithing, amber carving, jewelry making |
+| Loisirs | tavern, festivals, dice_games, wrestling |
+| Revenu moyen | 20 |
 
 </details>
 
@@ -2565,11 +9576,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Gniezno | capital | 5 000 | 5/10 | 4/10 | religious_center |
+| Wrocław | city | 4 000 | 4/10 | 4/10 | trade |
 
 </details>
 
@@ -2645,11 +9657,11 @@
 
 </details>
 
-<details><summary>Technologie (33 acquises)</summary>
+<details><summary>Technologie (34 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■□□□□□□ (4/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier
 - **construction** : Construction de base, Maçonnerie en pierre, Fortification, Construction routière
 - **craftsmanship** : Poterie, Tissage, Travail du cuir
@@ -2750,12 +9762,12 @@
 | **Capacité d'exploration** | ■■■□□□□□□□ (3/10) |
 | **Portée navale** | ■□□□□□□□□□ (1/10) |
 | **Cartographie** | ■■□□□□□□□□ (2/10) |
-| **Nations connues** | 7 (Saint-Empire romain germanique, Royaume de Hongrie, Rus' de Kiev, Royaume du Danemark, Royaume de Suède, Empire byzantin, Royaume de Croatie) |
+| **Nations connues** | 8 (Saint-Empire romain germanique, Royaume de Hongrie, Rus' de Kiev, Royaume du Danemark, Royaume de Suède, Empire byzantin, Royaume de Croatie, États pontificaux) |
 | **Mythes** | Wild peoples inhabit the eastern steppes |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **nobility** (qualité de vie : 7/10)
 
@@ -2778,6 +9790,61 @@
 | Travail | Farming rye and wheat, beekeeping |
 | Loisirs | festivals, folk_dancing, storytelling |
 | Revenu moyen | 12 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, beet_soup, pork, cheese, beer, honey |
+| Logement | Timber townhouse in gród (fortified settlement) |
+| Vêtements | Wool tunic, fur cap, leather boots |
+| Travail | Amber trade, salt commerce, cattle trade |
+| Loisirs | fairs, tavern_gatherings, dice_games |
+| Revenu moyen | 80 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, beer, cheese, honey, vegetables |
+| Logement | Newly-built monastery or bishop's residence |
+| Vêtements | Wool habit, leather sandals, wooden cross |
+| Travail | Christianization, parish establishment, education |
+| Loisirs | chanting, manuscript_study, gardening |
+| Revenu moyen | 20 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, pork, beer, cheese, cabbage |
+| Logement | Gród garrison barracks |
+| Vêtements | Lamellar armor, iron helm, leather boots, wool cloak |
+| Travail | Gród defense, ducal military service, border patrols |
+| Loisirs | wrestling, feasting, dice_games, hunting |
+| Revenu moyen | 40 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rye_bread, cabbage, pork, beer, onions |
+| Logement | Timber workshop in Gniezno or Kraków market settlement |
+| Vêtements | Wool tunic, leather apron, felt cap |
+| Travail | Blacksmithing, amber working, pottery, salt mining tool repair |
+| Loisirs | festivals, tavern, dice_games, storytelling |
+| Revenu moyen | 15 |
+
+**serfs** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rye_bread, cabbage, turnips, porridge, beer |
+| Logement | Timber hut on noble estate |
+| Vêtements | Rough linen shirt, wool trousers, straw shoes |
+| Travail | Noble estate labor, grain farming, forest work |
+| Loisirs | folk_songs, festivals, wrestling, storytelling |
+| Revenu moyen | 4 |
 
 </details>
 
@@ -2851,11 +9918,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Rome | capital | 35 000 | 5/10 | 8/10 | religious_center, academic |
+| Ravenne | city | 8 000 | 4/10 | 5/10 | religious_center |
+| Mont-Cassin | monastery | 500 | 3/10 | 4/10 | religious_center, scholarship |
 
 </details>
 
@@ -3033,12 +10102,12 @@
 | **Capacité d'exploration** | ■■■□□□□□□□ (3/10) |
 | **Portée navale** | ■■■□□□□□□□ (3/10) |
 | **Cartographie** | ■■■■■□□□□□ (5/10) |
-| **Nations connues** | 14 (Saint-Empire romain germanique, Royaume de France, Royaume d'Angleterre, République de Venise, Royaume de León, Califat de Cordoue, Empire byzantin, Royaume de Hongrie, Royaume de Pologne, Califat fatimide, Royaume de Croatie, Royaume du Danemark, Royaume de Norvège, Rus' de Kiev) |
+| **Nations connues** | 15 (Saint-Empire romain germanique, Royaume de France, Royaume d'Angleterre, République de Venise, Royaume de León, Califat de Cordoue, Empire byzantin, Royaume de Hongrie, Royaume de Pologne, Califat fatimide, Royaume de Croatie, Royaume du Danemark, Royaume de Norvège, Rus' de Kiev, Royaume de Navarre) |
 | **Mythes** | The Garden of Eden lies in the distant East · Gog and Magog dwell beyond the Caspian gates |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **clergy** (qualité de vie : 8/10)
 
@@ -3061,6 +10130,50 @@
 | Travail | Trade in religious artefacts, banking, provisioning |
 | Loisirs | feasting, horse_racing, dice, theatre |
 | Revenu moyen | 150 |
+
+**nobility** (qualité de vie : 8/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, cheese, pork, olives, figs |
+| Logement | Fortified palazzo in Rome |
+| Vêtements | Silk tunic, embroidered cloak, leather boots |
+| Travail | Papal administration, landholding, political intrigue |
+| Loisirs | banquets, horse_riding, chess, patron_of_arts |
+| Revenu moyen | 400 |
+
+**artisans** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, olives, cheese, beans, onions |
+| Logement | Workshop near church construction site |
+| Vêtements | Linen tunic, leather apron |
+| Travail | Church construction, mosaic work, goldsmithing, manuscript binding |
+| Loisirs | guild_feasts, religious_processions, dice_games |
+| Revenu moyen | 60 |
+
+**free_peasants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, olive_oil, cheese, beans, wine, figs |
+| Logement | Stone or tufa house with tile roof in Latium countryside |
+| Vêtements | Linen tunic, straw hat, leather sandals |
+| Travail | Olive and grape cultivation, wheat farming on Church lands |
+| Loisirs | saint_day_festivals, tavern, dice_games, pilgrimages |
+| Revenu moyen | 12 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, pork, cheese, wine, beans |
+| Logement | Barracks in papal fortress or hired condottiere camp |
+| Vêtements | Mail hauberk, papal banner surcoat, iron helm |
+| Travail | Papal guard, defense of Church territories, mercenary service |
+| Loisirs | dice_games, tavern, religious_feasts, sword_practice |
+| Revenu moyen | 25 |
 
 </details>
 
@@ -3099,11 +10212,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Esztergom | capital | 8 000 | 6/10 | 5/10 | religious_center, administrative |
+| Pécs | city | 4 000 | 4/10 | 4/10 | religious_center, scholarship |
 
 </details>
 
@@ -3182,11 +10296,11 @@
 
 </details>
 
-<details><summary>Technologie (34 acquises)</summary>
+<details><summary>Technologie (35 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■□□□□□□ (4/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier
 - **construction** : Construction de base, Maçonnerie en pierre, Fortification, Construction routière
 - **craftsmanship** : Poterie, Tissage, Travail du cuir
@@ -3287,12 +10401,12 @@
 | **Capacité d'exploration** | ■■■□□□□□□□ (3/10) |
 | **Portée navale** | ■□□□□□□□□□ (1/10) |
 | **Cartographie** | ■■■□□□□□□□ (3/10) |
-| **Nations connues** | 7 (Saint-Empire romain germanique, Royaume de Pologne, Rus' de Kiev, Royaume de Croatie, Empire byzantin, République de Venise, États pontificaux) |
+| **Nations connues** | 8 (Saint-Empire romain germanique, Royaume de Pologne, Rus' de Kiev, Royaume de Croatie, Empire byzantin, République de Venise, États pontificaux, Bulgarie de la Volga) |
 | **Mythes** | Our ancestors came from the great eastern steppe |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **warriors** (qualité de vie : 5/10)
 
@@ -3315,6 +10429,61 @@
 | Travail | Farming wheat, vineyards, animal husbandry |
 | Loisirs | folk_dancing, festivals, music |
 | Revenu moyen | 13 |
+
+**nobility** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, beef, wine, cheese, paprika_stew, plums |
+| Logement | Stone castle or fortified manor |
+| Vêtements | Silk-trimmed tunic, fur-lined dolman, leather boots |
+| Travail | Royal court service, land administration, military leadership |
+| Loisirs | hunting, horse_riding, feasting, falconry |
+| Revenu moyen | 300 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, beef, wine, cheese, onions |
+| Logement | Timber townhouse near Danube crossing |
+| Vêtements | Wool tunic, fur cap, leather belt |
+| Travail | Danube trade, salt commerce, horse trade |
+| Loisirs | fairs, tavern_gatherings, dice_games |
+| Revenu moyen | 100 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, wine, cheese, vegetables |
+| Logement | Monastery or bishop's palace (Esztergom) |
+| Vêtements | Black Benedictine habit, sandals |
+| Travail | Parish ministry, Christianization of Magyars, education |
+| Loisirs | chanting, gardening, manuscript_study |
+| Revenu moyen | 25 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, pork, onions, beer, cabbage |
+| Logement | Timber workshop in fortified market town |
+| Vêtements | Wool tunic, leather apron, felt cap, boots |
+| Travail | Blacksmithing, leatherwork, horse-gear crafting, pottery |
+| Loisirs | festivals, tavern, dice_games, music |
+| Revenu moyen | 15 |
+
+**serfs** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, cabbage, onions, porridge, water |
+| Logement | Mudbrick hut on noble estate in Hungarian plain |
+| Vêtements | Rough linen shirt, wool trousers, leather wraps |
+| Travail | Lord estate grain farming, vineyard labor, livestock tending |
+| Loisirs | folk_songs, festivals, wrestling, dice_games |
+| Revenu moyen | 4 |
 
 </details>
 
@@ -3352,10 +10521,11 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
+| Split | port | 5 000 | 5/10 | 5/10 | port, trade |
 | Biograd na Moru | capital | 4 000 | 5/10 | 4/10 | port |
 
 </details>
@@ -3541,7 +10711,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **free_peasants** (qualité de vie : 4/10)
 
@@ -3553,6 +10723,72 @@
 | Travail | Farming, fishing, olive and grape cultivation |
 | Loisirs | folk_singing, festivals, horse_riding |
 | Revenu moyen | 15 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, lamb, fish, olive_oil, cheese |
+| Logement | Stone fortress or coastal manor |
+| Vêtements | Byzantine-influenced silk tunic, fur cloak, leather boots |
+| Travail | Županija administration, coastal defense, court service |
+| Loisirs | hunting, feasting, horse_riding, chess |
+| Revenu moyen | 200 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, wine, olive_oil, cheese |
+| Logement | Stone house in Dalmatian coastal town |
+| Vêtements | Linen tunic, wool cloak, leather sandals |
+| Travail | Adriatic maritime trade, salt commerce, wine export |
+| Loisirs | fairs, tavern_gatherings, sailing |
+| Revenu moyen | 100 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, lamb, wine, cheese, onions |
+| Logement | Stone fortification or garrison tower |
+| Vêtements | Chain mail, round shield, iron helm |
+| Travail | Border defense against Byzantines and Hungarians, naval patrols |
+| Loisirs | wrestling, feasting, dice_games |
+| Revenu moyen | 35 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, wine, cheese, olives, beans |
+| Logement | Stone monastery or parish house |
+| Vêtements | Black monastic habit or priest vestments |
+| Travail | Parish ministry, Glagolitic manuscript copying, monastic farming |
+| Loisirs | chanting, manuscript_illumination, gardening, prayer |
+| Revenu moyen | 15 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, wine, olives, cheese, beans |
+| Logement | Stone workshop in coastal town or walled settlement |
+| Vêtements | Linen tunic, leather apron, leather shoes |
+| Travail | Shipbuilding, stone masonry, Glagolitic inscription carving |
+| Loisirs | tavern, saint_day_festivals, music, dice_games |
+| Revenu moyen | 18 |
+
+**serfs** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, beans, cabbage, onions, wine_vinegar |
+| Logement | Stone or wattle hut on Lord estate |
+| Vêtements | Rough linen tunic, leather sandals |
+| Travail | Estate farming, olive grove labor, vineyard work |
+| Loisirs | saint_days, folk_songs, dice_games, storytelling |
+| Revenu moyen | 4 |
 
 </details>
 
@@ -3653,11 +10889,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Scone | capital | 3 000 | 4/10 | 3/10 | religious_center |
+| Dunfermline | town | 3 000 | 4/10 | 4/10 | religious_center, administration |
 
 </details>
 
@@ -3844,7 +11081,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **warriors** (qualité de vie : 4/10)
 
@@ -3867,6 +11104,50 @@
 | Travail | Farming oats, fishing, livestock tending |
 | Loisirs | ceilidh_music, storytelling, wrestling |
 | Revenu moyen | 10 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | oat_bread, venison, beef, ale, cheese, salmon |
+| Logement | Stone tower house or timber hall |
+| Vêtements | Wool plaid, linen léine, leather boots, silver brooch |
+| Travail | Clan leadership, estate management, court attendance |
+| Loisirs | hunting, falconry, feasting, bardic_recitals |
+| Revenu moyen | 200 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | oat_bread, fish, ale, cheese, mutton |
+| Logement | Timber house near market town |
+| Vêtements | Wool tunic, leather belt, linen shirt |
+| Travail | Cattle trade, fish export, wool commerce |
+| Loisirs | fairs, dice_games, tavern_gatherings |
+| Revenu moyen | 80 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | oat_bread, fish, cheese, ale, honey |
+| Logement | Monastery or Celtic church settlement |
+| Vêtements | Wool habit, leather sandals |
+| Travail | Monastic prayer, manuscript copying, parish ministry |
+| Loisirs | chanting, gardening, manuscript_illumination |
+| Revenu moyen | 20 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | oat_porridge, herring, barley_bread, beer, cheese |
+| Logement | Stone workshop in burgh or monastery precinct |
+| Vêtements | Wool tunic, leather apron, leather shoes |
+| Travail | Stone cross carving, blacksmithing, wool weaving, boat building |
+| Loisirs | ceilidh_music, tavern, saint_days, dice_games |
+| Revenu moyen | 12 |
 
 </details>
 
@@ -3902,11 +11183,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Nidaros (Trondheim) | capital | 3 000 | 3/10 | 3/10 | port, religious_center |
+| Nidaros (Trondheim) | city | 3 000 | 4/10 | 4/10 | religious_center, port |
+| Bergen | port | 2 000 | 3/10 | 4/10 | port, trade |
 
 </details>
 
@@ -4088,12 +11371,12 @@
 | **Capacité d'exploration** | ■■■■■■■□□□ (7/10) |
 | **Portée navale** | ■■■■■■■■□□ (8/10) |
 | **Cartographie** | ■■■□□□□□□□ (3/10) |
-| **Nations connues** | 7 (Royaume d'Angleterre, Royaume d'Écosse, Royaume du Danemark, Royaume de Suède, Royaume de France, Saint-Empire romain germanique, Rus' de Kiev) |
+| **Nations connues** | 10 (Royaume d'Angleterre, Royaume d'Écosse, Royaume du Danemark, Royaume de Suède, Royaume de France, Saint-Empire romain germanique, Rus' de Kiev, États pontificaux, Empire byzantin, Sami (Laponie)) |
 | **Mythes** | Vinland is rich with timber and grapes · Niflheim lies in the frozen north |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **warriors** (qualité de vie : 5/10)
 
@@ -4116,6 +11399,50 @@
 | Travail | Fjord fishing, sheep herding, small-scale farming |
 | Loisirs | sagas, skiing, feasts, board_games |
 | Revenu moyen | 12 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, venison, mead, cheese, berries |
+| Logement | Timber longhouse with stone foundation |
+| Vêtements | Wool tunic, bearskin cloak, silver brooch, iron sword |
+| Travail | Jarldom governance, naval raids command, fjord trade control |
+| Loisirs | feasting, saga_telling, hunting, skiing |
+| Revenu moyen | 250 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | dried_fish, bread, cheese, mead, whale_meat |
+| Logement | Timber house near coastal trading post |
+| Vêtements | Wool tunic, sealskin cloak, leather boots |
+| Travail | Stockfish export, walrus ivory trade, Viking-route commerce |
+| Loisirs | saga_telling, dice_games, sailing |
+| Revenu moyen | 120 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, beer, cheese, porridge, butter |
+| Logement | Stave church parish house or small monastery |
+| Vêtements | Wool cassock, fur-lined cloak in winter, wooden cross |
+| Travail | Parish priest, baptisms, burials, slowly replacing old Norse faith |
+| Loisirs | prayer, hymn_singing, herb_gardening, storytelling |
+| Revenu moyen | 15 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rye_bread, herring, porridge, beer, butter |
+| Logement | Timber longhouse with forge or workshop |
+| Vêtements | Wool tunic, leather apron, fur hat |
+| Travail | Shipbuilding (knarr/longship), blacksmithing, wood carving, stave-church carpentry |
+| Loisirs | sagas, tavern, dice_games, wrestling |
+| Revenu moyen | 18 |
 
 </details>
 
@@ -4152,11 +11479,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Sigtuna | capital | 4 000 | 3/10 | 4/10 | trade, religious_center |
+| Birka | port | 3 000 | 4/10 | 7/10 | trade, port, artisan |
 
 </details>
 
@@ -4338,7 +11666,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 3/10)
 
@@ -4350,6 +11678,61 @@
 | Travail | Farming barley, iron extraction, fur trapping |
 | Loisirs | sagas, board_games, blót_festivals |
 | Revenu moyen | 12 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, pork, mead, cheese, berries |
+| Logement | Timber great hall near lake or coast |
+| Vêtements | Wool tunic, fur-trimmed cloak, gold arm ring |
+| Travail | Regional government (jarl), Thing assembly leadership, trade oversight |
+| Loisirs | feasting, saga_telling, hnefatafl, hunting |
+| Revenu moyen | 250 |
+
+**merchants** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, cheese, mead, pork |
+| Logement | Timber house in Birka trading quarter |
+| Vêtements | Wool tunic, leather belt with silver clasps |
+| Travail | Varangian trade route commerce, fur trade, iron export |
+| Loisirs | dice_games, saga_telling, market_haggling |
+| Revenu moyen | 130 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, pork, mead, cheese |
+| Logement | Warrior longhouse or ship |
+| Vêtements | Chain mail, round shield, iron helm, wool tunic |
+| Travail | Viking expeditions, leidang (naval levy), guard duty |
+| Loisirs | sparring, saga_telling, feasting, hnefatafl |
+| Revenu moyen | 40 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, porridge, beer, butter, cheese |
+| Logement | Timber church parish house or small monastery |
+| Vêtements | Wool cassock, fur-lined cloak, wooden pectoral cross |
+| Travail | Parish priest, gradual Christianization, rune-stone blessings |
+| Loisirs | prayer, hymn_singing, gardening, storytelling |
+| Revenu moyen | 15 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rye_bread, herring, porridge, beer, butter |
+| Logement | Timber workshop in Birka or Sigtuna market town |
+| Vêtements | Wool tunic, leather apron, fur hat |
+| Travail | Blacksmithing, shipbuilding, rune-stone carving, amber and silver work |
+| Loisirs | sagas, tavern, festivals, wrestling |
+| Revenu moyen | 18 |
 
 </details>
 
@@ -4377,11 +11760,12 @@
 | **Prestige** | ■■■■■■■■□□ (8/10) |
 | **Couleur carte** | `#A40000` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Tula | capital | 40 000 | 6/10 | 7/10 | military, religious_center, trade |
+| Cholula | city | 20 000 | 5/10 | 6/10 | religious_center, trade |
 
 </details>
 
@@ -4565,7 +11949,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **warriors** (qualité de vie : 6/10)
 
@@ -4588,6 +11972,50 @@
 | Travail | Maize farming, maguey cultivation, tribute labor |
 | Loisirs | festivals, ball_game_spectating, music |
 | Revenu moyen | 6 |
+
+**nobility** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize_tortillas, cacao, turkey, beans, chili, squash |
+| Logement | Stone palace in Tula with columned halls |
+| Vêtements | Cotton tilma, quetzal-feather headdress, jade jewelry |
+| Travail | City governance, military command, ritual leadership |
+| Loisirs | ball_game, feasting, patron_of_arts, hunting |
+| Revenu moyen | 300 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize_tortillas, beans, cacao, chili, turkey |
+| Logement | Adobe house in merchant quarter |
+| Vêtements | Cotton tilma, sandals, leather pouch |
+| Travail | Long-distance pochteca-style trade, obsidian commerce, cacao trade |
+| Loisirs | ball_game, market_gatherings, feasting |
+| Revenu moyen | 100 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize_tortillas, beans, cacao, honey, squash |
+| Logement | Temple quarters atop pyramid |
+| Vêtements | Black cotton robe, obsidian pectoral, feathered ornaments |
+| Travail | Temple ritual, astronomical calculations, calendar keeping |
+| Loisirs | meditation, astronomical_observation, ball_game |
+| Revenu moyen | 20 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, beans, squash, cacao, turkey, pulque |
+| Logement | Adobe workshop near Tula ceremonial center |
+| Vêtements | Cotton loincloth, jade earspools, obsidian tools at belt |
+| Travail | Obsidian blade knapping, Atlantean column carving, featherwork, pottery |
+| Loisirs | ball_game, ceremonies, music, storytelling |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -4623,11 +12051,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Chichén Itzá | capital | 35 000 | 5/10 | 6/10 | religious_center, academic, trade |
+| Uxmal | city | 10 000 | 5/10 | 5/10 | religious_center, artisan |
 
 </details>
 
@@ -4811,7 +12240,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **clergy** (qualité de vie : 7/10)
 
@@ -4834,6 +12263,50 @@
 | Travail | Milpa farming (slash-and-burn maize), beekeeping |
 | Loisirs | ball_game_spectating, festivals, market_visits |
 | Revenu moyen | 5 |
+
+**nobility** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize_tortillas, cacao, turkey, venison, honey, chili |
+| Logement | Limestone palace with painted murals |
+| Vêtements | Cotton huipil, jade necklace, quetzal-feather headdress |
+| Travail | City-state rule (ajaw), diplomacy, ritual blood-letting |
+| Loisirs | ball_game, feasting, patron_of_arts, astronomical_observation |
+| Revenu moyen | 250 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize_tortillas, beans, cacao, fish, chili |
+| Logement | Adobe house near marketplace |
+| Vêtements | Cotton loincloth and cape, jade ear plugs |
+| Travail | Cacao and obsidian trade, coastal canoe commerce, salt trade |
+| Loisirs | ball_game, market_gatherings, feasting |
+| Revenu moyen | 80 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize_tortillas, beans, venison, chili, cacao |
+| Logement | Warrior quarters near palace |
+| Vêtements | Padded cotton armor, animal-skin headdress, obsidian-edged macuahuitl |
+| Travail | Inter-city warfare, captive raids, palace guard |
+| Loisirs | ball_game, feasting, war_dances, wrestling |
+| Revenu moyen | 30 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, beans, squash, cacao, turkey, chili |
+| Logement | Stone or thatch workshop near palace complex |
+| Vêtements | Cotton loincloth, jade earspools, body paint |
+| Travail | Jade carving, obsidian knapping, stucco temple decoration, codex painting |
+| Loisirs | ball_game, ceremonies, music, storytelling |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -4862,11 +12335,12 @@
 | **Prestige** | ■■■■■□□□□□ (5/10) |
 | **Couleur carte** | `#D2691E` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Chaco Canyon (Pueblo Bonito) | major_city | 5 000 | 4/10 | 5/10 | religious, academic |
+| Pueblo Bonito | town | 1 500 | 4/10 | 3/10 | agriculture, artisan |
 
 </details>
 
@@ -5041,7 +12515,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 5/10)
 
@@ -5053,6 +12527,61 @@
 | Travail | Irrigated farming, turquoise crafting, trade |
 | Loisirs | kachina_ceremonies, pottery, storytelling, music |
 | Revenu moyen | 8 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, beans, venison, pine_nuts |
+| Logement | Pueblo room block |
+| Vêtements | Cotton cloth, leather war shirt, face paint |
+| Travail | Pueblo defense, raiding deterrence, hunting parties |
+| Loisirs | kachina_dances, wrestling, storytelling |
+| Revenu moyen | 8 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, beans, sunflower_seeds |
+| Logement | Pueblo room block with workshop |
+| Vêtements | Cotton cloth, turquoise jewelry |
+| Travail | Pottery making, turquoise jewelry, basket weaving, textile work |
+| Loisirs | kachina_dances, storytelling, ceremonies |
+| Revenu moyen | 8 |
+
+**nobility** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, beans, turkey, piñon_nuts |
+| Logement | Upper-level rooms in pueblo complex, near kiva |
+| Vêtements | Cotton robe, turquoise necklace, feathered prayer sticks |
+| Travail | Clan elder, kiva ceremony leader, irrigation management |
+| Loisirs | kachina_dances, storytelling, ceremonies, pottery |
+| Revenu moyen | 15 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, beans, piñon_nuts, turkey |
+| Logement | Pueblo room near trade road entrance |
+| Vêtements | Cotton cloth, turquoise jewelry, macaw feathers from Mesoamerica |
+| Travail | Turquoise and macaw feather long-distance trade, pottery exchange |
+| Loisirs | ceremonies, pottery, trade_fairs, storytelling |
+| Revenu moyen | 12 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, beans, piñon_nuts, corn_pollen |
+| Logement | Kiva (underground ceremonial chamber) |
+| Vêtements | Cotton kilt, turquoise necklace, kachina mask, prayer feathers |
+| Travail | Kiva leader, kachina dancer, rain ceremonies, seasonal planting rites |
+| Loisirs | kachina_ceremonies, storytelling, pottery, prayer |
+| Revenu moyen | 10 |
 
 </details>
 
@@ -5089,11 +12618,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Sápmi (camp central de Laponie) | town | 1 500 | 3/10 | 3/10 | trade |
+| Staloluokta | nomadic_camp | 300 | 1/10 | 2/10 |  |
 
 </details>
 
@@ -5269,7 +12799,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **nomads** (qualité de vie : 4/10)
 
@@ -5280,6 +12810,72 @@
 | Vêtements | Gákti (colorful wool tunic), reindeer skin boots, woven belt |
 | Travail | Reindeer herding, fishing, fur trading with Norse |
 | Loisirs | joik_singing, drum_ceremony, storytelling, skiing |
+| Revenu moyen | 6 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | reindeer_meat, fish, berries, roots |
+| Logement | Goahti (turf hut) or lavvu (tent) |
+| Vêtements | Reindeer-hide gákti, fur boots, leather belt with knife |
+| Travail | Herd protection, territorial defense, hunting |
+| Loisirs | joik_singing, storytelling, reindeer_racing |
+| Revenu moyen | 5 |
+
+**free_peasants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | fish, reindeer_meat, berries, flatbread, roots |
+| Logement | Turf hut (goahti) at semi-permanent coastal fishing camp |
+| Vêtements | Gákti (wool tunic), reindeer-skin boots, woven belt |
+| Travail | Coastal fishing, berry gathering, small-scale trapping |
+| Loisirs | joik_singing, storytelling, handicrafts, skiing |
+| Revenu moyen | 5 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | reindeer_meat, dried_fish, berries, bread, butter |
+| Logement | Largest lavvu or goahti at prime grazing camp |
+| Vêtements | Richly decorated gákti, silver brooch, reindeer-fur boots |
+| Travail | Siida leader, reindeer herd management, Norse trade negotiation |
+| Loisirs | joik_singing, storytelling, drum_ceremonies, feasting |
+| Revenu moyen | 15 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | reindeer_meat, fish, berries, bartered_grain |
+| Logement | Coastal trading camp or Norse market town edge |
+| Vêtements | Gákti, reindeer-fur boots, silver brooches from trade |
+| Travail | Fur, reindeer antler and dried fish trade with Norse and Novgorod |
+| Loisirs | joik_singing, trade_gatherings, storytelling, skiing |
+| Revenu moyen | 10 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | reindeer_meat, fish, berries, roots, flatbread |
+| Logement | Lavvu with noaidi drum and sacred objects |
+| Vêtements | Gákti decorated with brass rings, rune drum, amulet pouch |
+| Travail | Noaidi (shaman), drum divination, spirit journeys, healing |
+| Loisirs | drum_ceremonies, joik_singing, herb_gathering, trance |
+| Revenu moyen | 6 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | reindeer_meat, fish, berries, flatbread |
+| Logement | Lavvu or goahti with duodji workshop area |
+| Vêtements | Gákti, reindeer-skin boots, woven belt |
+| Travail | Duodji (Sami handicraft) — bone and antler carving, leatherwork, pewter braiding |
+| Loisirs | joik_singing, duodji_crafting, storytelling, festivals |
 | Revenu moyen | 6 |
 
 </details>
@@ -5300,11 +12896,12 @@
 | **Prestige** | ■■■■□□□□□□ (4/10) |
 | **Couleur carte** | `#BF360C` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Snaketown (Skoaquik) | town | 3 000 | 3/10 | 4/10 | agriculture |
+| Pueblo Grande | town | 2 000 | 2/10 | 4/10 | irrigation, artisan |
 
 </details>
 
@@ -5471,7 +13068,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 4/10)
 
@@ -5483,6 +13080,61 @@
 | Travail | Irrigation farming, canal maintenance, pottery, shell trade |
 | Loisirs | ball_game, storytelling, pottery_making, ceremonial_dance |
 | Revenu moyen | 5 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, beans, squash, cactus_fruit, game_meat |
+| Logement | Pit house or adobe surface house |
+| Vêtements | Cotton cloth, leather war shirt |
+| Travail | Village defense, irrigation canal protection, hunting |
+| Loisirs | ball_game, storytelling, ceremonies |
+| Revenu moyen | 5 |
+
+**nobility** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, beans, agave, rabbit, cactus_fruit |
+| Logement | Adobe compound overlooking ball court |
+| Vêtements | Cotton robe, turquoise jewelry, shell ornaments |
+| Travail | Canal system management, ceremony leadership, trade direction |
+| Loisirs | ball_game, ceremonies, feasting, shell_etching |
+| Revenu moyen | 20 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, beans, squash, agave, rabbit |
+| Logement | Adobe house near ball-court trading center |
+| Vêtements | Cotton cloth, shell ornaments from Gulf of California |
+| Travail | Shell and turquoise long-distance trade, copper bells from Mesoamerica |
+| Loisirs | ball_game, ceremonies, shell_etching, feasting |
+| Revenu moyen | 15 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, beans, agave, cactus_fruit |
+| Logement | Adobe room near ball court and platform mound |
+| Vêtements | Cotton robe, turquoise and shell ornaments, feathered staff |
+| Travail | Ceremony leader, ball-game ritual direction, rain prayer, calendar keeping |
+| Loisirs | ceremonies, astronomical_observation, ball_game, storytelling |
+| Revenu moyen | 15 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, beans, squash, agave, cactus_fruit |
+| Logement | Adobe pit-house with workshop |
+| Vêtements | Cotton cloth, shell and turquoise ornaments |
+| Travail | Shell etching (acid technique), pottery, turquoise jewelry, canal plastering |
+| Loisirs | ball_game, ceremonies, shell_working, storytelling |
+| Revenu moyen | 10 |
 
 </details>
 
@@ -5510,11 +13162,12 @@
 | **Prestige** | ■■□□□□□□□□ (2/10) |
 | **Couleur carte** | `#004D40` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Camp déné (Grand lac des Esclaves) | town | 1 000 | 2/10 | 2/10 | hunting |
+| Camp déné (rivière Liard) | village | 200 | 1/10 | 2/10 | hunting, trapping |
 
 </details>
 
@@ -5670,7 +13323,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **free_peasants** (qualité de vie : 3/10)
 
@@ -5681,6 +13334,72 @@
 | Vêtements | Caribou-skin tunic, moccasins, snowshoes |
 | Travail | Caribou hunting, fishing, trapping, dog sled travel |
 | Loisirs | drum_dance, storytelling, beadwork, games |
+| Revenu moyen | 3 |
+
+**warriors** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | moose, caribou, fish, berries, pemmican |
+| Logement | Conical birch-bark or hide tipi |
+| Vêtements | Moose-hide tunic, fringed leggings, moccasins, mittens |
+| Travail | Hunting-band defense, moose and caribou hunting, scouting |
+| Loisirs | storytelling, hand_games, drumming, dancing |
+| Revenu moyen | 3 |
+
+**nobility** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | moose, caribou, beaver, fish, berries, pemmican |
+| Logement | Largest tipi at camp center |
+| Vêtements | Decorated moose-hide tunic, porcupine-quill embroidery, eagle feathers |
+| Travail | Band leader, hunt organizer, inter-band diplomacy |
+| Loisirs | hand_games, storytelling, feasting, drumming |
+| Revenu moyen | 5 |
+
+**merchants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | moose, caribou, fish, berries, pemmican |
+| Logement | Tipi at river confluence trade camps |
+| Vêtements | Decorated moose-hide tunic, copper ornaments from trade |
+| Travail | Fur, obsidian and copper trade between interior and coast |
+| Loisirs | hand_games, feasting, storytelling |
+| Revenu moyen | 5 |
+
+**clergy** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | moose, caribou, fish, berries, medicinal_herbs |
+| Logement | Tipi with medicine bundle and sacred pipe |
+| Vêtements | Fringed moose-hide robe, medicine pouch, eagle feathers |
+| Travail | Medicine person, dreamwalking, healing, divination |
+| Loisirs | vision_quests, storytelling, herb_gathering, drumming |
+| Revenu moyen | 4 |
+
+**artisans** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | moose, caribou, fish, berries, pemmican |
+| Logement | Tipi with hide-working area |
+| Vêtements | Moose-hide tunic, fringed leggings |
+| Travail | Birch-bark canoe building, snowshoe making, moose-hide tanning |
+| Loisirs | crafting, storytelling, hand_games, drumming |
+| Revenu moyen | 3 |
+
+**nomads** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | caribou, moose, fish, berries, pemmican |
+| Logement | Caribou-hide tipi, moved following herds |
+| Vêtements | Moose-hide tunic, fur-lined moccasins, snowshoes in winter |
+| Travail | Seasonal migration following caribou, trapping, fishing camps |
+| Loisirs | hand_games, storytelling, drumming, dancing |
 | Revenu moyen | 3 |
 
 </details>
@@ -5701,11 +13420,12 @@
 | **Prestige** | ■■□□□□□□□□ (2/10) |
 | **Couleur carte** | `#546E7A` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Campement tchouktche (détroit de Béring) | town | 1 000 | 2/10 | 2/10 | hunting |
+| Camp tchouktche (cap Dejnev) | village | 150 | 1/10 | 2/10 | hunting, whaling |
 
 </details>
 
@@ -5862,7 +13582,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **free_peasants** (qualité de vie : 3/10)
 
@@ -5874,6 +13594,72 @@
 | Travail | Reindeer herding, walrus and whale hunting, ivory carving |
 | Loisirs | drum_dance, storytelling, ivory_carving, reindeer_racing |
 | Revenu moyen | 3 |
+
+**warriors** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | walrus, seal, whale, reindeer, fermented_meat |
+| Logement | Yaranga (large walrus-hide tent) |
+| Vêtements | Reindeer-skin parka, walrus-hide armor, bone helmet |
+| Travail | Walrus hunting, territorial warfare against rival groups |
+| Loisirs | drum_dance, wrestling, storytelling, throat_singing |
+| Revenu moyen | 4 |
+
+**nobility** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | whale, walrus, reindeer, seal, fermented_meat |
+| Logement | Largest yaranga with multiple chambers |
+| Vêtements | Finest reindeer-skin parka, fox-fur trim, ivory ornaments |
+| Travail | Camp leader, whale-hunt captain, trade negotiation with Siberians |
+| Loisirs | drum_ceremonies, wrestling, storytelling, feasting |
+| Revenu moyen | 8 |
+
+**merchants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | reindeer, seal, walrus, berries, fermented_meat |
+| Logement | Yaranga near coastal trade outpost |
+| Vêtements | Reindeer-skin clothing, ivory trade goods, iron from Siberian trade |
+| Travail | Fur and walrus-ivory trade with Siberian peoples, whale-oil barter |
+| Loisirs | storytelling, feasting, trade_fairs, wrestling |
+| Revenu moyen | 6 |
+
+**clergy** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | reindeer, seal, walrus, fermented_meat, berries |
+| Logement | Yaranga with shaman drum and sacred objects |
+| Vêtements | Shaman parka with spirit-figure pendants, carved ivory amulets |
+| Travail | Shaman, spirit communication, healing, weather divination |
+| Loisirs | drum_ceremonies, trance_journeys, storytelling, carving |
+| Revenu moyen | 5 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | reindeer, seal, walrus, fish, fermented_meat |
+| Logement | Yaranga with workshop space |
+| Vêtements | Reindeer-skin parka, bone carving tools at belt |
+| Travail | Ivory and bone carving, skin-boat (umiak) building, leather tanning |
+| Loisirs | carving, storytelling, drum_dance, wrestling |
+| Revenu moyen | 5 |
+
+**nomads** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | reindeer, walrus, seal, berries, fermented_meat |
+| Logement | Yaranga (reindeer-hide portable tent) |
+| Vêtements | Double-layered reindeer-skin parka, fur boots, bone goggles |
+| Travail | Reindeer herding across tundra, seasonal coastal whale hunts |
+| Loisirs | drum_dance, wrestling, storytelling, reindeer_racing |
+| Revenu moyen | 5 |
 
 </details>
 
@@ -5939,12 +13725,15 @@
 
 </details>
 
-<details><summary>Établissements (2)</summary>
+<details><summary>Établissements (5)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Kiev | capital | 50 000 | 7/10 | 7/10 | trade, religious_center, academic |
 | Novgorod | major_city | 20 000 | 6/10 | 7/10 | trade, port |
+| Smolensk | city | 6 000 | 5/10 | 4/10 | trade, military |
+| Moscou (Moskva) | town | 5 000 | 3/10 | 3/10 | trade |
+| Site de Saint-Pétersbourg | village | 200 | 1/10 | 1/10 |  |
 
 </details>
 
@@ -6025,11 +13814,11 @@
 
 </details>
 
-<details><summary>Technologie (35 acquises)</summary>
+<details><summary>Technologie (36 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■□□□□□□ (4/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Charrue lourde, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier
 - **construction** : Construction de base, Maçonnerie en pierre, Fortification, Construction routière
 - **craftsmanship** : Poterie, Tissage, Travail du cuir
@@ -6131,12 +13920,12 @@
 | **Capacité d'exploration** | ■■■■■□□□□□ (5/10) |
 | **Portée navale** | ■■■■□□□□□□ (4/10) |
 | **Cartographie** | ■■■□□□□□□□ (3/10) |
-| **Nations connues** | 9 (Empire byzantin, Royaume de Pologne, Royaume de Hongrie, Royaume du Danemark, Royaume de Norvège, Royaume de Suède, Saint-Empire romain germanique, Bulgarie de la Volga, Khanat karakhanide) |
+| **Nations connues** | 11 (Empire byzantin, Royaume de Pologne, Royaume de Hongrie, Royaume du Danemark, Royaume de Norvège, Royaume de Suède, Saint-Empire romain germanique, Bulgarie de la Volga, Khanat karakhanide, États pontificaux, République de Venise) |
 | **Mythes** | Tsargrad is the center of the world · Fierce peoples roam beyond the eastern steppe |
 
 </details>
 
-<details><summary>Vie quotidienne (3 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **nobility** (qualité de vie : 7/10)
 
@@ -6170,6 +13959,50 @@
 | Travail | Slash-and-burn farming, beekeeping, fishing |
 | Loisirs | folk_songs, festivals, banya |
 | Revenu moyen | 10 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, kvass, cabbage, honey, mushrooms |
+| Logement | Monastery cell (Caves Monastery in Kiev) |
+| Vêtements | Black Orthodox robe, klobuk (tall hat), leather sandals |
+| Travail | Orthodox liturgy, icon painting, chronicle writing |
+| Loisirs | chanting, icon_painting, gardening |
+| Revenu moyen | 20 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, kvass, cabbage, fish, porridge |
+| Logement | Timber workshop in posad (artisan quarter) |
+| Vêtements | Linen shirt, leather belt, wool kaftan |
+| Travail | Icon painting, enamel work, blacksmithing, woodcarving |
+| Loisirs | tavern_gatherings, dice_games, storytelling |
+| Revenu moyen | 50 |
+
+**warriors** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, meat, kvass, porridge, fish |
+| Logement | Druzhina barracks near prince's hall |
+| Vêtements | Chain mail, conical helm, red shield, fur cloak |
+| Travail | Prince's retinue (druzhina), border defense, tribute collection |
+| Loisirs | feasting, wrestling, dice_games, hunting |
+| Revenu moyen | 60 |
+
+**serfs** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rye_bread, cabbage_soup, porridge, kvass, turnips |
+| Logement | Log izba on boyar estate |
+| Vêtements | Rough linen shirt, wool caftan, bark shoes (lapti) |
+| Travail | Boyar estate labor, grain farming, forest clearing |
+| Loisirs | folk_songs, festivals, banya_bath, storytelling |
+| Revenu moyen | 4 |
 
 </details>
 
@@ -6208,11 +14041,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Bulgar | capital | 10 000 | 5/10 | 6/10 | trade |
+| Bolgar | city | 10 000 | 5/10 | 6/10 | trade, artisan |
 
 </details>
 
@@ -6393,12 +14227,12 @@
 | **Capacité d'exploration** | ■■■■□□□□□□ (4/10) |
 | **Portée navale** | ■■□□□□□□□□ (2/10) |
 | **Cartographie** | ■■■□□□□□□□ (3/10) |
-| **Nations connues** | 6 (Rus' de Kiev, Khanat karakhanide, Émirat bouyide, Empire ghaznavide, Empire byzantin, Royaume de Hongrie) |
+| **Nations connues** | 7 (Rus' de Kiev, Khanat karakhanide, Émirat bouyide, Empire ghaznavide, Empire byzantin, Royaume de Hongrie, Royaume de Suède) |
 | **Mythes** | The lands of Yajuj and Majuj lie to the far north |
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **merchants** (qualité de vie : 6/10)
 
@@ -6410,6 +14244,61 @@
 | Travail | Fur trade, transit commerce between East and West |
 | Loisirs | storytelling, chess, market_festivals |
 | Revenu moyen | 100 |
+
+**nobility** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, horse_meat, kumis, cheese, honey, fish |
+| Logement | Timber palace in Bolgar |
+| Vêtements | Silk-trimmed kaftan, fur hat, leather boots |
+| Travail | Trade diplomacy, territorial administration, Volga route control |
+| Loisirs | feasting, horse_racing, hunting, chess |
+| Revenu moyen | 250 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, horse_meat, fish, kumis, cheese |
+| Logement | Wooden fortress garrison |
+| Vêtements | Lamellar armor, fur-lined helmet, leather boots |
+| Travail | River route patrols, fortress defense, raiding parties |
+| Loisirs | horse_racing, wrestling, archery, feasting |
+| Revenu moyen | 40 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, honey, cheese, dates |
+| Logement | Mosque quarters in Bolgar |
+| Vêtements | White cotton robe, turban |
+| Travail | Islamic teaching, Friday prayer leading, trade mediation |
+| Loisirs | manuscript_study, recitation, garden_strolls |
+| Revenu moyen | 30 |
+
+**free_peasants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rye_bread, millet, fish, horse_meat, kumis |
+| Logement | Log house with earthen floor and clay stove |
+| Vêtements | Wool tunic, felt boots, fur hat in winter |
+| Travail | Grain farming, Volga river fishing, beekeeping |
+| Loisirs | festivals, storytelling, market_days, wrestling |
+| Revenu moyen | 10 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rye_bread, fish, millet, horse_meat, kumis |
+| Logement | Log workshop in Bolgar trading town |
+| Vêtements | Wool tunic, leather apron, felt boots |
+| Travail | Leatherwork (famous Bulgar leather), blacksmithing, pottery, jewelry |
+| Loisirs | bazaar_visits, festivals, storytelling, wrestling |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -6446,12 +14335,16 @@
 
 </details>
 
-<details><summary>Établissements (2)</summary>
+<details><summary>Établissements (6)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Bagdad | major_city | 300 000 | 7/10 | 8/10 | trade, academic, religious_center, manufacturing |
+| Tabriz | city | 100 000 | 6/10 | 6/10 | trade, craftsmanship |
 | Chiraz | capital | 80 000 | 6/10 | 7/10 | academic, trade |
+| Ispahan | major_city | 50 000 | 6/10 | 8/10 | trade, artisan, scholarship |
+| Bassora | port | 30 000 | 5/10 | 7/10 | port, trade |
+| Karbala | major_city | 15 000 | 4/10 | 5/10 | religious_center |
 
 </details>
 
@@ -6639,12 +14532,12 @@
 | **Capacité d'exploration** | ■■■■■□□□□□ (5/10) |
 | **Portée navale** | ■■■■■□□□□□ (5/10) |
 | **Cartographie** | ■■■■■■■□□□ (7/10) |
-| **Nations connues** | 9 (Califat fatimide, Empire ghaznavide, Khanat karakhanide, Empire byzantin, Califat de Cordoue, Dynastie Chola, Empire de Srivijaya, Royaume d'Éthiopie (Zagwé), Cités-États swahilies) |
+| **Nations connues** | 15 (Califat fatimide, Empire ghaznavide, Khanat karakhanide, Empire byzantin, Califat de Cordoue, Dynastie Chola, Empire de Srivijaya, Royaume d'Éthiopie (Zagwé), Cités-États swahilies, République de Venise, Bulgarie de la Volga, Chalukyas occidentaux, Royaume de Makuria, Royaume de Géorgie, Royaume d'Arménie (Bagratides)) |
 | **Mythes** | The Sea of Darkness lies beyond India · Gog and Magog are sealed behind iron gates |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 8/10)
 
@@ -6667,6 +14560,50 @@
 | Travail | Canal-irrigated farming, date palm cultivation |
 | Loisirs | storytelling, festivals, music |
 | Revenu moyen | 10 |
+
+**merchants** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, lamb, rice, dates, almonds, sherbet |
+| Logement | Two-storey house near Baghdad bazaar |
+| Vêtements | Silk robe, turban, leather shoes |
+| Travail | Long-distance trade, bazaar commerce, banking (sarraf) |
+| Loisirs | hammam, chess, poetry_recitals, garden_strolls |
+| Revenu moyen | 350 |
+
+**clergy** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, dates, yogurt, lamb, rice |
+| Logement | Madrasa quarters or mosque complex |
+| Vêtements | White robe, black turban (Abbasid tradition), leather sandals |
+| Travail | Islamic jurisprudence (Shia fiqh), mosque teaching, hospital management |
+| Loisirs | manuscript_study, poetry_recitals, debate |
+| Revenu moyen | 60 |
+
+**artisans** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, lentils, onions, yogurt, dates |
+| Logement | Workshop in Baghdad artisan quarter |
+| Vêtements | Cotton tunic, leather apron, cloth belt |
+| Travail | Calligraphy, metalwork, textile dyeing, ceramics |
+| Loisirs | market_gatherings, hammam, storytelling |
+| Revenu moyen | 45 |
+
+**warriors** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, lamb, rice, dates, cheese |
+| Logement | Barracks in city citadel |
+| Vêtements | Daylamite infantry armor, round shield, spear, iron helm |
+| Travail | Daylamite professional infantry, palace guard, frontier defense |
+| Loisirs | wrestling, horse_riding, archery, polo |
+| Revenu moyen | 50 |
 
 </details>
 
@@ -6705,11 +14642,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Ghazni | capital | 60 000 | 7/10 | 8/10 | military, trade, academic |
+| Delhi | town | 50 000 | 5/10 | 5/10 | military, trade |
+| Lahore | major_city | 25 000 | 6/10 | 6/10 | trade, military |
 
 </details>
 
@@ -6897,12 +14836,12 @@
 | **Capacité d'exploration** | ■■■■■■□□□□ (6/10) |
 | **Portée navale** | ■■□□□□□□□□ (2/10) |
 | **Cartographie** | ■■■■■■□□□□ (6/10) |
-| **Nations connues** | 9 (Émirat bouyide, Khanat karakhanide, Califat fatimide, Empire byzantin, Dynastie Chola, Chalukyas occidentaux, Empire Pâla (Bengale), Dynastie Song, Tibet (période de fragmentation)) |
+| **Nations connues** | 11 (Émirat bouyide, Khanat karakhanide, Califat fatimide, Empire byzantin, Dynastie Chola, Chalukyas occidentaux, Empire Pâla (Bengale), Dynastie Song, Tibet (période de fragmentation), Califat de Cordoue, Bulgarie de la Volga) |
 | **Mythes** | India holds infinite temple treasures · The eastern mountains guard paradise |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **warriors** (qualité de vie : 5/10)
 
@@ -6925,6 +14864,50 @@
 | Travail | Irrigated agriculture, herding |
 | Loisirs | storytelling, music, festivals |
 | Revenu moyen | 8 |
+
+**nobility** (qualité de vie : 8/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, lamb, rice, fruits, nuts, sherbet |
+| Logement | Palace complex in Ghazni with Persian gardens |
+| Vêtements | Silk robe, jeweled turban, embroidered cloak |
+| Travail | Court administration, military command, provincial governance |
+| Loisirs | polo, hunting, poetry_patronage, chess |
+| Revenu moyen | 500 |
+
+**merchants** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, mutton, rice, dried_fruits, tea |
+| Logement | Caravanserai house along trade route |
+| Vêtements | Cotton robe, leather boots, wool turban |
+| Travail | Silk road trade, horse trading, gem commerce |
+| Loisirs | caravan_storytelling, chess, hammam |
+| Revenu moyen | 200 |
+
+**clergy** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, dates, rice, yogurt, honey |
+| Logement | Mosque-madrasa complex in Ghazni |
+| Vêtements | White robe, turban, leather sandals |
+| Travail | Sunni scholarship, court chaplaincy, education |
+| Loisirs | manuscript_study, recitation, garden_strolls |
+| Revenu moyen | 50 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | naan, lamb, rice_pilaf, dried_fruit, tea |
+| Logement | Mudbrick workshop in Ghazni or Lahore bazaar |
+| Vêtements | Cotton tunic, turban, leather apron |
+| Travail | Marble carving, Persian-style tilework, weaponsmithing, calligraphy |
+| Loisirs | poetry_recitation, tea_houses, bazaar_visits, music |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -6962,11 +14945,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Samarcande | capital | 100 000 | 7/10 | 8/10 | trade, academic, manufacturing |
+| Boukhara | major_city | 40 000 | 6/10 | 7/10 | trade, scholarship, religious_center |
+| Fergana | city | 10 000 | 4/10 | 5/10 | agriculture, trade |
 
 </details>
 
@@ -7151,12 +15136,12 @@
 | **Capacité d'exploration** | ■■■■■□□□□□ (5/10) |
 | **Portée navale** | □□□□□□□□□□ (0/10) |
 | **Cartographie** | ■■■■□□□□□□ (4/10) |
-| **Nations connues** | 7 (Empire ghaznavide, Émirat bouyide, Dynastie Song, Dynastie Liao (Khitans), Bulgarie de la Volga, Tibet (période de fragmentation), Califat fatimide) |
+| **Nations connues** | 10 (Empire ghaznavide, Émirat bouyide, Dynastie Song, Dynastie Liao (Khitans), Bulgarie de la Volga, Tibet (période de fragmentation), Califat fatimide, Califat de Cordoue, Rus' de Kiev, Empire byzantin) |
 | **Mythes** | The Jade Gate leads to endless riches · Fierce demons guard the mountain passes |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **nomads** (qualité de vie : 4/10)
 
@@ -7179,6 +15164,61 @@
 | Travail | Silk Road transit trade, horse and textile commerce |
 | Loisirs | chess, storytelling, polo, baths |
 | Revenu moyen | 120 |
+
+**nobility** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | mutton, horse_meat, kumis, flatbread, dried_fruits, tea |
+| Logement | Palatial yurt complex or Samarkand palace |
+| Vêtements | Silk-trimmed kaftan, fur-lined hat, leather boots |
+| Travail | Khanate governance, Silk Road taxation, tribal coalition management |
+| Loisirs | hunting, horse_racing, falconry, feasting |
+| Revenu moyen | 400 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | mutton, horse_meat, kumis, flatbread, cheese |
+| Logement | Military camp or fortress garrison |
+| Vêtements | Lamellar armor, composite bow, fur-trimmed helmet |
+| Travail | Mounted archery, frontier defense, caravan escort |
+| Loisirs | horse_racing, archery_contests, wrestling, feasting |
+| Revenu moyen | 40 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, mutton, dried_fruits, yogurt, honey |
+| Logement | Madrasa quarters in Bukhara or Samarkand |
+| Vêtements | White robe, turban, leather sandals |
+| Travail | Islamic teaching, Turkic-Arabic scholarship, mosque administration |
+| Loisirs | manuscript_study, poetry_recitals, garden_strolls |
+| Revenu moyen | 40 |
+
+**free_peasants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | naan_bread, lamb, yoghurt, melons, dried_fruit |
+| Logement | Mudbrick house with flat roof and courtyard in oasis town |
+| Vêtements | Cotton tunic, felt boots, embroidered skullcap |
+| Travail | Irrigated cotton and melon farming, orchard keeping |
+| Loisirs | tea_houses, storytelling, music, bazaar_visits |
+| Revenu moyen | 12 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | naan, lamb, yoghurt, melons, dried_fruit |
+| Logement | Workshop in Bukhara or Samarkand bazaar |
+| Vêtements | Cotton tunic, felt cap, leather apron |
+| Travail | Silk weaving, ceramics, metalwork, paper making (Samarkand paper) |
+| Loisirs | tea_houses, poetry, bazaar_visits, music |
+| Revenu moyen | 18 |
 
 </details>
 
@@ -7217,13 +15257,17 @@
 
 </details>
 
-<details><summary>Établissements (3)</summary>
+<details><summary>Établissements (7)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Kaifeng | capital | 1 000 000 | 7/10 | 10/10 | trade, academic, manufacturing, administrative |
 | Hangzhou | major_city | 500 000 | 5/10 | 9/10 | trade, manufacturing, port |
+| Nankin (Jinling) | major_city | 500 000 | 7/10 | 7/10 | trade, administration |
 | Canton (Guangzhou) | major_city | 200 000 | 5/10 | 9/10 | trade, port, manufacturing |
+| Chengdu | major_city | 100 000 | 6/10 | 7/10 | trade, agriculture, artisan |
+| Quanzhou | port | 80 000 | 5/10 | 9/10 | port, trade |
+| Qufu | major_city | 20 000 | 3/10 | 5/10 | religious_center, academic |
 
 </details>
 
@@ -7304,20 +15348,20 @@
 
 </details>
 
-<details><summary>Technologie (69 acquises)</summary>
+<details><summary>Technologie (72 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■■■■■■■ (10/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Rotation des cultures, Sélection animale, Culture en terrasses, Moulin à eau
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Rotation des cultures, Sélection animale, Culture en terrasses, Moulin à eau, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier, Astronomie avancée
 - **construction** : Construction de base, Maçonnerie en pierre, Arc et voûte, Fortification, Construction routière, Construction de ponts, Aqueduc
 - **craftsmanship** : Poterie, Tissage, Travail du cuir, Sériciculture (production de soie), Porcelaine, Verrerie
 - **governance** : Gouvernance tribale, Frappe de monnaie, Droit codifié, Bureaucratie, Recensement, Examens impériaux
 - **mathematics** : Mathématiques de base, Algèbre, Zéro et système décimal
 - **medicine** : Médecine herbale, Médecine traditionnelle chinoise, Chirurgie de base
-- **metallurgy** : Travail du cuivre, Travail du bronze, Travail du fer, Orfèvrerie (or et argent), Travail du cuivre, Travail du bronze, Travail du fer, Orfèvrerie (or et argent), Fabrication d'acier
+- **metallurgy** : Travail du cuivre, Travail du bronze, Travail du fer, Orfèvrerie (or et argent), Travail du cuivre, Travail du bronze, Travail du fer, Orfèvrerie (or et argent), Fabrication d'acier, Haut fourneau
 - **military** : Armes de base, Armes métalliques, Armes métalliques, Armure, Cotte de mailles, Cavalerie, Guerre de siège, Étrier, Arbalète, Trébuchet, Poudre à canon
-- **navigation** : Navigation côtière, Jonque chinoise, Navigation céleste, Voile latine
+- **navigation** : Navigation côtière, Jonque chinoise, Navigation céleste, Voile latine, Boussole magnétique
 - **philosophy** : Philosophie et pensée critique, Alchimie, Philosophie naturelle
 - **trade** : Commerce de base (troc), Banque primitive, Guildes et corporations
 - **writing** : Écriture, Production d'encre, Fabrication du papier, Impression par blocs de bois
@@ -7416,7 +15460,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (3 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 9/10)
 
@@ -7450,6 +15494,39 @@
 | Travail | Rice paddy cultivation, silkworm raising, tea growing |
 | Loisirs | festivals, folk_opera, fire_crackers, market_visits |
 | Revenu moyen | 15 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, tofu, vegetables, tea, pickled_plums |
+| Logement | Buddhist monastery or Daoist temple |
+| Vêtements | Grey or brown monk's robe, straw sandals |
+| Travail | Buddhist/Daoist ritual, sutra copying, temple management |
+| Loisirs | meditation, calligraphy, tea_ceremony, garden_tending |
+| Revenu moyen | 15 |
+
+**artisans** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, vegetables, pork, tea, noodles |
+| Logement | Workshop in urban commercial district |
+| Vêtements | Cotton tunic, cloth belt, straw sandals |
+| Travail | Porcelain making, silk weaving, woodblock printing, ironwork |
+| Loisirs | tea_houses, storytelling, opera, market_strolls |
+| Revenu moyen | 60 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, pork, noodles, tea, salted_fish |
+| Logement | Military garrison barracks |
+| Vêtements | Lamellar armor, iron helmet, crossbow, long spear |
+| Travail | Border defense against Liao/Xixia, garrison duty, city guard |
+| Loisirs | martial_arts, dice_games, tea_houses, wrestling |
+| Revenu moyen | 30 |
 
 </details>
 
@@ -7492,11 +15569,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
+| Yanjing (futur Pékin) | city | 200 000 | 7/10 | 6/10 | administration, military |
 | Shangjing (Capitale suprême) | capital | 60 000 | 7/10 | 6/10 | military, administrative |
+| Liaoyang | city | 20 000 | 6/10 | 5/10 | military, administration |
 
 </details>
 
@@ -7573,11 +15652,11 @@
 
 </details>
 
-<details><summary>Technologie (35 acquises)</summary>
+<details><summary>Technologie (36 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■■□□□□□ (5/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier
 - **construction** : Construction de base, Maçonnerie en pierre, Fortification
 - **craftsmanship** : Poterie, Tissage, Travail du cuir, Porcelaine
@@ -7680,12 +15759,12 @@
 | **Capacité d'exploration** | ■■■■□□□□□□ (4/10) |
 | **Portée navale** | ■□□□□□□□□□ (1/10) |
 | **Cartographie** | ■■■□□□□□□□ (3/10) |
-| **Nations connues** | 5 (Dynastie Song, Goryeo (Corée), Japon (Heian), Khanat karakhanide, Tibet (période de fragmentation)) |
+| **Nations connues** | 6 (Dynastie Song, Goryeo (Corée), Japon (Heian), Khanat karakhanide, Tibet (période de fragmentation), Đại Cồ Việt) |
 | **Mythes** | The steppe extends forever to the west |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **nomads** (qualité de vie : 4/10)
 
@@ -7708,6 +15787,61 @@
 | Travail | Cavalry warfare, border patrol, hunting |
 | Loisirs | horseback_archery, wrestling, polo, feasting |
 | Revenu moyen | 40 |
+
+**nobility** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | mutton, horse_meat, kumis, millet, game_meat |
+| Logement | Seasonal palatial yurt complex or Liaoyang palace |
+| Vêtements | Silk-lined fur robe, jeweled belt, leather riding boots |
+| Travail | Dual administration (Khitan-Chinese), seasonal court migrations |
+| Loisirs | hunting, falconry, horse_racing, polo |
+| Revenu moyen | 400 |
+
+**merchants** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, mutton, tea, dried_fruits, cheese |
+| Logement | Timber house in Chinese-style city or trading post |
+| Vêtements | Cotton robe (Chinese style) or fur-trimmed kaftan |
+| Travail | Horse trade with Song, fur export, border market commerce |
+| Loisirs | tea_houses, dice_games, market_haggling |
+| Revenu moyen | 120 |
+
+**free_peasants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, pork, cabbage, tofu, rice_wine |
+| Logement | Mudbrick house with kang heated bed-platform (Chinese style) |
+| Vêtements | Padded cotton coat, felt hat, leather boots |
+| Travail | Millet and sorghum farming (sedentary Bohai/Chinese population) |
+| Loisirs | festivals, market_days, storytelling, dice_games |
+| Revenu moyen | 10 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, lamb, kumis, dried_fruit, rice |
+| Logement | Buddhist monastery or Confucian temple in southern territory |
+| Vêtements | Buddhist monk robe or Khitan shaman fur-trimmed gown |
+| Travail | Buddhist monk or Khitan shaman, prayers, medical herbs, divination |
+| Loisirs | sutra_chanting, calligraphy, meditation, gardening |
+| Revenu moyen | 12 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, pork, cabbage, rice, bean_curd |
+| Logement | Workshop in southern Chinese-style towns |
+| Vêtements | Cotton tunic, felt boots, leather apron |
+| Travail | Khitan-style saddlery, Chinese-style ceramics, Buddhist bronze casting |
+| Loisirs | festivals, bazaar_visits, storytelling, music |
+| Revenu moyen | 12 |
 
 </details>
 
@@ -7744,11 +15878,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Kaesŏng | capital | 100 000 | 7/10 | 7/10 | trade, academic, religious_center |
+| Gyeongju | city | 20 000 | 5/10 | 6/10 | religious_center, artisan |
+| Pyongyang | city | 15 000 | 6/10 | 5/10 | military, trade |
 
 </details>
 
@@ -7823,11 +15959,11 @@
 
 </details>
 
-<details><summary>Technologie (41 acquises)</summary>
+<details><summary>Technologie (42 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■■■□□□□ (6/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Rotation des cultures, Culture en terrasses
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Rotation des cultures, Culture en terrasses, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier
 - **construction** : Construction de base, Maçonnerie en pierre, Fortification, Construction routière
 - **craftsmanship** : Poterie, Tissage, Travail du cuir, Porcelaine, Sériciculture (production de soie)
@@ -7929,12 +16065,12 @@
 | **Capacité d'exploration** | ■■■■□□□□□□ (4/10) |
 | **Portée navale** | ■■■■■□□□□□ (5/10) |
 | **Cartographie** | ■■■■■□□□□□ (5/10) |
-| **Nations connues** | 4 (Dynastie Song, Dynastie Liao (Khitans), Japon (Heian), Đại Cồ Việt) |
+| **Nations connues** | 5 (Dynastie Song, Dynastie Liao (Khitans), Japon (Heian), Đại Cồ Việt, Empire de Srivijaya) |
 | **Mythes** | The Dragon King rules the eastern seas · Tamna is the gate to the southern ocean |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 8/10)
 
@@ -7957,6 +16093,50 @@
 | Travail | Rice and barley farming, fishing |
 | Loisirs | folk_games, festivals, music, wrestling |
 | Revenu moyen | 12 |
+
+**merchants** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, kimchi, fish, barley_tea, tofu |
+| Logement | Timber house in Kaesong commercial quarter |
+| Vêtements | Silk dopo (overcoat), gat (hat), silk sash |
+| Travail | Ginseng trade, celadon export, coastal commerce with Song/Japan |
+| Loisirs | baduk_go, tea_ceremony, market_strolls |
+| Revenu moyen | 100 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, tofu, vegetables, tea, mountain_herbs |
+| Logement | Buddhist mountain monastery |
+| Vêtements | Grey monk's robe, straw sandals, wooden beads |
+| Travail | Buddhist sutra study, woodblock printing, temple management |
+| Loisirs | meditation, calligraphy, tea_ceremony, garden_tending |
+| Revenu moyen | 10 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, dried_fish, kimchi, barley, beef |
+| Logement | Military garrison or border fortress |
+| Vêtements | Lamellar armor, iron helm, long spear, composite bow |
+| Travail | Northern border defense (Khitan/Jurchen), royal guard duty |
+| Loisirs | archery_contests, wrestling, baduk_go, feasting |
+| Revenu moyen | 30 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, kimchi, fish, tofu, barley_tea |
+| Logement | Workshop-house in Kaesong craft quarter |
+| Vêtements | Cotton hanbok, straw sandals |
+| Travail | Celadon pottery, lacquerwork, Buddhist bronze casting, paper making |
+| Loisirs | temple_festivals, music, tea_ceremony, storytelling |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -7993,11 +16173,15 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (5)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Heian-kyō (Kyoto) | capital | 175 000 | 4/10 | 8/10 | academic, religious_center, administrative |
+| Nara | city | 20 000 | 4/10 | 6/10 | religious_center, scholarship |
+| Dazaifu | city | 10 000 | 5/10 | 5/10 | military, trade |
+| Ise | major_city | 8 000 | 3/10 | 5/10 | religious_center |
+| Edo (futur Tokyo) | village | 500 | 2/10 | 2/10 | fishing |
 
 </details>
 
@@ -8074,11 +16258,11 @@
 
 </details>
 
-<details><summary>Technologie (39 acquises)</summary>
+<details><summary>Technologie (40 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■■■□□□□ (6/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Culture en terrasses
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Culture en terrasses, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier
 - **construction** : Construction de base, Maçonnerie en pierre, Fortification
 - **craftsmanship** : Poterie, Tissage, Travail du cuir, Sériciculture (production de soie), Porcelaine
@@ -8180,12 +16364,12 @@
 | **Capacité d'exploration** | ■■■□□□□□□□ (3/10) |
 | **Portée navale** | ■■■■□□□□□□ (4/10) |
 | **Cartographie** | ■■■■□□□□□□ (4/10) |
-| **Nations connues** | 4 (Dynastie Song, Dynastie Liao (Khitans), Goryeo (Corée), Đại Cồ Việt) |
+| **Nations connues** | 6 (Dynastie Song, Dynastie Liao (Khitans), Goryeo (Corée), Đại Cồ Việt, Empire de Srivijaya, Aïnous (Hokkaido)) |
 | **Mythes** | Tokoyo-no-kuni lies beneath the sea · Horai holds the elixir of immortality |
 
 </details>
 
-<details><summary>Vie quotidienne (3 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 9/10)
 
@@ -8219,6 +16403,39 @@
 | Travail | Rice paddy farming, fishing, silk cultivation |
 | Loisirs | matsuri_festivals, folk_dance, storytelling |
 | Revenu moyen | 10 |
+
+**merchants** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, tofu, sake, pickled_vegetables |
+| Logement | Timber machiya (townhouse) in Kyoto market district |
+| Vêtements | Cotton kosode, hakama, straw sandals |
+| Travail | Silk and lacquerware trade, coastal shipping, market commerce |
+| Loisirs | tea_ceremony, cherry_blossom_viewing, storytelling |
+| Revenu moyen | 80 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, tofu, vegetables, tea, pickled_daikon |
+| Logement | Buddhist temple or Shinto shrine |
+| Vêtements | Black or grey monk's robe, tabi, straw sandals |
+| Travail | Tendai/Shingon Buddhist ritual, sutra copying, shrine maintenance |
+| Loisirs | meditation, calligraphy, garden_tending, tea_ceremony |
+| Revenu moyen | 10 |
+
+**artisans** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, miso_soup, fish, pickles, sake |
+| Logement | Workshop in town |
+| Vêtements | Cotton kosode, headband, straw sandals |
+| Travail | Lacquerware, swordsmithing, pottery, silk weaving |
+| Loisirs | shrine_festivals, storytelling, sake_gatherings |
+| Revenu moyen | 40 |
 
 </details>
 
@@ -8256,11 +16473,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Hoa Lư | capital | 30 000 | 8/10 | 5/10 | military, administrative |
+| Đại La (futur Thăng Long) | city | 15 000 | 5/10 | 5/10 | trade, administrative |
 
 </details>
 
@@ -8440,12 +16658,12 @@
 | **Capacité d'exploration** | ■■■■□□□□□□ (4/10) |
 | **Portée navale** | ■■■■□□□□□□ (4/10) |
 | **Cartographie** | ■■■■□□□□□□ (4/10) |
-| **Nations connues** | 6 (Dynastie Song, Empire khmer (Angkor), Empire de Srivijaya, Dynastie Chola, Dynastie Liao (Khitans), Goryeo (Corée)) |
+| **Nations connues** | 7 (Dynastie Song, Empire khmer (Angkor), Empire de Srivijaya, Dynastie Chola, Dynastie Liao (Khitans), Goryeo (Corée), Japon (Heian)) |
 | **Mythes** | The Dragon Lord protects our waters · Southern islands hold spice gardens of the gods |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 8/10)
 
@@ -8468,6 +16686,50 @@
 | Travail | Wet rice cultivation, fishing, silkworm raising |
 | Loisirs | water_puppet_theatre, festivals, folk_songs, cock_fighting |
 | Revenu moyen | 10 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish_sauce, pork, vegetables, tea |
+| Logement | Timber house in river-port town |
+| Vêtements | Silk áo dài (early form), conical straw hat |
+| Travail | Rice export, lacquerware trade, river commerce |
+| Loisirs | tea_drinking, chess, river_festivals |
+| Revenu moyen | 60 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, tofu, vegetables, tea, fruits |
+| Logement | Buddhist pagoda or Confucian temple |
+| Vêtements | Monk's robe, straw hat, sandals |
+| Travail | Buddhist teaching, village temple duties, Confucian education |
+| Loisirs | meditation, calligraphy, garden_tending |
+| Revenu moyen | 10 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, pork, vegetables, tea |
+| Logement | Fortress garrison or river fleet post |
+| Vêtements | Lacquered leather armor, bamboo shield, spear, crossbow |
+| Travail | Border defense against Song/Champa, river navy patrols |
+| Loisirs | martial_arts, wrestling, feasting, boat_racing |
+| Revenu moyen | 25 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish_sauce, pork, vegetables, rice_wine |
+| Logement | Bamboo house with workshop in craft village |
+| Vêtements | Cotton tunic, conical hat, sandals |
+| Travail | Lacquerware, silk weaving, bronze casting, pottery |
+| Loisirs | festivals, water_puppet_shows, tea_drinking, storytelling |
+| Revenu moyen | 12 |
 
 </details>
 
@@ -8504,11 +16766,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Manyakheta | capital | 50 000 | 6/10 | 6/10 | military, religious_center |
+| Bâdâmi | city | 12 000 | 5/10 | 5/10 | religious_center, artisan |
+| Goa (Chandrapur) | port | 8 000 | 4/10 | 5/10 | port, trade |
 
 </details>
 
@@ -8693,12 +16957,12 @@
 | **Capacité d'exploration** | ■■■■□□□□□□ (4/10) |
 | **Portée navale** | ■■■□□□□□□□ (3/10) |
 | **Cartographie** | ■■■■□□□□□□ (4/10) |
-| **Nations connues** | 6 (Dynastie Chola, Empire Pâla (Bengale), Empire ghaznavide, Empire de Srivijaya, Émirat bouyide, Empire khmer (Angkor)) |
+| **Nations connues** | 7 (Dynastie Chola, Empire Pâla (Bengale), Empire ghaznavide, Empire de Srivijaya, Émirat bouyide, Empire khmer (Angkor), Dynastie Song) |
 | **Mythes** | The gods dwell on Mount Kailasa · Patala lies beneath the earth |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 8/10)
 
@@ -8721,6 +16985,50 @@
 | Travail | Millet and rice farming, cotton cultivation |
 | Loisirs | temple_festivals, folk_art, storytelling |
 | Revenu moyen | 8 |
+
+**merchants** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, dhal, spices, coconut, vegetables |
+| Logement | Stone house near market in Kalyani |
+| Vêtements | Cotton dhoti, silk turban, gold chain |
+| Travail | Deccan trade, spice commerce, textile trade |
+| Loisirs | temple_festivals, chess, storytelling |
+| Revenu moyen | 100 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, dhal, vegetables, fruits, buttermilk |
+| Logement | Cave temple or rock-cut monastery |
+| Vêtements | White dhoti, sacred thread, wooden sandals |
+| Travail | Temple ritual, Jain/Hindu scholarship, cave-temple maintenance |
+| Loisirs | scripture_recitation, philosophical_debate, music |
+| Revenu moyen | 20 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, mutton, dhal, spices, millet |
+| Logement | Hill fortress garrison |
+| Vêtements | Leather armor, iron helm, spear, round shield |
+| Travail | Deccan border defense, Chola rivalry campaigns, fortress garrison |
+| Loisirs | wrestling, martial_arts, dice_games, feasting |
+| Revenu moyen | 25 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, lentils, coconut, vegetables, buttermilk |
+| Logement | Stone workshop house near temple construction site |
+| Vêtements | Cotton dhoti, turban, leather apron |
+| Travail | Temple stone carving, bronze casting, silk weaving |
+| Loisirs | temple_festivals, music, storytelling, dance |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -8757,11 +17065,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
+| Vârânasî (Bénarès) | major_city | 50 000 | 4/10 | 6/10 | religious_center, academic |
 | Vikramapura | capital | 40 000 | 5/10 | 5/10 | academic, religious_center |
+| Nalanda | monastery | 3 000 | 2/10 | 5/10 | scholarship, religious_center |
 
 </details>
 
@@ -8952,7 +17262,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **clergy** (qualité de vie : 6/10)
 
@@ -8975,6 +17285,50 @@
 | Travail | Rice farming in Ganges delta, fishing, jute processing |
 | Loisirs | folk_music, boat_festivals, storytelling |
 | Revenu moyen | 8 |
+
+**nobility** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, dhal, sweets, fruits, milk |
+| Logement | Brick palace in Vikramapura |
+| Vêtements | Silk dhoti, gold jewelry, jeweled turban |
+| Travail | Court administration, Buddhist monastery patronage, military command |
+| Loisirs | patron_of_arts, chess, poetry_recitals, hunting |
+| Revenu moyen | 300 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, dhal, vegetables, sweets |
+| Logement | Brick house near river trading post |
+| Vêtements | Cotton dhoti, shawl, leather sandals |
+| Travail | Bengal delta trade, rice commerce, textile export |
+| Loisirs | temple_festivals, storytelling, boat_racing |
+| Revenu moyen | 80 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, dhal, dried_meat |
+| Logement | Military camp or river fleet post |
+| Vêtements | Padded armor, bamboo shield, curved sword |
+| Travail | River fleet patrols, border defense, elephant corps |
+| Loisirs | wrestling, boat_racing, dice_games |
+| Revenu moyen | 20 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, lentils, fish, vegetables, mustard_oil |
+| Logement | Workshop near Nalanda or Vikramashila monastery |
+| Vêtements | Cotton dhoti, turban, leather apron |
+| Travail | Buddhist bronze casting, palm-leaf manuscript making, stone sculpture |
+| Loisirs | temple_festivals, music, storytelling, dance |
+| Revenu moyen | 12 |
 
 </details>
 
@@ -9010,11 +17364,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Lhassa | capital | 15 000 | 6/10 | 5/10 | religious_center |
+| Shigatsé | monastery | 2 000 | 3/10 | 3/10 | religious_center |
 
 </details>
 
@@ -9201,7 +17556,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **clergy** (qualité de vie : 5/10)
 
@@ -9224,6 +17579,61 @@
 | Travail | Yak and sheep herding, seasonal migration |
 | Loisirs | horse_racing, archery, folk_songs, storytelling |
 | Revenu moyen | 8 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | tsampa, yak_butter_tea, dried_yak_meat, barley_beer, cheese |
+| Logement | Stone dzong (fortress-monastery) |
+| Vêtements | Silk-lined chuba (robe), fur hat, turquoise jewelry |
+| Travail | Regional lordship, monastery patronage, caravan taxation |
+| Loisirs | horse_racing, archery, religious_ceremonies, feasting |
+| Revenu moyen | 100 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | tsampa, yak_butter_tea, dried_meat, barley_beer |
+| Logement | Timber-stone house in market town |
+| Vêtements | Wool chuba, leather boots, coral and turquoise jewelry |
+| Travail | Salt-tea trade, wool trade, trans-Himalayan caravan commerce |
+| Loisirs | dice_games, horse_racing, market_gatherings |
+| Revenu moyen | 50 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | tsampa, dried_yak_meat, barley_beer, cheese |
+| Logement | Stone dzong garrison |
+| Vêtements | Leather lamellar armor, iron helm, composite bow, sword |
+| Travail | Pass defense, caravan escort, inter-clan warfare |
+| Loisirs | archery_contests, horse_racing, wrestling, feasting |
+| Revenu moyen | 15 |
+
+**free_peasants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | tsampa, yak_butter_tea, barley_beer, dried_yak_meat, turnips |
+| Logement | Stone house with flat roof, whitewashed, prayer flags |
+| Vêtements | Chuba (wool robe), yak-hide boots, fur-lined hat |
+| Travail | Highland barley farming, yak herding |
+| Loisirs | religious_festivals, folk_dance, archery, storytelling |
+| Revenu moyen | 8 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | tsampa, yak_butter_tea, dried_meat, barley_beer |
+| Logement | Stone workshop in Lhasa or monastery town |
+| Vêtements | Chuba (wool robe), yak-hide boots, felt hat |
+| Travail | Thangka painting, bronze Buddha casting, yak-butter sculpture, wool weaving |
+| Loisirs | religious_festivals, storytelling, singing, crafting |
+| Revenu moyen | 10 |
 
 </details>
 
@@ -9259,11 +17669,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Kotan aïnou (Hokkaido) | town | 2 000 | 3/10 | 3/10 | trade |
+| Chasi aïnou (Hokkaido méridional) | village | 500 | 3/10 | 3/10 | trade, fishing |
 
 </details>
 
@@ -9437,7 +17848,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 5/10)
 
@@ -9449,6 +17860,61 @@
 | Travail | Salmon fishing, deer hunting, foraging, trade |
 | Loisirs | yukar_recitation, bear_ceremony, embroidery, dance |
 | Revenu moyen | 5 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | salmon, venison, millet, roots, berries |
+| Logement | Chise (thatched wooden house) |
+| Vêtements | Attus (elm-bark cloth), bear-hide armor, poison arrows |
+| Travail | Foraging territory defense, bear hunting, trade protection |
+| Loisirs | bear_ceremony, storytelling, epic_recitation, wrestling |
+| Revenu moyen | 5 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | salmon, deer, bear_meat, millet, wild_plants |
+| Logement | Largest chise (thatched house) in the kotan with sacred east window |
+| Vêtements | Embroidered attush (elm-bark) robe, bear-fur cape, elaborate headband |
+| Travail | Village chief (kotan-kor-kur), trade leadership, ceremony direction |
+| Loisirs | iyomante_bear_ceremony, epic_recitation, carving, feasting |
+| Revenu moyen | 15 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | salmon, deer, millet, seaweed, wild_plants |
+| Logement | Chise along river trade point |
+| Vêtements | Attush robe, Japanese trade goods display |
+| Travail | Salmon and fur trade with Japanese, eagle feather and bear-skin export |
+| Loisirs | feasting, epic_recitation, carving, trade_gatherings |
+| Revenu moyen | 12 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | salmon, millet, wild_plants, bear_meat, seaweed |
+| Logement | Chise with kamuy (spirit) altar and sacred hearth |
+| Vêtements | Ceremonial attush robe with sacred patterns, carved ikupasuy prayer stick |
+| Travail | Tusu (shamaness), kamuy worship, iyomante bear ceremony direction |
+| Loisirs | prayer_chanting, epic_recitation, herb_gathering, divination |
+| Revenu moyen | 8 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | salmon, deer, millet, wild_plants, seaweed |
+| Logement | Chise with workshop area for carving and weaving |
+| Vêtements | Attush robe with geometric embroidery (traditionally by women) |
+| Travail | Wood carving (makiri knives, ikupasuy), elm-bark weaving, canoe building |
+| Loisirs | carving, epic_recitation, embroidery, feasting |
+| Revenu moyen | 10 |
 
 </details>
 
@@ -9477,11 +17943,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Koutaïssi | capital | 25 000 | 8/10 | 7/10 | religious, trade |
+| Tbilissi | major_city | 20 000 | 6/10 | 6/10 | trade, artisan, fortress |
 
 </details>
 
@@ -9662,12 +18129,12 @@
 | **Capacité d'exploration** | ■■■■■□□□□□ (5/10) |
 | **Portée navale** | ■■■□□□□□□□ (3/10) |
 | **Cartographie** | ■■■■■□□□□□ (5/10) |
-| **Nations connues** | 3 (Empire byzantin, Royaume d'Arménie (Bagratides), nat_abbasid) |
+| **Nations connues** | 3 (Empire byzantin, Royaume d'Arménie (Bagratides), Émirat bouyide) |
 | **Mythes** | Amirani (Georgian Prometheus) is chained in the Caucasus mountains · Saint Nino brought the True Cross to Georgia |
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 6/10)
 
@@ -9679,6 +18146,61 @@
 | Travail | Winemaking (kvevri), farming, herding, church building |
 | Loisirs | polyphonic_singing, supra_feast, swordsmanship, dance |
 | Revenu moyen | 12 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, cheese, lamb, walnuts, herbs |
+| Logement | Stone tower-house or fortified manor |
+| Vêtements | Chokha (long coat), papakha (hat), leather boots, silver belt |
+| Travail | Provincial governance, military leadership, vineyard management |
+| Loisirs | feasting, polyphonic_singing, hunting, horse_riding |
+| Revenu moyen | 200 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, cheese, dried_fruits, walnuts |
+| Logement | Stone house near Kutaisi market |
+| Vêtements | Wool chokha, leather belt, felt hat |
+| Travail | Silk Road branch trade, wine export, horse trading |
+| Loisirs | feasting, wine_tasting, market_gatherings |
+| Revenu moyen | 80 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, cheese, wine, vegetables, honey |
+| Logement | Monastery in mountain valley |
+| Vêtements | Black Orthodox robe, klobuk, leather sandals |
+| Travail | Orthodox liturgy, manuscript illumination, monastery vineyard tending |
+| Loisirs | chanting, polyphonic_singing, manuscript_study, gardening |
+| Revenu moyen | 15 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, lamb, wine, cheese, dried_meat |
+| Logement | Mountain fortress garrison |
+| Vêtements | Chain mail, iron helm, round shield, long sword |
+| Travail | Mountain pass defense, Seljuk border campaigns, royal guard |
+| Loisirs | wrestling, feasting, polyphonic_singing, horse_riding |
+| Revenu moyen | 30 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, cheese, wine, walnuts, herbs, lamb |
+| Logement | Stone house with workshop in fortified town |
+| Vêtements | Wool chokha (tunic), leather boots, felt hat |
+| Travail | Enamel cloisonné, goldsmithing, winemaking (qvevri), stone carving |
+| Loisirs | feasting, polyphonic_singing, wine_tasting, storytelling |
+| Revenu moyen | 18 |
 
 </details>
 
@@ -9716,11 +18238,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Ani (ville aux mille et une églises) | capital | 100 000 | 9/10 | 9/10 | trade, religious, manufacturing |
+| Dvin | city | 10 000 | 5/10 | 5/10 | trade, artisan |
 
 </details>
 
@@ -9900,12 +18423,12 @@
 | **Capacité d'exploration** | ■■■■■■□□□□ (6/10) |
 | **Portée navale** | ■■□□□□□□□□ (2/10) |
 | **Cartographie** | ■■■■■■□□□□ (6/10) |
-| **Nations connues** | 4 (Empire byzantin, Royaume de Géorgie, nat_abbasid, Califat fatimide) |
+| **Nations connues** | 4 (Empire byzantin, Royaume de Géorgie, Émirat bouyide, Califat fatimide) |
 | **Mythes** | Hayk the archer defeated Bel the tyrant and founded the Armenian nation · Mount Ararat is where Noah's Ark came to rest |
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **artisans** (qualité de vie : 7/10)
 
@@ -9917,6 +18440,61 @@
 | Travail | Stone carving (khachkar), manuscript copying, trade, winemaking |
 | Loisirs | duduk_music, church_singing, board_games, storytelling |
 | Revenu moyen | 18 |
+
+**nobility** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, lamb, wine, cheese, pomegranates, walnuts |
+| Logement | Stone fortress in Ani or highland estate |
+| Vêtements | Silk-trimmed kaftan, jeweled belt, embroidered cloak |
+| Travail | Nakharar (feudal lord) governance, military command, church patronage |
+| Loisirs | hunting, feasting, chess, patron_of_arts |
+| Revenu moyen | 300 |
+
+**merchants** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, cheese, dried_fruits, lamb, wine |
+| Logement | Stone house in Ani merchant quarter |
+| Vêtements | Wool coat, leather belt, felt cap |
+| Travail | Silk Road commerce, gem cutting, wine export |
+| Loisirs | chess, market_gatherings, feasting |
+| Revenu moyen | 150 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, cheese, wine, vegetables, honey |
+| Logement | Monastery (Haghpat, Sanahin) |
+| Vêtements | Black priest's robe, veghpar (hood), wooden cross |
+| Travail | Armenian Apostolic liturgy, manuscript illumination, education |
+| Loisirs | chanting, manuscript_illumination, gardening |
+| Revenu moyen | 15 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, dried_meat, cheese, wine |
+| Logement | Mountain fortress garrison |
+| Vêtements | Scale armor, iron helm, cavalry sword, composite bow |
+| Travail | Fortress defense, cavalry corps, Byzantine auxiliary service |
+| Loisirs | horse_riding, wrestling, archery_contests, feasting |
+| Revenu moyen | 30 |
+
+**free_peasants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | wheat_bread, lamb, cheese, dried_fruit, wine |
+| Logement | Stone house with flat earth roof, half-sunken in the hillside |
+| Vêtements | Wool tunic with embroidered collar, leather boots, felt cap |
+| Travail | Terrace farming of wheat and grapes, sheep and goat herding |
+| Loisirs | church_feasts, folk_music, storytelling, dice_games |
+| Revenu moyen | 12 |
 
 </details>
 
@@ -10050,11 +18628,14 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (4)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Constantinople | capital | 500 000 | 10/10 | 10/10 | trade, academic, religious_center, military, manufacturing, port |
+| Thessalonique | major_city | 40 000 | 7/10 | 7/10 | trade, port, religious_center |
+| Ancyre (futur Ankara) | town | 10 000 | 4/10 | 3/10 |  |
+| Trébizonde | port | 10 000 | 5/10 | 6/10 | port, trade |
 
 </details>
 
@@ -10138,11 +18719,11 @@
 
 </details>
 
-<details><summary>Technologie (59 acquises)</summary>
+<details><summary>Technologie (60 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■■■■□□□ (7/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Rotation des cultures, Moulin à eau
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Rotation des cultures, Moulin à eau, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier, Astronomie avancée
 - **construction** : Construction de base, Maçonnerie en pierre, Arc et voûte, Fortification, Construction routière, Construction de ponts, Aqueduc
 - **craftsmanship** : Poterie, Tissage, Travail du cuir, Verrerie, Sériciculture (production de soie)
@@ -10245,12 +18826,12 @@
 | **Capacité d'exploration** | ■■■■■■■□□□ (7/10) |
 | **Portée navale** | ■■■■■■■□□□ (7/10) |
 | **Cartographie** | ■■■■■■■■□□ (8/10) |
-| **Nations connues** | 18 (Saint-Empire romain germanique, Royaume de France, Royaume d'Angleterre, États pontificaux, République de Venise, Califat de Cordoue, Royaume du Danemark, Royaume de Norvège, Royaume de Pologne, Royaume de Hongrie, Rus' de Kiev, Royaume de Croatie, Califat fatimide, Émirat bouyide, Empire ghaznavide, Khanat karakhanide, Royaume d'Éthiopie (Zagwé), Dynastie Chola) |
+| **Nations connues** | 21 (Saint-Empire romain germanique, Royaume de France, Royaume d'Angleterre, États pontificaux, République de Venise, Califat de Cordoue, Royaume du Danemark, Royaume de Norvège, Royaume de Pologne, Royaume de Hongrie, Rus' de Kiev, Royaume de Croatie, Califat fatimide, Émirat bouyide, Empire ghaznavide, Khanat karakhanide, Royaume d'Éthiopie (Zagwé), Dynastie Chola, Bulgarie de la Volga, Royaume de Géorgie, Royaume d'Arménie (Bagratides)) |
 | **Mythes** | India holds wonders beyond imagination · The Pillars of Hercules guard the outer ocean |
 
 </details>
 
-<details><summary>Vie quotidienne (3 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 9/10)
 
@@ -10284,6 +18865,39 @@
 | Travail | Farming wheat, olive and grape cultivation |
 | Loisirs | church_festivals, folk_music, tavern |
 | Revenu moyen | 20 |
+
+**clergy** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, wine, olives, cheese, honey |
+| Logement | Monastery cell or patriarch's residence |
+| Vêtements | Black Orthodox robes, epigonation, pectoral cross |
+| Travail | Liturgical services, theological scholarship, hospital management |
+| Loisirs | chanting, icon_painting, theological_debate |
+| Revenu moyen | 40 |
+
+**artisans** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, fish, wine, olives, vegetables, cheese |
+| Logement | Workshop in Constantinople artisan quarter |
+| Vêtements | Linen tunic, leather apron, wool cloak |
+| Travail | Silk weaving, mosaic work, goldsmithy, icon painting |
+| Loisirs | chariot_races, tavern_gatherings, religious_processions |
+| Revenu moyen | 80 |
+
+**warriors** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | bread, wine, cheese, dried_meat, olives, figs |
+| Logement | Tagma barracks or theme fortress |
+| Vêtements | Lamellar klibanion, iron helm, red cloak, leather boots |
+| Travail | Tagmata (professional army), theme defense, naval warfare |
+| Loisirs | chariot_races, tavern_gatherings, dice_games, wrestling |
+| Revenu moyen | 70 |
 
 </details>
 
@@ -10326,12 +18940,15 @@
 
 </details>
 
-<details><summary>Établissements (2)</summary>
+<details><summary>Établissements (5)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Le Caire | capital | 250 000 | 8/10 | 9/10 | trade, academic, religious_center, manufacturing |
 | Alexandrie | major_city | 100 000 | 6/10 | 8/10 | trade, port, academic |
+| Damas | major_city | 40 000 | 6/10 | 7/10 | trade, artisan, religious_center |
+| La Mecque | major_city | 30 000 | 5/10 | 7/10 | religious_center, trade |
+| Jérusalem | major_city | 20 000 | 7/10 | 6/10 | religious_center |
 
 </details>
 
@@ -10520,12 +19137,12 @@
 | **Capacité d'exploration** | ■■■■■■■□□□ (7/10) |
 | **Portée navale** | ■■■■■■■□□□ (7/10) |
 | **Cartographie** | ■■■■■■■■■□ (9/10) |
-| **Nations connues** | 15 (Empire byzantin, Émirat bouyide, Empire ghaznavide, Califat de Cordoue, République de Venise, États pontificaux, Saint-Empire romain germanique, Royaume d'Éthiopie (Zagwé), Empire du Ghana, Empire du Kanem, Cités-États swahilies, Dynastie Chola, Empire de Srivijaya, Dynastie Song, Khanat karakhanide) |
+| **Nations connues** | 18 (Empire byzantin, Émirat bouyide, Empire ghaznavide, Califat de Cordoue, République de Venise, États pontificaux, Saint-Empire romain germanique, Royaume d'Éthiopie (Zagwé), Empire du Ghana, Empire du Kanem, Cités-États swahilies, Dynastie Chola, Empire de Srivijaya, Dynastie Song, Khanat karakhanide, Royaume de Makuria, Confédération touarègue (Sanhadja), Royaume d'Arménie (Bagratides)) |
 | **Mythes** | The Mountains of the Moon feed the Nile · Waq-Waq is a land of gold trees in the far east |
 
 </details>
 
-<details><summary>Vie quotidienne (3 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 9/10)
 
@@ -10559,6 +19176,39 @@
 | Travail | Nile irrigation farming, date palm cultivation |
 | Loisirs | storytelling, festivals, music |
 | Revenu moyen | 12 |
+
+**clergy** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, dates, lamb, rice, yogurt, sherbet |
+| Logement | Al-Azhar mosque complex quarters |
+| Vêtements | White cotton robe, green turban (Fatimid color), leather sandals |
+| Travail | Ismaili theological scholarship, Al-Azhar teaching, Friday sermon |
+| Loisirs | manuscript_study, poetry_recitals, garden_strolls |
+| Revenu moyen | 80 |
+
+**artisans** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, lentils, onions, dates, yogurt |
+| Logement | Workshop in Cairo souk quarter |
+| Vêtements | Cotton tunic, leather sandals, cloth apron |
+| Travail | Glassblowing, metalwork, textile weaving, ceramics |
+| Loisirs | market_gatherings, storytelling, hammam |
+| Revenu moyen | 50 |
+
+**warriors** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | flatbread, lamb, rice, dates, yogurt |
+| Logement | Military quarters in Cairo citadel |
+| Vêtements | Chain mail, gilded helm, white tunic with Fatimid insignia |
+| Travail | Caliphal guard, frontier defense, Mediterranean naval warfare |
+| Loisirs | horse_riding, polo, archery, chess |
+| Revenu moyen | 70 |
 
 </details>
 
@@ -10598,12 +19248,13 @@
 
 </details>
 
-<details><summary>Établissements (2)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Koumbi Saleh | capital | 30 000 | 5/10 | 8/10 | trade |
 | Tombouctou | trading_post | 10 000 | 3/10 | 7/10 | trade, academic |
+| Aoudaghost | trading_post | 3 000 | 2/10 | 5/10 | trade, caravan_hub |
 
 </details>
 
@@ -10783,12 +19434,12 @@
 | **Capacité d'exploration** | ■■■■□□□□□□ (4/10) |
 | **Portée navale** | □□□□□□□□□□ (0/10) |
 | **Cartographie** | ■■□□□□□□□□ (2/10) |
-| **Nations connues** | 3 (Empire du Kanem, Califat de Cordoue, Califat fatimide) |
+| **Nations connues** | 6 (Empire du Kanem, Califat de Cordoue, Califat fatimide, Ifè (Yoruba), Confédération touarègue (Sanhadja), Royaume de Nri (Igbo)) |
 | **Mythes** | The river of gold flows from the mountains of light · Spirits guard the forest to the south |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 8/10)
 
@@ -10811,6 +19462,50 @@
 | Travail | Millet and sorghum farming, gold panning |
 | Loisirs | drumming, storytelling, dancing, wrestling |
 | Revenu moyen | 6 |
+
+**merchants** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, sorghum, smoked_fish, palm_oil, kola_nuts |
+| Logement | Stone house in Koumbi Saleh merchant quarter |
+| Vêtements | Cotton boubou, leather sandals, gold jewelry |
+| Travail | Trans-Saharan gold-salt trade, kola nut commerce |
+| Loisirs | griots_storytelling, market_gatherings, drumming |
+| Revenu moyen | 200 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, dates, flatbread, yogurt, honey |
+| Logement | Mosque quarters in Muslim merchant district |
+| Vêtements | White cotton robe, turban, leather sandals |
+| Travail | Islamic teaching, trade mediation, court advisory |
+| Loisirs | manuscript_study, recitation, garden_strolls |
+| Revenu moyen | 40 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, sorghum, dried_meat, palm_oil, beer |
+| Logement | Military camp near royal compound |
+| Vêtements | Leather cuirass, iron-tipped spear, round shield |
+| Travail | Royal guard, trade route protection, frontier defense |
+| Loisirs | wrestling, drumming, feasting, hunting |
+| Revenu moyen | 30 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, sorghum, fish, shea_butter, groundnuts |
+| Logement | Mudbrick workshop compound near market |
+| Vêtements | Cotton robe, leather sandals, leather apron |
+| Travail | Iron smelting, goldsmithing, leatherwork, pottery |
+| Loisirs | drumming, festivals, storytelling, wrestling |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -10847,11 +19542,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Vieille Dongola | capital | 20 000 | 7/10 | 6/10 | religious, trade |
+| Dongola | city | 8 000 | 5/10 | 4/10 | religious_center, trade |
 
 </details>
 
@@ -11032,12 +19728,12 @@
 | **Capacité d'exploration** | ■■■■■□□□□□ (5/10) |
 | **Portée navale** | ■■□□□□□□□□ (2/10) |
 | **Cartographie** | ■■■■□□□□□□ (4/10) |
-| **Nations connues** | 2 (Califat fatimide, nat_abbasid) |
+| **Nations connues** | 2 (Califat fatimide, Émirat bouyide) |
 | **Mythes** | The Nile is the lifeblood of God flowing through the desert · The ancient Nubian kingdoms were children of Kush |
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 5/10)
 
@@ -11049,6 +19745,61 @@
 | Travail | Nile farming, pottery, church building, river trade |
 | Loisirs | church_singing, storytelling, board_games, river_fishing |
 | Revenu moyen | 8 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sorghum, fish, dates, camel_milk, honey |
+| Logement | Mudbrick palace in Dongola |
+| Vêtements | White cotton robe, gold jewelry, sandals |
+| Travail | Kingdom governance, Nile trade regulation, church patronage |
+| Loisirs | feasting, hunting, horse_riding, chess |
+| Revenu moyen | 100 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sorghum, fish, dates, dried_meat |
+| Logement | Mudbrick house near Nile market |
+| Vêtements | Cotton robe, leather sandals |
+| Travail | Nile trade, gold dust commerce, ivory trade with Fatimids |
+| Loisirs | storytelling, market_gatherings, chess |
+| Revenu moyen | 50 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sorghum, fish, dates, honey, vegetables |
+| Logement | Coptic church or monastery |
+| Vêtements | White cotton robe, turban, wooden cross |
+| Travail | Coptic Christian liturgy, church maintenance, education |
+| Loisirs | chanting, manuscript_study, gardening |
+| Revenu moyen | 10 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sorghum, dried_meat, fish, camel_milk |
+| Logement | Nile fortress garrison |
+| Vêtements | Leather armor, iron spear, cotton shield, bow |
+| Travail | Nile frontier defense, anti-Arab border patrols, archery corps |
+| Loisirs | archery_contests, wrestling, feasting, horse_riding |
+| Revenu moyen | 15 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sorghum, millet, fish, dates, palm_wine |
+| Logement | Mudbrick workshop near Nile-side town |
+| Vêtements | Cotton robe, leather apron, sandals |
+| Travail | Church fresco painting, pottery, ironwork, cotton weaving |
+| Loisirs | church_festivals, music, storytelling, Nile_fishing |
+| Revenu moyen | 10 |
 
 </details>
 
@@ -11085,11 +19836,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Tadmekka (Essouk) | capital | 8 000 | 5/10 | 7/10 | trade |
+| Gao | city | 5 000 | 3/10 | 5/10 | trade, caravan_hub |
 
 </details>
 
@@ -11268,7 +20020,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **warriors** (qualité de vie : 5/10)
 
@@ -11279,6 +20031,72 @@
 | Vêtements | Tagelmust (indigo veil), gandoura (robe), silver jewelry |
 | Travail | Caravan trading, camel herding, raiding, salt trade |
 | Loisirs | imzad_music, poetry, camel_racing, storytelling |
+| Revenu moyen | 12 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, camel_milk, dates, dried_meat, tea |
+| Logement | Large decorated leather tent (ahaket) |
+| Vêtements | Indigo-dyed tagelmust (veil), flowing robes, silver amulets |
+| Travail | Tribal confederation leadership, caravan route taxation |
+| Loisirs | camel_racing, poetry_recitals, sword_dancing, feasting |
+| Revenu moyen | 100 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, dried_meat, dates, camel_milk, tea |
+| Logement | Leather tent at caravan rest stop |
+| Vêtements | Cotton robe, tagelmust, leather sandals |
+| Travail | Trans-Saharan caravan leadership, salt and gold caravanning |
+| Loisirs | camel_racing, storytelling, market_haggling |
+| Revenu moyen | 80 |
+
+**free_peasants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, dates, goat_milk, dried_meat, flatbread |
+| Logement | Mudbrick house in oasis settlement |
+| Vêtements | Cotton robe, leather sandals, headwrap |
+| Travail | Oasis date palm and millet farming, goat herding |
+| Loisirs | storytelling, music, market_days, festivals |
+| Revenu moyen | 6 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | dates, millet, goat_milk, camel_milk, flatbread |
+| Logement | Tent near mosque in oasis settlement |
+| Vêtements | White or blue robe, turban, Quran, prayer beads |
+| Travail | Ineslemen (marabout), Quranic teaching, amulet writing, dispute mediation |
+| Loisirs | Quran_recitation, poetry, tea_ceremonies, storytelling |
+| Revenu moyen | 10 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, dates, goat_meat, camel_milk, flatbread |
+| Logement | Workshop tent or mudbrick house in oasis town |
+| Vêtements | Indigo-dyed robe, tagelmust veil, leather apron |
+| Travail | Inadan (caste smith) — silver jewelry, leather saddle work, sword forging |
+| Loisirs | music, festivals, storytelling, crafting |
+| Revenu moyen | 8 |
+
+**nomads** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | camel_milk, dates, dried_meat, millet_porridge, tea |
+| Logement | Leather tent (ehen) carried by camel |
+| Vêtements | Indigo-dyed robe (tagelmust veil), leather sandals, sword |
+| Travail | Trans-Saharan caravan guiding, camel and goat herding, raiding |
+| Loisirs | poetry, music, sword_dancing, tea_ceremony |
 | Revenu moyen | 12 |
 
 </details>
@@ -11307,11 +20125,12 @@
 | **Prestige** | ■■□□□□□□□□ (2/10) |
 | **Couleur carte** | `#F9A825` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Güímar (Tenerife) | town | 4 000 | 4/10 | 3/10 | agriculture |
+| Gáldar | village | 1 000 | 2/10 | 2/10 | agriculture |
 
 </details>
 
@@ -11478,7 +20297,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 4/10)
 
@@ -11490,6 +20309,61 @@
 | Travail | Goat herding, barley farming, fishing, pottery |
 | Loisirs | wrestling, stick_fighting, dance, storytelling |
 | Revenu moyen | 4 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | gofio_barley, goat_meat, fish, figs, dates |
+| Logement | Stone house or cave dwelling |
+| Vêtements | Goat-skin tunic, leather sandals |
+| Travail | Island defense, herding protection, inter-tribal combat |
+| Loisirs | wrestling, stick_fighting, storytelling, feasting |
+| Revenu moyen | 5 |
+
+**nobility** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | gofio_barley, goat_meat, cheese, fish, figs, honey |
+| Logement | Best cave dwelling or stone house, elevated position |
+| Vêtements | Finest goat-skin tunic, bone and shell ornaments, staff of office |
+| Travail | Mencey (island king), land redistribution, justice, ceremony leadership |
+| Loisirs | wrestling, feasting, storytelling, dance |
+| Revenu moyen | 15 |
+
+**merchants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | gofio_barley, goat_cheese, fish, figs, honey |
+| Logement | Cave or stone house near inter-village meeting point |
+| Vêtements | Goat-skin tunic, shell and bone ornaments |
+| Travail | Inter-village barley, obsidian and goat-hide exchange |
+| Loisirs | storytelling, wrestling, feasting |
+| Revenu moyen | 6 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | gofio_barley, goat_milk, honey, fish, figs |
+| Logement | Sacred cave sanctuary near mountain peak |
+| Vêtements | Goat-skin robe, sacred staff, bone amulets |
+| Travail | Faycán (high priest), mummy preparation, rain ceremonies, oracle |
+| Loisirs | ceremonies, chanting, herbalism, storytelling |
+| Revenu moyen | 10 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | gofio_barley, goat_meat, fish, figs, honey |
+| Logement | Cave workshop or stone house |
+| Vêtements | Goat-skin tunic, bone tools, leather belt |
+| Travail | Pottery, obsidian tool knapping, goat-skin tanning, bead making |
+| Loisirs | crafting, storytelling, festivals, wrestling |
+| Revenu moyen | 5 |
 
 </details>
 
@@ -11650,11 +20524,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Angkor | capital | 200 000 | 7/10 | 8/10 | religious_center, administrative, trade |
+| Yasodharapura (Angkor) | city | 25 000 | 6/10 | 7/10 | religious_center, agriculture |
 
 </details>
 
@@ -11733,11 +20608,11 @@
 
 </details>
 
-<details><summary>Technologie (37 acquises)</summary>
+<details><summary>Technologie (38 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■■■□□□□ (6/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Culture en terrasses
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Culture en terrasses, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier
 - **construction** : Construction de base, Maçonnerie en pierre, Arc et voûte, Fortification, Construction routière, Construction de ponts, Aqueduc
 - **craftsmanship** : Poterie, Tissage, Travail du cuir
@@ -11844,7 +20719,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 8/10)
 
@@ -11867,6 +20742,50 @@
 | Travail | Rice paddy farming using baray irrigation |
 | Loisirs | temple_festivals, folk_music, boat_racing |
 | Revenu moyen | 10 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, fruits, spices |
+| Logement | Timber stilt house near river market |
+| Vêtements | Cotton sarong, silk sash, bare torso or light shirt |
+| Travail | Mekong river trade, spice commerce, gem trading |
+| Loisirs | river_festivals, market_strolls, storytelling |
+| Revenu moyen | 60 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, vegetables, fruits, water |
+| Logement | Temple quarters within Angkor complex |
+| Vêtements | Saffron or white robe, bare feet |
+| Travail | Hindu/Buddhist temple ritual, Angkor Wat maintenance, education |
+| Loisirs | meditation, scripture_study, garden_tending |
+| Revenu moyen | 5 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, dried_meat, fruits |
+| Logement | Military camp near Angkor or border fortress |
+| Vêtements | Leather cuirass, bamboo shield, iron-tipped spear |
+| Travail | Temple defense, elephant cavalry, border campaigns |
+| Loisirs | wrestling, boat_racing, cockfighting, feasting |
+| Revenu moyen | 20 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, fruits, coconut, vegetables |
+| Logement | Workshop near Angkor temple complex |
+| Vêtements | Cotton sarong, bare torso |
+| Travail | Stone carving (Angkor bas-reliefs), bronze casting, silk weaving |
+| Loisirs | temple_festivals, storytelling, music |
+| Revenu moyen | 25 |
 
 </details>
 
@@ -11905,11 +20824,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Palembang | capital | 80 000 | 5/10 | 8/10 | trade, port, religious_center |
+| Kedah | port | 8 000 | 3/10 | 6/10 | port, trade |
 
 </details>
 
@@ -12095,12 +21015,12 @@
 | **Capacité d'exploration** | ■■■■■■□□□□ (6/10) |
 | **Portée navale** | ■■■■■■■■□□ (8/10) |
 | **Cartographie** | ■■■■■□□□□□ (5/10) |
-| **Nations connues** | 9 (Dynastie Song, Dynastie Chola, Empire khmer (Angkor), Đại Cồ Việt, Empire Pâla (Bengale), Califat fatimide, Cités-États swahilies, Japon (Heian), Goryeo (Corée)) |
+| **Nations connues** | 11 (Dynastie Song, Dynastie Chola, Empire khmer (Angkor), Đại Cồ Việt, Empire Pâla (Bengale), Califat fatimide, Cités-États swahilies, Japon (Heian), Goryeo (Corée), Émirat bouyide, Chalukyas occidentaux) |
 | **Mythes** | The Land of Gold lies to the east · Spirits guard the Strait of Malacca |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **merchants** (qualité de vie : 7/10)
 
@@ -12123,6 +21043,50 @@
 | Travail | Fishing, rice farming, sago production, pepper cultivation |
 | Loisirs | gamelan_music, storytelling, festivals |
 | Revenu moyen | 8 |
+
+**nobility** (qualité de vie : 8/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, spices, tropical_fruits, palm_wine |
+| Logement | Palatial timber stilt house on Palembang river |
+| Vêtements | Silk sarong, gold jewelry, jeweled crown |
+| Travail | Maritime trade regulation, tributary diplomacy, fleet command |
+| Loisirs | feasting, boat_races, patron_of_arts, chess |
+| Revenu moyen | 500 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, dried_meat, fruits |
+| Logement | Naval barracks or coastal fortress |
+| Vêtements | Leather vest, sarong, iron kris, bamboo shield |
+| Travail | Naval fleet defense, anti-piracy patrols, strait control |
+| Loisirs | boat_racing, wrestling, cockfighting, feasting |
+| Revenu moyen | 25 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, vegetables, fruits, water |
+| Logement | Buddhist monastery in Palembang |
+| Vêtements | Saffron robe, bare feet |
+| Travail | Mahayana Buddhist teaching, pilgrimage hosting, Sanskrit scholarship |
+| Loisirs | meditation, scripture_study, garden_tending |
+| Revenu moyen | 5 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, tropical_fruit, shrimp_paste |
+| Logement | Stilt house near river dock with workshop |
+| Vêtements | Cotton sarong, headcloth, leather tool belt |
+| Travail | Boat building, gold and bead working, batik cloth, Buddhist bronze casting |
+| Loisirs | shadow_puppet_shows, festivals, music, river_markets |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -12160,11 +21124,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Thanjavur (Tanjore) | capital | 100 000 | 7/10 | 9/10 | religious_center, trade, academic |
+| Madurai | city | 20 000 | 5/10 | 6/10 | religious_center, artisan |
+| Nagapattinam | port | 15 000 | 5/10 | 7/10 | port, trade |
 
 </details>
 
@@ -12247,11 +21213,11 @@
 
 </details>
 
-<details><summary>Technologie (56 acquises)</summary>
+<details><summary>Technologie (57 acquises)</summary>
 
 **Capacité d'innovation :** ■■■■■■■□□□ (7/10)
 
-- **agriculture** : Agriculture de base, Élevage, Irrigation, Rotation des cultures, Moulin à eau
+- **agriculture** : Agriculture de base, Élevage, Irrigation, Rotation des cultures, Moulin à eau, Collier de cheval
 - **astronomy** : Astronomie d'observation, Calendrier, Astronomie avancée
 - **construction** : Construction de base, Maçonnerie en pierre, Arc et voûte, Fortification, Construction routière, Construction de ponts, Aqueduc
 - **craftsmanship** : Poterie, Tissage, Travail du cuir, Sériciculture (production de soie)
@@ -12354,12 +21320,12 @@
 | **Capacité d'exploration** | ■■■■■■■□□□ (7/10) |
 | **Portée navale** | ■■■■■■■■■□ (9/10) |
 | **Cartographie** | ■■■■■■□□□□ (6/10) |
-| **Nations connues** | 9 (Chalukyas occidentaux, Empire Pâla (Bengale), Empire de Srivijaya, Empire khmer (Angkor), Dynastie Song, Đại Cồ Việt, Califat fatimide, Cités-États swahilies, Empire ghaznavide) |
+| **Nations connues** | 11 (Chalukyas occidentaux, Empire Pâla (Bengale), Empire de Srivijaya, Empire khmer (Angkor), Dynastie Song, Đại Cồ Việt, Califat fatimide, Cités-États swahilies, Empire ghaznavide, Empire byzantin, Émirat bouyide) |
 | **Mythes** | Lanka was the fortress of Ravana · The southern ocean leads to the land of the nagas |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 9/10)
 
@@ -12382,6 +21348,50 @@
 | Travail | Rice paddy farming, coconut cultivation, fishing |
 | Loisirs | temple_festivals, folk_music, kolam_drawing |
 | Revenu moyen | 10 |
+
+**merchants** (qualité de vie : 7/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, dhal, coconut, fish, spices, tamarind |
+| Logement | Stone house near temple market or port |
+| Vêtements | Cotton dhoti, silk shawl, gold earrings |
+| Travail | Maritime trade (spices, gems, silk), guild commerce |
+| Loisirs | temple_festivals, chess, poetry_recitals |
+| Revenu moyen | 200 |
+
+**clergy** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, dhal, vegetables, fruits, buttermilk |
+| Logement | Temple complex quarters |
+| Vêtements | White dhoti, sacred thread, wooden sandals |
+| Travail | Hindu temple ritual, Shaiva philosophy teaching, temple administration |
+| Loisirs | scripture_recitation, music, dance_patronage |
+| Revenu moyen | 30 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, chicken, dhal, spices |
+| Logement | Military camp or garrison near border |
+| Vêtements | Leather cuirass, iron helm, tulwar sword, shield |
+| Travail | Naval expeditions (Sri Lanka, Srivijaya), border defense, king's guard |
+| Loisirs | wrestling, martial_arts, dice_games, temple_festivals |
+| Revenu moyen | 30 |
+
+**artisans** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, dhal, vegetables, coconut, tamarind |
+| Logement | Workshop in temple town |
+| Vêtements | Cotton dhoti, bare torso or cotton shirt |
+| Travail | Bronze casting (Nataraja statues), stone carving, temple architecture |
+| Loisirs | temple_festivals, music, dance |
+| Revenu moyen | 35 |
 
 </details>
 
@@ -12419,11 +21429,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Njimi | capital | 15 000 | 5/10 | 5/10 | trade, military |
+| Bilma | trading_post | 2 000 | 2/10 | 5/10 | trade, salt_production |
 
 </details>
 
@@ -12604,12 +21615,12 @@
 | **Capacité d'exploration** | ■■■□□□□□□□ (3/10) |
 | **Portée navale** | □□□□□□□□□□ (0/10) |
 | **Cartographie** | ■■□□□□□□□□ (2/10) |
-| **Nations connues** | 3 (Empire du Ghana, Califat fatimide, Royaume d'Éthiopie (Zagwé)) |
+| **Nations connues** | 4 (Empire du Ghana, Califat fatimide, Royaume d'Éthiopie (Zagwé), Califat de Cordoue) |
 | **Mythes** | The lake is the heart of the world · Giants dwell in the southern forest |
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **nomads** (qualité de vie : 3/10)
 
@@ -12621,6 +21632,72 @@
 | Travail | Cattle herding, trans-Saharan caravan escort, raiding |
 | Loisirs | storytelling, wrestling, horsemanship, drumming |
 | Revenu moyen | 8 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, sorghum, fish, dates, camel_milk |
+| Logement | Mudbrick palace in Njimi |
+| Vêtements | Embroidered robe, turban, leather sandals, gold ring |
+| Travail | Sultanate governance, caravan taxation, military command |
+| Loisirs | horse_racing, hunting, feasting, chess |
+| Revenu moyen | 200 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, dates, fish, dried_meat, tea |
+| Logement | Mudbrick house near caravan rest stop |
+| Vêtements | Cotton robe, turban, leather boots |
+| Travail | Trans-Saharan trade (salt, slaves), Lake Chad fishery trade |
+| Loisirs | storytelling, chess, market_gatherings |
+| Revenu moyen | 80 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, dried_meat, camel_milk, dates |
+| Logement | Military camp or frontier garrison |
+| Vêtements | Padded cotton armor, iron helm, leather shield, spear |
+| Travail | Cavalry patrols, slave raiding, border defense, caravan escort |
+| Loisirs | horse_racing, wrestling, feasting, dice_games |
+| Revenu moyen | 25 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, dates, yogurt, honey, flatbread |
+| Logement | Mosque quarters in Njimi |
+| Vêtements | White cotton robe, turban |
+| Travail | Islamic education, court chaplaincy, Quran teaching |
+| Loisirs | manuscript_study, recitation, garden_tending |
+| Revenu moyen | 20 |
+
+**free_peasants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, sorghum, fish, dried_meat, groundnuts |
+| Logement | Circular mudbrick hut with thatched conical roof |
+| Vêtements | Cotton robe, leather sandals, turban |
+| Travail | Millet and sorghum farming, Lake Chad fishing |
+| Loisirs | storytelling, drumming, festivals, wrestling |
+| Revenu moyen | 8 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, fish, dried_meat, groundnuts, honey |
+| Logement | Mudbrick workshop near market |
+| Vêtements | Cotton robe, leather apron, turban |
+| Travail | Leatherwork (Saharan trade goods), iron smelting, pottery, indigo dyeing |
+| Loisirs | drumming, festivals, storytelling, market_days |
+| Revenu moyen | 10 |
 
 </details>
 
@@ -12656,11 +21733,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Roha (future Lalibela) | capital | 10 000 | 6/10 | 5/10 | religious_center |
+| Axoum | major_city | 8 000 | 5/10 | 5/10 | religious_center |
+| Adulis | port | 3 000 | 3/10 | 5/10 | port, trade |
 
 </details>
 
@@ -12843,12 +21922,12 @@
 | **Capacité d'exploration** | ■■■□□□□□□□ (3/10) |
 | **Portée navale** | ■■□□□□□□□□ (2/10) |
 | **Cartographie** | ■■■□□□□□□□ (3/10) |
-| **Nations connues** | 4 (Califat fatimide, Cités-États swahilies, Empire du Kanem, Empire byzantin) |
+| **Nations connues** | 5 (Califat fatimide, Cités-États swahilies, Empire du Kanem, Empire byzantin, Émirat bouyide) |
 | **Mythes** | The Ark of the Covenant rests in Aksum · The source of the Nile is the garden of God |
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **clergy** (qualité de vie : 5/10)
 
@@ -12871,6 +21950,50 @@
 | Travail | Teff and barley farming, coffee growing, livestock herding |
 | Loisirs | church_festivals, folk_dancing, storytelling |
 | Revenu moyen | 8 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | injera, wot_stew, honey_wine, lentils, beef |
+| Logement | Stone palace or rock-hewn complex |
+| Vêtements | White cotton shamma with gold embroidery, leather sandals |
+| Travail | Provincial governance, church patronage, military command |
+| Loisirs | feasting, hunting, chess, religious_ceremonies |
+| Revenu moyen | 200 |
+
+**merchants** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | injera, wot_stew, honey, lentils, coffee |
+| Logement | Stone house near market town |
+| Vêtements | Cotton shamma, leather sandals, silver jewelry |
+| Travail | Salt trade, ivory commerce, Red Sea coastal trade |
+| Loisirs | coffee_ceremony, storytelling, market_gatherings |
+| Revenu moyen | 80 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | injera, raw_beef, honey_wine, lentils |
+| Logement | Military camp or mountain fortress |
+| Vêtements | Leather cuirass, cotton shamma, iron spear, round shield |
+| Travail | Highland defense, royal guard, anti-Islamic frontier duty |
+| Loisirs | wrestling, hunting, feasting, war_songs |
+| Revenu moyen | 25 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | injera, berbere_lentils, honey_wine, vegetables |
+| Logement | Stone or thatched workshop house near market |
+| Vêtements | Cotton shamma, leather apron, sandals |
+| Travail | Rock-hewn church carving, ironworking, cotton weaving, parchment making |
+| Loisirs | church_festivals, music, storytelling, coffee_ceremony |
+| Revenu moyen | 12 |
 
 </details>
 
@@ -12906,11 +22029,13 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (3)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Kilwa Kisiwani | capital | 12 000 | 4/10 | 7/10 | trade, port |
+| Mogadiscio | port | 10 000 | 4/10 | 6/10 | port, trade |
+| Mombasa | port | 8 000 | 4/10 | 6/10 | port, trade |
 
 </details>
 
@@ -13098,7 +22223,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **merchants** (qualité de vie : 8/10)
 
@@ -13121,6 +22246,50 @@
 | Travail | Fishing, farming, coconut cultivation |
 | Loisirs | music, storytelling, festivals, fishing_competitions |
 | Revenu moyen | 8 |
+
+**nobility** (qualité de vie : 8/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, mangoes, spices, dates |
+| Logement | Coral-stone palace with carved doors |
+| Vêtements | Silk robe, embroidered kanzu, kofia cap, gold jewelry |
+| Travail | City-state governance, maritime trade regulation, diplomacy |
+| Loisirs | poetry_recitals, feasting, ocean_sailing, chess |
+| Revenu moyen | 400 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, dried_meat, bananas |
+| Logement | Coastal garrison or naval barracks |
+| Vêtements | Leather vest, cotton kanzu, iron sword, wooden shield |
+| Travail | Port defense, anti-piracy, trade fleet escort |
+| Loisirs | boat_racing, wrestling, storytelling |
+| Revenu moyen | 20 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, dates, coconut, honey |
+| Logement | Mosque quarters in Kilwa or Zanzibar |
+| Vêtements | White kanzu, kofia cap, leather sandals |
+| Travail | Mosque leadership, Islamic education, trade mediation |
+| Loisirs | manuscript_study, recitation, garden_strolls |
+| Revenu moyen | 30 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, bananas, cassava |
+| Logement | Workshop near port district |
+| Vêtements | Cotton kanzu, leather apron |
+| Travail | Coral-stone carving, dhow building, iron smelting, textile dyeing |
+| Loisirs | drumming, storytelling, market_gatherings |
+| Revenu moyen | 25 |
 
 </details>
 
@@ -13148,11 +22317,12 @@
 | **Prestige** | ■■■□□□□□□□ (3/10) |
 | **Couleur carte** | `#BF360C` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Uluru (site cérémoniel central) | town | 1 000 | 2/10 | 2/10 | religious |
+| Uluru (campement) | nomadic_camp | 200 | 1/10 | 1/10 |  |
 
 </details>
 
@@ -13310,7 +22480,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **free_peasants** (qualité de vie : 5/10)
 
@@ -13322,6 +22492,72 @@
 | Travail | Hunting-gathering, firestick farming, seasonal migration along songlines |
 | Loisirs | corroboree, rock_art, storytelling, didgeridoo_music |
 | Revenu moyen | 2 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | kangaroo, fish, witchetty_grubs, bush_fruits, roots |
+| Logement | Bark shelter or rockshelter |
+| Vêtements | Body paint, possum-skin cloak |
+| Travail | Territorial defense, inter-clan disputes, hunting |
+| Loisirs | corroboree_dance, storytelling, painting, music |
+| Revenu moyen | 2 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | kangaroo, emu, wild_yam, honey_ant, bush_fruits |
+| Logement | Ceremonial camp with best shelter positions, near sacred sites |
+| Vêtements | Elaborate body paint, feathered headdress, possum-skin cloak |
+| Travail | Law-keeper elder, ceremony leadership, dispute resolution |
+| Loisirs | corroboree_leadership, rock_art, song_cycle_teaching, storytelling |
+| Revenu moyen | 3 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | kangaroo, fish, wild_yam, bush_fruits, seeds |
+| Logement | Seasonal camps along trade routes (songlines) |
+| Vêtements | Possum-skin cloak, body ochre, shell necklaces from distant coast |
+| Travail | Long-distance ochre and stone tool trade along songlines |
+| Loisirs | corroboree, storytelling, ochre_body_painting, music |
+| Revenu moyen | 3 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | kangaroo, emu, honey_ant, bush_fruits, witchetty_grub |
+| Logement | Sacred camp near Dreaming sites |
+| Vêtements | Elaborate body paint, sacred objects, feathered headdress |
+| Travail | Keeper of Dreaming stories, initiation ceremonies, healing rituals |
+| Loisirs | song_cycle_teaching, rock_painting, corroboree, storytelling |
+| Revenu moyen | 2 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | kangaroo, fish, wild_yam, bush_fruits, grubs |
+| Logement | Seasonal camp near quarry or ochre deposit |
+| Vêtements | Minimal clothing, ochre body paint, possum-skin cloak in south |
+| Travail | Stone tool knapping, ochre grinding, boomerang and spear crafting |
+| Loisirs | rock_painting, storytelling, corroboree, teaching |
+| Revenu moyen | 2 |
+
+**nomads** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | kangaroo, witchetty_grub, wild_yam, fish, bush_fruits |
+| Logement | Windbreak (wurley) and bark shelters along songline routes |
+| Vêtements | Minimal — ochre body paint, possum-skin cloak in cold regions |
+| Travail | Seasonal migration along songlines, firestick farming, gathering |
+| Loisirs | corroboree, rock_painting, storytelling, didgeridoo_music |
+| Revenu moyen | 1 |
 
 </details>
 
@@ -13341,11 +22577,12 @@
 | **Prestige** | ■■■■□□□□□□ (4/10) |
 | **Couleur carte** | `#00695C` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Mahilaka (port malgache) | town | 3 000 | 3/10 | 5/10 | trade, port |
+| Vohémar | port | 2 000 | 2/10 | 4/10 | trade, port |
 
 </details>
 
@@ -13525,7 +22762,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 4/10)
 
@@ -13537,6 +22774,61 @@
 | Travail | Rice paddy farming, zebu herding, fishing, coastal trade |
 | Loisirs | valiha_music, storytelling, moraingy_wrestling, dance |
 | Revenu moyen | 7 |
+
+**nobility** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, zebu_meat, tropical_fruits, honey |
+| Logement | Timber longhouse on raised platform |
+| Vêtements | Silk lamba (wrap), silver jewelry, leather sandals |
+| Travail | Clan leadership, trade regulation, ancestral rites leadership |
+| Loisirs | feasting, storytelling, moraingy_wrestling, ceremonies |
+| Revenu moyen | 50 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, fruits, honey |
+| Logement | Timber house near coastal port |
+| Vêtements | Cotton lamba, leather sandals |
+| Travail | Indian Ocean trade (with Swahili, Arabs), rice commerce |
+| Loisirs | storytelling, market_gatherings, boat_racing |
+| Revenu moyen | 30 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, zebu_meat, fish, cassava, fruits |
+| Logement | Wooden house on stilts near chief compound |
+| Vêtements | Lamba cloth, iron-tipped spear, cowhide shield |
+| Travail | Clan warfare, cattle raiding, royal guard duty |
+| Loisirs | moraingy_wrestling, music, storytelling, cattle_shows |
+| Revenu moyen | 10 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, zebu_meat, honey, fruits, herbs |
+| Logement | Sacred house near royal tomb (Austronesian ancestor shrine) |
+| Vêtements | Lamba cloth, amulets (ody), sacred bones and seeds |
+| Travail | Ombiasy (diviner-healer), famadihana burial rite, astrology, healing |
+| Loisirs | divination, storytelling, herb_gathering, ceremonies |
+| Revenu moyen | 12 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, zebu_meat, fish, cassava, fruits |
+| Logement | Raised wooden workshop house |
+| Vêtements | Lamba cloth, leather tool belt |
+| Travail | Ironworking, outrigger canoe building, lamba silk weaving, woodcarving |
+| Loisirs | music, moraingy_wrestling, storytelling, festivals |
+| Revenu moyen | 8 |
 
 </details>
 
@@ -13572,11 +22864,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Ifè | major_city | 20 000 | 6/10 | 7/10 | religious, manufacturing |
+| Oyo | city | 10 000 | 5/10 | 5/10 | trade, military |
 
 </details>
 
@@ -13751,12 +23044,12 @@
 | **Capacité d'exploration** | ■■■■□□□□□□ (4/10) |
 | **Portée navale** | ■□□□□□□□□□ (1/10) |
 | **Cartographie** | ■■□□□□□□□□ (2/10) |
-| **Nations connues** | 1 (Empire du Ghana) |
+| **Nations connues** | 2 (Empire du Ghana, Royaume de Nri (Igbo)) |
 | **Mythes** | Oduduwa descended from the sky on a chain and founded Ifè · Obatala shaped humans from clay |
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **artisans** (qualité de vie : 6/10)
 
@@ -13768,6 +23061,61 @@
 | Travail | Bronze casting (lost-wax), terracotta sculpture, weaving, beadwork |
 | Loisirs | egungun_masquerade, ayo_game, drumming, storytelling |
 | Revenu moyen | 15 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | yam, palm_oil, fish, kola_nuts, palm_wine |
+| Logement | Courtyard palace compound with carved pillars |
+| Vêtements | Wrapped agbada (robe), beaded crown, coral necklace |
+| Travail | Oba (king) governance, judicial authority, ritual leadership |
+| Loisirs | feasting, storytelling, patron_of_arts, chess |
+| Revenu moyen | 150 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | yam, palm_oil, fish, beans, palm_wine |
+| Logement | Mudbrick house near market |
+| Vêtements | Cotton wrapper, leather sandals |
+| Travail | Kola nut and palm oil trade, textile commerce, iron tools trade |
+| Loisirs | market_gatherings, storytelling, drumming |
+| Revenu moyen | 50 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | yam, dried_meat, palm_oil, beans |
+| Logement | Warrior compound near city walls |
+| Vêtements | Leather armor, iron-tipped spear, wicker shield |
+| Travail | City defense, inter-city warfare, escort duty |
+| Loisirs | wrestling, drumming, war_dances, storytelling |
+| Revenu moyen | 20 |
+
+**free_peasants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | yam, cassava, palm_oil, beans, fish, palm_wine |
+| Logement | Mudbrick hut with thatched roof in family compound within town walls |
+| Vêtements | Cotton wrapper (aso-oke), leather sandals |
+| Travail | Yam and cassava farming, palm oil production |
+| Loisirs | drumming, wrestling, festivals, storytelling |
+| Revenu moyen | 10 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | yam, palm_oil, kola_nuts, palm_wine, plantain |
+| Logement | Sacred grove compound near orisha shrine |
+| Vêtements | White cotton robe, beaded necklace, divination tray (opon Ifa), iroke tapper |
+| Travail | Babalawo (Ifa priest), divination, orisha worship, healing, naming ceremonies |
+| Loisirs | divination_study, drumming, storytelling, ceremonies |
+| Revenu moyen | 20 |
 
 </details>
 
@@ -13795,11 +23143,12 @@
 | **Prestige** | ■■■■■□□□□□ (5/10) |
 | **Couleur carte** | `#795548` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Grand Zimbabwe | major_city | 10 000 | 7/10 | 6/10 | trade, religious |
+| Mapungubwe | city | 5 000 | 4/10 | 6/10 | trade, gold_production |
 
 </details>
 
@@ -13978,7 +23327,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 5/10)
 
@@ -13990,6 +23339,61 @@
 | Travail | Farming, cattle herding, gold mining, stone masonry |
 | Loisirs | mbira_music, storytelling, dance, cattle_display |
 | Revenu moyen | 10 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sorghum, millet, beef, wild_fruits, beer |
+| Logement | Stone-walled enclosure in Great Zimbabwe complex |
+| Vêtements | Cotton cloth, gold jewelry, animal-skin cloak |
+| Travail | Kingdom governance, cattle wealth management, gold trade oversight |
+| Loisirs | feasting, hunting, ceremonies, storytelling |
+| Revenu moyen | 100 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sorghum, beef, wild_fruits, beer |
+| Logement | Timber-and-daub house near trade compound |
+| Vêtements | Cotton cloth, copper bracelets, leather sandals |
+| Travail | Gold and ivory trade with Swahili coast, cattle trade |
+| Loisirs | storytelling, drumming, market_gatherings |
+| Revenu moyen | 50 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sorghum, dried_meat, millet, beer |
+| Logement | Warrior compound near Great Enclosure |
+| Vêtements | Leather shield, iron spear, animal-skin accessories |
+| Travail | Kingdom defense, cattle raiding, trade route protection |
+| Loisirs | wrestling, hunting, war_dances, feasting |
+| Revenu moyen | 15 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, sorghum, beef, wild_greens, beer |
+| Logement | Sacred enclosure within Great Zimbabwe stone walls |
+| Vêtements | Cotton cloth, soapstone bird amulet, beadwork, sacred staff |
+| Travail | Mwari cult priest, rain ceremonies, royal ancestor worship, divination |
+| Loisirs | ceremonies, drumming, storytelling, herbal_healing |
+| Revenu moyen | 20 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | millet, sorghum, beef, wild_greens, beer |
+| Logement | Workshop hut near Great Zimbabwe stone enclosures |
+| Vêtements | Cotton cloth, leather apron, bead ornaments |
+| Travail | Dry-stone wall building, iron smelting, gold working, soapstone carving |
+| Loisirs | drumming, festivals, storytelling, carving |
+| Revenu moyen | 12 |
 
 </details>
 
@@ -14018,11 +23422,12 @@
 | **Prestige** | ■■□□□□□□□□ (2/10) |
 | **Couleur carte** | `#33691E` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Hautes terres papoues | town | 3 000 | 3/10 | 3/10 | agriculture |
+| Village des Hautes Terres (Baliem) | village | 500 | 2/10 | 2/10 | agriculture |
 
 </details>
 
@@ -14188,7 +23593,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 3/10)
 
@@ -14199,6 +23604,61 @@
 | Vêtements | Koteka (gourd), bird-of-paradise feathers, body paint |
 | Travail | Sweet potato gardening, pig herding, warfare |
 | Loisirs | sing_sing_festival, body_painting, storytelling, dance |
+| Revenu moyen | 3 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sweet_potato, pork, sago, taro, greens |
+| Logement | Men-only longhouse (haus man) |
+| Vêtements | Grass skirt, bird-of-paradise plumes, boar-tusk necklace, body paint |
+| Travail | Inter-clan warfare, pig raids, initiation rituals |
+| Loisirs | sing_sing_dance, storytelling, flute_music, feasting |
+| Revenu moyen | 2 |
+
+**nobility** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sweet_potato, pork, sago, taro, greens |
+| Logement | Big-man's house, decorated with trophy skulls and carved posts |
+| Vêtements | Bird-of-paradise plume headdress, boar-tusk crescents, shell wealth |
+| Travail | Big-man — feast hosting, pig exchange, alliance building |
+| Loisirs | sing_sing_dance, oratory, feasting, carving |
+| Revenu moyen | 5 |
+
+**merchants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sweet_potato, sago, pork, taro, greens |
+| Logement | House near trade-route village clearing |
+| Vêtements | Kina shell ornaments, bird-of-paradise plumes, body paint |
+| Travail | Kina shell and stone axe trade, salt and obsidian exchange |
+| Loisirs | sing_sing_dance, feasting, storytelling |
+| Revenu moyen | 4 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sweet_potato, pork, sago, medicinal_herbs, betel_nut |
+| Logement | Spirit house (haus tambaran) with carved ancestor figures |
+| Vêtements | Bone nose-piece, face paint, sacred masks, bird-of-paradise plumes |
+| Travail | Spirit-medium, initiation rites, ancestor communication, healing |
+| Loisirs | mask_carving, sing_sing_dance, storytelling, chanting |
+| Revenu moyen | 3 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | sweet_potato, sago, pork, taro, greens |
+| Logement | House with carving workshop area |
+| Vêtements | Grass skirt, body paint, bone ornaments |
+| Travail | Spirit-mask carving, stone-axe polishing, pottery, net making |
+| Loisirs | carving, sing_sing_dance, storytelling, painting |
 | Revenu moyen | 3 |
 
 </details>
@@ -14219,11 +23679,12 @@
 | **Prestige** | ■■■□□□□□□□ (3/10) |
 | **Couleur carte** | `#00838F` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Village fortifié fidjien (Viti Levu) | town | 2 000 | 4/10 | 3/10 | military |
+| Bau | village | 1 500 | 3/10 | 3/10 | military |
 
 </details>
 
@@ -14392,7 +23853,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 4/10)
 
@@ -14404,6 +23865,61 @@
 | Travail | Taro farming, fishing, canoe building, warfare |
 | Loisirs | kava_ceremony, dance, canoe_racing, storytelling |
 | Revenu moyen | 5 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, coconut, breadfruit, pork |
+| Logement | Bure (thatched timber house) |
+| Vêtements | Tapa cloth, war clubs, body paint |
+| Travail | Inter-chieftaincy warfare, canoe raids, village defense |
+| Loisirs | wrestling, kava_ceremony, war_dances, canoe_racing |
+| Revenu moyen | 5 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, pork, turtle, fish, coconut, kava |
+| Logement | Large bure on raised stone platform, carved posts |
+| Vêtements | Finest tapa cloth, whale-tooth necklace (tabua), feathered headdress |
+| Travail | Paramount chief, inter-island warfare command, tribute collection |
+| Loisirs | kava_ceremony, war_council, feasting, canoe_racing |
+| Revenu moyen | 30 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, coconut, breadfruit, kava |
+| Logement | Bure near canoe landing and trade beach |
+| Vêtements | Tapa cloth, whale-tooth tabua for prestigious exchanges |
+| Travail | Inter-island canoe trade, whale-tooth and pottery exchange |
+| Loisirs | kava_ceremony, feasting, canoe_building |
+| Revenu moyen | 8 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, kava, coconut, breadfruit |
+| Logement | Spirit temple (bure kalou) on sacred ground |
+| Vêtements | Masi bark cloth, sacred whale-tooth pendant, body paint |
+| Travail | Bete (priest), spirit possession, war divination, ancestor worship |
+| Loisirs | kava_ceremony, chanting, storytelling, healing |
+| Revenu moyen | 10 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, coconut, breadfruit, yam |
+| Logement | Bure with workshop space |
+| Vêtements | Tapa cloth, shell ornaments |
+| Travail | Double-hulled canoe building, masi (bark cloth) making, pottery |
+| Loisirs | kava_ceremony, songs, storytelling, canoe_building |
+| Revenu moyen | 6 |
 
 </details>
 
@@ -14431,11 +23947,12 @@
 | **Prestige** | ■■■□□□□□□□ (3/10) |
 | **Couleur carte** | `#0097A7` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Hagåtña (Guam) | town | 3 000 | 3/10 | 4/10 | port |
+| Hagåtña | village | 500 | 2/10 | 2/10 |  |
 
 </details>
 
@@ -14601,7 +24118,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 5/10)
 
@@ -14613,6 +24130,61 @@
 | Travail | Fishing, farming, latte stone construction, canoe sailing |
 | Loisirs | proa_sailing, dance, storytelling, weaving |
 | Revenu moyen | 5 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, breadfruit, taro |
+| Logement | Latte stone-pillared house |
+| Vêtements | Woven palm-fiber loincloth, shell ornaments, tattoos |
+| Travail | Inter-island raiding, canoe warfare, village defense |
+| Loisirs | canoe_racing, wrestling, chanting, feasting |
+| Revenu moyen | 5 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, turtle, coconut, breadfruit, pork |
+| Logement | Largest latte house on highest stone pillars, near shore |
+| Vêtements | Fine woven cloth, tortoiseshell ornaments, elaborate tattoos |
+| Travail | Matao (high caste) chief, land control, inter-island diplomacy |
+| Loisirs | canoe_racing, feasting, chanting, dance |
+| Revenu moyen | 20 |
+
+**merchants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, breadfruit, shellfish |
+| Logement | Latte house near shore and canoe landing |
+| Vêtements | Woven cloth, shell currency ornaments |
+| Travail | Inter-island canoe trade, shell and obsidian exchange |
+| Loisirs | canoe_racing, chanting, feasting |
+| Revenu moyen | 8 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, breadfruit, taro |
+| Logement | Latte house near ancestor burial ground |
+| Vêtements | Shell and bone ornaments, special tapa cloth |
+| Travail | Makahna (spirit medium), ancestor worship, healing rituals |
+| Loisirs | chanting, ceremonies, herbal_healing, storytelling |
+| Revenu moyen | 8 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | rice, fish, coconut, breadfruit, taro |
+| Logement | Latte house near work area |
+| Vêtements | Woven palm cloth, shell tools, tattoos |
+| Travail | Flying proa canoe building, latte stone carving, pottery |
+| Loisirs | canoe_building, fishing, chanting, dance |
+| Revenu moyen | 6 |
 
 </details>
 
@@ -14640,11 +24212,12 @@
 | **Prestige** | ■■□□□□□□□□ (2/10) |
 | **Couleur carte** | `#A1887F` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Tsodilo (collines sacrées) | town | 500 | 1/10 | 1/10 | religious |
+| Tsodilo Hills | nomadic_camp | 150 | 1/10 | 1/10 |  |
 
 </details>
 
@@ -14796,7 +24369,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **free_peasants** (qualité de vie : 4/10)
 
@@ -14808,6 +24381,72 @@
 | Travail | Hunting with poison arrows, gathering, tracking |
 | Loisirs | trance_dance, rock_art, music_bow, storytelling |
 | Revenu moyen | 2 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | game_meat, mongongo_nuts, tubers, melons, insects |
+| Logement | Scherms (brush windbreaks) at temporary camp |
+| Vêtements | Leather loincloth, ostrich-shell beads, body paint |
+| Travail | Hunting with poisoned arrows, territorial defense |
+| Loisirs | trance_dance, storytelling, rock_painting, tracking_games |
+| Revenu moyen | 1 |
+
+**nobility** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | game_meat, mongongo_nuts, tubers, honey, melons |
+| Logement | Central position at camp, best windbreak |
+| Vêtements | Leather cloak, ostrich-shell bead headband, body paint |
+| Travail | Respected elder, trance-dance leader, dispute mediator (egalitarian band) |
+| Loisirs | trance_dance, storytelling, rock_painting, music |
+| Revenu moyen | 2 |
+
+**merchants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | game_meat, mongongo_nuts, tubers, melons, honey |
+| Logement | Camp near Bantu village exchange points |
+| Vêtements | Leather loincloth, ostrich-shell bead necklaces (trade currency) |
+| Travail | Ostrich-shell bead and honey trade with Bantu herders |
+| Loisirs | trance_dance, rock_painting, storytelling, games |
+| Revenu moyen | 2 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | game_meat, mongongo_nuts, honey, tubers, herbs |
+| Logement | Central camp position near dance ground |
+| Vêtements | Leather loincloth, ostrich-shell beads, healing rattle, body paint |
+| Travail | Healer, trance dance leader, rain-making, spirit communication |
+| Loisirs | trance_dance, rock_painting, storytelling, healing |
+| Revenu moyen | 1 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | game_meat, mongongo_nuts, tubers, melons, insects |
+| Logement | Camp with tool-making area |
+| Vêtements | Leather loincloth, ostrich-shell beads |
+| Travail | Poisoned arrow crafting, ostrich-shell bead making, bow and digging stick carving |
+| Loisirs | rock_painting, bead_making, storytelling, music |
+| Revenu moyen | 1 |
+
+**nomads** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | game_meat, mongongo_nuts, tubers, melons, honey |
+| Logement | Scherms (brush shelter) at temporary camps, moved every few weeks |
+| Vêtements | Leather loincloth, ostrich-shell bead jewelry |
+| Travail | Nomadic foraging bands following seasonal food resources |
+| Loisirs | trance_dance, storytelling, rock_painting, tracking_games |
+| Revenu moyen | 1 |
 
 </details>
 
@@ -14827,11 +24466,12 @@
 | **Prestige** | ■□□□□□□□□□ (1/10) |
 | **Couleur carte** | `#4E342E` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Campement Ituri | town | 300 | 1/10 | 1/10 | hunting |
+| Ituri (campement) | nomadic_camp | 100 | 1/10 | 1/10 |  |
 
 </details>
 
@@ -14991,7 +24631,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **free_peasants** (qualité de vie : 4/10)
 
@@ -15003,6 +24643,72 @@
 | Travail | Net hunting, honey gathering, foraging, Bantu trade |
 | Loisirs | polyphonic_singing, molimo_ceremony, dance, storytelling |
 | Revenu moyen | 2 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | game_meat, honey, wild_yam, mushrooms, fruits |
+| Logement | Mongolu (leaf-covered dome hut) in forest camp |
+| Vêtements | Bark-cloth loincloth, body paint for hunts |
+| Travail | Forest hunting with nets and bows, camp defense |
+| Loisirs | molimo_ceremony, singing, storytelling, dancing |
+| Revenu moyen | 1 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | game_meat, honey, wild_yam, mushrooms, fruits, caterpillars |
+| Logement | Central mongolu in camp (egalitarian — slightly larger) |
+| Vêtements | Bark-cloth with vine decorations, body paint for molimo ceremony |
+| Travail | Respected elder, molimo ceremony leader, camp consensus speaker |
+| Loisirs | molimo_singing, storytelling, dancing, honey_gathering |
+| Revenu moyen | 2 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | game_meat, honey, wild_yam, mushrooms, fruits |
+| Logement | Forest-edge camp near Bantu village for trade |
+| Vêtements | Bark-cloth, Bantu-trade items (iron tools, pots) |
+| Travail | Forest products (meat, honey, medicine) trade with Bantu farmers |
+| Loisirs | singing, dancing, storytelling, honey_gathering |
+| Revenu moyen | 2 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | honey, game_meat, mushrooms, wild_yam, caterpillars |
+| Logement | Mongolu at camp center during molimo ceremonies |
+| Vêtements | Bark-cloth, leaf decorations, body paint for sacred rituals |
+| Travail | Molimo ceremony leader, forest spirit communication, healing |
+| Loisirs | molimo_singing, forest_rituals, storytelling, dancing |
+| Revenu moyen | 1 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | game_meat, honey, wild_yam, mushrooms, fruits |
+| Logement | Mongolu (leaf hut) with bark-cloth work area |
+| Vêtements | Bark-cloth loincloth, vine decorations |
+| Travail | Net weaving for hunting, bark-cloth making, arrow crafting, basket weaving |
+| Loisirs | singing, dancing, storytelling, crafting |
+| Revenu moyen | 1 |
+
+**nomads** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | game_meat, honey, wild_yam, mushrooms, caterpillars |
+| Logement | Mongolu (leaf-and-branch dome) rebuilt at each new forest camp |
+| Vêtements | Bark-cloth loincloth, vine waistbands |
+| Travail | Nomadic forest foraging, net hunting, seasonal camp relocation |
+| Loisirs | molimo_singing, dancing, storytelling, honey_gathering |
+| Revenu moyen | 1 |
 
 </details>
 
@@ -15030,11 +24736,12 @@
 
 </details>
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Nri (cité sacrée) | major_city | 10 000 | 4/10 | 6/10 | religious, trade |
+| Igbo-Ukwu | town | 3 000 | 3/10 | 5/10 | artisan, bronze_casting |
 
 </details>
 
@@ -15213,7 +24920,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **artisans** (qualité de vie : 5/10)
 
@@ -15225,6 +24932,61 @@
 | Travail | Bronze casting, farming, trade, palm oil processing |
 | Loisirs | masquerade_dance, wrestling, storytelling, music |
 | Revenu moyen | 12 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | yam, palm_oil, fish, kola_nuts, palm_wine |
+| Logement | Obi (central meeting house) with courtyards |
+| Vêtements | Cotton wrapper, coral bead necklace, ichi facial scarification |
+| Travail | Nri ritual kingship, religious purity enforcement, dispute arbitration |
+| Loisirs | storytelling, ceremonies, music, wrestling |
+| Revenu moyen | 60 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | yam, palm_oil, fish, cassava, palm_wine |
+| Logement | Mudbrick house near market |
+| Vêtements | Cotton wrapper, leather sandals |
+| Travail | Iron tools trade, palm oil commerce, bronze casting trade |
+| Loisirs | market_gatherings, storytelling, music |
+| Revenu moyen | 30 |
+
+**free_peasants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | yam, palm_oil, cassava, beans, palm_wine |
+| Logement | Mudbrick hut with thatched roof in family compound |
+| Vêtements | Cotton wrapper, bare-chested, scarification marks |
+| Travail | Yam farming, palm oil harvesting, blacksmithing |
+| Loisirs | wrestling, storytelling, masquerade_festivals, music |
+| Revenu moyen | 10 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | yam, palm_oil, fish, beans, palm_wine |
+| Logement | Mudbrick hut in warrior compound |
+| Vêtements | Cotton wrapper, body paint, iron sword, shield |
+| Travail | Village defense, inter-clan warfare, slave raiding |
+| Loisirs | wrestling, war_dances, storytelling, drumming |
+| Revenu moyen | 15 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | yam, palm_oil, kola_nuts, palm_wine, fish |
+| Logement | Sacred compound near shrine (obi of Eze Nri) |
+| Vêtements | White cotton robe, ichi facial scarification, coral beads, sacred staff |
+| Travail | Nri priest, ritual cleansing, title-taking ceremonies, taboo enforcement |
+| Loisirs | ceremonies, divination, storytelling, music |
+| Revenu moyen | 25 |
 
 </details>
 
@@ -15318,11 +25080,12 @@
 | **Prestige** | ■■■■■□□□□□ (5/10) |
 | **Couleur carte** | `#C17D11` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Cahokia | capital | 15 000 | 3/10 | 5/10 | religious_center, trade |
+| East St. Louis (Mississippien) | town | 3 000 | 3/10 | 3/10 | agriculture |
 
 </details>
 
@@ -15500,7 +25263,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 4/10)
 
@@ -15512,6 +25275,61 @@
 | Travail | Maize farming, fishing, mound-building labor |
 | Loisirs | chunkey_game, festivals, storytelling, dancing |
 | Revenu moyen | 5 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, beans, venison, fish, berries |
+| Logement | Timber house atop ceremonial mound |
+| Vêtements | Shell-bead cape, copper gorget, feathered headdress |
+| Travail | Chiefdom governance, ceremony leadership, tribute collection |
+| Loisirs | chunkey_game, feasting, ceremonies |
+| Revenu moyen | 50 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, beans, venison, fish, squash |
+| Logement | Timber house near palisade |
+| Vêtements | Leather war shirt, face paint, bone/shell necklace |
+| Travail | Palisade defense, raiding parties, escort duty |
+| Loisirs | chunkey_game, wrestling, war_dances, feasting |
+| Revenu moyen | 15 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, fish, deer, sunflower_seeds |
+| Logement | Wattle-and-daub house near plaza trading area |
+| Vêtements | Cotton and deerskin garments, copper ear-spools, shell gorgets |
+| Travail | Long-distance copper, shell, and chert trade network |
+| Loisirs | chunkey_game, feasting, ceremonies, storytelling |
+| Revenu moyen | 15 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, deer, fish, black_drink |
+| Logement | Temple mound-top building at Cahokia-style center |
+| Vêtements | Copper gorget, shell-bead cape, feathered headdress, face paint |
+| Travail | Mound-temple priest, Green Corn ceremony, sun worship, calendar keeping |
+| Loisirs | ceremonies, astronomical_observation, chunkey_game, feasting |
+| Revenu moyen | 25 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, fish, deer, sunflower_seeds |
+| Logement | Wattle-and-daub house in craft quarter near mound |
+| Vêtements | Deerskin garments, copper and shell ornaments |
+| Travail | Copper repoussé, shell gorget carving, pottery, flint knapping |
+| Loisirs | chunkey_game, ceremonies, storytelling, feasting |
+| Revenu moyen | 12 |
 
 </details>
 
@@ -15539,11 +25357,12 @@
 | **Prestige** | ■■■■■□□□□□ (5/10) |
 | **Couleur carte** | `#1B5E20` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Haida Gwaii (village principal) | town | 3 000 | 5/10 | 5/10 | port, manufacturing |
+| SGang Gwaay (Ninstints) | village | 500 | 2/10 | 3/10 | artisan |
 
 </details>
 
@@ -15718,7 +25537,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (5 classes)</summary>
 
 **free_peasants** (qualité de vie : 6/10)
 
@@ -15730,6 +25549,50 @@
 | Travail | Salmon fishing, canoe building, woodcarving, trading |
 | Loisirs | potlatch, mask_dance, storytelling, canoe_racing |
 | Revenu moyen | 12 |
+
+**warriors** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | salmon, halibut, seal, berries, seaweed |
+| Logement | Cedar plank longhouse |
+| Vêtements | Cedar-bark armor, wooden war helmet, face paint |
+| Travail | Clan warfare, slave raiding, canoe naval combat |
+| Loisirs | potlatch_feasts, storytelling, canoe_racing |
+| Revenu moyen | 15 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | salmon, halibut, berries, roots, seaweed |
+| Logement | Cedar plank longhouse with workshop annex |
+| Vêtements | Cedar-bark cloak, Chilkat blanket, carved wooden hat |
+| Travail | Totem pole carving, canoe building, Chilkat weaving, argillite work |
+| Loisirs | potlatch_feasts, storytelling, carving |
+| Revenu moyen | 15 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | salmon, halibut, seal, whale, berries, eulachon_oil |
+| Logement | Grand cedar plank house with carved house pole, front of village |
+| Vêtements | Chilkat blanket, copper ornaments, carved spruce-root hat |
+| Travail | House chief, potlatch hosting, trade negotiation, slave-owning |
+| Loisirs | potlatch_feasts, storytelling, canoe_racing, carving |
+| Revenu moyen | 40 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | salmon, halibut, berries, seaweed, eulachon_oil |
+| Logement | Cedar house with spirit masks and sacred bundles |
+| Vêtements | Carved mask, cedar-bark regalia, rattle, raven cloak |
+| Travail | Shaman (sgaaga), healing, spirit communication, totem interpretation |
+| Loisirs | mask_dances, storytelling, carving, potlatch_ceremonies |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -15757,11 +25620,12 @@
 | **Prestige** | ■■■□□□□□□□ (3/10) |
 | **Couleur carte** | `#81D4FA` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Camp principal thuléen (Arctique) | town | 500 | 3/10 | 2/10 | port |
+| Ruin Island | nomadic_camp | 200 | 1/10 | 2/10 |  |
 
 </details>
 
@@ -15926,7 +25790,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **free_peasants** (qualité de vie : 3/10)
 
@@ -15937,6 +25801,72 @@
 | Vêtements | Caribou skin parka with hood, sealskin boots (kamik), mittens |
 | Travail | Whale and seal hunting, seasonal caribou migration hunting |
 | Loisirs | throat_singing, storytelling, drum_dance, games |
+| Revenu moyen | 4 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | seal, whale_blubber, caribou, fish, berries |
+| Logement | Semi-subterranean sod-and-whale-bone house |
+| Vêtements | Caribou-skin parka, sealskin boots, ivory goggles |
+| Travail | Whale and walrus hunting, territorial defense, scouting |
+| Loisirs | drum_dance, storytelling, string_games, throat_singing |
+| Revenu moyen | 5 |
+
+**nobility** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | whale, seal, caribou, walrus, arctic_char |
+| Logement | Largest sod-and-whale-bone house, best position |
+| Vêtements | Finest caribou-skin parka, polar-bear-fur trim, ivory carvings |
+| Travail | Umialik — whaling captain, camp leader, trade coordinator |
+| Loisirs | blanket_toss, drum_dance, storytelling, feasting |
+| Revenu moyen | 10 |
+
+**merchants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | whale, seal, caribou, fish |
+| Logement | Coastal sod house near trade meeting site |
+| Vêtements | Caribou-skin parka, iron items from Norse trade |
+| Travail | Walrus ivory, whale oil and baleen trade with Norse Greenlanders |
+| Loisirs | drum_dance, feasting, trade_gatherings, storytelling |
+| Revenu moyen | 6 |
+
+**clergy** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | seal, whale, caribou, fish, berries |
+| Logement | Sod house with shaman drum and carved figures |
+| Vêtements | Caribou-skin parka with spirit-motif embroidery, ivory amulets |
+| Travail | Angakkuq (shaman), spirit flights, weather prediction, healing |
+| Loisirs | drum_dance, trance_journeys, storytelling, ivory_carving |
+| Revenu moyen | 5 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | seal, whale, caribou, fish, berries |
+| Logement | Sod house with carving workspace |
+| Vêtements | Caribou-skin parka, sealskin boots |
+| Travail | Umiak and kayak building, ivory carving, harpoon-head crafting, sewing waterproof sealskin |
+| Loisirs | ivory_carving, storytelling, drum_dance, games |
+| Revenu moyen | 4 |
+
+**nomads** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | seal, caribou, whale, fish, berries |
+| Logement | Skin tent (summer), sod house (winter) — seasonal migration |
+| Vêtements | Caribou-skin parka, sealskin boots, snow goggles |
+| Travail | Seasonal migration following caribou herds and whale pods |
+| Loisirs | drum_dance, storytelling, string_games, throat_singing |
 | Revenu moyen | 4 |
 
 </details>
@@ -15957,11 +25887,12 @@
 | **Prestige** | ■■■■■■■□□□ (7/10) |
 | **Couleur carte** | `#FF6F00` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Tongatapu (Lapaha) | major_city | 10 000 | 4/10 | 6/10 | religious, port |
+| Mu'a | capital | 3 000 | 3/10 | 5/10 | religious_center, administrative |
 
 </details>
 
@@ -16137,7 +26068,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 6/10)
 
@@ -16149,6 +26080,61 @@
 | Travail | Taro and yam farming, deep-sea fishing, tribute collection |
 | Loisirs | kava_ceremony, dance, canoe_racing, wrestling |
 | Revenu moyen | 10 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, breadfruit, fish, coconut, pork, yam |
+| Logement | Large thatched house on stone platform (langi) |
+| Vêtements | Fine tapa cloth, shell and whale-tooth necklace |
+| Travail | Tu'i Tonga divine kingship, tributary diplomacy, ceremony leadership |
+| Loisirs | feasting, kava_ceremony, canoe_racing, wrestling |
+| Revenu moyen | 30 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, coconut, breadfruit |
+| Logement | Thatched house near chief compound |
+| Vêtements | Tapa loincloth, war club, wooden shield |
+| Travail | Naval warfare, island raiding, chief's guard |
+| Loisirs | wrestling, canoe_racing, war_dances, kava_ceremony |
+| Revenu moyen | 8 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, coconut, breadfruit, shellfish |
+| Logement | Fale near harbor and canoe landing |
+| Vêtements | Tapa cloth, shell ornaments, woven mat sails |
+| Travail | Lapita-trade network, shell-currency exchange, long-distance canoe voyaging |
+| Loisirs | kava_ceremony, canoe_racing, feasting, dance |
+| Revenu moyen | 12 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, coconut, breadfruit, kava |
+| Logement | Temple precinct near royal langi (burial mound) |
+| Vêtements | White tapa cloth, whale-tooth necklace, sacred staff |
+| Travail | Tu'i Tonga religious duties, ancestor worship, kava ceremony direction |
+| Loisirs | kava_ceremony, chanting, dance, storytelling |
+| Revenu moyen | 15 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, coconut, breadfruit, yam |
+| Logement | Fale with tapa-making workspace |
+| Vêtements | Tapa cloth, shell ornaments |
+| Travail | Tapa cloth beating, canoe building, tapa dyeing, shell-bead making |
+| Loisirs | kava_ceremony, dance, storytelling, canoe_racing |
+| Revenu moyen | 8 |
 
 </details>
 
@@ -16177,11 +26163,12 @@
 | **Prestige** | ■■■■■□□□□□ (5/10) |
 | **Couleur carte** | `#E65100` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Waipi'o (vallée sacrée) | capital | 5 000 | 4/10 | 5/10 | religious, agriculture |
+| Waimea | village | 1 000 | 2/10 | 3/10 | agriculture |
 
 </details>
 
@@ -16356,7 +26343,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 6/10)
 
@@ -16368,6 +26355,61 @@
 | Travail | Taro farming, fishing, tapa cloth making |
 | Loisirs | hula_dance, surfing, storytelling, canoe_racing |
 | Revenu moyen | 8 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, breadfruit, fish, pork, coconut, sweet_potato |
+| Logement | Large thatched house (hale) on stone platform |
+| Vêtements | Feather cloak (ahu ula), malo loincloth, lei |
+| Travail | Ali'i governance, kapu (taboo) enforcement, land management |
+| Loisirs | surfing, hula, feasting, canoe_racing |
+| Revenu moyen | 30 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, breadfruit, coconut |
+| Logement | Thatched house near ali'i compound |
+| Vêtements | War cape, shark-tooth weapon, wooden spear |
+| Travail | Inter-island warfare, ali'i guard, canoe fleet warfare |
+| Loisirs | surfing, wrestling, hula, feasting |
+| Revenu moyen | 8 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, breadfruit, coconut, sweet_potato |
+| Logement | Thatched hale near canoe landing |
+| Vêtements | Tapa cloth, feather cape for trade missions |
+| Travail | Inter-island canoe trade, feather and adze exchange |
+| Loisirs | surfing, hula, feasting, fishing |
+| Revenu moyen | 10 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, breadfruit, coconut, banana |
+| Logement | Heiau (temple) precinct dwelling |
+| Vêtements | Kapa cloth, feather cape, sacred staff, whale-bone ornaments |
+| Travail | Kahuna (priest), heiau temple rituals, navigation, healing, star reading |
+| Loisirs | chanting, hula_dance, astronomical_observation, feasting |
+| Revenu moyen | 20 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | taro, fish, breadfruit, coconut, sweet_potato |
+| Logement | Thatched hale near workshop area |
+| Vêtements | Tapa cloth, shell ornaments |
+| Travail | Kapa (bark cloth) beating, feather cloak making, stone adze carving, canoe building |
+| Loisirs | hula, surfing, storytelling, fishing |
+| Revenu moyen | 10 |
 
 </details>
 
@@ -16396,11 +26438,12 @@
 | **Prestige** | ■■□□□□□□□□ (2/10) |
 | **Couleur carte** | `#78909C` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Campement Dorset (Terre de Baffin) | town | 500 | 2/10 | 2/10 | hunting |
+| Camp Dorset (Igloolik) | village | 200 | 1/10 | 2/10 | hunting, ivory_carving |
 
 </details>
 
@@ -16554,7 +26597,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **free_peasants** (qualité de vie : 3/10)
 
@@ -16565,6 +26608,72 @@
 | Vêtements | Sealskin clothing sewn with bone needles |
 | Travail | Seal hunting on ice, ivory carving, tool making |
 | Loisirs | ivory_carving, storytelling, drum_dance |
+| Revenu moyen | 2 |
+
+**warriors** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | seal, walrus, arctic_char, muskox, berries |
+| Logement | Semi-subterranean stone-and-turf house |
+| Vêtements | Sealskin hooded parka, ivory snow goggles, bone tools |
+| Travail | Ice-edge seal hunting, camp defense, polar bear hunting |
+| Loisirs | ivory_carving, storytelling, drum_dance, games |
+| Revenu moyen | 3 |
+
+**nobility** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | seal, walrus, muskox, arctic_char, berries |
+| Logement | Central semi-subterranean house, largest in camp |
+| Vêtements | Best sealskin parka, carved ivory amulets, polar-bear-tooth necklace |
+| Travail | Camp leader, hunt coordinator, shaman-advisor |
+| Loisirs | ivory_carving, drum_dance, storytelling, games |
+| Revenu moyen | 4 |
+
+**merchants** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | seal, walrus, fish, muskox, berries |
+| Logement | Coastal stone-and-turf camp near trade spots |
+| Vêtements | Sealskin parka with ivory trade ornaments |
+| Travail | Walrus ivory and soapstone trade with Norse and other Arctic peoples |
+| Loisirs | ivory_carving, games, drum_dance |
+| Revenu moyen | 4 |
+
+**clergy** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | seal, fish, walrus, berries, roots |
+| Logement | Semi-subterranean house with carved spirit figures |
+| Vêtements | Sealskin parka, carved wooden mask, ivory amulets |
+| Travail | Shaman (angakkuq), spirit flight, healing, weather control rituals |
+| Loisirs | ivory_carving, drum_dance, trance_journeys, storytelling |
+| Revenu moyen | 3 |
+
+**artisans** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | seal, fish, walrus, muskox, berries |
+| Logement | Stone-and-turf house with carving work area |
+| Vêtements | Sealskin parka, ivory carving tools at belt |
+| Travail | Miniature ivory and soapstone carving, harpoon-head crafting, sled building |
+| Loisirs | ivory_carving, games, storytelling, drum_dance |
+| Revenu moyen | 3 |
+
+**nomads** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | seal, walrus, fish, muskox, berries |
+| Logement | Skin tent (summer), sod-and-stone house (winter) |
+| Vêtements | Sealskin hooded parka, ivory tools, bone sled runners |
+| Travail | Seasonal migration following ice-edge seals and summer caribou |
+| Loisirs | ivory_carving, drum_dance, storytelling, games |
 | Revenu moyen | 2 |
 
 </details>
@@ -16585,11 +26694,12 @@
 | **Prestige** | ■■□□□□□□□□ (2/10) |
 | **Couleur carte** | `#FF0000` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Village béothuk (rivière des Exploits) | town | 500 | 2/10 | 2/10 | hunting |
+| Boyd's Cove | village | 300 | 1/10 | 2/10 |  |
 
 </details>
 
@@ -16744,7 +26854,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (7 classes)</summary>
 
 **free_peasants** (qualité de vie : 3/10)
 
@@ -16756,6 +26866,72 @@
 | Travail | Caribou hunting, salmon fishing, birch bark crafting |
 | Loisirs | storytelling, dance, hunting_games |
 | Revenu moyen | 3 |
+
+**warriors** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | caribou, seal, salmon, berries, birch_bark_tea |
+| Logement | Mamateek (birch-bark tent over pole frame) |
+| Vêtements | Caribou-skin cloak dyed with red ochre, moccasins |
+| Travail | Territorial defense, caribou hunting, canoe-based raiding |
+| Loisirs | storytelling, games, singing, dancing |
+| Revenu moyen | 3 |
+
+**nobility** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | caribou, seal, salmon, eggs, berries |
+| Logement | Largest mamateek in the camp, central position |
+| Vêtements | Finest caribou-skin cloak, heavy red-ochre body paint, bone pendants |
+| Travail | Band chief, seasonal migration leadership, resource allocation |
+| Loisirs | feasting, storytelling, dancing, singing |
+| Revenu moyen | 5 |
+
+**merchants** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | caribou, seal, salmon, shellfish, berries |
+| Logement | Coastal mamateek near trade meeting points |
+| Vêtements | Caribou-skin cloak, red-ochre paint, bone pendants |
+| Travail | Intertribal trade of ochre, stone tools, furs |
+| Loisirs | feasting, storytelling, singing |
+| Revenu moyen | 3 |
+
+**clergy** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | caribou, seal, salmon, berries, roots |
+| Logement | Mamateek with sacred ochre supplies |
+| Vêtements | Heavy red-ochre body paint, bone amulets, feathered headband |
+| Travail | Spiritual leader, burial rites, ochre ceremony, healing rituals |
+| Loisirs | ceremonies, storytelling, singing, healing |
+| Revenu moyen | 3 |
+
+**artisans** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | caribou, seal, salmon, berries, roots |
+| Logement | Mamateek with tool-crafting area |
+| Vêtements | Caribou-skin cloak, red-ochre body paint |
+| Travail | Birch-bark canoe building, bone tool crafting, ochre processing |
+| Loisirs | crafting, storytelling, singing, teaching |
+| Revenu moyen | 3 |
+
+**nomads** (qualité de vie : 2/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | caribou, seal, salmon, shellfish, berries |
+| Logement | Mamateek (birch-bark conical tent), moved seasonally coast to interior |
+| Vêtements | Caribou-skin robe, red-ochre body paint, moccasins |
+| Travail | Seasonal coast-to-interior migration: summer seal hunting, winter caribou |
+| Loisirs | storytelling, dancing, singing, games |
+| Revenu moyen | 2 |
 
 </details>
 
@@ -16775,11 +26951,12 @@
 | **Prestige** | ■■■□□□□□□□ (3/10) |
 | **Couleur carte** | `#1B5E20` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Village mi'kmaq (Nouvelle-Écosse) | town | 2 000 | 3/10 | 3/10 | hunting, port |
+| Village mi'kmaq (Gaspésie) | village | 300 | 1/10 | 2/10 | fishing, trade |
 
 </details>
 
@@ -16946,7 +27123,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 4/10)
 
@@ -16958,6 +27135,61 @@
 | Travail | Coastal fishing, moose hunting, quillwork, trade |
 | Loisirs | pow_wow, storytelling, lacrosse, canoe_racing |
 | Revenu moyen | 5 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | moose, deer, salmon, berries, shellfish |
+| Logement | Wigwam (birch-bark covered dome) |
+| Vêtements | Moose-hide tunic, quill-decorated moccasins, war paint |
+| Travail | Hunting, territorial defense, canoe warfare |
+| Loisirs | waltes_game, storytelling, dancing, drumming |
+| Revenu moyen | 4 |
+
+**nobility** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | moose, deer, salmon, lobster, berries, corn |
+| Logement | Largest wigwam at camp center, decorated with quillwork |
+| Vêtements | Decorated moose-hide robe, wampum belt, quill-embroidered moccasins |
+| Travail | Sagamaw (district chief), band coordination, trade diplomacy |
+| Loisirs | waltes_game, feasting, storytelling, pipe_ceremony |
+| Revenu moyen | 8 |
+
+**merchants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | deer, fish, lobster, berries, corn |
+| Logement | Wigwam near coastal trade gathering points |
+| Vêtements | Moose-hide robe, wampum trade beads, quill-embroidered bag |
+| Travail | Coastal shellfish and wampum trade, fur exchange with interior |
+| Loisirs | waltes_game, feasting, trade_gatherings, storytelling |
+| Revenu moyen | 6 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | deer, fish, berries, medicinal_herbs, roots |
+| Logement | Sweat lodge and wigwam with medicine bundles |
+| Vêtements | Decorated robe, medicine pouch, sacred pipe, face paint |
+| Travail | Puoin (shaman), healing, dream interpretation, sweat-lodge ceremonies |
+| Loisirs | vision_quests, storytelling, herb_gathering, pipe_ceremony |
+| Revenu moyen | 5 |
+
+**artisans** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | deer, fish, shellfish, berries, corn |
+| Logement | Wigwam with bark and quill work area |
+| Vêtements | Moose-hide robe, porcupine-quill embroidered moccasins |
+| Travail | Birch-bark canoe building, quillwork embroidery, basket weaving, tool making |
+| Loisirs | waltes_game, storytelling, quillwork, dancing |
+| Revenu moyen | 4 |
 
 </details>
 
@@ -17020,11 +27252,12 @@
 | **Prestige** | ■■■■□□□□□□ (4/10) |
 | **Couleur carte** | `#F57900` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Huari | capital | 10 000 | 5/10 | 4/10 | military |
+| Tiwanaku | city | 8 000 | 5/10 | 5/10 | religious_center, artisan |
 
 </details>
 
@@ -17204,7 +27437,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (2 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **nobility** (qualité de vie : 7/10)
 
@@ -17227,6 +27460,50 @@
 | Travail | Terrace farming, llama herding, mit'a labor service |
 | Loisirs | festivals, music, weaving |
 | Revenu moyen | 5 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, potatoes, quinoa, llama_jerky, chicha |
+| Logement | Stone house in highland trading center |
+| Vêtements | Wool tunic (unku), leather sandals, woven belt |
+| Travail | Highland-coast exchange, llama caravan trade, textile commerce |
+| Loisirs | feasting, storytelling, music |
+| Revenu moyen | 40 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, potatoes, llama_jerky, quinoa |
+| Logement | Stone fortress in highland pass |
+| Vêtements | Padded cotton armor, wooden shield, bronze-tipped mace |
+| Travail | Highland territorial defense, tribute collection, garrison duty |
+| Loisirs | wrestling, feasting, war_dances |
+| Revenu moyen | 15 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, potato, llama_meat, quinoa, chicha_beer |
+| Logement | D-shaped temple compound in Wari administrative center |
+| Vêtements | Polychrome tunic, gold and silver ornaments, feathered scepter |
+| Travail | Oracle priest, ancestor worship, offering ceremonies, calendar rituals |
+| Loisirs | ceremonies, astronomical_observation, feasting, weaving |
+| Revenu moyen | 25 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, potato, quinoa, llama_meat, chicha_beer |
+| Logement | Workshop in Wari administrative compound |
+| Vêtements | Polychrome cotton tunic, wool sandals |
+| Travail | Polychrome textile weaving, turquoise and shell mosaic, pottery, metalwork |
+| Loisirs | ceremonies, music, weaving, feasting |
+| Revenu moyen | 12 |
 
 </details>
 
@@ -17255,11 +27532,12 @@
 | **Prestige** | ■■■■□□□□□□ (4/10) |
 | **Couleur carte** | `#4A148C` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Rewe mapuche (Araucanie) | town | 5 000 | 6/10 | 4/10 | military |
+| Temuco (Rewe) | village | 500 | 3/10 | 2/10 | military |
 
 </details>
 
@@ -17433,7 +27711,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 5/10)
 
@@ -17445,6 +27723,61 @@
 | Travail | Farming, llama herding, fishing, silversmithing |
 | Loisirs | palin_game, music, ngillatun_ceremony, storytelling |
 | Revenu moyen | 8 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | potatoes, maize, beans, game_meat, muday_beer |
+| Logement | Ruka (large thatched wooden house) |
+| Vêtements | Leather cuirass, wooden mace (clava), hide shield |
+| Travail | Territorial defense, inter-clan warfare, raiding |
+| Loisirs | palin_game, storytelling, feasting, music |
+| Revenu moyen | 8 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | potato, maize, quinoa, llama_meat, fish, muday_beer |
+| Logement | Largest ruka in the settlement, central position |
+| Vêtements | Finest wool poncho (makuñ), elaborate silver jewelry (trarilonko, trapelacucha) |
+| Travail | Lonko (chief), warfare leadership, inter-clan diplomacy, feast hosting |
+| Loisirs | palin_game, ngillatun_ceremony, music, feasting |
+| Revenu moyen | 15 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | potato, maize, fish, quinoa, muday_beer |
+| Logement | Ruka near river trade crossing |
+| Vêtements | Wool poncho, silver jewelry for display |
+| Travail | Silver, llama wool, and salt trade between coast and interior |
+| Loisirs | palin_game, music, feasting, storytelling |
+| Revenu moyen | 10 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | potato, maize, quinoa, herbs, muday_beer |
+| Logement | Ruka with sacred rewe (ritual post) outside |
+| Vêtements | Blue shawl, silver pectoral, kultrun drum, sacred headband |
+| Travail | Machi (shaman), healing ceremonies, ngillatun ritual, herbalism |
+| Loisirs | kultrun_drumming, herb_gathering, ceremonies, storytelling |
+| Revenu moyen | 10 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | potato, maize, quinoa, fish, muday_beer |
+| Logement | Ruka with silverwork forge and loom |
+| Vêtements | Wool poncho, silver jewelry (trapelacucha, trarilonko) |
+| Travail | Silversmithing (rütrafe), textile weaving, pottery, woodcarving |
+| Loisirs | palin_game, music, weaving, storytelling |
+| Revenu moyen | 10 |
 
 </details>
 
@@ -17472,11 +27805,12 @@
 | **Prestige** | ■■■■■■■□□□ (7/10) |
 | **Couleur carte** | `#D4A017` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Chan Chan | capital | 30 000 | 7/10 | 8/10 | manufacturing, trade, religious |
+| Túcume | city | 8 000 | 4/10 | 5/10 | religious_center, artisan |
 
 </details>
 
@@ -17657,7 +27991,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **artisans** (qualité de vie : 6/10)
 
@@ -17669,6 +28003,61 @@
 | Travail | Goldsmithing, pottery, fishing, irrigation farming |
 | Loisirs | ceremonial_dance, music, storytelling, festival |
 | Revenu moyen | 15 |
+
+**nobility** (qualité de vie : 6/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, fish, sweet_potatoes, chicha, guinea_pig |
+| Logement | Adobe palace compound in Chan Chan ciudadela |
+| Vêtements | Gold-embroidered cotton tunic, feathered headdress, ear spools |
+| Travail | Ciudadela governance, irrigation management, tribute collection |
+| Loisirs | feasting, ceremonies, patron_of_arts, fishing |
+| Revenu moyen | 200 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, fish, beans, sweet_potatoes, chicha |
+| Logement | Adobe house in Chan Chan artisan quarter |
+| Vêtements | Cotton tunic, leather sandals, copper jewelry |
+| Travail | Coastal trade, dried fish exchange, copper and gold commerce |
+| Loisirs | market_gatherings, feasting, storytelling |
+| Revenu moyen | 40 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, dried_fish, beans, chicha |
+| Logement | Garrison near ciudadela walls |
+| Vêtements | Padded cotton armor, wooden shield, bronze mace |
+| Travail | Coastal defense, frontier expansion, palace guard |
+| Loisirs | wrestling, feasting, war_dances |
+| Revenu moyen | 15 |
+
+**free_peasants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, beans, fish, guinea_pig |
+| Logement | Adobe-walled compound near irrigation canal |
+| Vêtements | Cotton tunic, woven sash, leather sandals |
+| Travail | Irrigated maize farming, fishing, canal maintenance |
+| Loisirs | festivals, music, chicha_brewing, ceramics |
+| Revenu moyen | 8 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, squash, fish, llama_meat, chicha_beer |
+| Logement | Temple complex within Chan Chan adobe citadel |
+| Vêtements | Gold and silver ceremonial pectoral, feathered headdress, fine cotton |
+| Travail | Temple priest, moon worship, sacrifice rituals, calendar keeping |
+| Loisirs | ceremonies, astronomical_observation, feasting, music |
+| Revenu moyen | 30 |
 
 </details>
 
@@ -17697,11 +28086,12 @@
 | **Prestige** | ■■■■■■□□□□ (6/10) |
 | **Couleur carte** | `#FFD700` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Bacatá (Bogotá) | capital | 15 000 | 5/10 | 7/10 | trade, religious |
+| Sogamoso | town | 5 000 | 3/10 | 5/10 | religious_center, trade |
 
 </details>
 
@@ -17879,7 +28269,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (6 classes)</summary>
 
 **free_peasants** (qualité de vie : 5/10)
 
@@ -17891,6 +28281,61 @@
 | Travail | Farming, salt mining, gold and emerald trade |
 | Loisirs | ceremonial_dance, music, el_dorado_ritual, storytelling |
 | Revenu moyen | 10 |
+
+**nobility** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, potatoes, quinoa, chicha, guinea_pig, fruits |
+| Logement | Circular timber-and-thatch palace |
+| Vêtements | Cotton mantle, gold nose ring, emerald jewelry, feather crown |
+| Travail | Zipa/Zaque governance, gold trade oversight, ceremony leadership |
+| Loisirs | feasting, ceremonies, gold_offering_rituals |
+| Revenu moyen | 100 |
+
+**merchants** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, potatoes, beans, chicha, fruits |
+| Logement | Circular thatch house near market |
+| Vêtements | Cotton mantle, leather sandals |
+| Travail | Emerald and gold trade, salt commerce, cotton textile trade |
+| Loisirs | market_gatherings, storytelling, feasting |
+| Revenu moyen | 40 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, potatoes, dried_meat, chicha |
+| Logement | Warrior house near chieftain's compound |
+| Vêtements | Padded cotton armor, wooden shield, gold-tipped spear |
+| Travail | Inter-confederation warfare, village defense, tribute enforcement |
+| Loisirs | wrestling, feasting, war_dances |
+| Revenu moyen | 15 |
+
+**clergy** (qualité de vie : 5/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, potato, quinoa, guinea_pig, chicha_beer |
+| Logement | Temple compound near sacred lake (e.g. Guatavita) |
+| Vêtements | Gold pectoral, emerald ornaments, cotton robe, feathered crown |
+| Travail | Xeque (priest), gold offering ceremonies at sacred lakes, divination |
+| Loisirs | ceremonies, gold_working, chanting, herbal_healing |
+| Revenu moyen | 30 |
+
+**artisans** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | maize, potato, quinoa, guinea_pig, chicha_beer |
+| Logement | Wattle-and-daub workshop in market town |
+| Vêtements | Cotton robe, gold ornaments, emerald pendants |
+| Travail | Tumbaga (gold-copper alloy) casting, emerald cutting, cotton weaving, pottery |
+| Loisirs | ceremonies, music, gold_working, market_days |
+| Revenu moyen | 15 |
 
 </details>
 
@@ -17918,11 +28363,12 @@
 | **Prestige** | ■■■□□□□□□□ (3/10) |
 | **Couleur carte** | `#2E7D32` |
 
-<details><summary>Établissements (1)</summary>
+<details><summary>Établissements (2)</summary>
 
 | Ville | Type | Pop. | Défense | Richesse | Spécialisations |
 |---|---|---:|---|---|---|
 | Tekoha guaraní principal | town | 3 000 | 3/10 | 3/10 | agriculture |
+| Tekoha (Paraná) | village | 400 | 2/10 | 2/10 | agriculture |
 
 </details>
 
@@ -18090,7 +28536,7 @@
 
 </details>
 
-<details><summary>Vie quotidienne (1 classes)</summary>
+<details><summary>Vie quotidienne (5 classes)</summary>
 
 **free_peasants** (qualité de vie : 4/10)
 
@@ -18101,6 +28547,50 @@
 | Vêtements | Cotton loincloth, body paint, feather ornaments |
 | Travail | Slash-and-burn farming, hunting, fishing, foraging |
 | Loisirs | ceremonial_dance, drumming, storytelling, hunting_games |
+| Revenu moyen | 5 |
+
+**warriors** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | manioc, maize, fish, game_meat, fruits |
+| Logement | Communal maloca (longhouse) |
+| Vêtements | Feathered headdress, body paint, cotton loincloth |
+| Travail | Village defense, hunting parties, inter-tribal warfare |
+| Loisirs | storytelling, music, feasting, dance |
+| Revenu moyen | 5 |
+
+**nobility** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | manioc, maize, fish, game_meat, yerba_mate, fruits |
+| Logement | Central position in communal maloca (longhouse) |
+| Vêtements | Feathered headdress (jeguaka), lip plug (tembeta), body paint |
+| Travail | Cacique — village chief, warfare leadership, feast organization |
+| Loisirs | feasting, music, storytelling, dance, mate_sharing |
+| Revenu moyen | 10 |
+
+**merchants** (qualité de vie : 3/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | manioc, maize, fish, fruits, yerba_mate |
+| Logement | Section in communal maloca (longhouse) near river trade route |
+| Vêtements | Cotton cloth, feather ornaments, body paint |
+| Travail | River trade of feathers, cotton, Stone tools, yerba mate |
+| Loisirs | feasting, music, storytelling, canoe_trips |
+| Revenu moyen | 6 |
+
+**clergy** (qualité de vie : 4/10)
+
+| Champ | Valeur |
+|---|---|
+| Régime | manioc, maize, honey, medicinal_herbs, mate |
+| Logement | Section in maloca near sacred fire |
+| Vêtements | Feathered adornments, body paint, sacred gourd rattle (maracá) |
+| Travail | Payé (shaman), healing, communication with spirits, dream interpretation |
+| Loisirs | ceremonies, chanting, herb_preparation, storytelling |
 | Revenu moyen | 5 |
 
 </details>

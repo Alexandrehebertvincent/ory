@@ -595,4 +595,12 @@ export const languages: Language[] = [
 		speakerCount: 15_000,
 		isLingua_franca: false,
 	},
+	{
+		id: 'lang_manchu',
+		name: 'Mandchou',
+		family: 'other', // toungouse
+		script: 'mongol',
+		speakerCount: 3_000_000,
+		isLingua_franca: false,
+	},
 ]

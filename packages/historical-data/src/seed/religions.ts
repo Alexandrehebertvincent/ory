@@ -685,4 +685,39 @@ export const religions: Religion[] = [
 			'oral_tradition',
 		],
 	},
+
+	// ========================================================================
+	// Religions futures (référencées par les événements historiques post-1000)
+	// ========================================================================
+	{
+		id: 'rel_protestantism',
+		name: 'Protestantisme',
+		family: 'christianity',
+		holyCity: null,
+		organizationLevel: 5,
+		proselytism: 8,
+		politicalInfluence: 8,
+		practices: [
+			'sola_scriptura',
+			'sola_fide',
+			'vernacular_bible',
+			'preaching',
+			'congregational_singing',
+		],
+	},
+	{
+		id: 'rel_anglicanism',
+		name: 'Anglicanisme',
+		family: 'christianity',
+		holyCity: null,
+		organizationLevel: 7,
+		proselytism: 5,
+		politicalInfluence: 9,
+		practices: [
+			'book_of_common_prayer',
+			'episcopal_structure',
+			'via_media',
+			'royal_supremacy',
+		],
+	},
 ]

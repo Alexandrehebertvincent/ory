@@ -10,10 +10,8 @@ import { resolve } from 'node:path'
 
 import { religions } from '../packages/historical-data/src/seed/religions'
 import { technologies } from '../packages/historical-data/src/seed/technologies'
-import {
-	commodities,
-	tradeRoutes,
-} from '../packages/historical-data/src/seed/commodities'
+import { commodities } from '../packages/historical-data/src/seed/commodities'
+import { tradeRoutes } from '../packages/historical-data/src/seed/tradeRoutes'
 import { languages } from '../packages/historical-data/src/seed/languages'
 import { diseases } from '../packages/historical-data/src/seed/diseases'
 import { nations } from '../packages/historical-data/src/seed/nations'
@@ -33,6 +31,8 @@ import { dailyLifeData } from '../packages/historical-data/src/seed/dailyLife'
 import { infrastructureData } from '../packages/historical-data/src/seed/infrastructure'
 import { climateRegions } from '../packages/historical-data/src/seed/climateRegions'
 import { ecologyData } from '../packages/historical-data/src/seed/ecology'
+import { historicalEvents } from '../packages/historical-data/src/seed/historicalEvents'
+import { eventTemplates } from '../packages/historical-data/src/seed/eventTemplates'
 
 import type {
 	Nation,
@@ -58,6 +58,8 @@ import type {
 	Commodity,
 	Language,
 	Disease,
+	HistoricalEvent,
+	EventTemplate,
 } from '../packages/shared/src/types/world'
 
 // ============================================================================
@@ -98,7 +100,7 @@ function indexBy<T extends { nationId: string }>(arr: T[]): Map<string, T> {
 }
 
 function indexByMulti<T extends { nationId: string }>(
-	arr: T[]
+	arr: T[],
 ): Map<string, T[]> {
 	const m = new Map<string, T[]>()
 	for (const item of arr) {
@@ -184,10 +186,7 @@ function classifyNations(): GeoGroup[] {
 		},
 		{
 			name: 'Europe méditerranéenne',
-			climateRegionIds: [
-				'clim_mediterranean',
-				'clim_iberian_mediterranean',
-			],
+			climateRegionIds: ['clim_mediterranean', 'clim_iberian_mediterranean'],
 			nationIds: [],
 		},
 		{
@@ -236,7 +235,7 @@ function classifyNations(): GeoGroup[] {
 			nationIds: [],
 		},
 		{
-			name: 'Asie de l\'Est',
+			name: "Asie de l'Est",
 			climateRegionIds: [
 				'clim_temperate_east_asia',
 				'clim_monsoon_china',
@@ -246,10 +245,7 @@ function classifyNations(): GeoGroup[] {
 		},
 		{
 			name: 'Asie du Sud (Inde)',
-			climateRegionIds: [
-				'clim_monsoon_india',
-				'clim_tropical_india',
-			],
+			climateRegionIds: ['clim_monsoon_india', 'clim_tropical_india'],
 			nationIds: [],
 		},
 		{
@@ -311,10 +307,7 @@ function classifyNations(): GeoGroup[] {
 	]
 
 	// Index: pour chaque climate region, calculer la bounding box center
-	const climCenterMap = new Map<
-		string,
-		{ lat: number; lng: number }
-	>()
+	const climCenterMap = new Map<string, { lat: number; lng: number }>()
 	for (const cr of climateRegions) {
 		const avgLat = cr.area.reduce((s, c) => s + c.lat, 0) / cr.area.length
 		const avgLng = cr.area.reduce((s, c) => s + c.lng, 0) / cr.area.length
@@ -339,8 +332,7 @@ function classifyNations(): GeoGroup[] {
 			for (const crId of groups[gi].climateRegionIds) {
 				const cc = climCenterMap.get(crId)
 				if (!cc) continue
-				const dist =
-					(center.lat - cc.lat) ** 2 + (center.lng - cc.lng) ** 2
+				const dist = (center.lat - cc.lat) ** 2 + (center.lng - cc.lng) ** 2
 				if (dist < bestDist) {
 					bestDist = dist
 					bestGroup = gi
@@ -371,26 +363,25 @@ function renderNationSection(n: Nation): string {
 	lines.push(`| **Gentilé** | ${n.dempinym} |`)
 	lines.push(`| **Gouvernance** | ${n.governance} |`)
 	lines.push(
-		`| **Capitale** | ${cap ? `${cap.name} (\`${cap.id}\`)` : n.capital} |`
+		`| **Capitale** | ${cap ? `${cap.name} (\`${cap.id}\`)` : n.capital} |`,
 	)
 	lines.push(
-		`| **Dirigeant** | ${n.ruler.name} (${n.ruler.dynastyName}), né en ${n.ruler.birthYear}, ${n.ruler.age} ans |`
+		`| **Dirigeant** | ${n.ruler.name} (${n.ruler.dynastyName}), né en ${n.ruler.birthYear}, ${n.ruler.age} ans |`,
 	)
 	lines.push(
-		`| **Traits du dirigeant** | ${n.ruler.traits.join(', ') || '—'} |`
+		`| **Traits du dirigeant** | ${n.ruler.traits.join(', ') || '—'} |`,
 	)
 	lines.push(`| **Stabilité** | ${lvl(n.stability)} |`)
 	lines.push(`| **Prestige** | ${lvl(n.prestige)} |`)
-	if (n.vassalOf)
-		lines.push(
-			`| **Vassal de** | \`${n.vassalOf}\` |`
-		)
+	if (n.vassalOf) lines.push(`| **Vassal de** | \`${n.vassalOf}\` |`)
 	lines.push(`| **Couleur carte** | \`${n.color}\` |`)
 	lines.push('')
 
 	// Diplomacy
 	if (n.diplomacy.length > 0) {
-		lines.push(`<details><summary>Diplomatie (${n.diplomacy.length} relations)</summary>`)
+		lines.push(
+			`<details><summary>Diplomatie (${n.diplomacy.length} relations)</summary>`,
+		)
 		lines.push('')
 		lines.push(`| Cible | Type | Force |`)
 		lines.push(`|---|---|---|`)
@@ -406,14 +397,16 @@ function renderNationSection(n: Nation): string {
 	const natSettlements = settlementsByNation.get(n.id) ?? []
 	if (natSettlements.length > 0) {
 		lines.push(
-			`<details><summary>Établissements (${natSettlements.length})</summary>`
+			`<details><summary>Établissements (${natSettlements.length})</summary>`,
 		)
 		lines.push('')
 		lines.push(`| Ville | Type | Pop. | Défense | Richesse | Spécialisations |`)
 		lines.push(`|---|---|---:|---|---|---|`)
-		for (const s of natSettlements.sort((a, b) => b.population - a.population)) {
+		for (const s of natSettlements.sort(
+			(a, b) => b.population - a.population,
+		)) {
 			lines.push(
-				`| ${s.name} | ${s.type} | ${fmt(s.population)} | ${s.defenseLevel}/10 | ${s.wealthLevel}/10 | ${s.specializations.join(', ')} |`
+				`| ${s.name} | ${s.type} | ${fmt(s.population)} | ${s.defenseLevel}/10 | ${s.wealthLevel}/10 | ${s.specializations.join(', ')} |`,
 			)
 		}
 		lines.push('')
@@ -433,7 +426,7 @@ function renderNationSection(n: Nation): string {
 		lines.push(`| **Espérance de vie** | ${pop.lifeExpectancy} ans |`)
 		lines.push(`| **Mortalité infantile** | ${pct(pop.infantMortality)} |`)
 		lines.push(
-			`| **Natalité / Mortalité** | ${pct(pop.birthRate)} / ${pct(pop.deathRate)} |`
+			`| **Natalité / Mortalité** | ${pct(pop.birthRate)} / ${pct(pop.deathRate)} |`,
 		)
 		lines.push(`| **Croissance** | ${pct(pop.growthRate)} |`)
 		if (pop.socialGroups.length > 0) {
@@ -443,10 +436,10 @@ function renderNationSection(n: Nation): string {
 			lines.push(`| Classe | % | Influence | Richesse |`)
 			lines.push(`|---|---:|---|---|`)
 			for (const sg of pop.socialGroups.sort(
-				(a, b) => b.percentage - a.percentage
+				(a, b) => b.percentage - a.percentage,
 			)) {
 				lines.push(
-					`| ${sg.class} | ${pct(sg.percentage)} | ${sg.influence}/10 | ${sg.wealth}/10 |`
+					`| ${sg.class} | ${pct(sg.percentage)} | ${sg.influence}/10 | ${sg.wealth}/10 |`,
 				)
 			}
 		}
@@ -470,12 +463,10 @@ function renderNationSection(n: Nation): string {
 		lines.push('')
 		lines.push(`| Religion | % | Statut |`)
 		lines.push(`|---|---:|---|`)
-		for (const r of rel.religions.sort(
-			(a, b) => b.percentage - a.percentage
-		)) {
+		for (const r of rel.religions.sort((a, b) => b.percentage - a.percentage)) {
 			const rObj = religionMap.get(r.religionId)
 			lines.push(
-				`| ${rObj?.name ?? r.religionId} | ${pct(r.percentage)} | ${r.status} |`
+				`| ${rObj?.name ?? r.religionId} | ${pct(r.percentage)} | ${r.status} |`,
 			)
 		}
 		lines.push('')
@@ -490,14 +481,14 @@ function renderNationSection(n: Nation): string {
 		lines.push('')
 		const offLang = languageMap.get(lang.officialLanguageId)
 		lines.push(
-			`**Langue officielle :** ${offLang?.name ?? lang.officialLanguageId}`
+			`**Langue officielle :** ${offLang?.name ?? lang.officialLanguageId}`,
 		)
 		lines.push(`**Taux d'alphabétisation :** ${pct(lang.literacyRate)}`)
 		lines.push('')
 		lines.push(`| Langue | % |`)
 		lines.push(`|---|---:|`)
 		for (const sl of lang.spokenLanguages.sort(
-			(a, b) => b.percentage - a.percentage
+			(a, b) => b.percentage - a.percentage,
 		)) {
 			const lObj = languageMap.get(sl.languageId)
 			lines.push(`| ${lObj?.name ?? sl.languageId} | ${pct(sl.percentage)} |`)
@@ -514,18 +505,27 @@ function renderNationSection(n: Nation): string {
 		lines.push('')
 		lines.push(`| Champ | Valeur |`)
 		lines.push(`|---|---|`)
-		lines.push(`| **Monnaie** | ${eco.currency ?? 'Troc'} (valeur relative : ${eco.currencyValue}) |`)
+		lines.push(
+			`| **Monnaie** | ${eco.currency ?? 'Troc'} (valeur relative : ${eco.currencyValue}) |`,
+		)
 		lines.push(`| **PIB estimé** | ${eco.gdpEstimate} |`)
 		lines.push(`| **Taux d'imposition** | ${pct(eco.taxRate)} |`)
-		lines.push(`| **Balance commerciale** | ${eco.tradeBalance > 0 ? '+' : ''}${eco.tradeBalance} |`)
 		lines.push(
-			`| **Exports** | ${eco.mainExports.map((id) => commodityMap.get(id)?.name ?? id).join(', ')} |`
+			`| **Balance commerciale** | ${eco.tradeBalance > 0 ? '+' : ''}${eco.tradeBalance} |`,
 		)
 		lines.push(
-			`| **Imports** | ${eco.mainImports.map((id) => commodityMap.get(id)?.name ?? id).join(', ')} |`
+			`| **Exports** | ${eco.mainExports.map((id) => commodityMap.get(id)?.name ?? id).join(', ')} |`,
 		)
 		lines.push(
-			`| **Routes commerciales** | ${eco.tradeRouteAccess.map((id) => { const tr = tradeRoutes.find((t) => t.id === id); return tr?.name ?? id }).join(', ')} |`
+			`| **Imports** | ${eco.mainImports.map((id) => commodityMap.get(id)?.name ?? id).join(', ')} |`,
+		)
+		lines.push(
+			`| **Routes commerciales** | ${eco.tradeRouteAccess
+				.map((id) => {
+					const tr = tradeRoutes.find((t) => t.id === id)
+					return tr?.name ?? id
+				})
+				.join(', ')} |`,
 		)
 		if (eco.marketPrices.length > 0) {
 			lines.push('')
@@ -535,7 +535,7 @@ function renderNationSection(n: Nation): string {
 			lines.push(`|---|---:|`)
 			for (const mp of eco.marketPrices) {
 				lines.push(
-					`| ${commodityMap.get(mp.commodityId)?.name ?? mp.commodityId} | ${mp.price} |`
+					`| ${commodityMap.get(mp.commodityId)?.name ?? mp.commodityId} | ${mp.price} |`,
 				)
 			}
 		}
@@ -548,7 +548,7 @@ function renderNationSection(n: Nation): string {
 	const tech = techByNation.get(n.id)
 	if (tech) {
 		lines.push(
-			`<details><summary>Technologie (${tech.unlockedTechs.length} acquises)</summary>`
+			`<details><summary>Technologie (${tech.unlockedTechs.length} acquises)</summary>`,
 		)
 		lines.push('')
 		lines.push(`**Capacité d'innovation :** ${lvl(tech.innovationCapacity)}`)
@@ -563,7 +563,7 @@ function renderNationSection(n: Nation): string {
 			byCategory.set(cat, list)
 		}
 		for (const [cat, names] of [...byCategory.entries()].sort((a, b) =>
-			a[0].localeCompare(b[0])
+			a[0].localeCompare(b[0]),
 		)) {
 			lines.push(`- **${cat}** : ${names.join(', ')}`)
 		}
@@ -615,7 +615,7 @@ function renderNationSection(n: Nation): string {
 		lines.push(`| **Expérience de guerre** | ${lvl(mil.warExperience)} |`)
 		lines.push(`| **Moral** | ${lvl(mil.morale)} |`)
 		lines.push(
-			`| **Armée professionnelle** | ${mil.professionalArmy ? 'Oui' : 'Non'} |`
+			`| **Armée professionnelle** | ${mil.professionalArmy ? 'Oui' : 'Non'} |`,
 		)
 		lines.push('')
 		lines.push(`</details>`)
@@ -629,7 +629,9 @@ function renderNationSection(n: Nation): string {
 		lines.push('')
 		lines.push(`| Champ | Valeur |`)
 		lines.push(`|---|---|`)
-		lines.push(`| **Connaissances médicales** | ${lvl(health.medicalKnowledge)} |`)
+		lines.push(
+			`| **Connaissances médicales** | ${lvl(health.medicalKnowledge)} |`,
+		)
 		lines.push(`| **Hygiène** | ${lvl(health.sanitation)} |`)
 		lines.push(`| **Risque de famine** | ${lvl(health.faminRisk)} |`)
 		lines.push(`| **Santé globale** | ${lvl(health.overallHealth)} |`)
@@ -661,7 +663,9 @@ function renderNationSection(n: Nation): string {
 		lines.push(`| **Liberté individuelle** | ${lvl(law.personalFreedom)} |`)
 		lines.push(`| **Égalité des genres** | ${lvl(law.genderEquality)} |`)
 		lines.push(`| **Esclavage** | ${law.slaveryStatus} |`)
-		lines.push(`| **Indépendance judiciaire** | ${lvl(law.judicialIndependence)} |`)
+		lines.push(
+			`| **Indépendance judiciaire** | ${lvl(law.judicialIndependence)} |`,
+		)
 		lines.push(`| **Criminalité** | ${lvl(law.crimeRate)} |`)
 		lines.push(`| **Crimes courants** | ${law.commonCrimes.join(', ')} |`)
 		lines.push(`| **Sanctions** | ${law.punishments.join(', ')} |`)
@@ -696,11 +700,18 @@ function renderNationSection(n: Nation): string {
 		lines.push(`| Champ | Valeur |`)
 		lines.push(`|---|---|`)
 		lines.push(`| **Régions connues** | ${wk.knownRegions.length} zones |`)
-		lines.push(`| **Capacité d'exploration** | ${lvl(wk.explorationCapacity)} |`)
+		lines.push(
+			`| **Capacité d'exploration** | ${lvl(wk.explorationCapacity)} |`,
+		)
 		lines.push(`| **Portée navale** | ${lvl(wk.navalRange)} |`)
 		lines.push(`| **Cartographie** | ${lvl(wk.cartographyLevel)} |`)
 		lines.push(
-			`| **Nations connues** | ${wk.knownNations.length} (${wk.knownNations.map((id) => { const nn = nations.find((nn) => nn.id === id); return nn?.name ?? id }).join(', ')}) |`
+			`| **Nations connues** | ${wk.knownNations.length} (${wk.knownNations
+				.map((id) => {
+					const nn = nations.find((nn) => nn.id === id)
+					return nn?.name ?? id
+				})
+				.join(', ')}) |`,
 		)
 		if (wk.myths.length > 0) {
 			lines.push(`| **Mythes** | ${wk.myths.join(' · ')} |`)
@@ -714,11 +725,13 @@ function renderNationSection(n: Nation): string {
 	const dailyList = dailyByNation.get(n.id) ?? []
 	if (dailyList.length > 0) {
 		lines.push(
-			`<details><summary>Vie quotidienne (${dailyList.length} classes)</summary>`
+			`<details><summary>Vie quotidienne (${dailyList.length} classes)</summary>`,
 		)
 		lines.push('')
 		for (const dl of dailyList) {
-			lines.push(`**${dl.socialClass}** (qualité de vie : ${dl.qualityOfLife}/10)`)
+			lines.push(
+				`**${dl.socialClass}** (qualité de vie : ${dl.qualityOfLife}/10)`,
+			)
 			lines.push('')
 			lines.push(`| Champ | Valeur |`)
 			lines.push(`|---|---|`)
@@ -737,15 +750,13 @@ function renderNationSection(n: Nation): string {
 	// Infrastructure
 	const infra = infraByNation.get(n.id) ?? []
 	if (infra.length > 0) {
-		lines.push(
-			`<details><summary>Infrastructure (${infra.length})</summary>`
-		)
+		lines.push(`<details><summary>Infrastructure (${infra.length})</summary>`)
 		lines.push('')
 		lines.push(`| Nom | Type | État | Importance |`)
 		lines.push(`|---|---|---|---|`)
 		for (const i of infra) {
 			lines.push(
-				`| ${i.name} | ${i.type} | ${i.condition}/10 | ${i.strategicValue}/10 |`
+				`| ${i.name} | ${i.type} | ${i.condition}/10 | ${i.strategicValue}/10 |`,
 			)
 		}
 		lines.push('')
@@ -793,10 +804,10 @@ function renderClimateRegion(cr: ClimateRegion): string {
 		lines.push(`| **Flore dominante** | ${eco.dominantFlora.join(', ')} |`)
 		lines.push(`| **Faune dominante** | ${eco.dominantFauna.join(', ')} |`)
 		lines.push(
-			`| **Animaux domestiqués** | ${eco.domesticatedAnimals.join(', ')} |`
+			`| **Animaux domestiqués** | ${eco.domesticatedAnimals.join(', ')} |`,
 		)
 		lines.push(
-			`| **Plantes domestiquées** | ${eco.domesticatedPlants.join(', ')} |`
+			`| **Plantes domestiquées** | ${eco.domesticatedPlants.join(', ')} |`,
 		)
 	}
 
@@ -816,7 +827,7 @@ function buildDocument(): string {
 	out.push(`# 🌍 ORY — Jeu de données original (An 1000)`)
 	out.push('')
 	out.push(
-		`> Document auto-généré le ${new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} à partir des données seed.`
+		`> Document auto-généré le ${new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })} à partir des données seed.`,
 	)
 	out.push('')
 	out.push(`---`)
@@ -838,8 +849,10 @@ function buildDocument(): string {
 	out.push(`| Régions climatiques | ${climateRegions.length} |`)
 	out.push(`| Zones écologiques | ${ecologyData.length} |`)
 	out.push(`| Infrastructures | ${infrastructureData.length} |`)
+	out.push(`| Événements historiques | ${historicalEvents.length} |`)
+	out.push(`| Modèles d'événements locaux | ${eventTemplates.length} |`)
 	out.push(
-		`| Population mondiale totale | ${fmt(populationsData.reduce((s, p) => s + p.total, 0))} |`
+		`| Population mondiale totale | ${fmt(populationsData.reduce((s, p) => s + p.total, 0))} |`,
 	)
 	out.push('')
 	out.push(`---`)
@@ -858,6 +871,8 @@ function buildDocument(): string {
 	out.push(`  - [Commodités](#commodités)`)
 	out.push(`  - [Routes commerciales](#routes-commerciales)`)
 	out.push(`  - [Maladies](#maladies)`)
+	out.push(`  - [Événements historiques](#événements-historiques)`)
+	out.push(`  - [Modèles d'événements locaux](#modèles-dévénements-locaux)`)
 
 	for (const group of geoGroups) {
 		const anchor = toAnchor(group.name)
@@ -865,10 +880,12 @@ function buildDocument(): string {
 
 		// Sub-items: climate regions
 		const regionIds = group.climateRegionIds.filter((id) =>
-			climateRegions.some((cr) => cr.id === id)
+			climateRegions.some((cr) => cr.id === id),
 		)
 		if (regionIds.length > 0) {
-			out.push(`  - [Climat & Écologie](#climat--écologie${regionIds.length > 1 ? `-${anchor}` : ''})`)
+			out.push(
+				`  - [Climat & Écologie](#climat--écologie${regionIds.length > 1 ? `-${anchor}` : ''})`,
+			)
 		}
 
 		// Sub-items: nations
@@ -893,12 +910,16 @@ function buildDocument(): string {
 	// Religions
 	out.push(`### Religions`)
 	out.push('')
-	out.push(`| ID | Nom | Famille | Ville sainte | Organisation | Prosélytisme | Influence pol. |`)
+	out.push(
+		`| ID | Nom | Famille | Ville sainte | Organisation | Prosélytisme | Influence pol. |`,
+	)
 	out.push(`|---|---|---|---|---|---|---|`)
 	for (const r of religions.sort((a, b) => a.family.localeCompare(b.family))) {
-		const holy = r.holyCity ? settlementMap.get(r.holyCity)?.name ?? r.holyCity : '—'
+		const holy = r.holyCity
+			? (settlementMap.get(r.holyCity)?.name ?? r.holyCity)
+			: '—'
 		out.push(
-			`| \`${r.id}\` | ${r.name} | ${r.family} | ${holy} | ${r.organizationLevel}/10 | ${r.proselytism}/10 | ${r.politicalInfluence}/10 |`
+			`| \`${r.id}\` | ${r.name} | ${r.family} | ${holy} | ${r.organizationLevel}/10 | ${r.proselytism}/10 | ${r.politicalInfluence}/10 |`,
 		)
 	}
 	out.push('')
@@ -910,7 +931,7 @@ function buildDocument(): string {
 	out.push(`|---|---|---|---|---:|---|`)
 	for (const l of languages.sort((a, b) => a.family.localeCompare(b.family))) {
 		out.push(
-			`| \`${l.id}\` | ${l.name} | ${l.family} | ${l.script} | ${fmt(l.speakerCount)} | ${l.isLingua_franca ? '✅' : ''} |`
+			`| \`${l.id}\` | ${l.name} | ${l.family} | ${l.script} | ${fmt(l.speakerCount)} | ${l.isLingua_franca ? '✅' : ''} |`,
 		)
 	}
 	out.push('')
@@ -921,13 +942,13 @@ function buildDocument(): string {
 	out.push(`| ID | Nom | Catégorie | Complexité | Prérequis |`)
 	out.push(`|---|---|---|---|---|`)
 	for (const t of technologies.sort((a, b) =>
-		a.category.localeCompare(b.category)
+		a.category.localeCompare(b.category),
 	)) {
 		const prereqs = t.prerequisites
 			.map((pid) => techMap.get(pid)?.name ?? pid)
 			.join(', ')
 		out.push(
-			`| \`${t.id}\` | ${t.name} | ${t.category} | ${t.complexity}/10 | ${prereqs || '—'} |`
+			`| \`${t.id}\` | ${t.name} | ${t.category} | ${t.complexity}/10 | ${prereqs || '—'} |`,
 		)
 	}
 	out.push('')
@@ -938,10 +959,10 @@ function buildDocument(): string {
 	out.push(`| ID | Nom | Catégorie | Valeur | Poids | Périssable |`)
 	out.push(`|---|---|---|---:|---:|---|`)
 	for (const c of commodities.sort((a, b) =>
-		a.category.localeCompare(b.category)
+		a.category.localeCompare(b.category),
 	)) {
 		out.push(
-			`| \`${c.id}\` | ${c.name} | ${c.category} | ${c.baseValue} | ${c.weight} | ${c.perishable ? '⚠️ Oui' : 'Non'} |`
+			`| \`${c.id}\` | ${c.name} | ${c.category} | ${c.baseValue} | ${c.weight} | ${c.perishable ? '⚠️ Oui' : 'Non'} |`,
 		)
 	}
 	out.push('')
@@ -956,7 +977,7 @@ function buildDocument(): string {
 			.map((id) => nations.find((n) => n.id === id)?.name ?? id)
 			.join(', ')
 		out.push(
-			`| \`${tr.id}\` | ${tr.name} | ${tr.type} | ${natNames} | ${tr.danger}/10 | ${tr.importance}/10 |`
+			`| \`${tr.id}\` | ${tr.name} | ${tr.type} | ${natNames} | ${tr.danger}/10 | ${tr.importance}/10 |`,
 		)
 	}
 	out.push('')
@@ -964,7 +985,9 @@ function buildDocument(): string {
 	// Diseases
 	out.push(`### Maladies`)
 	out.push('')
-	out.push(`| ID | Nom | Type | Mortalité | Transmission | Régions endémiques |`)
+	out.push(
+		`| ID | Nom | Type | Mortalité | Transmission | Régions endémiques |`,
+	)
 	out.push(`|---|---|---|---:|---|---|`)
 	for (const d of diseases) {
 		const regions = d.endemicRegions
@@ -974,10 +997,151 @@ function buildDocument(): string {
 			})
 			.join(', ')
 		out.push(
-			`| \`${d.id}\` | ${d.name} | ${d.type} | ${pct(d.mortality)} | ${d.transmissionMode} | ${regions} |`
+			`| \`${d.id}\` | ${d.name} | ${d.type} | ${pct(d.mortality)} | ${d.transmissionMode} | ${regions} |`,
 		)
 	}
 	out.push('')
+	out.push(`---`)
+	out.push('')
+
+	// Historical Events
+	out.push(`### Événements historiques`)
+	out.push('')
+	out.push(
+		`${historicalEvents.length} événements couvrant la période 1000–1200. Ces milestones sont connus du MJ et servent de trame narrative adaptable.`,
+	)
+	out.push('')
+	out.push(
+		`| Année | Nom | Type | Catégorie | Sévérité | Nations affectées | Prérequis | Déclenche |`,
+	)
+	out.push(`|---:|---|---|---|---:|---|---|---|`)
+	for (const evt of [...historicalEvents].sort((a, b) => a.year - b.year)) {
+		const natNames = evt.affectedNationIds
+			.map((id) => nations.find((n) => n.id === id)?.name ?? id)
+			.join(', ')
+		const prereqs =
+			(evt.triggerConditions.requiredEventIds ?? [])
+				.map((id) => historicalEvents.find((e) => e.id === id)?.name ?? id)
+				.join(', ') || '—'
+		const triggers =
+			(evt.effects.triggerEventIds ?? [])
+				.map((id) => historicalEvents.find((e) => e.id === id)?.name ?? id)
+				.join(', ') || '—'
+		out.push(
+			`| ${evt.year} | **${evt.name}** | ${evt.type} | ${evt.category} | ${evt.severity}/10 | ${natNames || 'Global'} | ${prereqs} | ${triggers} |`,
+		)
+	}
+	out.push('')
+
+	// Event details
+	for (const evt of [...historicalEvents].sort((a, b) => a.year - b.year)) {
+		out.push(`#### ${evt.name} (${evt.year})`)
+		out.push('')
+		out.push(`> ${evt.description}`)
+		out.push('')
+		out.push(`- **Type** : ${evt.type} / ${evt.category}`)
+		out.push(`- **Fenêtre** : ${evt.yearRange[0]}–${evt.yearRange[1]}`)
+		out.push(`- **Sévérité** : ${evt.severity}/10`)
+		out.push(`- **Visibilité** : ${evt.visibility}`)
+		out.push(`- **Global** : ${evt.globalEvent ? 'Oui' : 'Non'}`)
+		if (evt.affectedNationIds.length > 0) {
+			const names = evt.affectedNationIds
+				.map((id) => nations.find((n) => n.id === id)?.name ?? id)
+				.join(', ')
+			out.push(`- **Nations** : ${names}`)
+		}
+		if (evt.triggerConditions.requiredEventIds?.length) {
+			const names = evt.triggerConditions.requiredEventIds
+				.map((id) => historicalEvents.find((e) => e.id === id)?.name ?? id)
+				.join(', ')
+			out.push(`- **Prérequis** : ${names}`)
+		}
+		if (evt.effects.triggerEventIds?.length) {
+			const names = evt.effects.triggerEventIds
+				.map((id) => historicalEvents.find((e) => e.id === id)?.name ?? id)
+				.join(', ')
+			out.push(`- **Déclenche** : ${names}`)
+		}
+		if (evt.playerChoices.length > 0) {
+			out.push(`- **Choix joueurs** :`)
+			for (const c of evt.playerChoices) {
+				out.push(`  - *${c.label}* — ${c.description}`)
+			}
+		}
+		if (evt.gmOverrideOptions.suggestedAlternative) {
+			out.push(
+				`- **Alternative MJ** : ${evt.gmOverrideOptions.suggestedAlternative}`,
+			)
+		}
+		out.push(`- **Issue historique** : ${evt.historical_outcome}`)
+		out.push('')
+	}
+
+	out.push(`---`)
+	out.push('')
+
+	// ========================================================================
+	// Event Templates (modèles d'événements locaux)
+	// ========================================================================
+	out.push(`### Modèles d'événements locaux`)
+	out.push('')
+	out.push(
+		`${eventTemplates.length} modèles d'événements procéduraux (sévérité 1-5). Instanciés par le moteur de jeu selon les conditions locales.`,
+	)
+	out.push('')
+	out.push(
+		`| Nom | Catégorie | Portée | Sévérité | Classes ciblées | Récurrent | Probabilité |`,
+	)
+	out.push(`|---|---|---|---:|---|---|---:|`)
+	for (const t of eventTemplates) {
+		out.push(
+			`| **${t.name}** | ${t.category} | ${t.scope} | ${t.severity}/5 | ${t.targetClasses.join(', ')} | ${t.recurring ? 'Oui' : 'Non'} | ${(t.baseProbability * 100).toFixed(0)} % |`,
+		)
+	}
+	out.push('')
+
+	// Template details
+	for (const t of eventTemplates) {
+		out.push(`#### ${t.name}`)
+		out.push('')
+		out.push(`> ${t.description}`)
+		out.push('')
+		out.push(`- **ID** : \`${t.id}\``)
+		out.push(`- **Catégorie** : ${t.category} / ${t.scope}`)
+		out.push(`- **Sévérité** : ${t.severity}/5`)
+		out.push(`- **Classes** : ${t.targetClasses.join(', ')}`)
+		out.push(
+			`- **Récurrent** : ${t.recurring ? `Oui (cooldown ${t.cooldownYears} ans)` : 'Non'}`,
+		)
+		out.push(
+			`- **Probabilité de base** : ${(t.baseProbability * 100).toFixed(0)} %`,
+		)
+		if (t.triggerConditions.season && t.triggerConditions.season !== 'any') {
+			out.push(`- **Saison** : ${t.triggerConditions.season}`)
+		}
+		if (t.triggerConditions.customCondition) {
+			out.push(`- **Conditions** : ${t.triggerConditions.customCondition}`)
+		}
+		if (t.defaultEffects.customEffect) {
+			out.push(`- **Effets** : ${t.defaultEffects.customEffect}`)
+		}
+		if (t.playerChoices.length > 0) {
+			out.push(`- **Choix joueurs** :`)
+			for (const c of t.playerChoices) {
+				const cls = c.requiredSocialClass ? ` *(${c.requiredSocialClass})*` : ''
+				out.push(`  - *${c.label}*${cls} — ${c.description}`)
+			}
+		}
+		if (t.flavorTexts.length > 0) {
+			out.push(`- **Textes d'ambiance** :`)
+			for (const ft of t.flavorTexts) {
+				out.push(`  - _"${ft}"_`)
+			}
+		}
+		out.push(`- **Tags** : ${t.tags.join(', ')}`)
+		out.push('')
+	}
+
 	out.push(`---`)
 	out.push('')
 
@@ -1022,11 +1186,21 @@ function buildDocument(): string {
 // Execute
 // ============================================================================
 
-const md = buildDocument()
-const outPath = resolve(process.cwd(), 'docs', 'GAME_ORIGINAL_DATASET.md')
-writeFileSync(outPath, md, 'utf-8')
+if (process.argv.includes('--html')) {
+	// Delegate to the HTML generator script
+	const { execSync } =
+		require('node:child_process') as typeof import('node:child_process')
+	execSync(
+		`npx tsx ${resolve(process.cwd(), 'scripts', 'generateDatasetHtml.ts')}`,
+		{ stdio: 'inherit', cwd: process.cwd() },
+	)
+} else {
+	const md = buildDocument()
+	const outPath = resolve(process.cwd(), 'docs', 'GAME_ORIGINAL_DATASET.md')
+	writeFileSync(outPath, md, 'utf-8')
 
-const lines = md.split('\n').length
-const sizeKB = (Buffer.byteLength(md, 'utf-8') / 1024).toFixed(0)
-console.log(`✅ ${outPath}`)
-console.log(`   ${lines} lignes, ${sizeKB} Ko`)
+	const lines = md.split('\n').length
+	const sizeKB = (Buffer.byteLength(md, 'utf-8') / 1024).toFixed(0)
+	console.log(`✅ ${outPath}`)
+	console.log(`   ${lines} lignes, ${sizeKB} Ko`)
+}

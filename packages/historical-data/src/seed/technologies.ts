@@ -1002,4 +1002,1160 @@ export const technologies: Technology[] = [
 		],
 		complexity: 6,
 	},
+
+	// ==========================================================================
+	// TECHNOLOGIES POST-AN 1000 — INVENTIONS & DÉCOUVERTES
+	// ==========================================================================
+	// Ces technologies sont DÉBLOQUÉES progressivement par les événements
+	// historiques et la recherche des nations. Elles ne sont PAS disponibles
+	// au démarrage (sauf pour les nations ayant l'avance historique).
+	// ==========================================================================
+
+	// --------------------------------------------------------------------------
+	// XIe–XIIe SIÈCLE — Perfectionnements médiévaux
+	// --------------------------------------------------------------------------
+
+	{
+		id: 'tech_gothic_architecture',
+		name: 'Architecture gothique',
+		category: 'construction',
+		description:
+			'Ogives, arcs-boutants et vitraux. Permet de bâtir des cathédrales immenses baignées de lumière.',
+		yearAvailable: 1140,
+		prerequisites: [
+			'tech_arch_vault',
+			'tech_stone_masonry',
+			'tech_glass_making',
+		],
+		effects: [
+			'Cathédrales monumentales',
+			'Prestige religieux et culturel',
+			'Vitraux narratifs',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_mechanical_clock',
+		name: 'Horloge mécanique',
+		category: 'craftsmanship',
+		description:
+			"Mécanisme à échappement mesurant le temps régulièrement. Révolutionne l'organisation du travail.",
+		yearAvailable: 1280,
+		prerequisites: ['tech_iron_working', 'tech_basic_mathematics'],
+		effects: [
+			'Mesure précise du temps',
+			'Horloges de clocher',
+			'Régulation du travail',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_compass',
+		name: 'Boussole magnétique',
+		category: 'navigation',
+		description:
+			'Aiguille aimantée indiquant le nord. Utilisée en Chine puis diffusée en Europe via le monde arabe.',
+		prerequisites: ['tech_basic_sailing', 'tech_iron_working'],
+		effects: [
+			'Navigation par temps couvert',
+			'Traversées hivernales possibles',
+			'Exploration hauturière fiable',
+		],
+		complexity: 5,
+	},
+	{
+		id: 'tech_university',
+		name: 'Université',
+		category: 'philosophy',
+		description:
+			"Institution d'enseignement supérieur avec cursus, diplômes et corporation de maîtres. Bologne (1088), Paris (1150), Oxford (1167).",
+		yearAvailable: 1088,
+		prerequisites: [
+			'tech_basic_philosophy',
+			'tech_basic_writing',
+			'tech_codified_law',
+		],
+		effects: [
+			'Formation de lettrés',
+			'Recherche systématique',
+			'Diffusion du savoir',
+			'Droit et théologie formalisés',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_horse_collar',
+		name: 'Collier de cheval',
+		category: 'agriculture',
+		description:
+			"Harnais rigide permettant au cheval de tirer sans s'étrangler. Remplace le joug de bœuf.",
+		prerequisites: ['tech_animal_husbandry', 'tech_leather_working'],
+		effects: [
+			'+50% force de traction',
+			'Labourage rapide',
+			'Transport lourd sur route',
+		],
+		complexity: 3,
+	},
+	{
+		id: 'tech_three_field_system',
+		name: 'Assolement triennal',
+		category: 'agriculture',
+		description:
+			"Rotation sur trois champs : céréales d'hiver, céréales de printemps, jachère. Plus productif que le biennal.",
+		prerequisites: ['tech_crop_rotation', 'tech_heavy_plow'],
+		effects: [
+			'+33% de terres cultivées chaque année',
+			'Diversification des cultures',
+			'Réduction des famines',
+		],
+		complexity: 4,
+	},
+	{
+		id: 'tech_stained_glass',
+		name: 'Vitrail',
+		category: 'craftsmanship',
+		description:
+			'Assemblage de verres colorés dans du plomb pour créer des fenêtres narratives et décoratives.',
+		prerequisites: ['tech_glass_making', 'tech_gothic_architecture'],
+		effects: [
+			'Art religieux majeur',
+			'Instruction visuelle des illettrés',
+			'Prestige culturel',
+		],
+		complexity: 6,
+	},
+
+	// --------------------------------------------------------------------------
+	// XIIIe–XIVe SIÈCLE — Diffusion du savoir, prémices de la poudre
+	// --------------------------------------------------------------------------
+
+	{
+		id: 'tech_eyeglasses',
+		name: 'Lunettes',
+		category: 'craftsmanship',
+		description:
+			'Lentilles convergentes taillées dans du verre, montées sur un support nasal. Inventées en Italie vers 1290.',
+		prerequisites: ['tech_glass_making'],
+		effects: [
+			'Prolongation de la vie active des lettrés',
+			'Prérequis de la lunette astronomique',
+			'Commerce optique',
+		],
+		complexity: 5,
+	},
+	{
+		id: 'tech_gunpowder_weapons',
+		name: 'Armes à poudre primitives',
+		category: 'military',
+		description:
+			'Canons rudimentaires (bombardes) et lances à feu. Diffusion de la poudre à canon en arme de guerre.',
+		prerequisites: ['tech_gunpowder', 'tech_iron_working'],
+		effects: [
+			'Bombardes de siège',
+			'Supériorité contre les fortifications',
+			'Fin de la chevalerie lourde (à terme)',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_plate_armor',
+		name: 'Armure de plates',
+		category: 'military',
+		description:
+			"Armure articulée en plaques d'acier couvrant tout le corps. Apogée de l'armure médiévale.",
+		prerequisites: ['tech_chainmail', 'tech_steel_making'],
+		effects: [
+			'Protection maximale',
+			'Cavalerie lourde redoutable',
+			'Très coûteuse',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_double_entry_bookkeeping',
+		name: 'Comptabilité en partie double',
+		category: 'trade',
+		description:
+			'Système comptable où chaque transaction est enregistrée deux fois (débit/crédit). Inventé en Italie.',
+		prerequisites: ['tech_banking_basic', 'tech_basic_mathematics'],
+		effects: [
+			'Gestion financière fiable',
+			'Détection de fraude',
+			'Essor du capitalisme marchand',
+		],
+		complexity: 6,
+	},
+	{
+		id: 'tech_magnetic_declination',
+		name: 'Déclinaison magnétique',
+		category: 'navigation',
+		description:
+			"Compréhension de l'écart entre le nord magnétique et le nord géographique. Améliore la navigation.",
+		prerequisites: ['tech_compass', 'tech_basic_mathematics'],
+		effects: [
+			'Navigation plus précise',
+			'Cartographie améliorée',
+			'Correction des routes maritimes',
+		],
+		complexity: 6,
+	},
+	{
+		id: 'tech_blast_furnace',
+		name: 'Haut fourneau',
+		category: 'metallurgy',
+		description:
+			'Four à soufflet puissant permettant de fondre le fer en continu. Production de fonte en grande quantité.',
+		prerequisites: ['tech_iron_working', 'tech_water_mill'],
+		effects: [
+			'Production de fonte massive',
+			'Acier en quantité',
+			'Canons plus gros',
+			'Prérequis industriel',
+		],
+		complexity: 7,
+	},
+
+	// --------------------------------------------------------------------------
+	// XVe SIÈCLE — Imprimerie, exploration, Renaissance
+	// --------------------------------------------------------------------------
+
+	{
+		id: 'tech_movable_type',
+		name: 'Caractères mobiles (Chine/Corée)',
+		category: 'writing',
+		description:
+			"Caractères individuels réutilisables pour l'impression. Inventé en Chine (1040) puis en Corée (métal, 1234).",
+		yearAvailable: 1040,
+		prerequisites: ['tech_block_printing'],
+		effects: [
+			'Impression plus rapide',
+			'Moins de gravure par ouvrage',
+			'Prérequis de Gutenberg',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_printing_press',
+		name: 'Presse à imprimer de Gutenberg',
+		category: 'writing',
+		description:
+			'Presse mécanique à caractères mobiles métalliques. Révolutionne la diffusion du savoir en Europe (1450).',
+		yearAvailable: 1450,
+		prerequisites: [
+			'tech_movable_type',
+			'tech_iron_working',
+			'tech_ink_production',
+		],
+		effects: [
+			'Production de masse de livres',
+			'Alphabétisation en hausse',
+			'Réforme protestante possible',
+			'Diffusion scientifique',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_caravel',
+		name: 'Caravelle',
+		category: 'navigation',
+		description:
+			"Navire léger combinant voile latine et voile carrée. Idéal pour l'exploration côtière et hauturière.",
+		yearAvailable: 1440,
+		prerequisites: [
+			'tech_lateen_sail',
+			'tech_compass',
+			'tech_celestial_navigation',
+		],
+		effects: [
+			'Exploration océanique',
+			'Remontée au vent efficace',
+			"Découverte de l'Amérique et de la route des Indes",
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_galleon',
+		name: 'Galion',
+		category: 'navigation',
+		description:
+			'Grand navire de guerre et de commerce, capable de traversées transocéaniques avec lourde cargaison.',
+		prerequisites: ['tech_caravel', 'tech_gunpowder_weapons'],
+		effects: [
+			'Transport transocéanique massif',
+			'Navire de guerre armé de canons',
+			'Commerce colonial à grande échelle',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_perspective_drawing',
+		name: 'Perspective linéaire',
+		category: 'craftsmanship',
+		description:
+			'Technique de représentation en trois dimensions sur un plan. Brunelleschi, Alberti (Florence, XVe s.).',
+		prerequisites: ['tech_basic_mathematics', 'tech_glass_making'],
+		effects: ['Art réaliste', 'Architecture planifiée', 'Cartographie précise'],
+		complexity: 6,
+	},
+	{
+		id: 'tech_cartography',
+		name: 'Cartographie moderne',
+		category: 'navigation',
+		description:
+			"Cartes à l'échelle avec projections mathématiques. Mercator (1569), portulans améliorés.",
+		prerequisites: [
+			'tech_compass',
+			'tech_basic_mathematics',
+			'tech_printing_press',
+		],
+		effects: [
+			'Navigation planifiée',
+			'Connaissance des continents',
+			'Puissance géostratégique',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_anatomy',
+		name: 'Anatomie moderne',
+		category: 'medicine',
+		description:
+			'Étude du corps humain par la dissection. Vésale, De Humani Corporis Fabrica (1543).',
+		prerequisites: ['tech_surgery_basic', 'tech_printing_press'],
+		effects: [
+			'Connaissance précise du corps',
+			'Chirurgie améliorée',
+			'Fin des erreurs galéniques',
+		],
+		complexity: 7,
+	},
+
+	// --------------------------------------------------------------------------
+	// XVIe SIÈCLE — Révolution copernicienne, armes à feu modernes
+	// --------------------------------------------------------------------------
+
+	{
+		id: 'tech_heliocentric_model',
+		name: 'Modèle héliocentrique',
+		category: 'astronomy',
+		description:
+			'La Terre tourne autour du Soleil. Copernic (1543), confirmé par Galilée et Kepler.',
+		yearAvailable: 1543,
+		prerequisites: ['tech_advanced_astronomy', 'tech_printing_press'],
+		effects: [
+			'Révolution scientifique',
+			'Conflit avec le clergé',
+			'Astronomie mathématique',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_musket',
+		name: 'Mousquet',
+		category: 'military',
+		description:
+			"Arme à feu portative à mèche puis à silex. Remplace progressivement l'arbalète et le arc.",
+		prerequisites: ['tech_gunpowder_weapons'],
+		effects: [
+			'Infanterie meurtrière',
+			'Fin de la cavalerie lourde',
+			'Formation en ligne',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_star_fort',
+		name: 'Fortification bastionnée (trace italienne)',
+		category: 'construction',
+		description:
+			'Fortifications en étoile à bastions angulaires résistant aux canons. Remplace le château fort.',
+		prerequisites: [
+			'tech_fortification',
+			'tech_gunpowder_weapons',
+			'tech_basic_mathematics',
+		],
+		effects: [
+			'Résistance aux bombardements',
+			'Défense croisée par flanquement',
+			'Sièges longs et coûteux',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_joint_stock_company',
+		name: 'Société par actions',
+		category: 'trade',
+		description:
+			'Regroupement de capitaux de multiples investisseurs dans une entité commerciale. VOC (1602), EIC (1600).',
+		prerequisites: ['tech_double_entry_bookkeeping', 'tech_codified_law'],
+		effects: [
+			'Mobilisation massive de capital',
+			'Risque partagé',
+			'Naissance du capitalisme moderne',
+			'Bourse des valeurs',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_botanical_garden',
+		name: 'Jardin botanique',
+		category: 'medicine',
+		description:
+			"Collection systématique de plantes pour l'étude et la pharmacopée. Padoue (1545), Leyde (1590).",
+		prerequisites: ['tech_university', 'tech_herbal_medicine'],
+		effects: [
+			'Classification des plantes',
+			'Pharmacopée enrichie',
+			'Acclimatation de plantes exotiques',
+		],
+		complexity: 6,
+	},
+
+	// --------------------------------------------------------------------------
+	// XVIIe SIÈCLE — Révolution scientifique, mécanique, optique
+	// --------------------------------------------------------------------------
+
+	{
+		id: 'tech_telescope',
+		name: 'Lunette astronomique / Télescope',
+		category: 'astronomy',
+		description:
+			'Instrument optique grossissant. Galilée observe les lunes de Jupiter (1610). Newton invente le télescope à miroir.',
+		prerequisites: ['tech_eyeglasses', 'tech_heliocentric_model'],
+		effects: [
+			'Observation des planètes',
+			"Confirmation de l'héliocentrisme",
+			'Découverte de nouveaux corps célestes',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_microscope',
+		name: 'Microscope',
+		category: 'medicine',
+		description:
+			'Instrument optique révélant le monde invisible. Leeuwenhoek observe les premiers micro-organismes (1670s).',
+		prerequisites: ['tech_eyeglasses'],
+		effects: [
+			'Découverte des micro-organismes',
+			'Histologie',
+			'Base de la microbiologie future',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_scientific_method',
+		name: 'Méthode scientifique',
+		category: 'philosophy',
+		description:
+			'Approche systématique : observation, hypothèse, expérience, vérification. Bacon, Descartes, Galilée.',
+		yearAvailable: 1600,
+		prerequisites: [
+			'tech_natural_philosophy',
+			'tech_university',
+			'tech_printing_press',
+		],
+		effects: [
+			'Progrès technologique accéléré',
+			'Académies des sciences',
+			'Reproductibilité des résultats',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_newtonian_mechanics',
+		name: 'Mécanique newtonienne',
+		category: 'mathematics',
+		description:
+			'Lois du mouvement et de la gravitation universelle. Newton, Principia Mathematica (1687).',
+		prerequisites: ['tech_scientific_method', 'tech_algebra', 'tech_telescope'],
+		effects: [
+			'Prédiction des orbites',
+			'Ingénierie mécanique',
+			'Fondement de la physique classique',
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_calculus',
+		name: 'Calcul infinitésimal',
+		category: 'mathematics',
+		description:
+			'Dérivation et intégration. Inventé indépendamment par Newton et Leibniz (1680s).',
+		prerequisites: ['tech_algebra', 'tech_scientific_method'],
+		effects: [
+			'Mathématiques avancées',
+			'Modélisation physique',
+			'Ingénierie de précision',
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_barometer',
+		name: 'Baromètre',
+		category: 'philosophy',
+		description:
+			'Instrument mesurant la pression atmosphérique. Torricelli (1643). Preuve du vide.',
+		prerequisites: ['tech_glass_making', 'tech_scientific_method'],
+		effects: [
+			'Prévision météorologique',
+			"Compréhension de l'atmosphère",
+			'Navigation améliorée',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_blood_circulation',
+		name: 'Circulation sanguine',
+		category: 'medicine',
+		description:
+			'Le sang circule en circuit fermé, pompé par le cœur. William Harvey (1628).',
+		prerequisites: ['tech_anatomy', 'tech_scientific_method'],
+		effects: [
+			'Compréhension du système circulatoire',
+			'Chirurgie améliorée',
+			'Fin du recours aux saignées (à terme)',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_chronometer',
+		name: 'Chronomètre de marine',
+		category: 'navigation',
+		description:
+			'Horloge de haute précision résistant au mouvement du navire, permettant de déterminer la longitude. Harrison (1761).',
+		prerequisites: ['tech_mechanical_clock', 'tech_newtonian_mechanics'],
+		effects: [
+			'Détermination de la longitude en mer',
+			'Navigation de précision',
+			'Fin des naufrages par erreur de position',
+		],
+		complexity: 9,
+	},
+
+	// --------------------------------------------------------------------------
+	// XVIIIe SIÈCLE — Lumières, proto-industrie, machine à vapeur
+	// --------------------------------------------------------------------------
+
+	{
+		id: 'tech_steam_engine',
+		name: 'Machine à vapeur',
+		category: 'craftsmanship',
+		description:
+			'Conversion de la chaleur en travail mécanique. Newcomen (1712), Watt (1769).',
+		yearAvailable: 1712,
+		prerequisites: ['tech_blast_furnace', 'tech_newtonian_mechanics'],
+		effects: [
+			'Pompage des mines',
+			'Force motrice industrielle',
+			'Début de la révolution industrielle',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_spinning_jenny',
+		name: 'Machine à filer (Spinning Jenny)',
+		category: 'craftsmanship',
+		description:
+			'Machine multi-broches permettant de filer plusieurs fils simultanément. Hargreaves (1764).',
+		prerequisites: ['tech_weaving', 'tech_mechanical_clock'],
+		effects: [
+			'Production textile multipliée',
+			'Début du système usinier',
+			'Chômage des fileuses à domicile',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_vaccination',
+		name: 'Vaccination',
+		category: 'medicine',
+		description:
+			'Inoculation préventive contre la variole. Jenner (1796). Première arme contre les épidémies.',
+		yearAvailable: 1796,
+		prerequisites: ['tech_microscope', 'tech_scientific_method'],
+		effects: [
+			'Éradication progressive de la variole',
+			'Réduction massive de la mortalité infantile',
+			'Modèle pour les vaccins futurs',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_hot_air_balloon',
+		name: 'Montgolfière',
+		category: 'navigation',
+		description:
+			"Premier vol humain. Frères Montgolfier (1783). L'homme conquiert les airs.",
+		prerequisites: ['tech_scientific_method', 'tech_weaving'],
+		effects: [
+			'Vol humain',
+			'Reconnaissance militaire aérienne',
+			'Exploration atmosphérique',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_lightning_rod',
+		name: 'Paratonnerre',
+		category: 'philosophy',
+		description:
+			'Dispositif captant la foudre pour protéger les bâtiments. Benjamin Franklin (1752).',
+		prerequisites: ['tech_scientific_method', 'tech_iron_working'],
+		effects: [
+			'Protection des bâtiments',
+			"Compréhension de l'électricité",
+			"Prérequis de l'électrotechnique",
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_encyclopedie',
+		name: 'Encyclopédie',
+		category: 'philosophy',
+		description:
+			"Compilation systématique de tout le savoir humain. Diderot et d'Alembert (1751-1772).",
+		yearAvailable: 1751,
+		prerequisites: [
+			'tech_printing_press',
+			'tech_scientific_method',
+			'tech_university',
+		],
+		effects: [
+			'Diffusion massive du savoir',
+			'Philosophie des Lumières',
+			'Critique du despotisme et de la superstition',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_modern_chemistry',
+		name: 'Chimie moderne',
+		category: 'philosophy',
+		description:
+			'Lavoisier identifie les éléments, réfute le phlogistique (1780s). Naissance de la chimie scientifique.',
+		prerequisites: ['tech_basic_alchemy', 'tech_scientific_method'],
+		effects: [
+			'Identification des éléments',
+			'Industrie chimique',
+			'Pharmacologie rationnelle',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_seed_drill',
+		name: 'Semoir mécanique',
+		category: 'agriculture',
+		description:
+			'Machine semant les graines en lignes régulières à profondeur contrôlée. Jethro Tull (1701).',
+		prerequisites: ['tech_three_field_system', 'tech_iron_working'],
+		effects: [
+			'+40% rendement des semis',
+			'Moins de gaspillage de semences',
+			"Début de l'agriculture mécanisée",
+		],
+		complexity: 6,
+	},
+
+	// --------------------------------------------------------------------------
+	// XIXe SIÈCLE — Révolution industrielle, électricité, médecine moderne
+	// --------------------------------------------------------------------------
+
+	{
+		id: 'tech_steam_locomotive',
+		name: 'Locomotive à vapeur',
+		category: 'construction',
+		description:
+			'Transport ferroviaire par machine à vapeur sur rails. Stephenson, Rocket (1829).',
+		prerequisites: [
+			'tech_steam_engine',
+			'tech_iron_working',
+			'tech_road_building',
+		],
+		effects: [
+			'Transport de masse rapide',
+			'Réseau ferroviaire',
+			'Unification économique des territoires',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_telegraph',
+		name: 'Télégraphe électrique',
+		category: 'writing',
+		description:
+			'Communication instantanée à distance par impulsions électriques et code Morse (1837).',
+		yearAvailable: 1837,
+		prerequisites: ['tech_lightning_rod', 'tech_iron_working'],
+		effects: [
+			'Communication instantanée',
+			'Coordination militaire à distance',
+			'Marchés financiers connectés',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_photography',
+		name: 'Photographie',
+		category: 'craftsmanship',
+		description:
+			"Capture d'images par réaction chimique à la lumière. Daguerre (1839), Niépce (1826).",
+		prerequisites: ['tech_modern_chemistry', 'tech_eyeglasses'],
+		effects: [
+			'Documentation visuelle',
+			'Journalisme illustré',
+			'Démocratisation du portrait',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_germ_theory',
+		name: 'Théorie des germes',
+		category: 'medicine',
+		description:
+			'Les maladies sont causées par des micro-organismes. Pasteur, Koch (1860s-1880s).',
+		prerequisites: [
+			'tech_microscope',
+			'tech_modern_chemistry',
+			'tech_scientific_method',
+		],
+		effects: [
+			'Antisepsie et asepsie',
+			'Pasteurisation',
+			'Hygiène hospitalière',
+			'Antibiotiques possibles (futur)',
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_antiseptic_surgery',
+		name: 'Chirurgie antiseptique',
+		category: 'medicine',
+		description:
+			'Stérilisation des instruments et des plaies. Lister (1867). Chute de la mortalité post-opératoire.',
+		prerequisites: ['tech_germ_theory', 'tech_surgery_basic'],
+		effects: [
+			'Chirurgie sûre',
+			'Opérations complexes possibles',
+			'Hospitalisation sans condamnation',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_anesthesia',
+		name: 'Anesthésie',
+		category: 'medicine',
+		description:
+			'Suppression de la douleur pendant les opérations. Éther (1846), chloroforme.',
+		prerequisites: ['tech_modern_chemistry', 'tech_surgery_basic'],
+		effects: [
+			'Chirurgie sans douleur',
+			'Opérations plus longues et précises',
+			'Dentisterie moderne',
+		],
+		complexity: 7,
+	},
+	{
+		id: 'tech_bessemer_process',
+		name: 'Procédé Bessemer',
+		category: 'metallurgy',
+		description:
+			"Production d'acier en masse par soufflage d'air dans la fonte (1856). Acier bon marché.",
+		prerequisites: ['tech_blast_furnace', 'tech_modern_chemistry'],
+		effects: [
+			'Acier en quantité industrielle',
+			'Rails, ponts, gratte-ciels',
+			'Machines et armement modernes',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_electricity',
+		name: 'Électricité',
+		category: 'philosophy',
+		description:
+			'Production et distribution de courant électrique. Faraday (dynamo, 1831), Edison (réseau, 1882).',
+		yearAvailable: 1831,
+		prerequisites: [
+			'tech_lightning_rod',
+			'tech_newtonian_mechanics',
+			'tech_modern_chemistry',
+		],
+		effects: [
+			'Éclairage électrique',
+			'Moteurs électriques',
+			'Seconde révolution industrielle',
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_telephone',
+		name: 'Téléphone',
+		category: 'writing',
+		description:
+			'Transmission de la voix humaine par fil électrique. Bell (1876). Communication en temps réel.',
+		yearAvailable: 1876,
+		prerequisites: ['tech_telegraph', 'tech_electricity'],
+		effects: [
+			'Communication vocale à distance',
+			'Réseau téléphonique',
+			'Accélération des affaires',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_internal_combustion',
+		name: 'Moteur à combustion interne',
+		category: 'craftsmanship',
+		description:
+			'Moteur convertissant la combustion de pétrole en mouvement. Otto (1876), Diesel (1893).',
+		prerequisites: [
+			'tech_steam_engine',
+			'tech_modern_chemistry',
+			'tech_bessemer_process',
+		],
+		effects: [
+			'Automobile',
+			'Transport individuel',
+			"Début de l'ère du pétrole",
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_dynamite',
+		name: 'Dynamite',
+		category: 'military',
+		description:
+			'Explosif stable à base de nitroglycérine. Nobel (1867). Mine, construction, guerre.',
+		prerequisites: ['tech_modern_chemistry', 'tech_gunpowder'],
+		effects: ['Excavation massive', 'Tunnels et canaux', 'Arme destructrice'],
+		complexity: 7,
+	},
+	{
+		id: 'tech_ironclad',
+		name: 'Navire cuirassé',
+		category: 'navigation',
+		description:
+			"Navire de guerre à coque blindée d'acier et propulsion à vapeur. HMS Warrior (1860), Monitor (1862).",
+		prerequisites: [
+			'tech_steam_engine',
+			'tech_bessemer_process',
+			'tech_galleon',
+		],
+		effects: [
+			'Domination navale',
+			'Fin des navires en bois',
+			'Course aux armements navals',
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_fertilizer',
+		name: 'Engrais chimiques',
+		category: 'agriculture',
+		description:
+			"Production industrielle d'engrais azotés, phosphatés et potassiques. Liebig, Haber-Bosch (1909).",
+		prerequisites: ['tech_modern_chemistry', 'tech_seed_drill'],
+		effects: [
+			'Rendements agricoles multipliés',
+			"Alimentation de milliards d'humains",
+			'Pollution des eaux (à terme)',
+		],
+		complexity: 8,
+	},
+
+	// --------------------------------------------------------------------------
+	// XXe SIÈCLE — Guerres mondiales, atome, espace, informatique
+	// --------------------------------------------------------------------------
+
+	{
+		id: 'tech_airplane',
+		name: 'Avion',
+		category: 'navigation',
+		description:
+			"Vol motorisé plus lourd que l'air. Frères Wright (1903). Révolutionne guerre et transport.",
+		prerequisites: ['tech_internal_combustion', 'tech_hot_air_balloon'],
+		effects: ['Transport aérien', 'Bombardement aérien', 'Monde rétréci'],
+		complexity: 9,
+	},
+	{
+		id: 'tech_antibiotics',
+		name: 'Antibiotiques',
+		category: 'medicine',
+		description:
+			'Substances tuant les bactéries. Pénicilline découverte par Fleming (1928), produite en masse (1943).',
+		prerequisites: ['tech_germ_theory', 'tech_modern_chemistry'],
+		effects: [
+			'Guérison des infections bactériennes',
+			'Chute de la mortalité',
+			'Résistance bactérienne (futur)',
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_radio',
+		name: 'Radio',
+		category: 'writing',
+		description:
+			'Transmission sans fil par ondes électromagnétiques. Marconi (1895), diffusion de masse (1920s).',
+		yearAvailable: 1895,
+		prerequisites: ['tech_electricity', 'tech_telephone'],
+		effects: [
+			'Communication de masse',
+			'Propagande et information',
+			'Coordination militaire sans fil',
+		],
+		complexity: 8,
+	},
+	{
+		id: 'tech_tank',
+		name: 'Char de combat',
+		category: 'military',
+		description:
+			'Véhicule blindé chenillé armé de canons. Première apparition en 1916 (Somme).',
+		prerequisites: [
+			'tech_internal_combustion',
+			'tech_bessemer_process',
+			'tech_musket',
+		],
+		effects: [
+			'Rupture des lignes de tranchées',
+			'Guerre de mouvement',
+			'Arme terrestre décisive',
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_nuclear_fission',
+		name: 'Fission nucléaire',
+		category: 'philosophy',
+		description:
+			'Division du noyau atomique libérant une énergie colossale. Hahn, Strassmann (1938). Manhattan Project (1945).',
+		prerequisites: ['tech_electricity', 'tech_calculus'],
+		effects: [
+			'Bombe atomique',
+			'Énergie nucléaire civile',
+			'Dissuasion nucléaire',
+			'Équilibre de la terreur',
+		],
+		complexity: 10,
+	},
+	{
+		id: 'tech_rocket',
+		name: 'Fusée / Missile balistique',
+		category: 'military',
+		description:
+			'Propulsion par réaction. V2 allemand (1944), puis missiles intercontinentaux et lanceurs spatiaux.',
+		prerequisites: [
+			'tech_dynamite',
+			'tech_calculus',
+			'tech_internal_combustion',
+		],
+		effects: [
+			'Frappe à longue distance',
+			"Accès à l'espace",
+			'Satellites possibles',
+		],
+		complexity: 10,
+	},
+	{
+		id: 'tech_computer',
+		name: 'Ordinateur',
+		category: 'mathematics',
+		description:
+			'Machine de calcul programmable. Turing (théorie, 1936), ENIAC (1945), transistors (1947).',
+		prerequisites: ['tech_electricity', 'tech_calculus'],
+		effects: [
+			'Calcul automatisé',
+			'Cryptographie',
+			'Gestion de données massives',
+			"Prérequis de l'informatique moderne",
+		],
+		complexity: 10,
+	},
+	{
+		id: 'tech_television',
+		name: 'Télévision',
+		category: 'writing',
+		description:
+			"Transmission d'images animées à distance. Premières émissions régulières dans les années 1930-1950.",
+		yearAvailable: 1930,
+		prerequisites: ['tech_radio', 'tech_photography'],
+		effects: [
+			'Média de masse visuel',
+			'Culture globalisée',
+			'Publicité de masse',
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_green_revolution',
+		name: 'Révolution verte',
+		category: 'agriculture',
+		description:
+			'Variétés à haut rendement, irrigation moderne, mécanisation. Borlaug (1960s). Nourrir des milliards.',
+		prerequisites: ['tech_fertilizer', 'tech_internal_combustion'],
+		effects: [
+			'Production alimentaire multipliée',
+			'Fin des grandes famines (dans les pays adoptants)',
+			'Dépendance aux intrants chimiques',
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_satellite',
+		name: 'Satellite artificiel',
+		category: 'astronomy',
+		description:
+			'Objet en orbite terrestre. Spoutnik (1957). GPS, télécommunications, météo, espionnage.',
+		prerequisites: ['tech_rocket', 'tech_computer', 'tech_radio'],
+		effects: [
+			'Télécommunications mondiales',
+			'Observation terrestre',
+			'GPS (futur)',
+			'Espionnage spatial',
+		],
+		complexity: 10,
+	},
+	{
+		id: 'tech_dna_discovery',
+		name: "Découverte de l'ADN",
+		category: 'medicine',
+		description:
+			"Structure en double hélice de l'ADN. Watson et Crick (1953). Fondement de la génétique moderne.",
+		prerequisites: [
+			'tech_microscope',
+			'tech_modern_chemistry',
+			'tech_antibiotics',
+		],
+		effects: [
+			'Génétique moderne',
+			'Médecine génomique',
+			'Biotechnologies',
+			'OGM possibles (futur)',
+		],
+		complexity: 10,
+	},
+
+	// --------------------------------------------------------------------------
+	// XXe–XXIe SIÈCLE — Numérique, Internet, IA, énergies
+	// --------------------------------------------------------------------------
+
+	{
+		id: 'tech_internet',
+		name: 'Internet',
+		category: 'writing',
+		description:
+			"Réseau mondial d'ordinateurs interconnectés. ARPANET (1969), World Wide Web (1991).",
+		yearAvailable: 1969,
+		prerequisites: ['tech_computer', 'tech_telephone', 'tech_satellite'],
+		effects: [
+			'Communication instantanée mondiale',
+			'Économie numérique',
+			'Accès universel au savoir',
+			'Désinformation massive (revers)',
+		],
+		complexity: 10,
+	},
+	{
+		id: 'tech_renewable_energy',
+		name: 'Énergies renouvelables',
+		category: 'craftsmanship',
+		description:
+			'Éoliennes, panneaux solaires, géothermie. Alternative aux combustibles fossiles.',
+		prerequisites: ['tech_electricity', 'tech_computer'],
+		effects: [
+			'Énergie propre',
+			'Réduction des émissions CO2',
+			'Indépendance énergétique',
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_artificial_intelligence',
+		name: 'Intelligence artificielle',
+		category: 'mathematics',
+		description:
+			"Systèmes capables d'apprentissage et de raisonnement. Deep learning, transformers, LLMs (2010s-2020s).",
+		prerequisites: ['tech_computer', 'tech_internet', 'tech_calculus'],
+		effects: [
+			'Automatisation cognitive',
+			'Diagnostic médical assisté',
+			"Risque de remplacement d'emplois",
+			'Accélération de la recherche',
+		],
+		complexity: 10,
+	},
+	{
+		id: 'tech_smartphone',
+		name: 'Smartphone',
+		category: 'writing',
+		description:
+			"Ordinateur de poche connecté au réseau mondial. iPhone (2007). L'informatique dans chaque main.",
+		prerequisites: ['tech_internet', 'tech_computer', 'tech_satellite'],
+		effects: [
+			"Accès permanent à l'information",
+			'Réseaux sociaux',
+			'Économie des applications',
+			'Surveillance de masse (revers)',
+		],
+		complexity: 10,
+	},
+	{
+		id: 'tech_crispr',
+		name: 'Édition génétique (CRISPR)',
+		category: 'medicine',
+		description:
+			"Outil de modification précise de l'ADN. Doudna, Charpentier (2012). Thérapie génique et au-delà.",
+		prerequisites: ['tech_dna_discovery', 'tech_computer'],
+		effects: [
+			'Thérapie de maladies génétiques',
+			"Modification d'organismes",
+			'Questions éthiques majeures',
+		],
+		complexity: 10,
+	},
+	{
+		id: 'tech_space_travel',
+		name: 'Voyage spatial habité',
+		category: 'navigation',
+		description:
+			"L'homme dans l'espace et sur la Lune. Gagarine (1961), Apollo 11 (1969).",
+		prerequisites: ['tech_rocket', 'tech_computer'],
+		effects: [
+			'Exploration spatiale',
+			'Technologies dérivées (matériaux, miniaturisation)',
+			'Station spatiale',
+		],
+		complexity: 10,
+	},
+	{
+		id: 'tech_3d_printing',
+		name: 'Impression 3D',
+		category: 'craftsmanship',
+		description:
+			'Fabrication additive couche par couche. Prototypage rapide, pièces sur mesure.',
+		prerequisites: ['tech_computer', 'tech_bessemer_process'],
+		effects: [
+			'Fabrication décentralisée',
+			'Prototypage rapide',
+			'Organes artificiels (futur)',
+		],
+		complexity: 9,
+	},
+	{
+		id: 'tech_basic_surgery',
+		name: 'Chirurgie élémentaire',
+		category: 'medicine',
+		description:
+			"Trépanation, cautérisation, amputation et drainage des plaies. Pratiquée depuis l'Antiquité.",
+		prerequisites: ['tech_herbal_medicine'],
+		effects: [
+			'Traitement des fractures ouvertes',
+			'Amputation de membres gangrenés',
+			'Cautérisation des plaies',
+		],
+		complexity: 3,
+	},
 ]

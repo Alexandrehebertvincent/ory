@@ -163,7 +163,84 @@ Le temps est **universel par monde** : tous les joueurs d'un même serveur/parti
   - **Spécialisation** : une lignée se concentre sur le militaire, une autre sur le commerce, etc.
   - Les décisions nationales sont influencées par le poids politique de chaque lignée (un paysan vote moins qu'un noble)
 
-### 3.5 Gestion des invasions
+### 3.5 Système de communication & rumeurs
+
+En l'an 1000, il n'y a pas de chat global. L'information voyage à la vitesse d'un cheval, pas d'un clic. Le système de communication respecte les contraintes historiques :
+
+- **Vecteurs d'information** : Chaque type de communication a une vitesse, une portée, une fiabilité et une distorsion propres. 15 vecteurs définis, de la rumeur paysanne (5 km/jour, 50 km de portée) à l'internet (instantané, mondial).
+- **Progression technologique du chat** :
+  - An 1000 : **Aucun chat** — les joueurs communiquent via les NPCs, les hérauts et les marchands
+  - 1450+ (imprimerie) : **Pamphlets** — communication broadcast lente, portée régionale
+  - 1844+ (télégraphe) : **Messages privés** avec délai de 1 jour de jeu
+  - 1876+ (téléphone) : **Messages privés instantanés**
+  - 1920+ (radio) : **Chat broadcast** en temps réel
+  - 1995+ (internet) : **Chat global** — communication libre entre tous les joueurs
+- **Rumeurs** : Les informations se déforment en voyageant. 27 modèles de rumeurs avec 3 niveaux de distorsion (fidèle → déformé → mythifié). Un événement militaire dans un pays voisin peut arriver comme "on dit que des milliers de cavaliers dévorent tout sur leur passage" au lieu de "une troupe de 200 hommes a été repérée".
+- **Conséquence gameplay** : L'information est une ressource stratégique. Un joueur bien connecté aux routes commerciales en sait plus qu'un seigneur isolé dans les montagnes.
+
+### 3.6 Conseiller IA autonome (IA de réflexion)
+
+Chaque joueur dispose d'un **conseiller IA** qui l'aide à comprendre son environnement et à évaluer ses projets. Ce n'est PAS un assistant omniscient — c'est un érudit de l'époque avec les préjugés, les limites et le style de son temps.
+
+#### Principes fondamentaux
+
+1. **Personnage, pas outil** — Le conseiller est un archétype (ancien de village, maître de guilde, érudit monastique, conseiller de cour...) qui s'adapte à la classe sociale, la culture et l'époque du joueur
+2. **"Pas encore" plutôt que "non"** — Le conseiller ne dit jamais qu'une idée est impossible ; il dit "il te faudrait d'abord..." et oriente vers les prérequis
+3. **Méthode socratique** — Guide le joueur vers la réponse plutôt que de la donner directement
+4. **Autonome d'abord, LLM en fallback** — Le système fonctionne sur une base de règles structurée pour minimiser les coûts tokens. Le LLM n'intervient que pour les questions hors base
+
+#### Architecture du système autonome
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                QUESTION DU JOUEUR                        │
+│                                                          │
+│  1. Extraction des mots-clés + détection d'intention     │
+│     (build, invent, learn, trade, explore, military...)  │
+│                                                          │
+│  2. Recherche dans les FeasibilityRules (mots-clés)      │
+│     ├─ Match trouvé → évaluer prérequis (techs,          │
+│     │   ressources, connaissances)                        │
+│     │   ├─ Tout OK → responseIfFeasible                   │
+│     │   ├─ Tech manquante → responseIfMissingTech         │
+│     │   ├─ Ressource manquante → responseIfMissingResource│
+│     │   └─ Inconcevable → responseIfInconceivable         │
+│     └─ Pas de match → étape 3                             │
+│                                                          │
+│  3. Recherche dans les KnowledgeEntries (mots-clés)       │
+│     ├─ Match trouvé → directAnswer + referrals            │
+│     └─ Pas de match → étape 4                             │
+│                                                          │
+│  4. Fallback LLM avec contexte structuré                  │
+│     (profil du conseiller + contexte du joueur + époque)  │
+└─────────────────────────────────────────────────────────┘
+```
+
+#### Données du système
+
+| Composant                  | Quantité                 | Rôle                                                                  |
+| -------------------------- | ------------------------ | --------------------------------------------------------------------- |
+| **Profils de conseillers** | 9 archétypes             | Personnalité, style, domaines, filtres culturels                      |
+| **Base de connaissances**  | 35 entrées (14 domaines) | Faits structurés avec réponse pré-formatée, prérequis et redirections |
+| **Templates de réponse**   | 30 phrases               | Réponses à trous ({variables}) pour chaque situation                  |
+| **Règles de faisabilité**  | 12 règles                | Évaluation automatique des projets joueur (build, invent, explore...) |
+
+#### Profils de conseillers
+
+| Archétype                | Classes sociales         | Époque     | Domaines principaux                            |
+| ------------------------ | ------------------------ | ---------- | ---------------------------------------------- |
+| Ancien du village        | Paysan, artisan          | Dès l'an 0 | Agriculture, élevage, nature, cuisine          |
+| Maître de guilde         | Artisan, marchand        | Dès 1000   | Métallurgie, construction, ingénierie, textile |
+| Associé marchand         | Marchand, artisan, noble | Dès l'an 0 | Commerce, géographie, navigation, politique    |
+| Érudit monastique        | Clergé, noble, marchand  | Dès l'an 0 | Théologie, philosophie, médecine, astronomie   |
+| Conseiller de cour       | Noble                    | Dès l'an 0 | Politique, militaire, droit, géographie        |
+| Professeur universitaire | Tous sauf paysan         | Dès 1150   | Philosophie, médecine, astronomie, droit       |
+| Philosophe naturel       | Tous                     | Dès 1600   | Astronomie, nature, ingénierie, alchimie       |
+| Encyclopédiste           | Tous                     | Dès 1700   | Tous domaines (esprit universel)               |
+
+> **Effet sur les coûts** : On estime que 70-80% des questions des joueurs trouveront une réponse dans la base de règles, sans aucun appel LLM. Le système devient d'autant plus économique que la base de connaissances s'enrichit.
+
+### 3.7 Gestion des invasions
 
 Quand la nation du joueur est envahie :
 
@@ -173,38 +250,108 @@ Quand la nation du joueur est envahie :
 
 Ce n'est pas un "game over" — c'est une transition narrative.
 
+### 3.8 Origine du joueur — Choix de classe sociale initiale
+
+À la création de sa lignée, le joueur choisit sa **nation** et sa **classe sociale d'origine**. Ce choix ne détermine pas la difficulté du jeu — il détermine le **mode de jeu initial**.
+
+#### Principe fondamental
+
+> **Le pouvoir attire les problèmes, la discrétion donne la liberté.**
+
+Chaque classe sociale offre un arc de gameplay distinct avec ses propres leviers et contraintes. Il n'y a pas de classe "facile" ou "difficile" — seulement des expériences différentes. La difficulté réelle émerge des décisions du joueur, pas de son point de départ.
+
+#### Équilibrage par pression inverse
+
+Le système repose sur un principe de **pression proportionnelle au pouvoir** :
+
+| Classe             | Leviers                                                                                            | Contraintes                                                                                                                                                                                                   | Arc narratif                                           |
+| ------------------ | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| **Royauté**        | Pouvoir politique maximal, richesse élevée, décisions nationales directes                          | Cible permanente (complots, guerres, assassinats). Obligations rigides envers vassaux et suzerain. Chaque décision est scrutée. Coûts d'entretien massifs (armée, cour, tributs). Peu de liberté personnelle. | Maintenir le pouvoir, survivre aux complots            |
+| **Noblesse**       | Influence politique forte, terres, armée personnelle                                               | Rivalités avec pairs, devoirs féodaux, guerres obligatoires. Richesse élevée mais coûts fixes importants.                                                                                                     | Ascension vers le trône ou domination régionale        |
+| **Clergé**         | Accès au savoir, influence morale et diplomatique, réseau monastique/ecclésiastique                | Pas d'héritier direct (la succession est le problème central). Pas de force militaire propre. Contraintes doctrinales strictes.                                                                               | Influence par la foi et le savoir                      |
+| **Marchands**      | Accumulation de richesse, mobilité géographique, accès à l'information via les routes commerciales | Aucun pouvoir politique direct. Vulnérable aux taxes, expropriations, caprices des nobles. Plafond social.                                                                                                    | De la richesse au pouvoir                              |
+| **Artisans**       | Progression par compétence, politique de guilde, innovation technologique                          | Mobilité sociale limitée. Dépendance au marché local et aux commandes des classes supérieures.                                                                                                                | Maîtrise d'un savoir-faire, influence par l'innovation |
+| **Paysans libres** | Liberté d'action, faible visibilité (personne ne te cherche d'ennuis), autonomie locale            | Peu de ressources, peu d'options initiales, vulnérable aux aléas (famines, guerres, impôts).                                                                                                                  | La liberté comme fondation                             |
+| **Serfs**          | L'arc "rags to riches" le plus dramatique. Protection minimale du seigneur.                        | Contraintes maximales : ne peut pas quitter sa terre, pas de propriété, soumis au seigneur.                                                                                                                   | Conquérir sa liberté                                   |
+
+#### Mécaniques d'équilibrage concrètes
+
+1. **Richesse nette, pas richesse brute** — Un noble commence riche mais avec des coûts fixes massifs (entretien d'armée, tributs, cour). Un marchand commence avec moins mais conserve ce qu'il gagne. Un paysan commence avec presque rien mais n'a quasi aucun coût fixe. La richesse _disponible_ au départ est comparable.
+
+2. **Visibilité = risque** — Le système de rumeurs (3.5) s'applique inversement : un roi est connu de tous, ses ennemis viennent à lui. Un paysan est invisible — il choisit ses batailles. Plus le rang est élevé, plus le joueur est exposé aux événements imposés par le Grand Maître.
+
+3. **Fréquence de décisions critiques** — Le `poids d'urgence` du time ratio (3.2) est naturellement plus élevé pour les hauts rangs. Un roi fait face à des crises constantes (guerres, complots, diplomatie). Un paysan a plus de temps pour planifier et progresser à son rythme.
+
+4. **Arbre de choix distinct, pas inégal** — Les événements (filtrés par `requiredSocialClass` dans les EventTemplate) offrent des choix adaptés à chaque classe. Un noble a des choix diplomatiques et militaires qu'un paysan n'a pas, mais le paysan a des choix de survie, d'exploration et d'opportunisme que le noble ne verra jamais. La quantité et la qualité des choix sont équivalentes.
+
+5. **Conseiller adapté** — Les profils de conseillers (3.6) s'adaptent déjà à la classe sociale. Un paysan a l'"Ancien du village" (agriculture, nature, survie), un noble a le "Conseiller de cour" (politique, militaire, droit). C'est une expérience narrative différente, pas inférieure.
+
+6. **Mobilité sociale comme progression** — Le système de mobilité sociale (chemins d'ascension/déchéance avec prérequis, durée, coût, taux de succès) est le moteur de progression principal. Chaque classe a ses chemins propres vers les autres classes. L'ascension d'un serf vers la noblesse sur plusieurs générations est aussi gratifiante que le maintien du pouvoir d'un roi face aux complots.
+
+#### Classes disponibles au départ
+
+Toutes les classes ne sont pas forcément disponibles dans chaque nation. La liste proposée au joueur dépend des `socialGroups` définis dans les données de population de la nation choisie. Par exemple :
+
+- Une nation tribale (ex: nations d'Afrique de l'Ouest) pourrait ne pas avoir de "serfs" mais avoir des "guerriers" et des "nomades"
+- L'État papal ne propose pas de "royauté" (c'est une théocratie)
+- Certaines nations n'ont pas d'esclaves
+
+> **Restriction** : Les classes `royalty` et `slaves` ne sont pas sélectionnables au départ. La royauté se conquiert par le jeu (ascension d'un noble, coup d'État, mariage, élection). L'esclavage est une déchéance, pas un choix.
+
+#### Répartition naturelle en multijoueur
+
+Ce système résout le problème de répartition des joueurs entre les classes sociales sans forcer quoi que ce soit. Les joueurs se répartissent naturellement selon l'expérience qu'ils recherchent :
+
+- Les joueurs qui veulent du drame politique → noblesse
+- Les joueurs qui veulent du commerce et de l'exploration → marchands
+- Les joueurs qui veulent l'arc "from zero to hero" → paysans/serfs
+- Les joueurs qui veulent influencer par le savoir → clergé
+
+Si une nation a trop de nobles-joueurs, les contraintes sociales internes (complots, rivalités entre lignées — voir 3.4) rendent naturellement l'expérience plus compétitive et auto-régulée.
+
 ---
 
 ## 4. Milestones
 
-### Phase 0 — Fondations (actuelle)
+### Phase 0 — Fondations ✅
 
 - [x] Définir la vision du jeu
-- [ ] Valider le document de design
-- [ ] Définir le modèle de données du snapshot An 1000
+- [x] Valider le document de design
+- [x] Définir le modèle de données du snapshot An 1000
 - [ ] Choisir le stack technique
 
-### Phase 1 — Le Monde en l'An 1000
+### Phase 1 — Le Monde en l'An 1000 (en cours)
 
-- [ ] Construire le dataset historique (snapshot An 1000) — toutes les dimensions
+- [x] Modèle de données complet : types TypeScript pour toutes les dimensions (world.ts, ~1400+ lignes)
+- [x] **73 nations** avec gouvernance, économie, culture, religion, droit, éducation, militaire, santé
+- [x] **147 technologies** organisées en graphe de dépendances (prérequis physiques/logiques)
+- [x] **203 événements historiques** avec techUnlocks et requiredTechs
+- [x] **107 modèles d'événements locaux** (302 choix joueur) avec requiredTechs
+- [x] Religions, langues, maladies, commodités, routes commerciales
+- [x] Populations, vie quotidienne, infrastructure, climat, écologie
+- [x] **Système de communication** : 15 vecteurs d'information + 27 modèles de rumeurs
+- [x] **Conseiller IA autonome** : 9 profils, 35 connaissances, 30 templates, 12 règles de faisabilité
+- [x] Cross-validation complète (IDs technologies ↔ événements ↔ connaissances)
 - [ ] Système de carte : génération procédurale basée sur la géographie réelle
 - [ ] Rendu de carte (tuiles) avec terrain, frontières, villes
-- [ ] Modèle de données : nations, populations, technologies, religions, économie
 
 ### Phase 2 — Moteur IA
 
 - [ ] Moteur de simulation du monde (tour par tour interne, temps continu pour le joueur)
-- [ ] Système de décision IA : proposer des choix contextuels
-- [ ] Arbre technologique avec système de prérequis
+- [x] Système de décision IA : proposer des choix contextuels
+- [x] Arbre technologique avec système de prérequis (147 technologies, graphe DAG complet)
 - [ ] Système économique organique (valeurs basées sur l'an 1000)
 - [ ] Time ratio dynamique
+- [ ] Moteur du conseiller IA (matching mots-clés, évaluation prérequis, sélection templates, fallback LLM)
 
 ### Phase 3 — Le Joueur
 
-- [ ] Création de personnage (nation + lignée)
-- [ ] Système de vie : naissance, vieillissement, mort, succession
+- [x] Création de personnage (nation + classe sociale d'origine + lignée)
+- [x] Système d'équilibrage par pression inverse (contraintes proportionnelles au rang)
+- [x] Système de vie : naissance, vieillissement, mort, succession
 - [ ] Interface de décision (les 3 types de choix)
-- [ ] Système de traits et compétences héréditaires
+- [x] Système de traits et compétences héréditaires
+- [x] Mobilité sociale (chemins d'ascension/déchéance avec prérequis)
 
 ### Phase 4 — Multijoueur
 
@@ -417,6 +564,10 @@ ory/
 - [x] **Scope** : Monde entier dès le départ — essentiel pour que chaque joueur puisse choisir sa nation
 - [x] **Persistance** : Un monde vit tant qu'il y a des joueurs, pas de fin déterminée (peut dépasser 2026+). Archivage des mondes morts → possibilité de forker un monde archivé à un moment donné pour en créer un nouveau.
 - [x] **Capacité** : Pas de limite fixe — les joueurs remplissent les nations disponibles, NPC pour les nations restantes
+- [x] **Communication** : Pas de chat global avant tech_internet — l'info voyage via des vecteurs historiques (rumeurs, marchands, hérauts, pigeons) avec vitesse, portée et distorsion réalistes (3.5)
+- [x] **Conseiller IA** : Système autonome rule-based en priorité, fallback LLM uniquement pour les questions hors base — minimiser les coûts tokens (3.6)
+- [x] **Distorsion de l'information** : Les rumeurs se déforment avec la distance et le nombre d'intermédiaires — l'info est une ressource stratégique (3.5)
+- [x] **Origine du joueur** : Le joueur choisit sa classe sociale à la création — chaque classe est un mode de jeu différent, pas un niveau de difficulté. Équilibrage par pression inverse : le pouvoir attire les problèmes, la discrétion donne la liberté (3.8)
 
 ## 9. Monétisation — Détail du modèle hybride
 
@@ -491,6 +642,7 @@ _(Toutes les questions précédentes ont été résolues. Nouvelles questions à
 
 - **Mécaniques intra-nation** : Comment résoudre les conflits entre joueurs d'une même nation ? Vote pondéré ? Système de rang ? Le joueur le plus haut placé tranche ?
 - **Limite de lignées par nation** : Faut-il limiter le nombre de joueurs dans une même nation pour éviter la surpopulation de lignées ?
+- **Équilibrage des classes** : Les métriques d'équilibrage (richesse nette, fréquence de crises, survie de lignée) devront être testées et ajustées empiriquement. Comment mesurer objectivement que chaque classe offre une expérience de difficulté équivalente ?
 
 ---
 
